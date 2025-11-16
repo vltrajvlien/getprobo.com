@@ -1,0 +1,574 @@
+---
+title: Kubernetes Deployment
+description: Deploy Probo on Kubernetes using Helm charts with managed services
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+Kubernetes deployment provides the most scalable and production-ready way to run Probo. This method is recommended for:
+
+- Production environments
+- High-availability setups
+- Auto-scaling requirements
+- Multi-tenant deployments
+
+## Prerequisites
+
+- Kubernetes cluster 1.23+
+- Helm 3.8+
+- kubectl configured for your cluster
+- Managed PostgreSQL database
+- S3-compatible object storage
+
+## Quick Start
+
+<Steps>
+
+1. Generate Secrets
+
+   ```bash
+   export ENCRYPTION_KEY=$(openssl rand -base64 32)
+   export COOKIE_SECRET=$(openssl rand -base64 32)
+   export PASSWORD_PEPPER=$(openssl rand -base64 32)
+   export TRUST_TOKEN_SECRET=$(openssl rand -base64 32)
+   ```
+
+2. Add Helm Repository
+
+   ```bash
+   # If using remote Helm chart (when available)
+   helm repo add probo https://charts.getprobo.com
+   helm repo update
+
+   # Or clone the repository for local chart
+   git clone https://github.com/getprobo/probo.git
+   cd probo/contrib/helm
+   ```
+
+3. Install with Managed Services
+
+   ```bash
+   helm install my-probo ./charts/probo \
+    --set probo.baseUrl="probo.example.com" \
+    --set probo.encryptionKey="$ENCRYPTION_KEY" \
+    --set probo.auth.cookieSecret="$COOKIE_SECRET" \
+    --set probo.auth.passwordPepper="$PASSWORD_PEPPER" \
+    --set probo.trustAuth.tokenSecret="$TRUST_TOKEN_SECRET" \
+    --set postgresql.enabled=false \
+    --set postgresql.host="your-managed-db.example.com" \
+    --set postgresql.password="your-db-password" \
+    --set minio.enabled=false \
+    --set s3.region="us-east-1" \
+    --set s3.bucket="your-bucket-name" \
+    --set s3.accessKeyId="your-access-key" \
+    --set s3.secretAccessKey="your-secret-key"
+   ```
+
+4. Access the Application
+
+   ```bash
+   # Port forward for testing
+   kubectl port-forward svc/my-probo 8080:8080
+
+   # Or get LoadBalancer IP
+   kubectl get svc my-probo-haproxy-ingress
+   ```
+
+</Steps>
+
+## Production Deployment
+
+### Create Production Values File
+
+```bash
+# Copy the example values
+cp charts/probo/values-production.yaml.example values-production.yaml
+```
+
+Edit `values-production.yaml`:
+
+```yaml
+# Production configuration
+replicaCount: 3
+
+probo:
+  baseUrl: "probo.example.com"
+  encryptionKey: "" # Set via --set or external secrets
+
+  auth:
+    cookieSecret: "" # Set via --set or external secrets
+    passwordPepper: "" # Set via --set or external secrets
+    cookieDomain: "probo.example.com"
+    cookieSecure: true
+
+  trustAuth:
+    tokenSecret: "" # Set via --set or external secrets
+    cookieDomain: "probo.example.com"
+
+  cors:
+    allowedOrigins:
+      - "https://probo.example.com"
+
+  mailer:
+    senderEmail: "no-reply@example.com"
+    smtp:
+      addr: "smtp.example.com:587"
+      user: "smtp-username"
+      password: "smtp-password"
+      tlsRequired: true
+
+# Disable demo services
+postgresql:
+  enabled: false
+  host: "your-managed-db.example.com"
+  password: "your-secure-db-password"
+
+minio:
+  enabled: false
+
+# Production S3 configuration
+s3:
+  region: "us-east-1"
+  bucket: "your-production-bucket"
+  accessKeyId: "your-access-key"
+  secretAccessKey: "your-secret-key"
+
+# Resource limits
+resources:
+  limits:
+    cpu: "2000m"
+    memory: "4Gi"
+  requests:
+    cpu: "500m"
+    memory: "1Gi"
+
+# Auto-scaling
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: "haproxy"
+  hosts:
+    - host: probo.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: probo-tls
+      hosts:
+        - probo.example.com
+```
+
+### Deploy with Production Config
+
+```bash
+helm install probo ./charts/probo \
+  --set probo.encryptionKey="$ENCRYPTION_KEY" \
+  --set probo.auth.cookieSecret="$COOKIE_SECRET" \
+  --set probo.auth.passwordPepper="$PASSWORD_PEPPER" \
+  --set probo.trustAuth.tokenSecret="$TRUST_TOKEN_SECRET" \
+  --set postgresql.password="$DB_PASSWORD" \
+  --set s3.accessKeyId="$S3_ACCESS_KEY" \
+  --set s3.secretAccessKey="$S3_SECRET_KEY" \
+  -f values-production.yaml
+```
+
+## Cloud Provider Examples
+
+### AWS Deployment
+
+```bash
+# Prerequisites:
+# - Amazon EKS cluster
+# - Amazon RDS PostgreSQL instance
+# - S3 bucket
+
+helm install probo ./charts/probo \
+  --set probo.encryptionKey="$ENCRYPTION_KEY" \
+  --set probo.auth.cookieSecret="$COOKIE_SECRET" \
+  --set probo.auth.passwordPepper="$PASSWORD_PEPPER" \
+  --set probo.trustAuth.tokenSecret="$TRUST_TOKEN_SECRET" \
+  --set postgresql.enabled=false \
+  --set postgresql.host="mydb.abc123.us-east-1.rds.amazonaws.com" \
+  --set postgresql.password="$RDS_PASSWORD" \
+  --set minio.enabled=false \
+  --set s3.region="us-east-1" \
+  --set s3.bucket="my-probo-bucket" \
+  --set s3.accessKeyId="$AWS_ACCESS_KEY" \
+  --set s3.secretAccessKey="$AWS_SECRET_KEY"
+```
+
+### Google Cloud Deployment
+
+```bash
+# Prerequisites:
+# - GKE cluster
+# - Cloud SQL PostgreSQL instance
+# - Cloud Storage bucket with HMAC keys
+
+helm install probo ./charts/probo \
+  --set probo.encryptionKey="$ENCRYPTION_KEY" \
+  --set probo.auth.cookieSecret="$COOKIE_SECRET" \
+  --set probo.auth.passwordPepper="$PASSWORD_PEPPER" \
+  --set probo.trustAuth.tokenSecret="$TRUST_TOKEN_SECRET" \
+  --set postgresql.enabled=false \
+  --set postgresql.host="10.0.0.5" \
+  --set postgresql.password="$CLOUDSQL_PASSWORD" \
+  --set minio.enabled=false \
+  --set s3.endpoint="https://storage.googleapis.com" \
+  --set s3.bucket="my-probo-bucket" \
+  --set s3.accessKeyId="$HMAC_ACCESS_KEY" \
+  --set s3.secretAccessKey="$HMAC_SECRET"
+```
+
+### Azure Deployment
+
+```bash
+# Prerequisites:
+# - AKS cluster
+# - Azure Database for PostgreSQL
+# - Azure Blob Storage with S3 compatibility
+
+helm install probo ./charts/probo \
+  --set probo.encryptionKey="$ENCRYPTION_KEY" \
+  --set probo.auth.cookieSecret="$COOKIE_SECRET" \
+  --set probo.auth.passwordPepper="$PASSWORD_PEPPER" \
+  --set probo.trustAuth.tokenSecret="$TRUST_TOKEN_SECRET" \
+  --set postgresql.enabled=false \
+  --set postgresql.host="mydb.postgres.database.azure.com" \
+  --set postgresql.password="$AZURE_DB_PASSWORD" \
+  --set minio.enabled=false \
+  --set s3.endpoint="https://mystorageaccount.blob.core.windows.net" \
+  --set s3.bucket="my-probo-container" \
+  --set s3.accessKeyId="$AZURE_ACCESS_KEY" \
+  --set s3.secretAccessKey="$AZURE_SECRET_KEY"
+```
+
+## Architecture
+
+### What Gets Deployed
+
+The Helm chart deploys:
+
+- **Probo Application** - Main Go binary (3+ replicas for HA)
+- **Chrome Headless** - PDF generation service (optional)
+- **HAProxy Ingress** - Load balancer with TCP/HTTP routing
+- **Services** - Kubernetes services for internal communication
+- **ConfigMaps** - Configuration data
+- **Secrets** - Sensitive configuration
+
+### External Dependencies
+
+Required external services:
+
+- **PostgreSQL Database** - Managed database service
+- **S3 Storage** - Object storage for files
+- **SMTP Server** - Email notifications (optional)
+
+### Networking Architecture
+
+```
+Internet
+    ↓
+LoadBalancer (HAProxy Ingress)
+├─ Port 80 (TCP) → probo:80 (ACME/HTTP)
+├─ Port 443 (TCP) → probo:443 (HTTPS)
+└─ Host routing → probo:8080 (Backoffice)
+    ↓
+Probo Pods (3+ replicas)
+├─ External PostgreSQL
+├─ External S3 Storage
+└─ Chrome Service (optional)
+```
+
+## Security Configuration
+
+### TLS Certificates
+
+#### Using cert-manager (Recommended)
+
+```yaml
+# Install cert-manager first
+helm repo add jetstack https://charts.jetstack.io
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --set installCRDs=true
+
+# Create ClusterIssuer
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: admin@example.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: haproxy
+
+# Update ingress with cert-manager annotations
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  tls:
+    - secretName: probo-tls
+      hosts:
+        - probo.example.com
+```
+
+#### Manual Certificate Management
+
+```bash
+# Create TLS secret manually
+kubectl create secret tls probo-tls \
+  --cert=path/to/cert.pem \
+  --key=path/to/key.pem
+```
+
+### External Secrets Management
+
+#### Using External Secrets Operator
+
+```yaml
+# Install External Secrets Operator
+helm repo add external-secrets https://charts.external-secrets.io
+helm install external-secrets external-secrets/external-secrets \
+  --namespace external-secrets-system \
+  --create-namespace
+
+# Create SecretStore (AWS example)
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: aws-secrets-manager
+spec:
+  provider:
+    aws:
+      service: SecretsManager
+      region: us-east-1
+      auth:
+        secretRef:
+          accessKeyID:
+            name: aws-creds
+            key: access-key-id
+          secretAccessKey:
+            name: aws-creds
+            key: secret-access-key
+
+# Create ExternalSecret
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: probo-secrets
+spec:
+  secretStoreRef:
+    name: aws-secrets-manager
+    kind: SecretStore
+  target:
+    name: probo-secrets
+  data:
+    - secretKey: encryption-key
+      remoteRef:
+        key: probo/encryption-key
+    # Add other secrets...
+```
+
+## Monitoring and Observability
+
+### Prometheus Metrics
+
+Enable ServiceMonitor for Prometheus Operator:
+
+```yaml
+metrics:
+  serviceMonitor:
+    enabled: true
+    interval: 30s
+    labels:
+      app: probo
+```
+
+### Custom Metrics Queries
+
+```promql
+# Application requests per second
+rate(http_requests_total[5m])
+
+# Database connection pool usage
+probod_db_pool_connections_in_use / probod_db_pool_max_connections
+
+# Memory usage
+container_memory_usage_bytes{pod=~"probo-.*"}
+```
+
+### Log Aggregation
+
+Use Fluent Bit or similar to collect logs:
+
+```yaml
+# Fluent Bit DaemonSet example
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+spec:
+  template:
+    spec:
+      containers:
+        - name: fluent-bit
+          image: fluent/fluent-bit:latest
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+            - name: config
+              mountPath: /fluent-bit/etc
+```
+
+## Backup and Disaster Recovery
+
+### Database Backups
+
+```bash
+# Create backup job
+kubectl create job --from=cronjob/postgres-backup backup-$(date +%Y%m%d-%H%M%S)
+
+# Manual backup
+kubectl run postgres-backup --image=postgres:17 --rm -it --restart=Never -- \
+  pg_dump -h your-db-host -U probod probod > backup.sql
+```
+
+### Application Data Backup
+
+```bash
+# Backup persistent volumes (if using local storage)
+kubectl get pv
+kubectl get pvc
+
+# Use velero for cluster backups
+velero backup create probo-backup --include-namespaces=default
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Pod startup failures**:
+
+   ```bash
+   kubectl describe pod <pod-name>
+   kubectl logs <pod-name> -c probo
+   ```
+
+2. **Database connection issues**:
+
+   ```bash
+   # Test database connectivity
+   kubectl run pg-test --image=postgres:17 --rm -it --restart=Never -- \
+     pg_isready -h your-db-host -p 5432
+   ```
+
+3. **Ingress not working**:
+   ```bash
+   kubectl get ingress
+   kubectl describe ingress probo
+   kubectl logs -n ingress-system <ingress-controller-pod>
+   ```
+
+### Debugging Commands
+
+```bash
+# Check all resources
+kubectl get all -l app.kubernetes.io/name=probo
+
+# View configuration
+kubectl get configmap probo -o yaml
+kubectl get secret probo -o yaml
+
+# Check events
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+# Access pod shell
+kubectl exec -it <pod-name> -- /bin/sh
+```
+
+## Upgrading
+
+### Rolling Updates
+
+```bash
+# Update to new version
+helm upgrade probo ./charts/probo \
+  --set image.tag="v1.2.0" \
+  -f values-production.yaml
+
+# Check rollout status
+kubectl rollout status deployment/probo
+
+# Rollback if needed
+helm rollback probo 1
+```
+
+### Database Migrations
+
+```bash
+# Check migration status
+kubectl logs deployment/probo | grep migration
+
+# Run migrations manually if needed
+kubectl exec deployment/probo -- probod migrate
+```
+
+## High Availability Configuration
+
+### Multi-Zone Deployment
+
+```yaml
+# Spread pods across zones
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - probo
+          topologyKey: topology.kubernetes.io/zone
+```
+
+### Auto-scaling
+
+```yaml
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+```
+
+### Pod Disruption Budgets
+
+```yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: probo-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: probo
+```

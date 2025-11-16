@@ -1,6 +1,10 @@
 # getprobo.com
 
-Marketing website for Probo.
+Marketing website and documentation for Probo.
+
+## About Probo
+
+Probo is an open-source compliance management platform that helps organizations achieve SOC 2 compliance quickly and efficiently. Built for startups, Probo provides automated evidence collection, risk assessment, and audit preparation tools.
 
 ## Setup
 
@@ -10,6 +14,10 @@ bun run dev
 ```
 
 Access at http://localhost:4321
+
+## Documentation
+
+This repository includes the operational documentation for deploying and configuring Probo. The docs are organized for system administrators who need to deploy Probo in production environments.
 
 ## Deployment
 

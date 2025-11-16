@@ -15,6 +15,11 @@ export const menuItems = [
     href: "/stories",
   },
   {
+    label: "Docs",
+    description: "Documentation for Probo",
+    href: "/docs",
+  },
+  {
     label: "GitHub",
     description: "Explore our open-source compliance tools",
     href: "https://github.com/getprobo/probo",

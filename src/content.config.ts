@@ -1,6 +1,8 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { frameworks } from "./data/frameworks.ts";
+import { docsLoader } from '@astrojs/starlight/loaders';
+import { docsSchema } from '@astrojs/starlight/schema';
 
 export const pageSize = 10
 
@@ -32,4 +34,10 @@ const stories = defineCollection({
     }),
   }),
 });
-export const collections = { blog, stories };
+
+const docs = defineCollection({
+  loader: docsLoader(),
+  schema: docsSchema()
+})
+
+export const collections = { blog, stories, docs };

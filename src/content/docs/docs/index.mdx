@@ -1,0 +1,96 @@
+---
+title: Probo Documentation
+description: Deployment and operations guide for the Probo compliance management platform
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Welcome to the Probo documentation. This guide focuses on deploying and operating Probo in production environments.
+
+## What is Probo?
+
+Probo is an open-source compliance management platform that helps organizations achieve SOC 2 compliance quickly and efficiently. Built for startups, Probo provides automated evidence collection, risk assessment, and audit preparation tools.
+
+## Quick Start
+
+Choose your deployment method:
+
+<CardGrid>
+  <LinkCard
+    title="Docker Compose"
+    description="Single-node deployment with all services"
+    href="/docs/self-hosting/docker-compose"
+  />
+  <LinkCard
+    title="Kubernetes"
+    description="Scalable deployment with managed services"
+    href="/docs/self-hosting/kubernetes"
+  />
+</CardGrid>
+
+## Documentation Structure
+
+### Self-Hosting
+
+<CardGrid>
+  <LinkCard
+    title="Docker Compose Deployment"
+    description="Complete single-node setup"
+    href="/docs/self-hosting/docker-compose"
+  />
+  <LinkCard
+    title="Kubernetes Deployment"
+    description="Production Kubernetes deployment"
+    href="/docs/self-hosting/kubernetes"
+  />
+</CardGrid>
+
+### Configuration
+
+<CardGrid>
+  <LinkCard
+    title="Configuration File"
+    description="Complete configuration file reference"
+    href="/docs/configuration/config-file"
+  />
+  <LinkCard
+    title="Environment Variables"
+    description="Environment-based configuration"
+    href="/docs/configuration/environment-variables"
+  />
+</CardGrid>
+
+### Single Sign-On
+
+<CardGrid>
+  <LinkCard
+    title="Google Workspace SSO"
+    description="Configure Google Workspace SSO"
+    href="/docs/product/sso/google-workspace"
+  />
+  <LinkCard
+    title="Okta SSO"
+    description="Configure Okta SSO integration"
+    href="/docs/product/sso/okta"
+  />
+</CardGrid>
+
+## Support
+
+<CardGrid>
+  <LinkCard
+    title="Repository"
+    description="Browse source code and contribute to Probo"
+    href="https://github.com/getprobo/probo"
+  />
+  <LinkCard
+    title="Issues"
+    description="Report bugs and request features"
+    href="https://github.com/getprobo/probo/issues"
+  />
+  <LinkCard
+    title="Community"
+    description="Join our Discord community for support and discussions"
+    href="https://discord.gg/8qfdJYfvpY"
+  />
+</CardGrid>
