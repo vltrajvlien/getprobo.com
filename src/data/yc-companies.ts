@@ -7,6 +7,9 @@ import GolfLogo from "../assets/companies/golf.png";
 import ReboltLogo from "../assets/companies/rebolt.png";
 import WolfiaLogo from "../assets/companies/wolfia.png";
 import VybeLogo from "../assets/companies/vybe.png";
+import AxoloLogo from "../assets/companies/axolo.png";
+import DenkiLogo from "../assets/companies/denki.png";
+import NovaflowLogo from "../assets/companies/novaflow.png";
 
 export interface YCombinatorCompany {
   logo: ImageMetadata;
@@ -21,35 +24,35 @@ export const YCombinatorCompanies: YCombinatorCompany[] = [
     logo: BlaxelLogo,
     badge: "X25",
     name: "Blaxel",
-    href: "https://blaxel.ai/",
+    href: "https://blaxel.ai",
     height: 24,
   },
   {
     logo: WhalyLogo,
     badge: "S21",
     name: "Whaly",
-    href: "https://whaly.io/",
+    href: "https://whaly.io",
     height: 38,
   },
   {
     logo: AirweaveLogo,
     badge: "X25",
     name: "Airweave",
-    href: "https://airweave.ai/",
+    href: "https://airweave.ai",
     height: 24,
   },
   {
     logo: AlturLogo,
     badge: "S25",
     name: "Altur",
-    href: "https://www.altur.io/en",
+    href: "https://www.altur.io",
     height: 24,
   },
   {
     logo: FinntLogo,
     badge: "W22",
     name: "Finnt",
-    href: "https://www.finnt.com/",
+    href: "https://www.finnt.com",
     height: 24,
   },
   {
@@ -60,45 +63,45 @@ export const YCombinatorCompanies: YCombinatorCompany[] = [
     height: 24,
   },
   {
-    logo: FinntLogo,
+    logo: AxoloLogo,
     badge: "W21",
     name: "Axolo",
-    href: "https://axolo.co/",
+    href: "https://axolo.co",
     height: 24,
   },
   {
-    logo: FinntLogo,
+    logo: DenkiLogo,
     badge: "F25",
-    name: "Everest",
-    href: "https://everestmanagedai.com/",
-    height: 24,
+    name: "Denki",
+    href: "https://denki.ai",
+    height: 32,
   },
   {
     logo: ReboltLogo,
     badge: "W25",
     name: "Rebolt",
-    href: "https://www.rebolt.ai/",
+    href: "https://www.rebolt.ai",
     height: 24,
   },
   {
-    logo: FinntLogo,
+    logo: NovaflowLogo,
     badge: "S25",
-    name: "Stockline",
-    href: "https://www.stockline.ai/",
+    name: "Novaflow",
+    href: "https://www.novaflowapp.com",
     height: 24,
   },
   {
     logo: WolfiaLogo,
     badge: "S22",
     name: "Wolfia",
-    href: "https://www.wolfia.com/",
+    href: "https://www.wolfia.com",
     height: 24,
   },
   {
     logo: VybeLogo,
     badge: "X25",
     name: "Vybe",
-    href: "https://www.vybe.build/",
+    href: "https://www.vybe.build",
     height: 24,
   }
 ];
