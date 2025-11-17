@@ -10,17 +10,17 @@
     "deploy": "npm run build && wrangler pages deploy dist"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.7",
+    "@astrojs/mdx": "^4.3.10",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/starlight": "^0.36.2",
-    "@astrojs/svelte": "^7.2.0",
+    "@astrojs/svelte": "^7.2.2",
     "@grafana/faro-web-sdk": "^1.19.0",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "@splidejs/svelte-splide": "^0.2.9",
-    "@tailwindcss/vite": "^4.1.15",
-    "astro": "^5.14.8",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.15.8",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
@@ -31,16 +31,16 @@
     "prettier-plugin-svelte": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "starlight-theme-obsidian": "^0.4.1",
-    "svelte": "^5.41.2",
+    "svelte": "^5.43.8",
     "svelte-sonner": "^1.0.6",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.15",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@grafana/faro-rollup-plugin": "^0.6.0",
+    "@grafana/faro-rollup-plugin": "^0.7.0",
     "@tailwindcss/typography": "^0.5.19",
     "tailwind-variants": "^3.1.1",
-    "wrangler": "^4.46.0"
+    "wrangler": "^4.47.0"
   }
 }
