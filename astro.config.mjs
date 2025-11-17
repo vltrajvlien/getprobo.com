@@ -10,7 +10,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://getprobo.com",
+  site: "https://www.getprobo.com",
   prefetch: false,
   trailingSlash: "never",
   redirects: {
@@ -148,12 +148,12 @@ export default defineConfig({
       serialize(item) {
         item.lastmod = new Date().toISOString();
 
-        if (item.url === "https://getprobo.com/") {
+        if (item.url === "https://www.getprobo.com") {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "weekly"
           );
           item.priority = 1.0;
-        } else if (item.url === "https://getprobo.com/docs") {
+        } else if (item.url === "https://www.getprobo.com/docs") {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "weekly"
           );
@@ -164,19 +164,19 @@ export default defineConfig({
           );
           item.priority = 0.8;
         } else if (
-          item.url.includes("/docs/configuration/") ||
-          item.url.includes("/docs/self-hosting/")
+          item.url.includes("/docs/configuration") ||
+          item.url.includes("/docs/self-hosting")
         ) {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "monthly"
           );
           item.priority = 0.8;
-        } else if (item.url.includes("/docs/")) {
+        } else if (item.url.includes("/docs")) {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "monthly"
           );
           item.priority = 0.7;
-        } else if (item.url.includes("/stories/")) {
+        } else if (item.url.includes("/stories")) {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "monthly"
           );
