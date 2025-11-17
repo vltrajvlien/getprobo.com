@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /static
+Disallow: /yc
 
 Host: https://www.getprobo.com
 Sitemap: https://www.getprobo.com/sitemap.xml
