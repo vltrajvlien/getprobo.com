@@ -3,7 +3,7 @@ import { filterLang } from "../../lib/i18n.ts";
 export async function getStaticPaths(param: {routePattern: string}) {
   const stories = await getCollection("stories", filterLang('en'));
   return stories.map((item) => ({
-    params: { id: item.id.split('/').at(-1) },
+    params: { id: item.id},
     props: { item },
   }));
 }

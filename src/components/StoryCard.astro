@@ -7,7 +7,6 @@ import FrameworkBadge from "../components/FrameworkBadge.svelte";
 import { tv } from "tailwind-variants";
 import clsx from "clsx";
 import { frameworks } from "../data/frameworks";
-import { getRelativeLocaleUrl } from "astro/virtual-modules/i18n.js";
 
 interface Props {
   size?: "default" | "home" | "relative";
@@ -84,7 +83,7 @@ const imageSizes = (function (): [[number, number],[number, number]] {
 })()
 const badge = isDark ? (framework?.badgeDark ?? framework?.badge) : framework?.badge;
 const shouldInvert = isDark && !framework?.badgeDark
-const url = '/' + ( story.id.includes('/') ? story.id.replace('/', '/stories/') : story.id)
+const url = '/' + ( story.id.includes('/') ? story.id.replace('/', '/stories/') : `stories/${story.id}`)
 ---
 
 <a href={url} class={classNames.base()}>

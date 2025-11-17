@@ -2,8 +2,9 @@
 import { getCollection } from "astro:content";
 import StoryCard from "../StoryCard.astro";
 import Slider from "../ui/Slider.svelte";
+import { filterLang } from "../../lib/i18n.ts";
 
-const stories = (await getCollection("stories")).sort(
+const stories = (await getCollection("stories", filterLang(Astro.currentLocale))).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
