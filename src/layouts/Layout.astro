@@ -12,7 +12,7 @@ interface Props {
 const seoTitle = title
   ? `${title} | Probo`
   : "Open-Source Compliance Platform | Probo";
-const canonical = Astro.url.href;
+const canonical = Astro.url.href.replace(/\.html$/, '');
 ---
 
 <!doctype html>
