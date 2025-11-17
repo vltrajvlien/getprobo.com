@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import WrittenBy from "../components/block/WrittenBy.astro";
 import { pageSize } from "../content.config.ts";
 import Pagination from "../components/Pagination.astro";
+import { getTranslator } from "../lib/i18n.ts";
 const allPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
@@ -14,6 +15,7 @@ const dateFormatter = Intl.DateTimeFormat("en-US", {
   month: "long",
   day: "numeric",
 });
+const __ = await getTranslator(Astro.currentLocale)
 ---
 
 <Layout title="Blog">
@@ -21,12 +23,12 @@ const dateFormatter = Intl.DateTimeFormat("en-US", {
     <h1
       class="text-h2 mb-3 font-medium animate-slide-in"
     >
-      Blog
+      {__("Blog")}
     </h1>
     <p
       class="text-muted-foreground mb-10 text-base sm:mb-16 animate-slide-in animation-delay-100"
     >
-      The latest news from Probo
+      {__("The latest news from Probo")}
     </p>
     <div
       class="flex flex-col items-start gap-10 sm:grid sm:grid-cols-[1fr_320px] sm:gap-30 animate-slide-in animation-delay-300"

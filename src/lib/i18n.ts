@@ -1,0 +1,31 @@
+import { getRelativeLocaleUrl } from "astro:i18n";
+import FR from "../locales/fr.json";
+
+const translations = new Map<string, Map<string, string>>([
+  ["fr", new Map(Object.entries(FR))],
+]);
+
+export async function getTranslator(lang: string = 'en') {
+  if (lang === 'en') {
+    return (s:string) => s
+  }
+  if (!translations.has(lang)) {
+    throw new Error(`Cannot find translations for ${lang}`);
+  }
+  return (s:string) => {
+    return translations.get(lang)?.get(s) ?? s
+  };
+}
+
+export function getLink (astro: {currentLocale?: string}, path: string) {
+  return astro.currentLocale ? getRelativeLocaleUrl(astro.currentLocale, path) : path
+}
+
+export const filterLang =
+  (lang: string = "en") =>
+  (entry: { id: string }) => {
+    if (lang === "en") {
+      return !entry.id.includes("/");
+    }
+    return entry.id.startsWith(lang);
+  };

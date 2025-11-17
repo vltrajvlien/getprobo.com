@@ -5,18 +5,19 @@ import NavLink from "./NavLink.astro";
 import Button from "./ui/Button.svelte";
 import MobileMenu from "./MobileMenu.astro";
 import GithubStars from "./GithubStars.astro";
+import { getLink } from "../lib/i18n.ts";
 ---
 
 <header class="bg-secondary/80 sticky top-0 z-50 backdrop-blur-md">
   <div class="container mx-auto flex items-center py-3 sm:py-4">
-    <a href="/">
+    <a href={getLink(Astro, "/")}>
       <Image src={Logo} alt="Logo probo" width={73} height={20} />
     </a>
     <nav class="ml-auto hidden sm:flex">
-      <NavLink href="/about">About</NavLink>
-      <NavLink href="/blog">Blog</NavLink>
-      <NavLink href="/stories">Stories</NavLink>
-      <NavLink href="/docs">Docs</NavLink>
+      <NavLink href={getLink(Astro, "/about")}>About</NavLink>
+      <NavLink href={getLink(Astro, "/blog")}>Blog</NavLink>
+      <NavLink href={getLink(Astro, "/stories")}>Stories</NavLink>
+      <NavLink href={getLink(Astro, "/docs")}>Docs</NavLink>
       <Button variant="secondary" href="https://github.com/getprobo/probo/stargazers" class="text-sm leading-tight">
         <div class="flex items-center gap-1.5">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" width="17" height="16">

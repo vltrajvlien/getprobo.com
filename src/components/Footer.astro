@@ -6,30 +6,31 @@ import OpenStatus from "../components/OpenStatus.svelte";
 import Cookie from "../components/Cookie.svelte";
 import Newsletter from "./block/Newsletter.astro";
 import {Toaster} from 'svelte-sonner'
+import { getLink } from "../lib/i18n.ts";
 
 const menus = [
   {
     label: "Resources",
     items: [
-      { label: "Home", href: "/" },
-      { label: "Blog", href: "/blog" },
-      { label: "Stories", href: "/stories" },
+      { label: "Home", href: getLink(Astro, "/") },
+      { label: "Blog", href: getLink(Astro, "/blog") },
+      { label: "Stories", href: getLink(Astro, "/stories") },
       { label: "GitHub", href: "https://github.com/getprobo/probo" },
     ],
   },
   {
     label: "Company",
     items: [
-      { label: "About", href: "/about" },
+      { label: "About", href: getLink(Astro, "/about") },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/getprobo" },
     ],
   },
   {
     label: "Legal",
     items: [
-      { label: "Cookie Policy", href: "/cookie-policy" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of service", href: "/terms" },
+      { label: "Cookie Policy", href: getLink(Astro, "/cookie-policy") },
+      { label: "Privacy Policy", href: getLink(Astro, "/privacy") },
+      { label: "Terms of service", href: getLink(Astro, "/terms") },
       { label: "Compliance", href: "https://compliance.getprobo.com" },
       {
         label: "Subprocessors",

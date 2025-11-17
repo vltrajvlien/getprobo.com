@@ -12,7 +12,17 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://www.getprobo.com",
   prefetch: false,
-  trailingSlash: "never",
+  trailingSlash: 'never',
+  i18n: {
+    locales: ['fr', 'en'],
+    defaultLocale: 'en',
+    fallback: {
+      fr: 'en'
+    },
+    routing: {
+      fallbackType: 'rewrite',
+    }
+  },
   redirects: {
     "/blog/page/1": {
       status: 301,
@@ -74,12 +84,6 @@ export default defineConfig({
         alt: "Probo Logo",
       },
       defaultLocale: "root",
-      locales: {
-        root: {
-          label: "English",
-          lang: "en",
-        },
-      },
       customCss: ["./src/styles/starlight.css"],
       lastUpdated: true,
       editLink: {

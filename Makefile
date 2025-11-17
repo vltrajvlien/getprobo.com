@@ -9,3 +9,6 @@ format: ## Format files
 deploy: ## Deploy a new version
 	bun run build
 	rsync -avH ./dist/ jonathan-boyer:~/sites/probo.jonathan-boyer.fr/
+
+i18n: ## Build i18n jsons
+	node tools/i18n.ts
