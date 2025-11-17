@@ -33,6 +33,7 @@ const stories = random((await getCollection("stories", filterLang(Astro.currentL
       layout="full-width"
       alt=""
       class="absolute inset-0 z-1 size-full object-cover"
+      fetchpriority="high"
     />
     <div
       class="relative z-3 flex flex-col gap-6 p-5 sm:container sm:mb-37 sm:py-0"

@@ -8,6 +8,7 @@ type Props = {
   sm: [number, number];
   src: Promise<{ default: ImageMetadata }> | ImageMetadata;
   class?: string;
+  fetchpriority?: "high" | "low" | "auto";
 };
 
 const props = Astro.props;
@@ -42,5 +43,5 @@ const smImage = await getImage({
     height={props.sm[1]}
     srcset={smImage.src}
   />
-  <img src={mobileImage.src} alt={props.alt} class={props.class} />
+  <img src={mobileImage.src} alt={props.alt} class={props.class} fetchpriority={props.fetchpriority} />
 </picture>
