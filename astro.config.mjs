@@ -70,6 +70,9 @@ export default defineConfig({
 
   integrations: [
     starlight({
+      components: {
+        Head: './src/components/starlight/Head.astro',
+      },
       plugins: [
         starlightThemeObsidian({
           backlinks: false,
