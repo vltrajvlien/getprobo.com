@@ -7,6 +7,7 @@ import starlightThemeObsidian from "starlight-theme-obsidian";
 import svelte from "@astrojs/svelte";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
+import { removeHtmlExtension } from "./vite-plugin-remove-html.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -69,10 +70,8 @@ export default defineConfig({
   },
 
   integrations: [
+    removeHtmlExtension(),
     starlight({
-      components: {
-        Head: './src/components/starlight/Head.astro',
-      },
       plugins: [
         starlightThemeObsidian({
           backlinks: false,
