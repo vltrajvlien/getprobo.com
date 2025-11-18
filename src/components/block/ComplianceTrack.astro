@@ -11,11 +11,11 @@ const __ = await getTranslator(Astro.currentLocale);
     {__("From chaos to confidence")}
   </h2>
   <p
-    class="text-muted-foreground intersect-once intersect:animate-slide-in motion-delay-100 mx-auto mb-10 max-w-140 text-center text-lg sm:mb-16"
+    class="text-muted-foreground intersect-once intersect:animate-slide-in motion-delay-100 mx-auto mb-10 max-w-180 text-center text-lg sm:mb-16"
   >
     {
       __(
-        "Our experts handle the entire compliance journey - from setup to audit - so you can stay focused on building.",
+        "Our compliance officers handle the entire journey for you - from setup and risk assessments to audit coordination and ongoing monitoring - so you can stay focused on building.",
       )
     }
   </p>
@@ -23,21 +23,21 @@ const __ = await getTranslator(Astro.currentLocale);
     <ComplianceTrackItem position="01" title={__("Set up and plan")}>
       {
         __(
-          "We start by understanding your current setup, identifying gaps, and defining the right path for your business. Then we create a compliance framework tailored to how you actually operate - real policies, no boilerplate.",
+          "We start by reviewing your environment, completing the risk and vendor assessments, identifying gaps, and defining the right path forward. Then we create a compliance program tailored to how your team actually operates.",
         )
       }</ComplianceTrackItem
     >
     <ComplianceTrackItem position="02" title={__("Implementation & audit")}>
       {
         __(
-          "Our team helps you integrate your systems, automate evidence collection, and coordinate everything with your auditor. You’ll still join the call but there’s no pressure. We make sure you’re ready.",
+          "Evidence collection is automated through the platform, and our team prepares every document and manages all communication with your auditor. You only join the essential calls, and we guide you through them with full preparation.",
         )
       }
     </ComplianceTrackItem>
     <ComplianceTrackItem position="03" title={__("Stay compliant")}>
       {
         __(
-          "Once compliant, we keep your compliance running in the background - monitoring, updating, and improving continuously so you’re always ready for the next audit.",
+          "Once certified, we run your compliance program in the background - monitoring, updating controls, refreshing evidence, and maintaining assessments - so you remain continuously audit-ready with no extra effort.",
         )
       }
     </ComplianceTrackItem>
