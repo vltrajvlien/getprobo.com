@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import WrittenBy from "../components/block/WrittenBy.astro";
 import { pageSize } from "../content.config.ts";
 import Pagination from "../components/Pagination.astro";
-import { getTranslator } from "../lib/i18n.ts";
+import { getLink, getTranslator } from "../lib/i18n.ts";
 const allPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
@@ -43,7 +43,7 @@ const __ = await getTranslator(Astro.currentLocale)
               </div>
               <h2>
                 <a
-                  href={`/blog/${post.id}`}
+                  href={getLink(Astro, `/blog/${post.id}`)}
                   class="text-h4 block font-medium hover:opacity-80"
                 >
                   {post.data.title}

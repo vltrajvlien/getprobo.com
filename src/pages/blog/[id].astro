@@ -5,6 +5,7 @@ import Prose from "../../components/Prose.astro";
 import Sharer from "../../components/block/Sharer.svelte";
 import WrittenBy from "../../components/block/WrittenBy.astro";
 import Newsletter from "../../components/block/Newsletter.astro";
+import { getLink } from "../../lib/i18n.ts";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -25,7 +26,7 @@ const dateFormatter = Intl.DateTimeFormat("en-US", {
 <Layout title={post.data.title}>
   <main class="@container container my-10 max-w-[720px] sm:my-20">
     <a
-      href="/blog"
+      href={getLink(Astro, "/blog")}
       class="text-quaternary mb-4 flex items-center gap-2 animate-fade-in animation-delay-200"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
