@@ -11,11 +11,6 @@ export class AnimatedHero extends HTMLElement {
 
   connectedCallback() {
     this.canvas = document.createElement("canvas");
-    const cache = document.createElement('div')
-    cache.setAttribute('class', 'absolute bottom-0 left-0 right-0 z-0 h-[100px]')
-    cache.style.setProperty('background', 'linear-gradient(to bottom, #fffffb00, #fffffb)');
-    this.appendChild(cache)
-
     this.canvas.setAttribute("class", "absolute inset-0 -z-1 blur-[100px]");
     this.canvas.style.setProperty('background', "#F8FAF4")
     this.append(this.canvas);
@@ -24,7 +19,7 @@ export class AnimatedHero extends HTMLElement {
     this.canvas.width = rect.width;
     this.canvas.height = rect.height;
     this.shapes = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
       this.shapes.push(new Shape(this.canvas));
     }
     this.canvas.animate([
