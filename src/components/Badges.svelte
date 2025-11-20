@@ -5,6 +5,7 @@
   import { windowWidth } from "../lib/window.ts";
   import FrameworkBadge from "./FrameworkBadge.svelte";
   import { useIntersectionObserver } from "../lib/runes/useIntersectionObserver.svelte.ts";
+  import clsx from "clsx";
 
   import("./FrameworkBadge.svelte");
 
@@ -13,7 +14,8 @@
     count,
     class: className,
     countMobile,
-  }: { count: number; countMobile?: number; class: string } = $props();
+    border,
+  }: { count: number; countMobile?: number; class: string, border?: boolean } = $props();
   let timer: ReturnType<typeof setTimeout> | null = null;
   let innerWidth = $state(windowWidth());
   let isMobile = $derived(innerWidth < 640);
@@ -63,16 +65,18 @@
       clearTimeout(timer);
     }
   });
+
+  const columns = $derived(isMobile ? 3 : 5)
 </script>
 
-<div class={className} bind:this={intersection.ref}>
+<div class={clsx(className, 'relative')} bind:this={intersection.ref}>
   {#each visibleFrameworks as framework, index (index)}
     <div
-      class="text-center grid place-items-center overflow-hidden mix-blend-multiply"
+      class={clsx("text-center grid place-items-center overflow-hidden", border && 'aspect-square md:aspect-192/180 hover:bg-[#F4FCE6] transition-all')}
     >
       {#key framework.badge}
         <div
-          class="transition-all duration-1000 col-1 row-1 space-y-3 size-25 aspect-square"
+          class="transition-all duration-1000 col-1 row-1 space-y-3 size-25 aspect-square mix-blend-multiply"
           transition:scale={{ duration: 750 }}
         >
           <FrameworkBadge
@@ -84,5 +88,30 @@
       {/key}
     </div>
   {/each}
+  {#if border}
+    {#each {length: columns + 1}, x}
+      <div class="vertical-rule" style={`left: ${Math.round(x * 100 / columns)}%`}></div>
+      {/each}
+    {#each {length: 3}, y}
+      <div class="horizontal-rule" style={`top: ${Math.round(y * 100 / 2)}%`}></div>
+    {/each}
+  {/if}
 </div>
 <svelte:window bind:innerWidth />
+
+<style>
+  .vertical-rule {
+      top: -20px;
+      bottom: -20px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--color-border-low) 20px, var(--color-border-low) calc(100% - 20px), transparent);
+      position: absolute;
+  }
+  .horizontal-rule {
+      left: -20px;
+      right: -20px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-border-low) 40px, var(--color-border-low) calc(100% - 40px), transparent);
+      position: absolute;
+  }
+</style>

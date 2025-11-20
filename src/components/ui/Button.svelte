@@ -12,7 +12,7 @@
     },
     size: {
       default: "px-3 h-9 sm:h-8 text-sm",
-      lg: "py-3 text-lg px-5",
+      lg: "text-lg px-5 h-12",
       icon: "size-8",
     },
   },
