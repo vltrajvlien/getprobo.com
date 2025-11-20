@@ -18,10 +18,6 @@ export default defineConfig({
   i18n: {
     locales: [...langs, "en"],
     defaultLocale: "en",
-    fallback: Object.fromEntries(langs.map((lang) => [lang, "en"])),
-    routing: {
-      fallbackType: "rewrite",
-    },
   },
   redirects: {
     "/blog/page/1": {
