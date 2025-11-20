@@ -41,12 +41,23 @@ export class AnimatedHero extends HTMLElement {
   }
 
   draw() {
-    this.canvas
-      .getContext("2d")
-      ?.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    const ctx = this.canvas.getContext('2d')
+    if (!ctx) {
+      return;
+    }
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     for (const shape of this.shapes) {
       shape.draw();
     }
+
+    // Draw a gradient to mask the bottom
+    const gradientSize = 100
+    const gradient = ctx.createLinearGradient(0, this.canvas.height - gradientSize, 0, this.canvas.height)
+    gradient.addColorStop(0, '#fffffb00')
+    gradient.addColorStop(1, '#fffffb')
+
+    ctx.fillStyle = gradient
+    ctx.fillRect(0, this.canvas.height - gradientSize, this.canvas.width, gradientSize)
     if (this.isVisible) {
       window.requestAnimationFrame(() => this.draw());
     }

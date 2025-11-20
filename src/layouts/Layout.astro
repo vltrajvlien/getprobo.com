@@ -29,6 +29,7 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
     />
+
     <ClientRouter />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -70,11 +71,13 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
   </body>
 </html>
 
-<script lang="ts">
+<script>
   import {langs} from '../config.ts'
+  import { trim } from "../lib/string.ts";
   function redirectLang () {
 
     const lang = localStorage.getItem('lang')
+    // The check was already done in the past, do nothing
     if (lang !== null) {
       return;
     }
@@ -83,13 +86,16 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
       if (!navigator.language.includes(lang)) {
         continue
       }
-      // User is already on a translated content
+
+      // User is already on a translated content, do nothing
       if (window.location.href.includes(`/${lang}`)) {
+        localStorage.setItem('lang', lang)
         continue;
       }
+
       // Redirect to the translated content
       localStorage.setItem('lang', lang)
-      window.location.href = `/${lang}${window.location.pathname}`
+      window.location.href = '/' + trim(`${lang}${window.location.pathname}`, '/')
     }
   }
   redirectLang()

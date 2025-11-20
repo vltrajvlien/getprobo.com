@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import YCombinator from "../assets/ycombinator.svg";
 import { Image } from "astro:assets";
-import AnimatedHero from "../components/ui/AnimatedHero.svelte";
 import Button from "../components/ui/Button.svelte";
 import Badges from "../components/Badges.svelte";
 import Logos from "../components/block/Logos.astro";
@@ -19,7 +18,7 @@ const __ = await getTranslator(Astro.currentLocale)
   title={__("Probo - Compliance done for you")}
   description={__("Get SOC 2, GDPR, HIPAA, and ISO certified with expert guidance and the job done for you. Open-source compliance management platform with no vendor lock-in. Backed by Y Combinator.")}
 >
-  <animated-hero class="block py-10 sm:pt-20 sm:pb-12 relative overflow-hidden px-5">
+  <animated-hero class="block py-10 pt-26 sm:pt-36 sm:pb-12 relative overflow-hidden px-5 -mt-16">
     <a
       href="https://www.ycombinator.com/companies/probo"
       target="_blank"
@@ -70,6 +69,7 @@ const __ = await getTranslator(Astro.currentLocale)
       </h2>
       <Logos class="animate-slide-in animation-delay-300" constrained/>
     </section>
+    <div class="demo"></div>
   </animated-hero>
 
   <ComplianceTrack />

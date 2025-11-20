@@ -8,7 +8,7 @@ import GithubStars from "./GithubStars.astro";
 import { getLink } from "../lib/i18n.ts";
 ---
 
-<header class="bg-secondary/80 sticky top-0 z-50 backdrop-blur-md">
+<header class="data-[scrolled=true]:bg-secondary/80 sticky top-0 z-50 data-[scrolled=true]:backdrop-blur-md transition-all">
   <div class="container mx-auto flex items-center py-3 sm:py-4">
     <a href={getLink(Astro, "/")}>
       <Image src={Logo} alt="Logo probo" width={73} height={20} />
@@ -77,6 +77,8 @@ import { getLink } from "../lib/i18n.ts";
 
 <script>
   class BurgerMenu extends HTMLElement {
+    scrolled = null as null | boolean;
+
     connectedCallback() {
       this.addEventListener("click", () => {
         const sidebar = document.querySelector(
@@ -93,6 +95,23 @@ import { getLink } from "../lib/i18n.ts";
           document.body.style.removeProperty("overflow");
         }
       });
+      window.addEventListener('scroll', this.onScroll)
+      this.onScroll()
+    }
+
+    disconnectedCallback () {
+      window.removeEventListener('scroll', this.onScroll)
+    }
+
+    onScroll = () => {
+      const isScrolled = document.documentElement.scrollTop > 10
+      // Skip the logic if we already have scrolled
+
+      if (isScrolled === this.scrolled) {
+        return;
+        }
+        this.closest('header')?.setAttribute('data-scrolled', isScrolled.toString())
+        this.scrolled = isScrolled
     }
   }
 
