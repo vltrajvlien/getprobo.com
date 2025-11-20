@@ -78,6 +78,9 @@ export default defineConfig({
           graph: false,
         }),
       ],
+      components: {
+        LanguageSelect: './src/components/docs/LanguageSelect.astro'
+      },
       disable404Route: true,
       title: "Probo Documentation",
       logo: {
