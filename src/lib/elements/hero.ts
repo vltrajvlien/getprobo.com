@@ -11,7 +11,12 @@ export class AnimatedHero extends HTMLElement {
 
   connectedCallback() {
     this.canvas = document.createElement("canvas");
-    this.canvas.setAttribute("class", "absolute inset-0 -z-1");
+    const cache = document.createElement('div')
+    cache.setAttribute('class', 'absolute bottom-0 left-0 right-0 z-0 h-[100px]')
+    cache.style.setProperty('background', 'linear-gradient(to bottom, #fffffb00, #fffffb)');
+    this.appendChild(cache)
+
+    this.canvas.setAttribute("class", "absolute inset-0 -z-1 blur-[100px]");
     this.canvas.style.setProperty('background', "#F8FAF4")
     this.append(this.canvas);
 
@@ -51,14 +56,6 @@ export class AnimatedHero extends HTMLElement {
       shape.draw();
     }
 
-    // Draw a gradient to mask the bottom
-    const gradientSize = 100
-    const gradient = ctx.createLinearGradient(0, this.canvas.height - gradientSize, 0, this.canvas.height)
-    gradient.addColorStop(0, '#fffffb00')
-    gradient.addColorStop(1, '#fffffb')
-
-    ctx.fillStyle = gradient
-    ctx.fillRect(0, this.canvas.height - gradientSize, this.canvas.width, gradientSize)
     if (this.isVisible) {
       window.requestAnimationFrame(() => this.draw());
     }
@@ -89,7 +86,6 @@ class Shape {
   private target: Position;
   private lastDrawnAt = 0;
   private speed = 0.1;
-  private blur = 100;
 
   constructor(private canvas: HTMLCanvasElement) {
     this.updateSize();
@@ -128,7 +124,7 @@ class Shape {
       return;
     }
     ctx.save();
-    ctx.filter = `blur(${this.blur}px)`;
+    // ctx.filter = `blur(${this.blur}px)`;
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.ellipse(
