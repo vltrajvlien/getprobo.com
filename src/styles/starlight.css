@@ -1,3 +1,72 @@
-.site-title img {
-  max-height: 1.5rem;
+@layer base, probo-reset, starlight, theme, components, utilities, probo;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import "./theme.css";
+
+@layer base {
+    header * {
+        color: inherit;
+        text-decoration: none;
+    }
+    * {
+        border-color: var(--color-border-low);
+    }
+
+    button,
+    a {
+        cursor: pointer;
+    }
+}
+
+@utility sticky-top {
+    position: sticky;
+    top: calc(var(--sl-nav-height) + 40px);
+}
+
+@layer probo {
+    header {
+        background: var(--color-secondary);
+    }
+
+    .container {
+        max-width: 1120px!important;
+        padding-inline: 1.25rem;
+        margin-inline: auto;
+    }
+
+    :root{
+        --sl-color-bg: var(--color-level-0);
+        --sl-color-white: var(--color-primary);
+        --sl-color-text: var(--color-muted-foreground);
+        --sl-color-accent: var(--color-primary);
+        --sl-color-text-accent: var(--color-primary);
+        --sl-color-text-invert: var(--color-primary-foreground);
+        --sl-shadow-md: var(--shadow-btn);
+        --sl-color-black: var(--color-level-0);
+        --sl-nav-height: 4rem;
+    }
+
+    .dropdown li {
+        border-bottom: solid 1px var(--color-border-low);
+    }
+
+    pre {
+        border: solid 1px var(--color-border-low);
+        border-radius: .25rem;
+        background: var(--color-subtle);
+    }
+
+    body {
+        color: var(--color-foreground);
+    }
+
+    p, ul, ol, .description {
+        color: var(--color-muted-foreground)
+    }
+
+    .sl-link-card {
+        border: solid 1px var(--color-border-low)
+    }
 }

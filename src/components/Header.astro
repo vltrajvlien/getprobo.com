@@ -6,12 +6,15 @@ import Button from "./ui/Button.svelte";
 import MobileMenu from "./MobileMenu.astro";
 import GithubStars from "./GithubStars.astro";
 import { getLink } from "../lib/i18n.ts";
+type Props = {
+  hideBurger: boolean
+}
 ---
 
-<header class="data-[scrolled=true]:bg-secondary/80 sticky top-0 z-50 data-[scrolled=true]:backdrop-blur-md transition-all">
+<header class="data-[scrolled=true]:bg-secondary/80 sticky top-0 z-50 data-[scrolled=true]:backdrop-blur-md transition-all data-[scrolled=true]:border-b">
   <div class="container mx-auto flex items-center py-3 sm:py-4">
     <a href={getLink(Astro, "/")}>
-      <Image src={Logo} alt="Logo probo" width={73} height={20} />
+      <Image src={Logo} alt="Logo probo" width={73} height={20} class="block" />
     </a>
     <nav class="ml-auto hidden sm:flex">
       <NavLink href={getLink(Astro, "/about")}>About</NavLink>
@@ -37,7 +40,8 @@ import { getLink } from "../lib/i18n.ts";
     >
       Get compliant
     </Button>
-    <burger-menu
+    <slot/>
+    {!Astro.props.hideBurger && <burger-menu
       class="group ml-3 grid size-9 place-items-center sm:hidden"
       aria-label="Open mobile menu"
     >
@@ -69,7 +73,7 @@ import { getLink } from "../lib/i18n.ts";
           stroke-width="1.33333"
           stroke-linecap="round"></path>
       </svg>
-    </burger-menu>
+    </burger-menu>}
   </div>
 </header>
 

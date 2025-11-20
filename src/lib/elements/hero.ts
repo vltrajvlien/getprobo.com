@@ -12,6 +12,7 @@ export class AnimatedHero extends HTMLElement {
   connectedCallback() {
     this.canvas = document.createElement("canvas");
     this.canvas.setAttribute("class", "absolute inset-0 -z-1");
+    this.canvas.style.setProperty('background', "#F8FAF4")
     this.append(this.canvas);
 
     const rect = this.getBoundingClientRect();

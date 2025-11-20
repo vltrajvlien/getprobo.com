@@ -44,7 +44,7 @@
       Manage your consent preferences
     </h6>
     <p class="text-sm text-muted-foreground mb-6 sm:mb-4">
-      {consentState.value} We use cookies to enhance your user experience, provide
+      We use cookies to enhance your user experience, provide
       personalised content and analyse traffic.
       <a class="text-foreground underline" href="/privacy">Privacy Policy</a>
     </p>

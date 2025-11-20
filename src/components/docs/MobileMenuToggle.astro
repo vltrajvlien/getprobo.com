@@ -1,0 +1,125 @@
+---
+---
+
+<starlight-menu-button class="grid place-items-center print:hidden size-9 ml-3 lg:hidden">
+  <button
+    class="group grid size-9 place-items-center"
+    aria-label="Open mobile menu"
+  >
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      class="group-aria-selected:hidden"
+    >
+      <path
+        d="M2 8H14M2 4H14M2 12H14"
+        stroke="#141E12"
+        stroke-width="1.33333"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      class="hidden group-aria-selected:block"
+    >
+      <path
+        d="M3.33325 3.33594L12.6666 12.6693M12.6666 3.33594L3.33325 12.6693"
+        stroke="black"
+        stroke-width="1.33333"
+        stroke-linecap="round"></path>
+    </svg>
+  </button>
+</starlight-menu-button>
+
+<script>
+  class StarlightMenuButton extends HTMLElement {
+    btn = this.querySelector('button')!;
+
+    constructor() {
+      super();
+      // Toggle `aria-expanded` state when a user clicks the button.
+      this.btn.addEventListener('click', () => this.toggleExpanded());
+
+      // Close the menu when a user presses the escape key.
+      const parentNav = this.closest('nav');
+      if (parentNav) {
+        parentNav.addEventListener('keyup', (e) => this.closeOnEscape(e));
+      }
+    }
+
+    setExpanded(expanded: boolean) {
+      this.setAttribute('aria-expanded', String(expanded));
+      document.body.toggleAttribute('data-mobile-menu-expanded', expanded);
+    }
+
+    toggleExpanded() {
+      this.setExpanded(this.getAttribute('aria-expanded') !== 'true');
+    }
+
+    closeOnEscape(e: KeyboardEvent) {
+      if (e.code === 'Escape') {
+        this.setExpanded(false);
+        this.btn.focus();
+      }
+    }
+  }
+
+  customElements.define('starlight-menu-button', StarlightMenuButton);
+</script>
+
+<style>
+  @layer starlight.core {
+    button {
+      border: 0;
+      border-radius: 50%;
+      width: var(--sl-menu-button-size);
+      height: var(--sl-menu-button-size);
+      padding: 0.5rem;
+      background-color: var(--sl-color-white);
+      color: var(--sl-color-black);
+      box-shadow: var(--sl-shadow-md);
+      cursor: pointer;
+    }
+
+    [aria-expanded='true'] button {
+      background-color: var(--sl-color-gray-2);
+      box-shadow: none;
+    }
+
+    [aria-expanded='true'] button .open-menu {
+      display: none;
+    }
+
+    :not([aria-expanded='true']) button .close-menu {
+      display: none;
+    }
+
+    :global([data-theme='light']) button {
+      background-color: var(--sl-color-black);
+      color: var(--sl-color-white);
+    }
+
+    :global([data-theme='light']) [aria-expanded='true'] button {
+      background-color: var(--sl-color-gray-5);
+    }
+  }
+</style>
+
+<style is:global>
+  @layer starlight.core {
+    [data-mobile-menu-expanded] {
+      overflow: hidden;
+    }
+
+    @media (min-width: 50rem) {
+      [data-mobile-menu-expanded] {
+        overflow: auto;
+      }
+    }
+  }
+</style>

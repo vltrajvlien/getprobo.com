@@ -1,0 +1,44 @@
+---
+import MobileTableOfContents from 'virtual:starlight/components/MobileTableOfContents';
+import TableOfContents from 'virtual:starlight/components/TableOfContents';
+---
+
+{
+  Astro.locals.starlightRoute.toc && (
+  <aside class="right-sidebar lg:sticky-top text-sm">
+    <div class="lg:sl-hidden">
+      <MobileTableOfContents />
+    </div>
+    <div class="sl-hidden lg:sl-block">
+        <TableOfContents />
+    </div>
+    </aside>
+    )
+  }
+
+<style>
+  @layer starlight.core {
+    .right-sidebar :global(h2) {
+      color: var(--sl-color-white);
+      font-size: var(--sl-text-h5);
+      font-weight: 600;
+      line-height: var(--sl-line-height-headings);
+      margin-bottom: 0.5rem;
+    }
+    .right-sidebar :global(:where(a)) {
+      display: block;
+      text-decoration: none;
+      color: var(--sl-color-gray-3);
+      overflow-wrap: anywhere;
+    }
+    .right-sidebar :global(:where(a):hover) {
+      color: var(--sl-color-white);
+    }
+    .right-sidebar :global(nav) {
+      left: 0;
+      width: 100%;
+      background-color: var(--color-level-0);
+      border-bottom: solid 1px var(--color-border-low);
+    }
+  }
+</style>

@@ -67,14 +67,16 @@ export default defineConfig({
   integrations: [
     removeHtmlExtension(),
     starlight({
-      plugins: [
-        starlightThemeObsidian({
-          backlinks: false,
-          graph: false,
-        }),
-      ],
       components: {
+        ContentPanel: "./src/components/docs/ContentPanel.astro",
+        Header: "./src/components/docs/Header.astro",
+        Head: "./src/components/docs/Head.astro",
+        PageFrame: "./src/components/docs/PageFrame.astro",
+        ThemeProvider: "./src/components/docs/ThemeProvider.astro",
         LanguageSelect: "./src/components/docs/LanguageSelect.astro",
+        MobileMenuToggle: "./src/components/docs/MobileMenuToggle.astro",
+        TwoColumnContent: "./src/components/docs/TwoColumnContent.astro",
+        PageSidebar: "./src/components/docs/PageSidebar.astro",
       },
       disable404Route: true,
       title: "Probo Documentation",

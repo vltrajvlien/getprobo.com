@@ -1,0 +1,14 @@
+---
+const { head } = Astro.locals.starlightRoute;
+import { ClientRouter } from "astro:transitions";
+import StarlightHead from "@astrojs/starlight/components/Head.astro";
+---
+
+<StarlightHead {...Astro.props}><slot /></StarlightHead>
+{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+<link
+  href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+
+<ClientRouter />
