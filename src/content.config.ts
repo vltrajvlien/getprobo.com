@@ -1,17 +1,17 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
-import { frameworks } from "./data/frameworks.ts";
+import { frameworks } from "./content/frameworks.ts";
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 
 export const pageSize = 10
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/data/blog" }),
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
 });
 
 const stories = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/data/stories" }),
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/stories" }),
   schema: z.object({
     title: z.string(),
     date: z.date(),

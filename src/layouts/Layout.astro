@@ -69,3 +69,28 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
     <Footer noFrameworks={Astro.props.noFrameworks}/>
   </body>
 </html>
+
+<script lang="ts">
+  import {langs} from '../config.ts'
+  function redirectLang () {
+
+    const lang = localStorage.getItem('lang')
+    if (lang !== null) {
+      return;
+    }
+
+    for (const lang of langs) {
+      if (!navigator.language.includes(lang)) {
+        continue
+      }
+      // User is already on a translated content
+      if (window.location.href.includes(`/${lang}`)) {
+        continue;
+      }
+      // Redirect to the translated content
+      localStorage.setItem('lang', lang)
+      window.location.href = `/${lang}${window.location.pathname}`
+    }
+  }
+  redirectLang()
+</script>

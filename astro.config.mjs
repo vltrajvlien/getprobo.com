@@ -8,21 +8,20 @@ import svelte from "@astrojs/svelte";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 import { removeHtmlExtension } from "./vite-plugin-remove-html.mjs";
+import { langs } from "./src/config.ts";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.getprobo.com",
   prefetch: false,
-  trailingSlash: 'never',
+  trailingSlash: "never",
   i18n: {
-    locales: ['fr', 'en'],
-    defaultLocale: 'en',
-    fallback: {
-      fr: 'en'
-    },
+    locales: [...langs, "en"],
+    defaultLocale: "en",
+    fallback: Object.fromEntries(langs.map((lang) => [lang, "en"])),
     routing: {
-      fallbackType: 'rewrite',
-    }
+      fallbackType: "rewrite",
+    },
   },
   redirects: {
     "/blog/page/1": {
@@ -79,7 +78,7 @@ export default defineConfig({
         }),
       ],
       components: {
-        LanguageSelect: './src/components/docs/LanguageSelect.astro'
+        LanguageSelect: "./src/components/docs/LanguageSelect.astro",
       },
       disable404Route: true,
       title: "Probo Documentation",

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { scale } from "svelte/transition";
   import { onDestroy } from "svelte";
-  import { frameworks } from "../data/frameworks.ts";
+  import { frameworks } from "../content/frameworks.ts";
   import { windowWidth } from "../lib/window.ts";
   import FrameworkBadge from "./FrameworkBadge.svelte";
   import { useIntersectionObserver } from "../lib/runes/useIntersectionObserver.svelte.ts";

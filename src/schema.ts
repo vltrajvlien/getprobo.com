@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { frameworks } from "./data/frameworks.ts";
+import { frameworks } from "./content/frameworks.ts";
 
 export const StorySchema = z.object({
   title: z.string(),
