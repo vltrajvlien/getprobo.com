@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getTranslator } from "../lib/i18n.ts";
+const __ = await getTranslator(Astro.currentLocale)
+---
+
+<Layout
+  title={"Page not found"}
+  description={"The requested page cannot be found"}
+  noFrameworks
+>
+  <animated-hero class="block py-40 overflow-hidden ">
+    <h1
+      class="text-h2 sm:text-h1 mb-6 overflow-hidden text-center font-medium text-balance sm:mb-8"
+    >
+      Page not found
+    </h1>
+    <p
+      class="text-muted-foreground animate-perspective-in animation-delay-150 mx-auto max-w-200 text-center text-lg text-balance"
+    >
+      The page your requested does not exists
+    </p>
+  </animated-hero>
+
+</Layout>
+
+<script>
+  import {AnimatedHero} from '../lib/elements/hero'
+
+  customElements.define('animated-hero', AnimatedHero)
+</script>

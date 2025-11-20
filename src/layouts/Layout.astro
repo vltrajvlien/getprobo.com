@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import PostHog from "../components/posthog.astro";
 const { title, description } = Astro.props;
 interface Props {
+  noFrameworks?: boolean
   title: string;
   description?: string;
 }
@@ -65,6 +66,6 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
   <body class="text-primary bg-level-0 font-sans text-base">
     <Header />
     <slot />
-    <Footer />
+    <Footer noFrameworks={Astro.props.noFrameworks}/>
   </body>
 </html>

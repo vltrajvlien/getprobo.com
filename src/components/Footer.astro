@@ -39,9 +39,12 @@ const menus = [
     ],
   },
 ];
+type Props = {
+  noFrameworks?: boolean
+}
 ---
 
-<Frameworks />
+{!Astro.props.noFrameworks && <Frameworks />}
 
 <footer class="bg-level-0 space-y-10 py-10 sm:py-20">
   <div
