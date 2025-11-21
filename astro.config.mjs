@@ -6,8 +6,9 @@ import faroUploader from "@grafana/faro-rollup-plugin";
 import svelte from "@astrojs/svelte";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
-import { removeHtmlExtension } from "./vite-plugin-remove-html.mjs";
-import { langs } from "./src/config.ts";
+import { removeHtmlExtension } from "./vite-plugin-remove-html";
+import { langs } from "./src/config";
+import { removeTranslatedDoc } from "./tools/removeTranslatedDoc";
 
 // https://astro.build/config
 export default defineConfig({
@@ -148,9 +149,19 @@ export default defineConfig({
         },
       ],
     }),
+    removeTranslatedDoc(),
     mdx(),
     svelte(),
     sitemap({
+      filter(page) {
+        const excludedPatterns = ['/yc', '/fr/docs']
+        for (const pattern of excludedPatterns) {
+          if (page.includes(pattern)) {
+            return false;
+          }
+        }
+        return true;
+      },
       serialize(item) {
         item.lastmod = new Date().toISOString();
 
