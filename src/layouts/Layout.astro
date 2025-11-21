@@ -98,5 +98,6 @@ const canonical = Astro.url.href.replace(/\.html$/, '');
       window.location.href = '/' + trim(`${lang}${window.location.pathname}`, '/')
     }
   }
-  redirectLang()
+  // Disable lang redirection while the translations are being worked
+  // redirectLang()
 </script>

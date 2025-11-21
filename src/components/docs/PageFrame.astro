@@ -1,5 +1,6 @@
 ---
 import MobileMenuToggle from "virtual:starlight/components/MobileMenuToggle";
+import Search from 'virtual:starlight/components/Search';
 import Header from "../Header.astro";
 ---
 
@@ -11,6 +12,9 @@ import Header from "../Header.astro";
     class="sidebar justify-self-start top-16 fixed transition-all w-full lg:max-w-60 lg:sticky-top"
     aria-label={Astro.locals.t("sidebarNav.accessibleLabel")}
   >
+    <div class="mb-4 hidden sl:block">
+      <Search />
+    </div>
     <slot name="sidebar" />
   </nav>
   <slot />

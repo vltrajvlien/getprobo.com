@@ -71,6 +71,7 @@ export default defineConfig({
         Header: "./src/components/docs/Header.astro",
         Head: "./src/components/docs/Head.astro",
         PageFrame: "./src/components/docs/PageFrame.astro",
+        MobileMenuFooter: "./src/components/docs/MobileMenuFooter.astro",
         ThemeProvider: "./src/components/docs/ThemeProvider.astro",
         LanguageSelect: "./src/components/docs/LanguageSelect.astro",
         MobileMenuToggle: "./src/components/docs/MobileMenuToggle.astro",

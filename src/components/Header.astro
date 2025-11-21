@@ -13,10 +13,10 @@ type Props = {
 
 <header class="page-header text-primary data-[scrolled=true]:bg-secondary/80 sticky top-0 z-50 data-[scrolled=true]:backdrop-blur-md transition-all data-[scrolled=true]:border-b">
   <div class="container mx-auto flex items-center py-3 sm:py-4">
-    <a href={getLink(Astro, "/")} transition:name="header-logo">
+    <a class="mr-auto" href={getLink(Astro, "/")} transition:name="header-logo">
       <Image src={Logo} alt="Logo probo" width={73} height={20} class="block" />
     </a>
-    <nav class="ml-auto hidden sm:flex" transition:name="header-nav">
+    <nav class="hidden sm:flex" transition:name="header-nav">
       <NavLink href={getLink(Astro, "/about")}>About</NavLink>
       <NavLink href={getLink(Astro, "/blog")}>Blog</NavLink>
       <NavLink href={getLink(Astro, "/stories")}>Stories</NavLink>
@@ -40,7 +40,7 @@ type Props = {
       <Button
         rel="nofollow noreferrer"
         href="https://form.getprobo.com/r/nrxk9v"
-        class="ml-auto h-9 px-4 sm:ml-4 sm:h-8 sm:px-3"
+        class="ml-auto h-9 px-4 sm:ml-4 sm:h-8 sm:px-3 whitespace-nowrap"
       >
         Get compliant
       </Button>
