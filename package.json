@@ -30,7 +30,6 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
-    "starlight-theme-obsidian": "^0.4.1",
     "svelte": "^5.43.10",
     "svelte-sonner": "^1.0.6",
     "tailwind-merge": "^3.4.0",

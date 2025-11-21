@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import faroUploader from "@grafana/faro-rollup-plugin";
-import starlightThemeObsidian from "starlight-theme-obsidian";
 import svelte from "@astrojs/svelte";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";

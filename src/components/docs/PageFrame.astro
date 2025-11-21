@@ -6,9 +6,9 @@ import Header from "../Header.astro";
 <Header hideBurger>
   <MobileMenuToggle />
 </Header>
-<div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] xl:grid-cols-[1fr_670px_1fr] items-start gap-10 relative pt-20 px-5 xl:pt-10">
+<div transition:animate="none" class="grid grid-cols-1 lg:grid-cols-[260px_1fr] xl:grid-cols-[1fr_700px_1fr] items-start gap-10 relative pt-20 px-5 xl:pt-10 max-w-[1400px] mx-auto">
   <nav
-    class="sidebar justify-self-end top-16 fixed transition-all w-full lg:max-w-60 lg:sticky-top"
+    class="sidebar justify-self-start top-16 fixed transition-all w-full lg:max-w-60 lg:sticky-top"
     aria-label={Astro.locals.t("sidebarNav.accessibleLabel")}
   >
     <slot name="sidebar" />
@@ -27,8 +27,8 @@ import Header from "../Header.astro";
       padding-top: 1rem;
       padding-inline: .5rem;
       height: calc(100vh - var(--sl-nav-height));
-      z-index: 2;
       transition: .2s ease-in-out;
+      z-index: 200;
       left: 0;
       opacity: 0;
       transform: translateY(-30px);
