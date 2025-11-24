@@ -173,11 +173,17 @@ export default defineConfig({
     svelte(),
     sitemap({
       filter(page) {
-        const excludedPatterns = ['/yc', '/fr/docs']
-        for (const pattern of excludedPatterns) {
-          if (page.includes(pattern)) {
-            return false;
-          }
+        if (page.endsWith('/yc') || page.endsWith('/yc/')) {
+          return false;
+        }
+        if (page.includes('/fr/docs')) {
+          return false;
+        }
+        if (page.includes('/fr/blog')) {
+          return false;
+        }
+        if (page.includes('/404')) {
+          return false;
         }
         return true;
       },

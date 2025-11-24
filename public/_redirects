@@ -1,2 +1,3 @@
 https://getprobo.com/* https://www.getprobo.com/:splat 301!
 http://getprobo.com/* https://www.getprobo.com/:splat 301!
+https://www.getprobo.com/sitemap.xml https://www.getprobo.com/sitemap-index.xml 301!
