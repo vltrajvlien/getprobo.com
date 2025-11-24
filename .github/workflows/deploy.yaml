@@ -25,3 +25,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=www-getprobo-com
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
