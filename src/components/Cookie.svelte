@@ -13,15 +13,17 @@
 
   const onAcceptAll = () => {
     window?.posthog?.opt_in_capturing();
+    window?.posthog?.set_config({ cookieless_mode: false });
   };
 
   const onEssentials = () => {
-    window?.posthog?.opt_out_capturing();
+    
   };
 
   $effect(() => {
     switch (consentState.value) {
       case "unknown":
+        return;
       case "denied":
         onDenyAll();
         return;

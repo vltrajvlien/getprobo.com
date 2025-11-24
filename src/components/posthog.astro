@@ -52,7 +52,7 @@ if (ApiKey) {
 
   posthog.init(ApiKey, {
     api_host: "https://us.posthog.com",
-    cookieless_mode: "on_reject",
+    cookieless_mode: true,
     person_profiles: "identified_only",
     capture_pageview: true,
     respect_dnt: true,
