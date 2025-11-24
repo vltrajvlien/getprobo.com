@@ -112,6 +112,7 @@ export default defineConfig({
         },
         {
           label: "Self-Hosting",
+          collapsed: true,
           items: [
             {
               label: "Docker Compose",
@@ -122,6 +123,7 @@ export default defineConfig({
         },
         {
           label: "Configuration",
+          collapsed: true,
           items: [
             { label: "Overview", slug: "docs/configuration/overview" },
             { label: "Config File", slug: "docs/configuration/config-file" },
@@ -133,6 +135,7 @@ export default defineConfig({
         },
         {
           label: "Product",
+          collapsed: true,
           items: [
             {
               label: "SSO",
@@ -143,6 +146,22 @@ export default defineConfig({
                   slug: "docs/product/sso/google-workspace",
                 },
                 { label: "Okta", slug: "docs/product/sso/okta" },
+              ],
+            },
+          ],
+        },
+        {
+          label: "API",
+          items: [
+            {
+              label: "MCP",
+              badge: 'New',
+              items: [
+                { label: "Overview", slug: "docs/api/mcp/overview" },
+                { label: "Authentication", slug: "docs/api/mcp/authentication" },
+                { label: "Pagination", slug: "docs/api/mcp/pagination" },
+                { label: "Available Tools", slug: "docs/api/mcp/tools" },
+                { label: "Integrations", slug: "docs/api/mcp/integrations" },
               ],
             },
           ],

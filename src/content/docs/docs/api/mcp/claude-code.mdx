@@ -1,0 +1,393 @@
+---
+title: Claude Code Configuration
+description: Configure the Probo MCP Server with Claude Code CLI
+---
+
+This guide shows you how to configure the Probo MCP Server with Claude Code, Anthropic's official CLI tool, enabling Claude to interact with your compliance data directly from the command line.
+
+## Prerequisites
+
+- Claude Code CLI installed (via npm: `npm install -g @anthropic-ai/claude-code`)
+- A running Probo instance with API access
+- API token from your Probo instance
+
+## Configuration Steps
+
+### 1. Generate an API Token
+
+First, generate an API token from your Probo instance:
+
+1. Log into your Probo web interface
+2. Navigate to Settings → API Tokens
+3. Click "Generate New Token"
+4. Copy the token - you'll need it for configuration
+
+### 2. Locate Claude Code Configuration File
+
+Claude Code stores its configuration in:
+
+```bash
+~/.config/claude-code/config.json
+```
+
+If the file doesn't exist, Claude Code will create it on first run.
+
+### 3. Configure the MCP Server
+
+Add the Probo MCP server to your Claude Code configuration:
+
+```json
+{
+  "mcpServers": {
+    "probo": {
+      "url": "https://your-probo-instance.com/api/mcp/v1",
+      "headers": {
+        "Authorization": "Bearer your_api_token_here"
+      }
+    }
+  }
+}
+```
+
+Replace:
+- `https://your-probo-instance.com/api/mcp/v1` with your Probo instance URL
+- `your_api_token_here` with the API token you generated
+
+### 4. Alternative: Local Development Setup
+
+For local development, you can connect directly to your local Probo instance:
+
+```json
+{
+  "mcpServers": {
+    "probo": {
+      "url": "http://localhost:8080/api/mcp/v1",
+      "headers": {
+        "Authorization": "Bearer dev_token_here"
+      }
+    }
+  }
+}
+```
+
+### 5. Verify Configuration
+
+Test the MCP server connection:
+
+```bash
+claude-code mcp list
+```
+
+You should see `probo` listed among the available MCP servers.
+
+## Using Claude Code with Probo
+
+### Starting a Session
+
+Start Claude Code with MCP support:
+
+```bash
+claude-code
+```
+
+Claude will automatically load the Probo MCP server and you can begin interacting with your compliance data.
+
+### Example Commands
+
+Once in a Claude Code session:
+
+#### List Organizations
+```bash
+You: "What organizations do I have access to?"
+
+Claude: I'll check your organizations.
+[Uses listOrganizations tool]
+
+You have access to 2 organizations:
+1. Acme Corporation
+2. Beta Industries
+```
+
+#### Managing Risks
+```bash
+You: "Show me all risks with a residual risk score above 15"
+
+Claude: Let me fetch those high-risk items.
+[Uses listRisks tool with filtering]
+
+Found 3 high-risk items:
+1. Vendor security breach (Score: 20)
+2. Data center failure (Score: 18)
+3. Insider threat (Score: 16)
+```
+
+#### Adding Vendors
+```bash
+You: "Add a vendor named 'SecureCloud' that provides backup services"
+
+Claude: I'll add that vendor now.
+[Uses addVendor tool]
+
+Successfully added SecureCloud as a vendor.
+```
+
+## CLI Usage Patterns
+
+### Interactive Mode
+
+Run Claude Code interactively for ongoing conversations:
+
+```bash
+claude-code
+
+# Now you can have a continuous conversation
+> List all vendors
+> Add a new risk for data breaches
+> Update the vendor security measure to implemented
+```
+
+### Single Command Mode
+
+Execute single commands directly:
+
+```bash
+claude-code "List all open nonconformities"
+```
+
+### Piped Input
+
+Pipe data into Claude Code:
+
+```bash
+echo "Show me compliance measures that are not started" | claude-code
+```
+
+### File Context
+
+Provide file context for compliance work:
+
+```bash
+claude-code --file risk-assessment.md "Add these risks to Probo"
+```
+
+## Project-Specific Configuration
+
+You can create project-specific MCP configurations by placing a `.claude-code.json` file in your project directory:
+
+```json
+{
+  "mcpServers": {
+    "probo": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://project.probo.com/api/mcp"],
+      "env": {
+        "PROBO_API_TOKEN": "${PROBO_PROJECT_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+This configuration takes precedence over the global config when running Claude Code from that directory.
+
+## Environment Variables
+
+Store your API token in an environment variable for better security:
+
+```bash
+# In your ~/.bashrc or ~/.zshrc
+export PROBO_API_TOKEN="your_api_token_here"
+```
+
+Then reference it in your config:
+
+```json
+{
+  "mcpServers": {
+    "probo": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://your-probo-instance.com/api/mcp"],
+      "env": {
+        "PROBO_API_TOKEN": "${PROBO_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+## Automation Scripts
+
+### Batch Operations Script
+
+Create a script for batch compliance operations:
+
+```bash
+#!/bin/bash
+# update-compliance.sh
+
+claude-code << EOF
+Connect to Probo and:
+1. List all risks with status 'open'
+2. For each risk, check if mitigation measures are in place
+3. Update risk status to 'mitigated' where appropriate
+4. Generate a summary report
+EOF
+```
+
+### Daily Compliance Check
+
+Automate daily compliance checks:
+
+```bash
+#!/bin/bash
+# daily-check.sh
+
+claude-code "Generate a compliance status report including:
+- Number of open nonconformities
+- Risks with scores above 15
+- Overdue obligations
+- In-progress audits"
+```
+
+### CI/CD Integration
+
+Integrate with your CI/CD pipeline:
+
+```yaml
+# .github/workflows/compliance-check.yml
+name: Compliance Check
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9 AM
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Compliance
+        run: |
+          npx -y @anthropic-ai/claude-code "Review current compliance status and report any critical issues"
+        env:
+          PROBO_API_TOKEN: ${{ secrets.PROBO_API_TOKEN }}
+```
+
+## Troubleshooting
+
+### MCP Server Not Found
+
+If Claude Code can't find the Probo MCP server:
+
+```bash
+# Check MCP server status
+claude-code mcp list
+
+# Reload configuration
+claude-code mcp reload
+
+# Check configuration file
+cat ~/.config/claude-code/config.json
+```
+
+### Connection Errors
+
+Test the connection manually:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://your-probo-instance.com/api/mcp/health
+```
+
+### Debug Mode
+
+Run Claude Code in debug mode for more information:
+
+```bash
+claude-code --debug
+```
+
+Check logs:
+
+```bash
+cat ~/.config/claude-code/logs/mcp-probo.log
+```
+
+### Authentication Issues
+
+Verify your token:
+
+```bash
+# Test token validity
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"organizationId": "org_xxx"}' \
+  https://your-probo-instance.com/api/mcp/listOrganizations
+```
+
+## Advanced Configuration
+
+### Multiple Probo Instances
+
+Configure multiple Probo instances for different environments:
+
+```json
+{
+  "mcpServers": {
+    "probo-dev": {
+      "url": "http://localhost:8080/api/mcp/v1",
+      "headers": {
+        "Authorization": "Bearer ${PROBO_DEV_TOKEN}"
+      }
+    },
+    "probo-staging": {
+      "url": "https://staging.probo.com/api/mcp/v1",
+      "headers": {
+        "Authorization": "Bearer ${PROBO_STAGING_TOKEN}"
+      }
+    },
+    "probo-prod": {
+      "url": "https://probo.company.com/api/mcp/v1",
+      "headers": {
+        "Authorization": "Bearer ${PROBO_PROD_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+### Custom Aliases
+
+Create shell aliases for common operations:
+
+```bash
+# In your ~/.bashrc or ~/.zshrc
+alias probo-risks="claude-code 'List all high-priority risks'"
+alias probo-vendors="claude-code 'Show vendor list with latest review dates'"
+alias probo-report="claude-code 'Generate monthly compliance report'"
+```
+
+## Best Practices
+
+1. **Use environment variables** for API tokens instead of hardcoding
+2. **Create project-specific configs** for different compliance contexts
+3. **Automate routine checks** with scripts and CI/CD
+4. **Use descriptive prompts** for better results
+5. **Review outputs** before taking action on compliance data
+6. **Keep tokens secure** with proper file permissions:
+   ```bash
+   chmod 600 ~/.config/claude-code/config.json
+   ```
+
+## Next Steps
+
+- Explore all available [MCP tools](/docs/api/mcp/overview#available-tools)
+- Learn about [data types and schemas](/docs/api/mcp/overview#api-specification)
+- Configure MCP for other platforms: [Claude Desktop](/docs/api/mcp/claude-desktop), [VS Code](/docs/api/mcp/vscode)
+
+## Support
+
+Need help with Claude Code configuration?
+
+- [Claude Code Documentation](https://github.com/anthropics/claude-code)
+- [GitHub Issues](https://github.com/getprobo/probo/issues)
+- [Discord Community](https://discord.gg/8qfdJYfvpY)

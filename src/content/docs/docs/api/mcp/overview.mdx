@@ -1,0 +1,104 @@
+---
+title: MCP API Overview
+description: Introduction to the Probo Model Context Protocol (MCP) Server API
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Probo MCP Server lets AI assistants interact with your compliance data. Use Claude, ChatGPT, or other AI tools to manage risks, vendors, and compliance activities through natural conversation.
+
+## What is MCP?
+
+Model Context Protocol (MCP) is an open standard for connecting AI assistants to external data sources. The Probo MCP Server provides 32 tools for managing:
+
+- Organizations, vendors, and people
+- Risk assessments and mitigation
+- Compliance measures and frameworks
+- Assets and data classifications
+- Nonconformities and obligations
+- Continual improvements and audits
+
+## Available Tools
+
+The Probo MCP Server provides 32 tools organized by resource type. See the complete reference with parameters and examples:
+
+<LinkCard
+  title="View All Available Tools"
+  description="Complete reference of all 32 tools with parameters, returns, and usage examples"
+  href="/docs/api/mcp/tools"
+/>
+
+## Key Concepts
+
+Before integrating the Probo MCP Server, familiarize yourself with these key concepts:
+
+<CardGrid>
+  <LinkCard
+    title="Authentication"
+    description="Learn how to authenticate with Bearer tokens"
+    href="/docs/api/mcp/authentication"
+  />
+  <LinkCard
+    title="Pagination"
+    description="Handle large datasets with cursor-based pagination"
+    href="/docs/api/mcp/pagination"
+  />
+</CardGrid>
+
+## Integrations
+
+Connect the Probo MCP Server to your preferred AI assistant or code editor:
+
+<LinkCard
+  title="View All Integrations"
+  description="Choose from Claude, OpenAI, Cursor, Windsurf, VS Code, and more"
+  href="/docs/api/mcp/integrations"
+/>
+
+## Example Usage
+
+```
+"List all high-priority risks in my organization"
+"Add a new vendor called 'Acme Corp' for cloud hosting"
+"Show me all open nonconformities"
+```
+
+## Server Exploration
+
+Use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector) to explore the Probo MCP Server interactively:
+
+```bash
+npx @modelcontextprotocol/inspector https://your-probo-instance.com/api/mcp/v1
+```
+
+When prompted, provide your Bearer token for authentication. The inspector allows you to:
+- Browse all available tools and their schemas
+- Test tools with sample data
+- View real-time request/response payloads
+- Debug authentication and connection issues
+
+## Server Information
+
+- **Server Name**: Probo MCP Server
+- **Version**: 1.0.0
+- **Protocol**: MCP (Model Context Protocol)
+- **Transport**: HTTP/HTTPS with Bearer token authentication
+- **Endpoint**: `https://your-probo-instance.com/api/mcp/v1`
+
+## API Specification
+
+The complete API specification is available in OpenAPI/JSON Schema format in the Probo repository at:
+
+```
+pkg/server/api/mcp/v1/specification.yaml
+```
+
+This specification defines all data types, enumerations, and tool schemas used by the MCP server.
+
+## Security Considerations
+
+- Store API tokens securely in your MCP client configuration
+- Use HTTPS when connecting to your Probo instance
+- Tokens have full access to your organization's compliance data
+- Rotate tokens periodically for security
+- Review MCP client access logs regularly

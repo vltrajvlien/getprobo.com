@@ -1,0 +1,1190 @@
+---
+title: Available Tools
+description: Complete reference of all tools available in the Probo MCP Server
+---
+
+The Probo MCP Server provides 32 tools for managing compliance data. Tools are organized by resource type and follow consistent naming patterns.
+
+## Tool Categories
+
+Tools are grouped into these categories:
+
+- [Organizations](#organizations) - Manage organizations
+- [People](#people) - Manage team members
+- [Vendors](#vendors) - Track third-party vendors and suppliers
+- [Risks](#risks) - Assess and manage risks
+- [Measures](#measures) - Implement compliance controls
+- [Frameworks](#frameworks) - Manage compliance frameworks
+- [Assets](#assets) - Track organizational assets
+- [Data](#data) - Classify and manage data
+- [Nonconformities](#nonconformities) - Track compliance issues
+- [Obligations](#obligations) - Manage compliance obligations
+- [Continual Improvements](#continual-improvements) - Track improvements
+- [Audits](#audits) - Manage compliance audits
+
+## Organizations
+
+### listOrganizations
+
+List all organizations the user has access to.
+
+**Parameters:**
+```json
+{}
+```
+
+**Returns:**
+- Array of organizations with ID, name, and metadata
+
+**Example:**
+```
+AI: "What organizations do I have access to?"
+[Uses listOrganizations tool]
+```
+
+## People
+
+### listPeople
+
+List all people in an organization.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor"
+}
+```
+
+**Supports:** Pagination, filtering
+
+**Returns:**
+- Array of people with roles and contact information
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all team members in my organization"
+[Uses listPeople tool]
+
+AI: "Show me people with admin role"
+[Uses listPeople tool with filter]
+```
+
+---
+
+### getPeople
+
+Get details of a specific person.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "people_id": "person_xxx"
+}
+```
+
+**Returns:**
+- Full person details including role, department, and access permissions
+
+**Example:**
+```
+AI: "Get details for person person_abc123"
+[Uses getPeople tool]
+```
+
+---
+
+### addPeople
+
+Add a new person to the organization.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "email": "user@example.com",
+  "name": "John Doe",
+  "role": "MEMBER"
+}
+```
+
+**Requires:** Admin permissions
+
+**Returns:**
+- Created person object with generated ID
+
+**Example:**
+```
+AI: "Add john.doe@example.com as a member to the organization"
+[Uses addPeople tool]
+```
+
+## Vendors
+
+### listVendors
+
+List all vendors for an organization.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "query": "search term"
+  }
+}
+```
+
+**Supports:** Pagination, search, filtering
+
+**Returns:**
+- Array of vendors with basic information
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all vendors"
+[Uses listVendors tool]
+
+AI: "Find vendors matching 'cloud'"
+[Uses listVendors tool with query filter]
+```
+
+---
+
+### addVendor
+
+Add a new vendor to the organization.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "Vendor Name",
+  "description": "Vendor description",
+  "website": "https://vendor.com"
+}
+```
+
+**Returns:**
+- Created vendor object with generated ID
+
+**Example:**
+```
+AI: "Add a new vendor called CloudBackup Inc that provides backup services"
+[Uses addVendor tool]
+```
+
+---
+
+### updateVendor
+
+Update an existing vendor's information.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "vendor_id": "vendor_xxx",
+  "name": "Updated Name",
+  "description": "Updated description"
+}
+```
+
+**Returns:**
+- Updated vendor object
+
+**Example:**
+```
+AI: "Update vendor vendor_abc123 to mark them as approved"
+[Uses updateVendor tool]
+```
+
+## Risks
+
+### listRisks
+
+List all risks with filtering and pagination.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "query": "search term",
+    "status": "OPEN",
+    "min_residual_risk_score": 15
+  },
+  "order_by": {
+    "field": "RESIDUAL_RISK_SCORE",
+    "direction": "DESC"
+  }
+}
+```
+
+**Supports:** Pagination, search, filtering, sorting
+
+**Returns:**
+- Array of risks with scores and treatment status
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "Show me all high-priority risks"
+[Uses listRisks tool with filter]
+
+AI: "List risks with a score above 15"
+[Uses listRisks tool with min_residual_risk_score filter]
+```
+
+---
+
+### getRisk
+
+Get detailed information about a specific risk.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "risk_id": "risk_xxx"
+}
+```
+
+**Returns:**
+- Full risk details including assessment, mitigation, and history
+
+**Example:**
+```
+AI: "Get details for risk risk_abc123"
+[Uses getRisk tool]
+```
+
+---
+
+### addRisk
+
+Create a new risk assessment.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "Risk Name",
+  "description": "Risk description",
+  "likelihood": 5,
+  "impact": 4,
+  "treatment": "MITIGATE"
+}
+```
+
+**Returns:**
+- Created risk object with calculated risk scores
+
+**Example:**
+```
+AI: "Add a risk for potential data breach with high likelihood and impact"
+[Uses addRisk tool]
+```
+
+---
+
+### updateRisk
+
+Update an existing risk assessment.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "risk_id": "risk_xxx",
+  "likelihood": 3,
+  "impact": 3,
+  "treatment": "ACCEPT"
+}
+```
+
+**Returns:**
+- Updated risk object with recalculated scores
+
+**Example:**
+```
+AI: "Update risk risk_abc123 to set treatment as ACCEPT"
+[Uses updateRisk tool]
+```
+
+## Measures
+
+### listMeasures
+
+List all compliance measures.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "state": "IMPLEMENTED"
+  }
+}
+```
+
+**Supports:** Pagination, filtering by state
+
+**Returns:**
+- Array of measures with implementation status
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all implemented measures"
+[Uses listMeasures tool with state filter]
+
+AI: "Show measures in PLANNED state"
+[Uses listMeasures tool with state=PLANNED filter]
+```
+
+---
+
+### getMeasure
+
+Get details of a specific measure.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "measure_id": "measure_xxx"
+}
+```
+
+**Returns:**
+- Full measure details including evidence and history
+
+**Example:**
+```
+AI: "Get details for measure measure_abc123"
+[Uses getMeasure tool]
+```
+
+---
+
+### addMeasure
+
+Add a new compliance measure.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "Measure Name",
+  "description": "Measure description",
+  "state": "PLANNED"
+}
+```
+
+**Returns:**
+- Created measure object
+
+**Example:**
+```
+AI: "Add a new measure for employee security training"
+[Uses addMeasure tool]
+```
+
+---
+
+### updateMeasure
+
+Update measure state and details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "measure_id": "measure_xxx",
+  "state": "IMPLEMENTED",
+  "evidence": "Implementation evidence"
+}
+```
+
+**Returns:**
+- Updated measure object
+
+**Example:**
+```
+AI: "Update measure measure_abc123 to IMPLEMENTED state"
+[Uses updateMeasure tool]
+```
+
+## Frameworks
+
+### listFrameworks
+
+List compliance frameworks.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor"
+}
+```
+
+**Supports:** Pagination
+
+**Returns:**
+- Array of frameworks (SOC 2, ISO 27001, etc.)
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all compliance frameworks"
+[Uses listFrameworks tool]
+```
+
+---
+
+### getFramework
+
+Get framework details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "framework_id": "framework_xxx"
+}
+```
+
+**Returns:**
+- Framework details including requirements and compliance status
+
+**Example:**
+```
+AI: "Get details for framework framework_abc123"
+[Uses getFramework tool]
+```
+
+---
+
+### addFramework
+
+Add a new compliance framework.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "SOC 2 Type II",
+  "description": "Service Organization Control 2"
+}
+```
+
+**Returns:**
+- Created framework object
+
+**Example:**
+```
+AI: "Add SOC 2 Type II framework"
+[Uses addFramework tool]
+```
+
+---
+
+### updateFramework
+
+Update framework information.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "framework_id": "framework_xxx",
+  "status": "IN_PROGRESS"
+}
+```
+
+**Returns:**
+- Updated framework object
+
+**Example:**
+```
+AI: "Update framework framework_abc123 status to IN_PROGRESS"
+[Uses updateFramework tool]
+```
+
+## Assets
+
+### listAssets
+
+List all organizational assets.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "type": "SERVER"
+  }
+}
+```
+
+**Supports:** Pagination, filtering by type
+
+**Returns:**
+- Array of assets with classification
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all organizational assets"
+[Uses listAssets tool]
+
+AI: "Show assets of type SERVER"
+[Uses listAssets tool with type filter]
+```
+
+---
+
+### getAsset
+
+Get asset details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "asset_id": "asset_xxx"
+}
+```
+
+**Returns:**
+- Full asset details including classification and ownership
+
+**Example:**
+```
+AI: "Get details for asset asset_abc123"
+[Uses getAsset tool]
+```
+
+---
+
+### addAsset
+
+Add a new asset.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "Asset Name",
+  "type": "SERVER",
+  "classification": "CONFIDENTIAL"
+}
+```
+
+**Returns:**
+- Created asset object
+
+**Example:**
+```
+AI: "Add a new server asset classified as CONFIDENTIAL"
+[Uses addAsset tool]
+```
+
+---
+
+### updateAsset
+
+Update asset information.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "asset_id": "asset_xxx",
+  "classification": "HIGHLY_CONFIDENTIAL"
+}
+```
+
+**Returns:**
+- Updated asset object
+
+**Example:**
+```
+AI: "Update asset asset_abc123 classification to HIGHLY_CONFIDENTIAL"
+[Uses updateAsset tool]
+```
+
+## Data
+
+### listData
+
+List data classifications.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor"
+}
+```
+
+**Supports:** Pagination
+
+**Returns:**
+- Array of data classifications
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all data classifications"
+[Uses listData tool]
+```
+
+---
+
+### getDatum
+
+Get data classification details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "datum_id": "datum_xxx"
+}
+```
+
+**Returns:**
+- Data classification details and handling requirements
+
+**Example:**
+```
+AI: "Get details for datum datum_abc123"
+[Uses getDatum tool]
+```
+
+---
+
+### addDatum
+
+Add a new data classification.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "name": "Personal Data",
+  "classification": "PII",
+  "retention_period": "7 years"
+}
+```
+
+**Returns:**
+- Created data classification object
+
+**Example:**
+```
+AI: "Add a new PII data classification with 7 year retention"
+[Uses addDatum tool]
+```
+
+---
+
+### updateDatum
+
+Update data classification.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "datum_id": "datum_xxx",
+  "retention_period": "5 years"
+}
+```
+
+**Returns:**
+- Updated data classification object
+
+**Example:**
+```
+AI: "Update datum datum_abc123 retention period to 5 years"
+[Uses updateDatum tool]
+```
+
+## Nonconformities
+
+### listNonconformities
+
+List all nonconformities.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "status": "OPEN"
+  }
+}
+```
+
+**Supports:** Pagination, filtering by status
+
+**Returns:**
+- Array of nonconformities
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all open nonconformities"
+[Uses listNonconformities tool with status filter]
+
+AI: "Show nonconformities by severity"
+[Uses listNonconformities tool with sorting]
+```
+
+---
+
+### getNonconformity
+
+Get nonconformity details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "nonconformity_id": "nonconf_xxx"
+}
+```
+
+**Returns:**
+- Full nonconformity details and remediation status
+
+**Example:**
+```
+AI: "Get details for nonconformity nonconf_abc123"
+[Uses getNonconformity tool]
+```
+
+---
+
+### addNonconformity
+
+Create a new nonconformity.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "title": "Nonconformity Title",
+  "description": "Description",
+  "severity": "HIGH"
+}
+```
+
+**Returns:**
+- Created nonconformity object
+
+**Example:**
+```
+AI: "Add a nonconformity for missing password policy"
+[Uses addNonconformity tool]
+```
+
+---
+
+### updateNonconformity
+
+Update nonconformity status.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "nonconformity_id": "nonconf_xxx",
+  "status": "RESOLVED",
+  "resolution": "Resolution details"
+}
+```
+
+**Returns:**
+- Updated nonconformity object
+
+**Example:**
+```
+AI: "Mark nonconformity nonconf_abc123 as RESOLVED"
+[Uses updateNonconformity tool]
+```
+
+## Obligations
+
+### listObligations
+
+List compliance obligations.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "status": "PENDING"
+  }
+}
+```
+
+**Supports:** Pagination, filtering by status
+
+**Returns:**
+- Array of obligations with due dates
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all pending obligations"
+[Uses listObligations tool with status filter]
+
+AI: "Show overdue obligations"
+[Uses listObligations tool with date filter]
+```
+
+---
+
+### getObligation
+
+Get obligation details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "obligation_id": "oblig_xxx"
+}
+```
+
+**Returns:**
+- Full obligation details and completion status
+
+**Example:**
+```
+AI: "Get details for obligation oblig_abc123"
+[Uses getObligation tool]
+```
+
+---
+
+### addObligation
+
+Add a new obligation.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "title": "Obligation Title",
+  "due_date": "2025-12-31",
+  "description": "Description"
+}
+```
+
+**Returns:**
+- Created obligation object
+
+**Example:**
+```
+AI: "Add an obligation for annual security review due Dec 31"
+[Uses addObligation tool]
+```
+
+---
+
+### updateObligation
+
+Update obligation status.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "obligation_id": "oblig_xxx",
+  "status": "COMPLETED",
+  "completion_date": "2025-01-15"
+}
+```
+
+**Returns:**
+- Updated obligation object
+
+**Example:**
+```
+AI: "Mark obligation oblig_abc123 as COMPLETED"
+[Uses updateObligation tool]
+```
+
+## Continual Improvements
+
+### listContinualImprovements
+
+List improvement initiatives.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor"
+}
+```
+
+**Supports:** Pagination
+
+**Returns:**
+- Array of improvement initiatives
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all improvement initiatives"
+[Uses listContinualImprovements tool]
+```
+
+---
+
+### getContinualImprovement
+
+Get improvement details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "continual_improvement_id": "ci_xxx"
+}
+```
+
+**Returns:**
+- Full improvement details and progress
+
+**Example:**
+```
+AI: "Get details for improvement ci_abc123"
+[Uses getContinualImprovement tool]
+```
+
+---
+
+### addContinualImprovement
+
+Create a new improvement initiative.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "title": "Improvement Title",
+  "description": "Description",
+  "target_date": "2025-06-30"
+}
+```
+
+**Returns:**
+- Created improvement object
+
+**Example:**
+```
+AI: "Add improvement initiative to automate backups"
+[Uses addContinualImprovement tool]
+```
+
+---
+
+### updateContinualImprovement
+
+Update improvement status.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "continual_improvement_id": "ci_xxx",
+  "status": "IN_PROGRESS",
+  "progress": 50
+}
+```
+
+**Returns:**
+- Updated improvement object
+
+**Example:**
+```
+AI: "Update improvement ci_abc123 progress to 50%"
+[Uses updateContinualImprovement tool]
+```
+
+## Audits
+
+### listAudits
+
+List all audits.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "size": 50,
+  "cursor": "optional_cursor",
+  "filter": {
+    "status": "ACTIVE"
+  }
+}
+```
+
+**Supports:** Pagination, filtering by status
+
+**Returns:**
+- Array of audits
+- `next_cursor` for pagination
+
+**Example:**
+```
+AI: "List all active audits"
+[Uses listAudits tool with status filter]
+
+AI: "Show completed audits"
+[Uses listAudits tool with status=COMPLETED filter]
+```
+
+---
+
+### getAudit
+
+Get audit details.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "audit_id": "audit_xxx"
+}
+```
+
+**Returns:**
+- Full audit details including findings and scope
+
+**Example:**
+```
+AI: "Get details for audit audit_abc123"
+[Uses getAudit tool]
+```
+
+---
+
+### addAudit
+
+Create a new audit.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "title": "Audit Title",
+  "audit_type": "INTERNAL",
+  "scheduled_date": "2025-03-01"
+}
+```
+
+**Returns:**
+- Created audit object
+
+**Example:**
+```
+AI: "Add an internal audit scheduled for March 1"
+[Uses addAudit tool]
+```
+
+---
+
+### updateAudit
+
+Update audit status and visibility.
+
+**Parameters:**
+```json
+{
+  "organization_id": "org_xxx",
+  "audit_id": "audit_xxx",
+  "status": "COMPLETED",
+  "completion_date": "2025-03-15",
+  "visible": true
+}
+```
+
+**Returns:**
+- Updated audit object
+
+**Example:**
+```
+AI: "Mark audit audit_abc123 as COMPLETED"
+[Uses updateAudit tool]
+```
+
+## Tool Naming Conventions
+
+Tools follow consistent patterns:
+
+- **list\***: Retrieve multiple items (supports pagination)
+- **get\***: Retrieve a single item by ID
+- **add\***: Create a new item
+- **update\***: Modify an existing item
+
+## Common Parameters
+
+### organization_id
+
+All tools require an `organization_id` parameter to specify which organization to operate on.
+
+### Pagination
+
+Tools that support pagination accept:
+- `size`: Items per page (default: 20-100)
+- `cursor`: Cursor from previous response
+
+See [Pagination](/docs/api/mcp/pagination) for details.
+
+### Filtering
+
+Many list tools support filtering:
+- `query`: Text search across relevant fields
+- `status`: Filter by status (OPEN, CLOSED, etc.)
+- Resource-specific filters
+
+### Sorting
+
+List tools support `order_by`:
+```json
+{
+  "order_by": {
+    "field": "CREATED_AT",
+    "direction": "DESC"
+  }
+}
+```
