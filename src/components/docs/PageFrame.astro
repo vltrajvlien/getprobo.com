@@ -12,7 +12,7 @@ import Header from "../Header.astro";
     class="sidebar justify-self-start top-16 fixed transition-all w-full lg:max-w-60 lg:sticky-top"
     aria-label={Astro.locals.t("sidebarNav.accessibleLabel")}
   >
-    <div class="mb-4 hidden sl:block">
+    <div class="mb-4 hidden lg:block">
       <Search />
     </div>
     <slot name="sidebar" />
@@ -24,6 +24,7 @@ import Header from "../Header.astro";
   @media (max-width: 64rem) {
     body[data-mobile-menu-expanded] .sidebar {
       transform: translateY(0);
+      pointer-events: all;
       opacity: 1;
     }
     .sidebar {
@@ -40,6 +41,16 @@ import Header from "../Header.astro";
       background-color: var(--sl-color-bg);
       box-shadow: var(--shadow-md);
       border-right: solid 1px var(--color-border-low);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar,
+    :global(.right-sidebar) {
+      padding-right: .5rem;
+      margin-right: -.5rem;
+      max-height: calc(100vh - 6.5rem);
+      overflow: auto;
     }
   }
 </style>

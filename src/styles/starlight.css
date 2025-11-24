@@ -40,7 +40,7 @@
     :root{
         --sl-color-bg: var(--color-level-0);
         --sl-color-text: var(--color-muted-foreground);
-        --sl-nav-height: 4rem;
+        --sl-nav-height: 3.75rem;
 
 
         /* Colours (light mode) */
@@ -51,7 +51,7 @@
         --sl-color-gray-4: hsl(224, 6%, 56%);
         --sl-color-gray-5: hsl(224, 6%, 77%);
         --sl-color-gray-6: hsl(224, 20%, 94%);
-        --sl-color-gray-7: hsl(224, 19%, 97%);
+        --sl-color-gray-7: var(--color-subtle);
         --sl-color-black: var(--color-level-0);
 
         --sl-color-orange-high: hsl(var(--sl-hue-orange), 80%, 25%);
@@ -97,12 +97,6 @@
         border-bottom: solid 1px var(--color-border-low);
     }
 
-    pre {
-        border: solid 1px var(--color-border-low);
-        border-radius: .25rem;
-        background: var(--color-subtle);
-    }
-
     body {
         color: var(--color-muted-foreground);
     }
@@ -114,4 +108,25 @@
     .starlight-aside{
         border-radius: .5rem;
     }
+
+    details {
+        --sl-sidebar-item-padding-inline: 0;
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--color-level-0);
+        padding: 1px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--sl-color-gray-6);
+        border-radius: 4px;
+    }
+
 }
