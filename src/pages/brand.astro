@@ -92,9 +92,16 @@ const __ = await getTranslator(Astro.currentLocale)
               </div>
               <div class="flex flex-wrap gap-2 justify-center">
                 <a
-                  href={`/frameworks/${framework.badge}.json`}
+                  href={`/frameworks/${framework.badge}.svg`}
                   download
                   class="text-xs px-3 py-1.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors inline-block"
+                >
+                  SVG
+                </a>
+                <a
+                  href={`/frameworks/${framework.badge}.json`}
+                  download
+                  class="text-xs px-3 py-1.5 bg-level-1 text-foreground border border-border rounded-md hover:bg-level-2 transition-colors inline-block"
                 >
                   JSON
                 </a>
