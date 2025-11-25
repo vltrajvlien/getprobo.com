@@ -123,7 +123,6 @@ export default defineConfig({
         },
         {
           label: "Configuration",
-          collapsed: true,
           items: [
             { label: "Overview", slug: "docs/configuration/overview" },
             { label: "Config File", slug: "docs/configuration/config-file" },
@@ -135,7 +134,6 @@ export default defineConfig({
         },
         {
           label: "Product",
-          collapsed: true,
           items: [
             {
               label: "SSO",
@@ -161,7 +159,22 @@ export default defineConfig({
                 { label: "Authentication", slug: "docs/api/mcp/authentication" },
                 { label: "Pagination", slug: "docs/api/mcp/pagination" },
                 { label: "Available Tools", slug: "docs/api/mcp/tools" },
-                { label: "Integrations", slug: "docs/api/mcp/integrations" },
+                { 
+                  label: "Integrations", 
+                  items: [
+                    { label: "Overview", slug: "docs/api/mcp/integrations" },
+                    { label: "Claude Desktop", slug: "docs/api/mcp/claude-desktop" },
+                    { label: "Claude Code", slug: "docs/api/mcp/claude-code" },
+                    { label: "Claude.ai", slug: "docs/api/mcp/claude-ai" },
+                    { label: "Cursor", slug: "docs/api/mcp/cursor" },
+                    { label: "Windsurf", slug: "docs/api/mcp/windsurf" },
+                    { label: "Zed", slug: "docs/api/mcp/zed" },
+                    { label: "Opencode AI", slug: "docs/api/mcp/opencode" },
+                    { label: "VS Code", slug: "docs/api/mcp/vscode" },
+                    { label: "OpenAI", slug: "docs/api/mcp/openai" },
+                    { label: "Claude.ai", slug: "docs/api/mcp/claude-ai" },
+                  ],
+                },
               ],
             },
           ],
