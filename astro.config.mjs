@@ -72,6 +72,7 @@ export default defineConfig({
         Header: "./src/components/docs/Header.astro",
         Head: "./src/components/docs/Head.astro",
         PageFrame: "./src/components/docs/PageFrame.astro",
+        Search: "./src/components/docs/Search.astro",
         MobileMenuFooter: "./src/components/docs/MobileMenuFooter.astro",
         ThemeProvider: "./src/components/docs/ThemeProvider.astro",
         LanguageSelect: "./src/components/docs/LanguageSelect.astro",
@@ -159,8 +160,8 @@ export default defineConfig({
                 { label: "Authentication", slug: "docs/api/mcp/authentication" },
                 { label: "Pagination", slug: "docs/api/mcp/pagination" },
                 { label: "Available Tools", slug: "docs/api/mcp/tools" },
-                { 
-                  label: "Integrations", 
+                {
+                  label: "Integrations",
                   items: [
                     { label: "Overview", slug: "docs/api/mcp/integrations" },
                     { label: "Claude Desktop", slug: "docs/api/mcp/claude-desktop" },
