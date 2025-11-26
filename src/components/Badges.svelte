@@ -43,7 +43,7 @@
       availableFrameworks[
         Math.floor(Math.random() * availableFrameworks.length)
       ];
-    const randomIndex = Math.floor(Math.random() * count);
+    const randomIndex = Math.floor(Math.random() * visibleFrameworks.length);
     visibleFrameworks[randomIndex] = randomFramework;
     timer = setTimeout(tick, duration);
   };
