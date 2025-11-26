@@ -26,6 +26,7 @@ const __ = await getTranslator(Astro.currentLocale)
 
 <script>
   import {AnimatedHero} from '../lib/elements/hero'
+  import {customElementDefine} from '../lib/dom'
 
-  customElements.define('animated-hero', AnimatedHero)
+  customElementDefine('animated-hero', () => AnimatedHero)
 </script>

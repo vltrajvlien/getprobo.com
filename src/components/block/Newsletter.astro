@@ -54,7 +54,8 @@ const props = Astro.props;
 </newsletter-form>
 
 <script>
-import { toast } from "svelte-sonner";
+  import { toast } from "svelte-sonner";
+  import { customElementDefine } from "../../lib/dom";
 
   class NewsletterForm extends HTMLElement {
     connectedCallback() {
@@ -100,7 +101,5 @@ import { toast } from "svelte-sonner";
     }
   }
 
-  if (!customElements.get("newsletter-form")) {
-    customElements.define("newsletter-form", NewsletterForm);
-  }
+  customElementDefine("newsletter-form", () => NewsletterForm);
 </script>

@@ -7,7 +7,7 @@ export const customElementDefine = (
   name: string,
   cb: () => CustomElementConstructor,
 ) => {
-  if (isClient()) {
+  if (isClient() && !customElements.get(name)) {
     customElements.define(name, cb());
   }
 };

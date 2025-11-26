@@ -9,11 +9,12 @@ const stars = await getStarsCount()
 
 <script>
   import { getStarsCount } from "../lib/github";
+  import { customElementDefine } from "../lib/dom";
 
   class GithubStars extends HTMLElement {
     connectedCallback() {
       getStarsCount().then(stars => {this.innerText = stars})
     }
   }
-  customElements.define('github-stars', GithubStars);
+  customElementDefine('github-stars', () => GithubStars);
 </script>

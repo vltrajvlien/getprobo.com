@@ -45,6 +45,8 @@ const __ = await getTranslator(Astro.currentLocale);
 </section>
 
 <script>
+  import { customElementDefine } from "../../lib/dom";
+
   class ComplianceTrack extends HTMLElement {
     observer: IntersectionObserver | null = null;
     timer: ReturnType<typeof setTimeout> | null = null;
@@ -81,7 +83,7 @@ const __ = await getTranslator(Astro.currentLocale);
     }
   }
 
-  customElements.define("compliance-track", ComplianceTrack);
+  customElementDefine("compliance-track", () => ComplianceTrack);
 </script>
 
 <style>

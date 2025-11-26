@@ -37,6 +37,7 @@
 </starlight-menu-button>
 
 <script>
+  import { customElementDefine } from "../../lib/dom";
   class StarlightMenuButton extends HTMLElement {
     btn = this.querySelector('button')!;
 
@@ -69,7 +70,7 @@
     }
   }
 
-  customElements.define('starlight-menu-button', StarlightMenuButton);
+  customElementDefine('starlight-menu-button', () => StarlightMenuButton);
 </script>
 
 <style>

@@ -84,6 +84,8 @@ type Props = {
 <MobileMenu id="mobile-menu" />
 
 <script>
+  import { customElementDefine } from "../lib/dom";
+
   class BurgerMenu extends HTMLElement {
     scrolled = null as null | boolean;
 
@@ -123,5 +125,5 @@ type Props = {
     }
   }
 
-  customElements.define("burger-menu", BurgerMenu);
+  customElementDefine("burger-menu", () => BurgerMenu);
 </script>
