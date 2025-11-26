@@ -93,14 +93,15 @@ type Props = {
 <Toaster richColors position="top-center" client:only="svelte"/>
 
 <script>
-  import { 
-  initializeFaro, 
+  import {
+  initializeFaro,
+  faro,
   getWebInstrumentations,
   NavigationInstrumentation,
-  ViewInstrumentation 
+  ViewInstrumentation
 } from "@grafana/faro-web-sdk";
 
-  if (import.meta.env.PROD) {
+  if (import.meta.env.PROD && !faro?.api) {
     initializeFaro({
       url: "https://faro-collector-prod-us-west-0.grafana.net/collect/bc771c773d3690b642ccf001af91958a",
       app: {
@@ -112,7 +113,7 @@ type Props = {
           captureConsole: true,
           enablePerformanceInstrumentation: true,
         }),
-        
+
         new NavigationInstrumentation(),
         new ViewInstrumentation(),
       ],
