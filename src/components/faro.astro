@@ -1,13 +1,13 @@
 <script>
   import {
   initializeFaro,
-  faro,
   getWebInstrumentations,
   NavigationInstrumentation,
   ViewInstrumentation
 } from "@grafana/faro-web-sdk";
 
-  if (import.meta.env.PROD && !faro?.api) {
+  if (import.meta.env.PROD && !window.__FARO_INITIALIZED__) {
+    window.__FARO_INITIALIZED__ = true;
     initializeFaro({
       url: "https://faro-collector-prod-us-west-0.grafana.net/collect/bc771c773d3690b642ccf001af91958a",
       app: {
