@@ -1,11 +1,27 @@
 ---
-const { head } = Astro.locals.starlightRoute;
 import { ClientRouter } from "astro:transitions";
-import StarlightHead from "@astrojs/starlight/components/Head.astro";
 import PostHog from "../posthog.astro";
+
+const { head } = Astro.locals.starlightRoute;
+
+const filteredHead = head.filter((item) => {
+  if (
+    item.tag === "link" &&
+    item.attrs?.hreflang &&
+    item.attrs.hreflang !== "en" &&
+    item.attrs.hreflang !== "x-default"
+  ) {
+    return false;
+  }
+  return true;
+});
 ---
 
-<StarlightHead {...Astro.props}><slot /></StarlightHead>
+{
+  filteredHead.map(({ tag: Tag, attrs, content }) => (
+    <Tag {...attrs} set:html={content} />
+  ))
+}
 <link
   href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
   rel="stylesheet"
