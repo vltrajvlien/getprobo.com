@@ -7,6 +7,7 @@ import Cookie from "../components/Cookie.svelte";
 import Newsletter from "./block/Newsletter.astro";
 import {Toaster} from 'svelte-sonner'
 import { getLink } from "../lib/i18n.ts";
+import Faro from "./faro.astro";
 
 const menus = [
   {
@@ -92,31 +93,4 @@ type Props = {
 
 <Toaster richColors position="top-center" client:only="svelte"/>
 
-<script>
-  import {
-  initializeFaro,
-  faro,
-  getWebInstrumentations,
-  NavigationInstrumentation,
-  ViewInstrumentation
-} from "@grafana/faro-web-sdk";
-
-  if (import.meta.env.PROD && !faro?.api) {
-    initializeFaro({
-      url: "https://faro-collector-prod-us-west-0.grafana.net/collect/bc771c773d3690b642ccf001af91958a",
-      app: {
-        name: "site",
-        version: "1.0.0",
-      },
-      instrumentations: [
-        ...getWebInstrumentations({
-          captureConsole: true,
-          enablePerformanceInstrumentation: true,
-        }),
-
-        new NavigationInstrumentation(),
-        new ViewInstrumentation(),
-      ],
-    });
-  }
-</script>
+<Faro />
