@@ -2,6 +2,7 @@
 import MobileMenuToggle from "virtual:starlight/components/MobileMenuToggle";
 import Search from 'virtual:starlight/components/Search';
 import Header from "../Header.astro";
+import Cookie from "../Cookie.svelte";
 ---
 
 <Header hideBurger>
@@ -54,3 +55,5 @@ import Header from "../Header.astro";
     }
   }
 </style>
+
+<Cookie client:only />

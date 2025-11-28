@@ -2,6 +2,7 @@
 const { head } = Astro.locals.starlightRoute;
 import { ClientRouter } from "astro:transitions";
 import StarlightHead from "@astrojs/starlight/components/Head.astro";
+import PostHog from "../posthog.astro";
 ---
 
 <StarlightHead {...Astro.props}><slot /></StarlightHead>
@@ -11,3 +12,4 @@ import StarlightHead from "@astrojs/starlight/components/Head.astro";
 />
 
 <ClientRouter />
+<PostHog />
