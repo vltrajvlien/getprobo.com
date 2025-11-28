@@ -82,6 +82,7 @@ if (project.trailingSlash === "never")
 
 <script>
   import { pagefindUserConfig } from "virtual:starlight/pagefind-config";
+  import { customElementDefine } from "../../lib/dom";
 
   class SiteSearch extends HTMLElement {
     openBtn: HTMLButtonElement | null = null;
@@ -193,7 +194,7 @@ if (project.trailingSlash === "never")
       });
     }
   }
-  customElements.define("site-search", SiteSearch);
+  customElementDefine("site-search", () => SiteSearch);
 </script>
 
 <style>
