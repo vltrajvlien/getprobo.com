@@ -1,4 +1,2 @@
-https://www.getprobo.com/sitemap.xml https://www.getprobo.com/sitemap-index.xml 301!
-https://www.getprobo.com/subprocessors https://compliance.getprobo.com/subprocessors 301!
-https://getprobo.com/_ https://www.getprobo.com/:splat 301!
-http://getprobo.com/_ https://www.getprobo.com/:splat 301!
+/sitemap.xml /sitemap-index.xml 301
+/subprocessors https://compliance.getprobo.com/subprocessors 301
