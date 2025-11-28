@@ -43,11 +43,16 @@ Edit the `claude_desktop_config.json` file and add the Probo MCP server configur
 ```json
 {
   "mcpServers": {
-    "probo": {
-      "url": "https://your-probo-instance.com/api/mcp/v1",
-      "headers": {
-        "Authorization": "Bearer your_api_token_here"
-      }
+    "probo-eu": {
+      "command": "npx",
+      "args": [
+        "mcp-remote@latest",
+        "https://your-probo-instance.com/api/mcp/v1",
+        "--transport",
+        "http-only",
+        "--header",
+        "Authorization: Bearer your_api_token_here"
+      ]
     }
   }
 }
@@ -143,9 +148,9 @@ type %APPDATA%\Claude\logs\mcp*.log
 
 If you see authentication errors:
 
-- Verify your API token is correct
+- Verify your API token is correct in the configuration file
 - Check that the token hasn't expired
-- Ensure the `PROBO_API_TOKEN` environment variable is set correctly
+- Ensure the token is properly formatted in the `--header` argument
 - Test the API token with curl:
   ```bash
   curl -H "Authorization: Bearer YOUR_TOKEN" \
@@ -177,58 +182,6 @@ If Claude says tools aren't available:
 - **Rotate tokens**: Regularly rotate API tokens
 - **Audit access**: Review MCP access logs in your Probo instance
 - **Limit scope**: Create tokens with minimal required permissions
-
-## Configuration Examples
-
-### Multiple Organizations
-
-If you manage multiple Probo organizations:
-
-```json
-{
-  "mcpServers": {
-    "probo-org1": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://org1.probo.com/api/mcp"],
-      "env": {
-        "PROBO_API_TOKEN": "token_for_org1"
-      }
-    },
-    "probo-org2": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://org2.probo.com/api/mcp"],
-      "env": {
-        "PROBO_API_TOKEN": "token_for_org2"
-      }
-    }
-  }
-}
-```
-
-### Development vs Production
-
-Use different configurations for development and production:
-
-```json
-{
-  "mcpServers": {
-    "probo-dev": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "http://localhost:8080/api/mcp"],
-      "env": {
-        "PROBO_API_TOKEN": "dev_token"
-      }
-    },
-    "probo-prod": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://probo.company.com/api/mcp"],
-      "env": {
-        "PROBO_API_TOKEN": "prod_token"
-      }
-    }
-  }
-}
-```
 
 ## Next Steps
 
