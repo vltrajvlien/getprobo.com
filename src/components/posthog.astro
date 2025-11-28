@@ -68,4 +68,33 @@
     respect_dnt: true,
     debug,
   });
+
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      var toolbarJSON = new URLSearchParams(
+        window.location.hash.substring(1),
+      ).get("__posthog");
+      if (toolbarJSON) {
+        window.toolbarJSON = toolbarJSON;
+      }
+
+      if (window.toolbarJSON && !window._postHogToolbarLoaded) {
+        window.posthog.loadToolbar(JSON.parse(window.toolbarJSON));
+        window._postHogToolbarLoaded = true;
+      }
+    },
+    { once: true },
+  );
+
+  document.addEventListener("astro:before-swap", () => {
+    window._postHogToolbarLoaded = false;
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    if (window.toolbarJSON) {
+      window.posthog.loadToolbar(JSON.parse(window.toolbarJSON));
+      window._postHogToolbarLoaded = true;
+    }
+  });
 </script>
