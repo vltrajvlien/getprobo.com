@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 import Logo from "../../assets/probo-logo-only.svg";
 import Badges from "../Badges.svelte";
 import Button from "../../components/ui/Button.svelte";
+import { getTranslator } from "../../lib/i18n.ts";
+
+const __ = await getTranslator(Astro.currentLocale);
 ---
 
 <div class="bg-linear-to-b from-[#F8FAF4] to-[#FFFFFB] py-10 sm:py-20">
@@ -17,13 +20,13 @@ import Button from "../../components/ui/Button.svelte";
     <h2
       class="text-h3 sm:text-h2 mb-3 text-center font-medium"
     >
-      Managed frameworks
+      {__("Managed frameworks")}
     </h2>
     <p
       class="text-muted-foreground mb-12 text-center text-lg"
     >
-      Not seeing the one you are looking us?<br/>
-      Reach out, we likely do it as well.
+      {__("Not seeing the one you are looking for?")}<br/>
+      {__("Reach out, we likely do it as well.")}
     </p>
 
     <Badges
@@ -39,7 +42,7 @@ import Button from "../../components/ui/Button.svelte";
       size="lg"
       class="w-max mx-auto flex"
     >
-      Get compliant
+      {__("Get compliant")}
     </Button>
   </div>
 </div>

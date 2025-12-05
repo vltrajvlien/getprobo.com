@@ -3,16 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import Logos from "../components/block/Logos.astro";
 import StoryCard from "../components/StoryCard.astro";
-import { filterLang } from "../lib/i18n.ts";
+import { filterLang, getTranslator } from "../lib/i18n.ts";
 
+const __ = await getTranslator(Astro.currentLocale);
 const stories = (await getCollection("stories", filterLang(Astro.currentLocale))).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
 <Layout
-  title="Customer stories"
-  description="Inspiring stories, real Probo customers"
+  title={__("Customer stories")}
+  description={__("Inspiring stories, real Probo customers")}
 >
   <main class="my-10 sm:my-20">
     <div class="container">
@@ -24,7 +25,7 @@ const stories = (await getCollection("stories", filterLang(Astro.currentLocale))
     <p
       class="text-muted-foreground text-center text-base animate-perspective-in animation-delay-200"
     >
-      Inspiring stories, real Probo customers
+      {__("Inspiring stories, real Probo customers")}
     </p>
     </div>
     <Logos class="my-6 animate-slide-in animation-delay-300" constrained/>

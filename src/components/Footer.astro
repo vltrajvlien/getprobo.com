@@ -6,36 +6,38 @@ import OpenStatus from "../components/OpenStatus.svelte";
 import Cookie from "../components/Cookie.svelte";
 import Newsletter from "./block/Newsletter.astro";
 import {Toaster} from 'svelte-sonner'
-import { getLink } from "../lib/i18n.ts";
+import { getLink, getTranslator } from "../lib/i18n.ts";
 import Faro from "./faro.astro";
+
+const __ = await getTranslator(Astro.currentLocale);
 
 const menus = [
   {
-    label: "Resources",
+    label: __("Resources"),
     items: [
-      { label: "Home", href: getLink(Astro, "/") },
-      { label: "Blog", href: getLink(Astro, "/blog") },
-      { label: "Stories", href: getLink(Astro, "/stories") },
+      { label: __("Home"), href: getLink(Astro, "/") },
+      { label: __("Blog"), href: getLink(Astro, "/blog") },
+      { label: __("Stories"), href: getLink(Astro, "/stories") },
       { label: "GitHub", href: "https://github.com/getprobo/probo" },
     ],
   },
   {
-    label: "Company",
+    label: __("Company"),
     items: [
-      { label: "About", href: getLink(Astro, "/about") },
-      { label: "Brand", href: getLink(Astro, "/brand") },
+      { label: __("About"), href: getLink(Astro, "/about") },
+      { label: __("Brand"), href: getLink(Astro, "/brand") },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/getprobo" },
     ],
   },
   {
-    label: "Legal",
+    label: __("Legal"),
     items: [
-      { label: "Cookie Policy", href: getLink(Astro, "/cookie-policy") },
-      { label: "Privacy Policy", href: getLink(Astro, "/privacy") },
-      { label: "Terms of service", href: getLink(Astro, "/terms") },
-      { label: "Compliance", href: "https://compliance.getprobo.com" },
+      { label: __("Cookie Policy"), href: getLink(Astro, "/cookie-policy") },
+      { label: __("Privacy Policy"), href: getLink(Astro, "/privacy") },
+      { label: __("Terms of service"), href: getLink(Astro, "/terms") },
+      { label: __("Compliance"), href: "https://compliance.getprobo.com" },
       {
-        label: "Subprocessors",
+        label: __("Subprocessors"),
         href: "https://compliance.getprobo.com/subprocessors",
       },
     ],
@@ -84,7 +86,7 @@ type Props = {
   <p
     class="text-tertiary-foreground text-xxs container flex items-center gap-3"
   >
-    Copyright © {new Date().getFullYear()} Probo. All rights reserved.
+    {__("Copyright © 2025 Probo. All rights reserved.")}
     <OpenStatus client:visible />
   </p>
 </footer>
