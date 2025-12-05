@@ -5,7 +5,7 @@ import Frameworks from "./block/Frameworks.astro";
 import OpenStatus from "../components/OpenStatus.svelte";
 import Cookie from "../components/Cookie.svelte";
 import Newsletter from "./block/Newsletter.astro";
-import {Toaster} from 'svelte-sonner'
+import { Toaster } from "svelte-sonner";
 import { getLink, getTranslator } from "../lib/i18n.ts";
 import Faro from "./faro.astro";
 
@@ -35,7 +35,7 @@ const menus = [
       { label: __("Cookie Policy"), href: getLink(Astro, "/cookie-policy") },
       { label: __("Privacy Policy"), href: getLink(Astro, "/privacy") },
       { label: __("Terms of service"), href: getLink(Astro, "/terms") },
-      { label: __("Compliance"), href: "https://compliance.getprobo.com" },
+      { label: __("Security"), href: "https://compliance.getprobo.com" },
       {
         label: __("Subprocessors"),
         href: "https://compliance.getprobo.com/subprocessors",
@@ -44,8 +44,8 @@ const menus = [
   },
 ];
 type Props = {
-  noFrameworks?: boolean
-}
+  noFrameworks?: boolean;
+};
 ---
 
 {!Astro.props.noFrameworks && <Frameworks />}
@@ -93,6 +93,6 @@ type Props = {
 
 <Cookie client:only />
 
-<Toaster richColors position="top-center" client:only="svelte"/>
+<Toaster richColors position="top-center" client:only="svelte" />
 
 <Faro />
