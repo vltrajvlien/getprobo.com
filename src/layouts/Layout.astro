@@ -8,7 +8,7 @@ import { getCanonicalUrl } from "../lib/i18n.ts";
 
 const { title, description } = Astro.props;
 interface Props {
-  noFrameworks?: boolean
+  noFrameworks?: boolean;
   title: string;
   description?: string;
 }
@@ -69,16 +69,15 @@ const canonical = getCanonicalUrl(Astro.url);
   <body class="text-primary bg-level-0 font-sans text-base">
     <Header />
     <slot />
-    <Footer noFrameworks={Astro.props.noFrameworks}/>
+    <Footer noFrameworks={Astro.props.noFrameworks} />
   </body>
 </html>
 
 <script>
-  import {langs} from '../config.ts'
+  import { langs } from "../config.ts";
   import { trim } from "../lib/string.ts";
-  function redirectLang () {
-
-    const lang = localStorage.getItem('lang')
+  function redirectLang() {
+    const lang = localStorage.getItem("lang");
     // The check was already done in the past, do nothing
     if (lang !== null) {
       return;
@@ -86,20 +85,21 @@ const canonical = getCanonicalUrl(Astro.url);
 
     for (const lang of langs) {
       if (!navigator.language.includes(lang)) {
-        continue
+        continue;
       }
 
       // User is already on a translated content, do nothing
       if (window.location.href.includes(`/${lang}`)) {
-        localStorage.setItem('lang', lang)
+        localStorage.setItem("lang", lang);
         continue;
       }
 
       // Redirect to the translated content
-      localStorage.setItem('lang', lang)
-      window.location.href = '/' + trim(`${lang}${window.location.pathname}`, '/')
+      localStorage.setItem("lang", lang);
+      window.location.href =
+        "/" + trim(`${lang}${window.location.pathname}`, "/");
     }
   }
-  // Disable lang redirection while the translations are being worked
-  // redirectLang()
+
+  redirectLang();
 </script>
