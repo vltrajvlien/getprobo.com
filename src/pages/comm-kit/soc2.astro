@@ -1,5 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import FrameworkBadge from "../../components/FrameworkBadge.svelte";
+import { Image } from "astro:assets";
+import ProboLogo from "../../assets/probo-logo.svg";
+import ProboLogoOnly from "../../assets/probo-logo-only.svg";
+
+const soc2Badges = [
+  { label: "SOC 2 Type 1", badge: "SOC2_TYPE1" },
+  { label: "SOC 2 Type 2", badge: "SOC2_TYPE2" },
+];
 ---
 
 <Layout
@@ -10,7 +19,7 @@ import Layout from "../../layouts/Layout.astro";
     <h1 class="text-h2 mb-3 font-medium animate-slide-in">
       SOC 2 - Communication Kit
     </h1>
-    <h3 class="text-lg font-medium mb-4">Congrats on your successful SOC 2 Type II Audit!    </h3>
+    <h3 class="text-lg font-medium mb-4">Congrats on your successful SOC 2 Type II Audit!</h3>
     <p class="text-muted-foreground mb-10 sm:mb-20 animate-slide-in animation-delay-100">
       Here is a communication kit to help you leverage business with your SOC 2 report and learn what you can or can't say about it.
     </p>
@@ -95,7 +104,7 @@ import Layout from "../../layouts/Layout.astro";
       <section class="animate-slide-in animation-delay-300">
         <h2 class="text-h4 font-medium mb-10">Linkedin post & blog article content</h2>
         
-        <h3 class="text-lg font-medium mb-4">Linkedin post</h3>
+        <h3 class="text-lg font-medium mb-4 mt-10">Linkedin post</h3>
         <p class="text-muted-foreground mb-4">
           It is now a good time to inform your customers and prospects about your new milestone.
         </p>
@@ -124,27 +133,258 @@ import Layout from "../../layouts/Layout.astro";
             Proud of what the team has accomplished, and excited for what this unlocks next.
           </p>
         </div>
+
+        <h3 class="text-lg font-medium mb-4 mt-10">Blog article</h3>
+        <p class="text-muted-foreground mb-6">
+          It is a good practice to create a page about your SOC 2 report to give context to your customers and prospects. You can also link this page to the SOC 2 logo you would display on your website.
+        </p>
+        
+        <div class="rounded-lg p-6 bg-level-1 border border-border-low space-y-6">
+          <p class="text-muted-foreground">✏️</p>
+          
+          <h4 class="text-h4 font-bold">[Company Name] Achieves SOC 2 Compliance, Reinforcing Its Commitment to Security and Trust</h4>
+          
+          <p class="text-muted-foreground">
+            We're proud to announce that <strong>[Company Name] is now SOC 2 compliant</strong>, marking a major milestone in our ongoing commitment to security, reliability, and transparency for our customers and partners.
+          </p>
+          <p class="text-muted-foreground">
+            This milestone was achieved in close partnership with <a href="https://www.getprobo.com" class="underline">Probo</a>, who led our compliance process.
+          </p>
+          
+          <hr />
+          
+          <h5 class="text-lg font-bold">What this means for our customers</h5>
+          <p class="text-muted-foreground">
+            SOC 2 compliance provides independent assurance that <strong>[Company Name] operates with strong internal controls designed to protect customer data</strong>.
+          </p>
+          <p class="text-muted-foreground">For our customers, this means:</p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-1">
+            <li>Increased confidence in how we protect sensitive information</li>
+            <li>Reduced vendor risk and easier security reviews</li>
+            <li>Alignment with enterprise, regulatory, and procurement requirements</li>
+            <li>Proof that security is embedded in our day-to-day operations, not just promised</li>
+          </ul>
+          <p class="text-muted-foreground">
+            SOC 2 is not a one-time checkbox. It represents a continuous commitment to maintaining high standards across our organization.
+          </p>
+          
+          <hr />
+          
+          <h5 class="text-lg font-bold">What is SOC 2, exactly?</h5>
+          <p class="text-muted-foreground">
+            SOC 2 is a widely recognized compliance framework developed by the <strong>American Institute of Certified Public Accountants (AICPA)</strong>.
+          </p>
+          <p class="text-muted-foreground">
+            For <strong>[Company Name]</strong>, the SOC 2 examination focused on the Trust Services Criteria most relevant to how we build and operate our product:
+          </p>
+          <p class="text-muted-foreground italic">[Keep only Trust Services Criteria on report]</p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-1">
+            <li><strong>Security</strong> – Protection against unauthorized access</li>
+            <li><strong>Availability</strong> – System reliability and uptime</li>
+            <li><strong>Confidentiality</strong> – Safeguarding sensitive information</li>
+            <li><strong>Processing Integrity</strong> – Accuracy and completeness of system processing</li>
+            <li><strong>Privacy</strong> – Proper handling of personal data</li>
+          </ul>
+          <p class="text-muted-foreground">
+            An independent auditor validated that these controls operated effectively over an extended period (<strong>[XX/XX/XXX to XX/XX/XXX]</strong>), providing assurance that our security practices are consistently enforced day to day.
+          </p>
+          
+          <hr />
+          
+          <p class="text-muted-foreground">
+            Thanks to <a href="https://www.getprobo.com" class="underline">Probo</a>'s structured approach and hands-on guidance, we were able to move through the compliance process <strong>faster, with clarity, and without disrupting our core operations</strong>.
+          </p>
+          
+          <hr />
+          
+          <h5 class="text-lg font-bold">How to access our SOC 2 Report</h5>
+          <p class="text-muted-foreground">
+            The full SOC 2 Type II report is a restricted-use document and is available to customers and prospective customers under NDA upon request.
+          </p>
+          <p class="text-muted-foreground italic">[To adapt depending on process]</p>
+          <p class="text-muted-foreground">To request access:</p>
+          <ul class="list-disc list-inside text-muted-foreground space-y-1">
+            <li>Contact your <strong>[Company Name] sales or account representative</strong>, or</li>
+            <li>Reach out to us via <strong>[contact link or email]</strong></li>
+          </ul>
+        </div>
       </section>
 
-      <!-- Trust Service Criteria Section -->
+      <!-- Assets for your website Section -->
       <section class="animate-slide-in animation-delay-300">
-        <h2 class="text-xl font-medium mb-6">Trust Service Criteria</h2>
-        <p class="text-muted-foreground mb-4">
-          Our SOC 2 report covers the following Trust Service Criteria:
+        <h2 class="text-h4 font-medium mb-10">Assets for your website</h2>
+        
+        <h3 class="text-lg font-medium mb-4 mt-10">Compliance Badges for SOC 2</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {soc2Badges.map((framework) => (
+            <div>
+              <div class="bg-level-1 rounded-lg flex flex-col items-center justify-center mb-4 p-6 h-40">
+                <FrameworkBadge
+                  name={framework.badge}
+                  class="block size-16 mb-3 mix-blend-multiply"
+                  client:visible
+                />
+                <div class="text-sm text-center">{framework.label}</div>
+              </div>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <a
+                  href={`/frameworks/${framework.badge}.svg`}
+                  download
+                  class="text-xs px-3 py-1.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors inline-block"
+                >
+                  SVG
+                </a>
+                <a
+                  href={`/frameworks/${framework.badge}.json`}
+                  download
+                  class="text-xs px-3 py-1.5 bg-level-1 text-foreground border border-border rounded-md hover:bg-level-2 transition-colors inline-block"
+                >
+                  JSON
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="text-lg font-medium mb-4 mt-10">Probo logo</h3>
+        <p class="text-muted-foreground mb-6">
+          Add the Probo logo next to your compliance badge to highlight your certified status.
         </p>
-        <ul class="space-y-2 text-muted-foreground">
-          <li><strong class="text-foreground">Security:</strong> Protection against unauthorized access</li>
-          <li><strong class="text-foreground">Availability:</strong> System availability for operation and use</li>
-          <li><strong class="text-foreground">Confidentiality:</strong> Protection of confidential information</li>
-        </ul>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Full Logo -->
+          <div>
+            <div class="bg-level-1 rounded-lg flex items-center justify-center mb-4 h-32">
+              <Image
+                src={ProboLogo}
+                alt="Probo Logo"
+                width={146}
+                height={40}
+                class="w-auto h-10"
+              />
+            </div>
+            <div class="flex justify-center">
+              <a
+                href="/probo-logo.svg"
+                download
+                class="text-sm px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors inline-block"
+              >
+                Download SVG
+              </a>
+            </div>
+          </div>
+
+          <!-- Logo Icon -->
+          <div>
+            <div class="bg-level-1 rounded-lg flex items-center justify-center mb-4 h-32">
+              <Image
+                src={ProboLogoOnly}
+                alt="Probo Logo Icon"
+                width={40}
+                height={40}
+                class="w-auto h-10"
+              />
+            </div>
+            <div class="flex justify-center">
+              <a
+                href="/probo-logo-only.svg"
+                download
+                class="text-sm px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors inline-block"
+              >
+                Download SVG
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Example -->
+        <div class="mt-10 w-fit">
+          <div class="bg-level-1 rounded-lg mb-4 p-6 h-40 relative">
+            <p class="text-xxs text-muted-foreground absolute top-2 left-3">Example</p>
+            <div class="flex flex-col items-center justify-center h-full">
+              <p class="text-sm font-medium text-foreground mb-1">Compliance:</p>
+              <FrameworkBadge
+                name="SOC2_TYPE2"
+                class="block size-16 mb-3 mix-blend-multiply"
+                client:visible
+              />
+              <div class="flex items-center gap-1">
+                <span class="text-xs text-muted-foreground">By</span>
+                <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={ProboLogo}
+                    alt="Probo Logo"
+                    width={60}
+                    height={16}
+                    class="w-auto h-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- Request Report Section -->
-      <section class="animate-slide-in animation-delay-400">
-        <h2 class="text-xl font-medium mb-6">Request Our SOC 2 Report</h2>
-        <p class="text-muted-foreground">
-          Our SOC 2 Type II report is available upon request under NDA. Please contact us to receive a copy.
-        </p>
+      <!-- Turn compliance into business growth Section -->
+      <section class="animate-slide-in animation-delay-300">
+        <h2 class="text-h4 font-medium mb-10">Turn compliance into business growth</h2>
+        
+        <!-- Turn SOC 2 into a sales accelerator -->
+        <h3 class="text-lg font-medium mb-4 mt-10">Turn SOC 2 into a sales accelerator</h3>
+        <ul class="space-y-4 text-muted-foreground">
+          <li>
+            <strong class="text-foreground">Proactively mention SOC 2 early</strong> in sales conversations or outbound messages.
+            <p class="text-sm mt-2 italic">"We're SOC 2 Type II audited, covering security, availability, and confidentiality."</p>
+          </li>
+          <li>
+            <strong class="text-foreground">Replace long security questionnaires:</strong> offer to share SOC 2 report under NDA.
+            <p class="text-sm mt-2">This can cut weeks off enterprise deals.</p>
+          </li>
+          <li>
+            <strong class="text-foreground">Make your compliance a competitive advantage</strong>
+            <p class="text-sm mt-2">If competitors are <strong>not SOC 2</strong>: mention it explicitly in competitive deals.</p>
+          </li>
+        </ul>
+
+        <!-- Use it in marketing -->
+        <h3 class="text-lg font-medium mb-4 mt-10">Use it in marketing</h3>
+        <p class="text-muted-foreground mb-2"><strong class="text-foreground">Website placement</strong></p>
+        <p class="text-muted-foreground mb-3">Add SOC 2 (small badge or text) signals in:</p>
+        <ul class="list-disc list-inside text-muted-foreground space-y-1">
+          <li>Footer</li>
+          <li>Security / Trust page</li>
+          <li>Pricing or Enterprise page</li>
+          <li>Signup pages</li>
+        </ul>
+
+        <!-- Inform & train your team -->
+        <h3 class="text-lg font-medium mb-4 mt-10">Inform & train your team (sales and CS)</h3>
+        <p class="text-muted-foreground mb-3">Share with them the guideline and blog article document.</p>
+        <p class="text-muted-foreground mb-2">Make sure they can confidently answer:</p>
+        <ul class="list-disc list-inside text-muted-foreground space-y-1">
+          <li>"What does SOC 2 actually mean?"</li>
+          <li>"Is this Type I or Type II?"</li>
+          <li>"Can you share the report?"</li>
+          <li>"How does this protect my data?"</li>
+        </ul>
+
+        <!-- Strengthen customer retention & expansion -->
+        <h3 class="text-lg font-medium mb-4 mt-10">Strengthen customer retention & expansion</h3>
+        <p class="text-muted-foreground mb-2">Announce SOC 2 to existing customers:</p>
+        <ul class="list-disc list-inside text-muted-foreground space-y-1 mb-3">
+          <li>Email</li>
+          <li>Customer newsletter</li>
+          <li>In-app notification</li>
+        </ul>
+        <p class="text-muted-foreground mb-2">Position it as:</p>
+        <blockquote class="border-l-2 border-border pl-4 text-muted-foreground italic mb-3">
+          "An investment we made to protect you as you scale with us."
+        </blockquote>
+        <p class="text-muted-foreground mb-2">It can help to:</p>
+        <ul class="list-disc list-inside text-muted-foreground space-y-1">
+          <li>Reduce churn</li>
+          <li>Unlock larger contracts</li>
+          <li>Enable upsells with compliance-sensitive teams</li>
+        </ul>
       </section>
     </div>
   </main>
