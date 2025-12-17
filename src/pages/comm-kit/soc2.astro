@@ -46,94 +46,250 @@ const soc2Badges = [
       <!-- Turn compliance into business growth -->
       <div>
         <a href="#business-growth" class="font-medium text-foreground hover:text-primary transition-colors">Turn compliance into business growth</a>
-        <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
-          <li><a href="#display-compliance" class="hover:text-foreground transition-colors">Display compliance on your website</a></li>
-          <li><a href="#sales-accelerator" class="hover:text-foreground transition-colors">Turn SOC 2 into a sales accelerator</a></li>
-          <li><a href="#train-team" class="hover:text-foreground transition-colors">Inform & train your team</a></li>
-          <li><a href="#customer-retention" class="hover:text-foreground transition-colors">Strengthen customer retention</a></li>
-        </ul>
       </div>
     </nav>
   </aside>
 
-  <main class="container max-w-[920px] py-10 sm:py-20">
-    <h1 class="text-h2 mb-3 font-medium animate-slide-in">
-      SOC 2 - Communication Kit
-    </h1>
-    <h3 class="text-lg font-medium mb-4">Congrats on your successful SOC 2 Type II Audit!</h3>
-    <p class="text-muted-foreground mb-10 sm:mb-20 animate-slide-in animation-delay-100">
-      Here is a communication kit to help you leverage business with your SOC 2 report and learn what you can or can't say about it.
-    </p>
+  <!-- Hero Banner -->
+  <div class="w-full py-16 sm:py-24" style="background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #1a2e1a 100%);">
+    <div class="container max-w-[920px] text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8" style="background-color: rgba(196, 240, 66, 0.1); border-color: rgba(196, 240, 66, 0.3);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span class="text-sm font-medium" style="color: #C4F042;">SOC 2 Communication Kit</span>
+      </div>
+      <h1 class="font-bold mb-8 animate-slide-in" style="color: #ffffff; font-size: clamp(25px, 4vw, 3rem);">
+        How to Talk About Your SOC 2 Report
+      </h1>
+      <p class="text-xl sm:text-2xl max-w-3xl mx-auto animate-slide-in animation-delay-100" style="color: #ffffff;">
+        A comprehensive guide for communicating your SOC 2 compliance effectively and accurately to customers, prospects, and stakeholders.
+      </p>
+    </div>
+  </div>
 
+  <main class="container max-w-[920px] py-10 sm:py-20">
     <div class="space-y-16">
       <!-- Communication Guidelines Section -->
       <section id="communication-guidelines" class="animate-slide-in animation-delay-200">
         <h2 class="text-h4 font-medium mb-10">Communication Guidelines</h2>
-        <h3 id="achievement" class="text-lg font-medium mb-4">Achievement</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
-            <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
-            <ul class="space-y-3 list-disc list-inside" style="color: #14532d;">
-              <li>"We successfully completed a SOC 2 Type I / Type II audit."</li>
-              <li>"Our SOC 2 report was conducted by an independent third-party auditor."</li>
-              <li>"This audit confirms that our controls related to security, availability, processing integrity, confidentiality, and/or privacy meet the standards defined by AICPA."</li>
-              <li>"SOC 2 compliance demonstrates our ongoing commitment to protecting customer data."</li>
-            </ul>
+        <!-- Achievement -->
+        <div id="achievement" class="mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium">Achievement</h3>
           </div>
-          <div class="rounded-lg p-6" style="background-color: #fef2f2; border: 1px solid #fecaca;">
-            <h4 class="font-bold mb-4" style="color: #991b1b;"><strong>✗ What you can't say</strong></h4>
-            <ul class="space-y-4 list-disc list-inside" style="color: #7f1d1d;">
-              <li>"We are SOC 2 certified."
-                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ SOC 2 is not a certification; it is a report.</div>
-              </li>
-              <li>"We cover all Trust Service Criteria."
-                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ Only mention the ones included in your audit.</div>
-              </li>
-              <li>"We are compliant forever."
-                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ SOC 2 Type II covers a period of time. Controls must be continually maintained.</div>
-              </li>
-            </ul>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden border" style="border-color: #bbf7d0;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #f0fdf4;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #22c55e;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #166534;">What you can say</span>
+              </div>
+              <div class="p-5 space-y-3">
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"We successfully completed a SOC 2 Type I / Type II audit."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"Our SOC 2 report was conducted by an independent third-party auditor."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"This audit confirms that our controls related to security, availability, processing integrity, confidentiality, and/or privacy meet the standards defined by AICPA."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"SOC 2 compliance demonstrates our ongoing commitment to protecting customer data."</span>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border" style="border-color: #fecaca;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #fef2f2;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #ef4444;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #991b1b;">What you can't say</span>
+              </div>
+              <div class="p-5 space-y-4">
+                <div>
+                  <div class="flex items-start gap-2">
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="text-foreground">"We are SOC 2 certified."</span>
+                  </div>
+                  <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
+                    <span class="text-sm" style="color: #dc2626;">→ SOC 2 is not a certification; it is a report.</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-start gap-2">
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="text-foreground">"We cover all Trust Service Criteria."</span>
+                  </div>
+                  <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
+                    <span class="text-sm" style="color: #dc2626;">→ Only mention the ones included in your audit.</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-start gap-2">
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="text-foreground">"We are compliant forever."</span>
+                  </div>
+                  <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
+                    <span class="text-sm" style="color: #dc2626;">→ SOC 2 Type II covers a period of time. Controls must be continually maintained.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <h3 id="value-for-customers" class="text-lg font-medium mb-4 mt-10">Value for Customers</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
-            <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
-            <ul class="space-y-3 list-disc list-inside" style="color: #14532d;">
-              <li>"Customers can rely on our strong security processes and operational maturity."</li>
-              <li>"The SOC 2 report helps customers evaluate how we protect their data."</li>
-              <li>"This milestone reflects our continued investment in security and compliance."</li>
-            </ul>
+        <!-- Value for Customers -->
+        <div id="value-for-customers" class="mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium">Value for Customers</h3>
           </div>
-          <div class="rounded-lg p-6" style="background-color: #fef2f2; border: 1px solid #fecaca;">
-            <h4 class="font-bold mb-4" style="color: #991b1b;"><strong>✗ What you can't say</strong></h4>
-            <ul class="space-y-3 list-disc list-inside" style="color: #7f1d1d;">
-              <li>"We are now fully secure."</li>
-              <li>"SOC 2 guarantees no breaches will occur."</li>
-              <li>"We passed SOC 2, so your data is 100% safe."</li>
-            </ul>
-            <p class="mt-4 text-sm" style="color: #b91c1c;">→ SOC 2 validates controls, it does <strong>not</strong> guarantee absolute security.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden border" style="border-color: #bbf7d0;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #f0fdf4;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #22c55e;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #166534;">What you can say</span>
+              </div>
+              <div class="p-5 space-y-3">
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"Customers can rely on our strong security processes and operational maturity."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"The SOC 2 report helps customers evaluate how we protect their data."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"This milestone reflects our continued investment in security and compliance."</span>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border" style="border-color: #fecaca;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #fef2f2;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #ef4444;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #991b1b;">What you can't say</span>
+              </div>
+              <div class="p-5 space-y-4">
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="text-foreground">"We are now fully secure."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="text-foreground">"SOC 2 guarantees no breaches will occur."</span>
+                </div>
+                <div>
+                  <div class="flex items-start gap-2">
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="text-foreground">"We passed SOC 2, so your data is 100% safe."</span>
+                  </div>
+                  <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
+                    <span class="text-sm" style="color: #dc2626;">→ SOC 2 validates controls, it does not guarantee absolute security.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <h3 id="access-to-report" class="text-lg font-medium mb-4 mt-10">Access to the Report</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
-            <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
-            <ul class="space-y-3 list-disc list-inside" style="color: #14532d;">
-              <li>"Our SOC 2 report is available to customers and prospects under NDA."</li>
-              <li>"Reach out to our team to request the SOC 2 report."</li>
-            </ul>
+        <!-- Access to the Report -->
+        <div id="access-to-report">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium">Access to the Report</h3>
           </div>
-          <div class="rounded-lg p-6" style="background-color: #fef2f2; border: 1px solid #fecaca;">
-            <h4 class="font-bold mb-4" style="color: #991b1b;"><strong>✗ What you shouldn't do</strong></h4>
-            <ul class="space-y-3 list-disc list-inside" style="color: #7f1d1d;">
-              <li>Publish the report publicly.</li>
-              <li>Share the auditor's name unless allowed.</li>
-              <li>Share detailed control failures or remediations.</li>
-            </ul>
-            <p class="mt-4 text-sm" style="color: #b91c1c;">→ The SOC 2 report is confidential.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden border" style="border-color: #bbf7d0;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #f0fdf4;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #22c55e;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #166534;">What you can say</span>
+              </div>
+              <div class="p-5 space-y-3">
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"Our SOC 2 report is available to customers and prospects under NDA."</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="text-foreground">"Reach out to our team to request the SOC 2 report."</span>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border" style="border-color: #fecaca;">
+              <div class="px-4 py-3 flex items-center gap-2" style="background-color: #fef2f2;">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center" style="background-color: #ef4444;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                </div>
+                <span class="font-medium" style="color: #991b1b;">What you can't say</span>
+              </div>
+              <div class="p-5 space-y-4">
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="text-foreground">Publish the report publicly.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="text-foreground">Share the auditor's name unless allowed.</span>
+                </div>
+                <div>
+                  <div class="flex items-start gap-2">
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="text-foreground">Share detailed control failures or remediations.</span>
+                  </div>
+                  <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
+                    <span class="text-sm" style="color: #dc2626;">→ The SOC 2 report is confidential.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -366,59 +522,166 @@ const soc2Badges = [
       <section id="business-growth" class="animate-slide-in animation-delay-300">
         <h2 class="text-h4 font-medium mb-10">Turn compliance into business growth</h2>
         
-        <!-- Display compliance on your website -->
-        <h3 id="display-compliance" class="text-lg font-medium mb-4 mt-10">Display compliance on your website</h3>
-        <p class="text-muted-foreground mb-3">Add SOC 2 (small badge or text) signals in:</p>
-        <ul class="list-disc list-inside text-muted-foreground space-y-1">
-          <li>Footer</li>
-          <li>Security / Trust page</li>
-          <li>Pricing or Enterprise page</li>
-          <li>Signup pages</li>
-        </ul>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Turn SOC 2 into a sales accelerator -->
+          <div id="sales-accelerator" class="rounded-2xl p-6 border border-border">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium">Turn SOC 2 into a sales accelerator</h3>
+            </div>
+            
+            <div class="rounded-lg p-4 mb-4 border-l-4" style="background-color: #f8fafc; border-left-color: #e2e8f0;">
+              <p class="text-foreground"><strong>Proactively mention SOC 2 early</strong> in sales conversations or outbound messages.</p>
+              <p class="text-muted-foreground text-sm italic mt-2">"We're SOC 2 Type II audited, covering security, availability, and confidentiality."</p>
+            </div>
+            
+            <p class="text-foreground mb-1"><strong>Replace long security questionnaires:</strong> offer to share SOC 2 report under NDA.</p>
+            <p class="text-muted-foreground text-sm mb-4">This can cut weeks off enterprise deals.</p>
+            
+            <div class="rounded-lg p-4 border-l-4" style="background-color: #f0fdf4; border-left-color: #86efac;">
+              <p class="text-foreground font-medium">Make your compliance a competitive advantage</p>
+              <p class="text-muted-foreground text-sm mt-1">If competitors are <strong>not SOC 2</strong>: mention it explicitly in competitive deals.</p>
+            </div>
+          </div>
 
-        <!-- Turn SOC 2 into a sales accelerator -->
-        <h3 id="sales-accelerator" class="text-lg font-medium mb-4 mt-10">Turn SOC 2 into a sales accelerator</h3>
-        <ul class="list-disc list-inside text-muted-foreground space-y-3">
-          <li><strong>Proactively mention SOC 2</strong> early in sales conversations or outbound messages.
-            <p class="text-sm mt-1 ml-5 italic">"We're SOC 2 Type II audited, covering security, availability, and confidentiality."</p>
-          </li>
-          <li><strong>Replace long security questionnaires:</strong> offer to share SOC 2 report under NDA.
-            <p class="text-sm mt-1 ml-5">This can cut weeks off enterprise deals.</p>
-          </li>
-          <li><strong>Make your compliance a competitive advantage.</strong>
-            <p class="text-sm mt-1 ml-5">If competitors are not SOC 2: mention it explicitly in competitive deals.</p>
-          </li>
-        </ul>
+          <!-- Use it in marketing -->
+          <div id="display-compliance" class="rounded-2xl p-6 border border-border">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                  <polyline points="16 7 22 7 22 13"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium">Website placement</h3>
+            </div>
+            
+            <p class="text-muted-foreground mb-3">Add SOC 2 (small badge or text) signals in:</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="text-muted-foreground">Website placement</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="text-muted-foreground">Footer</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="text-muted-foreground">Security / Trust page</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="text-muted-foreground">Pricing or Enterprise page</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="text-muted-foreground">Signup pages</span>
+              </li>
+            </ul>
+            
+            <div class="bg-level-1 rounded-lg p-4 relative">
+              <p class="text-xxs text-muted-foreground mb-3">Example</p>
+              <div class="flex flex-col items-center justify-center">
+                <FrameworkBadge
+                  name="SOC2_TYPE2"
+                  class="block size-12 mb-2 mix-blend-multiply"
+                  client:visible
+                />
+                <div class="flex items-center gap-1">
+                  <span class="text-xs text-muted-foreground">By</span>
+                  <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={ProboLogo}
+                      alt="Probo Logo"
+                      width={50}
+                      height={14}
+                      class="w-auto h-3"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <!-- Inform & train your team -->
-        <h3 id="train-team" class="text-lg font-medium mb-4 mt-10">Inform & train your team (Sales and CS)</h3>
-        <p class="text-muted-foreground mb-3">Share with them this page and the blog article document.</p>
-        <p class="text-muted-foreground mb-2">Make sure they can confidently answer:</p>
-        <ul class="list-disc list-inside text-muted-foreground space-y-1">
-          <li>"What does SOC 2 actually mean?"</li>
-          <li>"Is this Type I or Type II?"</li>
-          <li>"Can you share the report?"</li>
-          <li>"How does this protect my data?"</li>
-        </ul>
+          <!-- Inform & train your team -->
+          <div id="train-team" class="rounded-2xl p-6 border border-border">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium">Inform & train your team (sales and CS)</h3>
+            </div>
+            
+            <p class="text-muted-foreground mb-4">Share with them the guideline and blog article document.</p>
+            <p class="text-foreground mb-3">Make sure they can confidently answer:</p>
+            
+            <div class="space-y-2 mb-6">
+              <div class="flex items-start gap-3">
+                <span class="font-medium" style="color: #26a69a;">1</span>
+                <span class="text-muted-foreground">"What does SOC 2 actually mean?"</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-medium" style="color: #26a69a;">2</span>
+                <span class="text-muted-foreground">"Is this Type I or Type II?"</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-medium" style="color: #26a69a;">3</span>
+                <span class="text-muted-foreground">"Can you share the report?"</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-medium" style="color: #26a69a;">4</span>
+                <span class="text-muted-foreground">"How does this protect my data?"</span>
+              </div>
+            </div>
+          </div>
 
-        <!-- Strengthen customer retention & expansion -->
-        <h3 id="customer-retention" class="text-lg font-medium mb-4 mt-10">Strengthen customer retention & expansion</h3>
-        <p class="text-muted-foreground mb-2">Announce SOC 2 to existing customers:</p>
-        <ul class="list-disc list-inside text-muted-foreground space-y-1 mb-3">
-          <li>Email</li>
-          <li>Customer newsletter</li>
-          <li>In-app notification</li>
-        </ul>
-        <p class="text-muted-foreground mb-2">Position it as:</p>
-        <blockquote class="border-l-2 border-border pl-4 text-muted-foreground italic mb-3">
-          "An investment we made to protect you as you scale with us."
-        </blockquote>
-        <p class="text-muted-foreground mb-2">It can help to:</p>
-        <ul class="list-disc list-inside text-muted-foreground space-y-1">
-          <li>Reduce churn</li>
-          <li>Unlock larger contracts</li>
-          <li>Enable upsells with compliance-sensitive teams</li>
-        </ul>
+          <!-- Strengthen customer retention & expansion -->
+          <div id="customer-retention" class="rounded-2xl p-6 border border-border">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+                  <path d="M21 3v5h-5"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium">Strengthen customer retention & expansion</h3>
+            </div>
+            
+            <p class="text-foreground mb-3">Announce SOC 2 to existing customers:</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
+                <span class="text-muted-foreground">Email</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
+                <span class="text-muted-foreground">Customer newsletter</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
+                <span class="text-muted-foreground">In-app notification</span>
+              </li>
+            </ul>
+            
+            <div class="rounded-lg p-4 border-l-4" style="background-color: #fff7ed; border-left-color: #fdba74;">
+              <p class="font-medium mb-1" style="color: #c2410c;">Position it as:</p>
+              <p class="text-muted-foreground italic">"An investment we made to protect you as you scale with us."</p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </main>
