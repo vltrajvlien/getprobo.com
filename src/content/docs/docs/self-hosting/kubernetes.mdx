@@ -245,6 +245,7 @@ helm install probo ./charts/probo \
   --set minio.enabled=false \
   --set s3.endpoint="https://mystorageaccount.blob.core.windows.net" \
   --set s3.bucket="my-probo-container" \
+  --set s3.usePathStyle=true \
   --set s3.accessKeyId="$AZURE_ACCESS_KEY" \
   --set s3.secretAccessKey="$AZURE_SECRET_KEY"
 ```
