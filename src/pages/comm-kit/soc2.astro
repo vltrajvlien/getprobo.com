@@ -15,7 +15,48 @@ const soc2Badges = [
   title="SOC 2 - Communication Kit"
   description="SOC 2 Communication Kit - Learn what you can and can't say about your SOC 2 compliance."
 >
-  <main class="container max-w-[920px] py-10 sm:py-20">
+  <!-- Fixed Table of Contents - Left Side -->
+  <aside class="hidden lg:block fixed left-8 top-32 w-56 z-10">
+    <nav class="text-sm space-y-4">
+      <!-- Communication Guidelines -->
+      <div>
+        <a href="#communication-guidelines" class="font-medium text-foreground hover:text-primary transition-colors">Communication Guidelines</a>
+        <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
+          <li><a href="#achievement" class="hover:text-foreground transition-colors">Achievement</a></li>
+          <li><a href="#value-for-customers" class="hover:text-foreground transition-colors">Value for Customers</a></li>
+          <li><a href="#access-to-report" class="hover:text-foreground transition-colors">Access to the Report</a></li>
+        </ul>
+      </div>
+      <!-- Linkedin post & blog article -->
+      <div>
+        <a href="#linkedin-blog" class="font-medium text-foreground hover:text-primary transition-colors">Linkedin post & blog article content</a>
+        <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
+          <li><a href="#linkedin-post" class="hover:text-foreground transition-colors">Linkedin post</a></li>
+          <li><a href="#blog-article" class="hover:text-foreground transition-colors">Blog article</a></li>
+        </ul>
+      </div>
+      <!-- Assets for your website -->
+      <div>
+        <a href="#assets" class="font-medium text-foreground hover:text-primary transition-colors">Assets for your website</a>
+        <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
+          <li><a href="#compliance-badges" class="hover:text-foreground transition-colors">Compliance Badges for SOC 2</a></li>
+          <li><a href="#probo-logo" class="hover:text-foreground transition-colors">Probo logo</a></li>
+        </ul>
+      </div>
+      <!-- Turn compliance into business growth -->
+      <div>
+        <a href="#business-growth" class="font-medium text-foreground hover:text-primary transition-colors">Turn compliance into business growth</a>
+        <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
+          <li><a href="#display-compliance" class="hover:text-foreground transition-colors">Display compliance on your website</a></li>
+          <li><a href="#sales-accelerator" class="hover:text-foreground transition-colors">Turn SOC 2 into a sales accelerator</a></li>
+          <li><a href="#train-team" class="hover:text-foreground transition-colors">Inform & train your team</a></li>
+          <li><a href="#customer-retention" class="hover:text-foreground transition-colors">Strengthen customer retention</a></li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container max-w-[920px] py-10 sm:py-20 lg:ml-72">
     <h1 class="text-h2 mb-3 font-medium animate-slide-in">
       SOC 2 - Communication Kit
     </h1>
@@ -26,9 +67,9 @@ const soc2Badges = [
 
     <div class="space-y-16">
       <!-- Communication Guidelines Section -->
-      <section class="animate-slide-in animation-delay-200">
+      <section id="communication-guidelines" class="animate-slide-in animation-delay-200">
         <h2 class="text-h4 font-medium mb-10">Communication Guidelines</h2>
-        <h3 class="text-lg font-medium mb-4">Achievement</h3>
+        <h3 id="achievement" class="text-lg font-medium mb-4">Achievement</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
             <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
@@ -41,24 +82,21 @@ const soc2Badges = [
           </div>
           <div class="rounded-lg p-6" style="background-color: #fef2f2; border: 1px solid #fecaca;">
             <h4 class="font-bold mb-4" style="color: #991b1b;"><strong>✗ What you can't say</strong></h4>
-            <ul class="space-y-4" style="color: #7f1d1d;">
-              <li>
-                <div>"We are SOC 2 certified."</div>
-                <div class="text-sm mt-1" style="color: #b91c1c;">→ SOC 2 is not a certification; it is a report.</div>
+            <ul class="space-y-4 list-disc list-inside" style="color: #7f1d1d;">
+              <li>"We are SOC 2 certified."
+                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ SOC 2 is not a certification; it is a report.</div>
               </li>
-              <li>
-                <div>"We cover all Trust Service Criteria."</div>
-                <div class="text-sm mt-1" style="color: #b91c1c;">→ Only mention the ones included in your audit.</div>
+              <li>"We cover all Trust Service Criteria."
+                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ Only mention the ones included in your audit.</div>
               </li>
-              <li>
-                <div>"We are compliant forever."</div>
-                <div class="text-sm mt-1" style="color: #b91c1c;">→ SOC 2 Type II covers a period of time. Controls must be continually maintained.</div>
+              <li>"We are compliant forever."
+                <div class="text-sm mt-1 ml-5" style="color: #b91c1c;">→ SOC 2 Type II covers a period of time. Controls must be continually maintained.</div>
               </li>
             </ul>
           </div>
         </div>
 
-        <h3 class="text-lg font-medium mb-4 mt-10">Value for Customers</h3>
+        <h3 id="value-for-customers" class="text-lg font-medium mb-4 mt-10">Value for Customers</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
             <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
@@ -79,7 +117,7 @@ const soc2Badges = [
           </div>
         </div>
 
-        <h3 class="text-lg font-medium mb-4 mt-10">Access to the Report</h3>
+        <h3 id="access-to-report" class="text-lg font-medium mb-4 mt-10">Access to the Report</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="rounded-lg p-6" style="background-color: #f0fdf4; border: 1px solid #bbf7d0;">
             <h4 class="font-bold mb-4" style="color: #166534;"><strong>✓ What you can say</strong></h4>
@@ -101,10 +139,10 @@ const soc2Badges = [
       </section>
 
       <!-- Linkedin post & blog article content Section -->
-      <section class="animate-slide-in animation-delay-300">
+      <section id="linkedin-blog" class="animate-slide-in animation-delay-300">
         <h2 class="text-h4 font-medium mb-10">Linkedin post & blog article content</h2>
         
-        <h3 class="text-lg font-medium mb-4 mt-10">Linkedin post</h3>
+        <h3 id="linkedin-post" class="text-lg font-medium mb-4 mt-10">Linkedin post</h3>
         <p class="text-muted-foreground mb-4">
           It is now a good time to inform your customers and prospects about your new milestone.
         </p>
@@ -134,9 +172,10 @@ const soc2Badges = [
           </p>
         </div>
 
-        <h3 class="text-lg font-medium mb-4 mt-10">Blog article</h3>
+        <h3 id="blog-article" class="text-lg font-medium mb-4 mt-10">Blog article</h3>
         <p class="text-muted-foreground mb-6">
-          It is a good practice to create a page about your SOC 2 report to give context to your customers and prospects. You can also link this page to the SOC 2 logo you would display on your website.
+          It is a good practice to create a page about your SOC 2 report to give context to your customers and prospects. 
+          <br>You can also link this page to the SOC 2 logo display on your website.</br>
         </p>
         
         <div class="rounded-lg p-6 bg-level-1 border border-border-low space-y-6">
@@ -211,10 +250,10 @@ const soc2Badges = [
       </section>
 
       <!-- Assets for your website Section -->
-      <section class="animate-slide-in animation-delay-300">
+      <section id="assets" class="animate-slide-in animation-delay-300">
         <h2 class="text-h4 font-medium mb-10">Assets for your website</h2>
         
-        <h3 class="text-lg font-medium mb-4 mt-10">Compliance Badges for SOC 2</h3>
+        <h3 id="compliance-badges" class="text-lg font-medium mb-4 mt-10">Compliance Badges for SOC 2</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {soc2Badges.map((framework) => (
             <div>
@@ -246,7 +285,7 @@ const soc2Badges = [
           ))}
         </div>
 
-        <h3 class="text-lg font-medium mb-4 mt-10">Probo logo</h3>
+        <h3 id="probo-logo" class="text-lg font-medium mb-4 mt-10">Probo logo</h3>
         <p class="text-muted-foreground mb-6">
           Add the Probo logo next to your compliance badge to highlight your certified status.
         </p>
@@ -298,10 +337,9 @@ const soc2Badges = [
         
         <!-- Example -->
         <div class="mt-10 w-fit">
-          <div class="bg-level-1 rounded-lg mb-4 p-6 h-40 relative">
-            <p class="text-xxs text-muted-foreground absolute top-2 left-3">Example</p>
+          <div class="bg-level-1 rounded-lg mb-4 p-6 pl-20 h-40 relative">
+            <p class="text-xxs text-muted-foreground absolute top-3 left-4">Example</p>
             <div class="flex flex-col items-center justify-center h-full">
-              <p class="text-sm font-medium text-foreground mb-1">Compliance:</p>
               <FrameworkBadge
                 name="SOC2_TYPE2"
                 class="block size-16 mb-3 mix-blend-multiply"
@@ -325,29 +363,11 @@ const soc2Badges = [
       </section>
 
       <!-- Turn compliance into business growth Section -->
-      <section class="animate-slide-in animation-delay-300">
+      <section id="business-growth" class="animate-slide-in animation-delay-300">
         <h2 class="text-h4 font-medium mb-10">Turn compliance into business growth</h2>
         
-        <!-- Turn SOC 2 into a sales accelerator -->
-        <h3 class="text-lg font-medium mb-4 mt-10">Turn SOC 2 into a sales accelerator</h3>
-        <ul class="space-y-4 text-muted-foreground">
-          <li>
-            <strong class="text-foreground">Proactively mention SOC 2 early</strong> in sales conversations or outbound messages.
-            <p class="text-sm mt-2 italic">"We're SOC 2 Type II audited, covering security, availability, and confidentiality."</p>
-          </li>
-          <li>
-            <strong class="text-foreground">Replace long security questionnaires:</strong> offer to share SOC 2 report under NDA.
-            <p class="text-sm mt-2">This can cut weeks off enterprise deals.</p>
-          </li>
-          <li>
-            <strong class="text-foreground">Make your compliance a competitive advantage</strong>
-            <p class="text-sm mt-2">If competitors are <strong>not SOC 2</strong>: mention it explicitly in competitive deals.</p>
-          </li>
-        </ul>
-
-        <!-- Use it in marketing -->
-        <h3 class="text-lg font-medium mb-4 mt-10">Use it in marketing</h3>
-        <p class="text-muted-foreground mb-2"><strong class="text-foreground">Website placement</strong></p>
+        <!-- Display compliance on your website -->
+        <h3 id="display-compliance" class="text-lg font-medium mb-4 mt-10">Display compliance on your website</h3>
         <p class="text-muted-foreground mb-3">Add SOC 2 (small badge or text) signals in:</p>
         <ul class="list-disc list-inside text-muted-foreground space-y-1">
           <li>Footer</li>
@@ -356,9 +376,23 @@ const soc2Badges = [
           <li>Signup pages</li>
         </ul>
 
+        <!-- Turn SOC 2 into a sales accelerator -->
+        <h3 id="sales-accelerator" class="text-lg font-medium mb-4 mt-10">Turn SOC 2 into a sales accelerator</h3>
+        <ul class="list-disc list-inside text-muted-foreground space-y-3">
+          <li><strong>Proactively mention SOC 2</strong> early in sales conversations or outbound messages.
+            <p class="text-sm mt-1 ml-5 italic">"We're SOC 2 Type II audited, covering security, availability, and confidentiality."</p>
+          </li>
+          <li><strong>Replace long security questionnaires:</strong> offer to share SOC 2 report under NDA.
+            <p class="text-sm mt-1 ml-5">This can cut weeks off enterprise deals.</p>
+          </li>
+          <li><strong>Make your compliance a competitive advantage.</strong>
+            <p class="text-sm mt-1 ml-5">If competitors are not SOC 2: mention it explicitly in competitive deals.</p>
+          </li>
+        </ul>
+
         <!-- Inform & train your team -->
-        <h3 class="text-lg font-medium mb-4 mt-10">Inform & train your team (sales and CS)</h3>
-        <p class="text-muted-foreground mb-3">Share with them the guideline and blog article document.</p>
+        <h3 id="train-team" class="text-lg font-medium mb-4 mt-10">Inform & train your team (Sales and CS)</h3>
+        <p class="text-muted-foreground mb-3">Share with them this page and the blog article document.</p>
         <p class="text-muted-foreground mb-2">Make sure they can confidently answer:</p>
         <ul class="list-disc list-inside text-muted-foreground space-y-1">
           <li>"What does SOC 2 actually mean?"</li>
@@ -368,7 +402,7 @@ const soc2Badges = [
         </ul>
 
         <!-- Strengthen customer retention & expansion -->
-        <h3 class="text-lg font-medium mb-4 mt-10">Strengthen customer retention & expansion</h3>
+        <h3 id="customer-retention" class="text-lg font-medium mb-4 mt-10">Strengthen customer retention & expansion</h3>
         <p class="text-muted-foreground mb-2">Announce SOC 2 to existing customers:</p>
         <ul class="list-disc list-inside text-muted-foreground space-y-1 mb-3">
           <li>Email</li>
@@ -389,4 +423,52 @@ const soc2Badges = [
     </div>
   </main>
 </Layout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  [id] {
+    scroll-margin-top: 100px;
+  }
+  
+  aside nav a.active {
+    color: var(--color-foreground);
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('aside nav a[href^="#"]');
+  
+  const observerOptions = {
+    rootMargin: '-100px 0px -85% 0px',
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        // Add active class to the matching link
+        const activeLink = document.querySelector(`aside nav a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => {
+    if (section.id) {
+      observer.observe(section);
+    }
+  });
+</script>
 
