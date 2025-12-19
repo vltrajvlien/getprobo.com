@@ -4,7 +4,6 @@ import FrameworkBadge from "../../components/FrameworkBadge.svelte";
 import { Image } from "astro:assets";
 import ProboLogo from "../../assets/probo-logo.svg";
 import ProboLogoOnly from "../../assets/probo-logo-only.svg";
-import TrustCenterExample from "../../assets/trust-center-example.png";
 
 const soc2Badges = [
   { label: "SOC 2 Type 1", badge: "SOC2_TYPE1" },
@@ -13,9 +12,8 @@ const soc2Badges = [
 ---
 
 <Layout
-  title="SOC 2 - What's Next"
-  description="SOC 2 What's Next - This guide shares best practices we recommend to help you make the most of your SOC 2."
-  noFrameworks={true}
+  title="SOC 2 - Communication Kit"
+  description="SOC 2 Communication Kit - Learn what you can and can't say about your SOC 2 compliance."
 >
   <!-- Fixed Table of Contents - Left Side -->
   <aside class="hidden xl:flex fixed left-4 top-0 bottom-0 w-64 z-10 items-center justify-center px-4">
@@ -24,7 +22,6 @@ const soc2Badges = [
       <div>
         <a href="#communication-guidelines" class="font-medium text-foreground hover:text-primary transition-colors">Communication Guidelines</a>
         <ul class="mt-2 ml-3 space-y-1 text-muted-foreground">
-          <li><a href="#trust-center" class="hover:text-foreground transition-colors">Trust center</a></li>
           <li><a href="#achievement" class="hover:text-foreground transition-colors">Achievement</a></li>
           <li><a href="#value-for-customers" class="hover:text-foreground transition-colors">Value for Customers</a></li>
           <li><a href="#access-to-report" class="hover:text-foreground transition-colors">Access to the Report</a></li>
@@ -61,14 +58,14 @@ const soc2Badges = [
           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
           <path d="m9 12 2 2 4-4"/>
         </svg>
-        <span class="text-sm font-medium" style="color: #C4F042;">SOC 2 - What's Next</span>
+        <span class="text-sm font-medium" style="color: #C4F042;">SOC 2 Communication Kit</span>
       </div>
       <h1 class="font-bold mb-8 animate-slide-in" style="color: #ffffff; font-size: clamp(25px, 4vw, 3rem);">
-        Turn Your SOC 2 into a Trust Asset
+        How to Talk About Your SOC 2 Report
       </h1>
       <p class="text-xl sm:text-2xl max-w-3xl mx-auto animate-slide-in animation-delay-100" style="color: #ffffff;">
-        Congratulations on achieving your SOC 2 report! This is a major milestone worth celebrating. 
-      </p> <p class="text-xl sm:text-2xl max-w-3xl mx-auto animate-slide-in animation-delay-100 mt-4" style="color: #c4abab;">Now is the time to share it with your customers, prospects, and stakeholders.</p>
+        A comprehensive guide for communicating your SOC 2 compliance effectively and accurately to customers, prospects, and stakeholders.
+      </p>
     </div>
   </div>
 
@@ -77,43 +74,6 @@ const soc2Badges = [
       <!-- Communication Guidelines Section -->
       <section id="communication-guidelines" class="animate-slide-in animation-delay-200">
         <h2 class="text-h4 font-medium mb-10">Communication Guidelines</h2>
-        
-        <!-- Trust center -->
-        <div id="trust-center" class="mb-10">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: #000000; border: 1px solid #C4F042;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4F042" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="3" rx="2"/>
-                <path d="M9 9h6"/>
-                <path d="M9 13h6"/>
-                <path d="M9 17h6"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium">Trust center</h3>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="rounded-xl overflow-hidden border p-5" style="border-color: #C4F042;">
-              <p class="text-foreground mb-4">
-                Create or update your Trust Center to showcase your new SOC 2 report.
-              </p>
-              <p class="text-muted-foreground mb-3">
-                You don't have a <a href="https://compliance.getprobo.com/overview" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trust Center</a> yet?
-              </p>
-              <p class="text-muted-foreground">
-                Reach out to the Probo team, we will get yours for free.
-              </p>
-            </div>
-            <div class="rounded-xl overflow-hidden border p-4" style="border-color: #e5e7eb;">
-              <p class="text-xxs text-muted-foreground mb-2">Example</p>
-              <Image
-                src={TrustCenterExample}
-                alt="Trust Center Example"
-                class="rounded-lg"
-              />
-            </div>
-          </div>
-        </div>
-
         <!-- Achievement -->
         <div id="achievement" class="mb-10">
           <div class="flex items-center gap-3 mb-6">
@@ -137,19 +97,19 @@ const soc2Badges = [
               </div>
               <div class="p-5 space-y-3">
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"We successfully completed a SOC 2 Type I / Type II audit."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"Our SOC 2 report was conducted by an independent third-party auditor."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"This audit confirms that our controls related to security, availability, processing integrity, confidentiality, and/or privacy meet the standards defined by AICPA."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"SOC 2 compliance demonstrates our ongoing commitment to protecting customer data."</span>
                 </div>
               </div>
@@ -167,7 +127,7 @@ const soc2Badges = [
               <div class="p-5 space-y-4">
                 <div>
                   <div class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                     <span class="text-foreground">"We are SOC 2 certified."</span>
                   </div>
                   <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
@@ -176,7 +136,7 @@ const soc2Badges = [
                 </div>
                 <div>
                   <div class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                     <span class="text-foreground">"We cover all Trust Service Criteria."</span>
                   </div>
                   <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
@@ -185,7 +145,7 @@ const soc2Badges = [
                 </div>
                 <div>
                   <div class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                     <span class="text-foreground">"We are compliant forever."</span>
                   </div>
                   <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
@@ -222,15 +182,15 @@ const soc2Badges = [
               </div>
               <div class="p-5 space-y-3">
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"Customers can rely on our strong security processes and operational maturity."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"The SOC 2 report helps customers evaluate how we protect their data."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"This milestone reflects our continued investment in security and compliance."</span>
                 </div>
               </div>
@@ -247,16 +207,16 @@ const soc2Badges = [
               </div>
               <div class="p-5 space-y-4">
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                   <span class="text-foreground">"We are now fully secure."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                   <span class="text-foreground">"SOC 2 guarantees no breaches will occur."</span>
                 </div>
                 <div>
                   <div class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                     <span class="text-foreground">"We passed SOC 2, so your data is 100% safe."</span>
                   </div>
                   <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
@@ -291,11 +251,11 @@ const soc2Badges = [
               </div>
               <div class="p-5 space-y-3">
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"Our SOC 2 report is available to customers and prospects under NDA."</span>
                 </div>
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #22c55e;"></span>
                   <span class="text-foreground">"Reach out to our team to request the SOC 2 report."</span>
                 </div>
               </div>
@@ -308,16 +268,20 @@ const soc2Badges = [
                     <path d="m6 6 12 12"/>
                   </svg>
                 </div>
-                <span class="font-medium" style="color: #991b1b;">What we don't advise</span>
+                <span class="font-medium" style="color: #991b1b;">What you can't say</span>
               </div>
               <div class="p-5 space-y-4">
                 <div class="flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                   <span class="text-foreground">Publish the report publicly.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                  <span class="text-foreground">Share the auditor's name unless allowed.</span>
                 </div>
                 <div>
                   <div class="flex items-start gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
+                    <span class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background-color: #ef4444;"></span>
                     <span class="text-foreground">Share detailed control failures or remediations.</span>
                   </div>
                   <div class="ml-4 mt-1 pl-3 border-l-2" style="border-color: #fecaca;">
@@ -355,9 +319,9 @@ const soc2Badges = [
           </p>
           <p class="text-muted-foreground mb-2">What this means for our customers:</p>
           <ul class="list-disc list-inside text-muted-foreground mb-4 space-y-1">
-            <li>Increased trust and transparency</li>
-            <li>Stronger data protection</li>
-            <li>Enterprise-ready infrastructure</li>
+            <li>- Increased trust and transparency</li>
+            <li>- Stronger data protection</li>
+            <li>- Enterprise-ready infrastructure</li>
           </ul>
           <p class="text-muted-foreground">
             Proud of what the team has accomplished, and excited for what this unlocks next.
@@ -526,6 +490,32 @@ const soc2Badges = [
             </div>
           </div>
         </div>
+        
+        <!-- Example -->
+        <div class="mt-10 w-fit">
+          <div class="bg-level-1 rounded-lg mb-4 p-6 pl-20 h-40 relative">
+            <p class="text-xxs text-muted-foreground absolute top-3 left-4">Example</p>
+            <div class="flex flex-col items-center justify-center h-full">
+              <FrameworkBadge
+                name="SOC2_TYPE2"
+                class="block size-16 mb-3 mix-blend-multiply"
+                client:visible
+              />
+              <div class="flex items-center gap-1">
+                <span class="text-xs text-muted-foreground">By</span>
+                <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={ProboLogo}
+                    alt="Probo Logo"
+                    width={60}
+                    height={16}
+                    class="w-auto h-4"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Turn compliance into business growth Section -->
@@ -576,23 +566,23 @@ const soc2Badges = [
             <p class="text-muted-foreground mb-3">Add SOC 2 (small badge or text) signals in:</p>
             <ul class="space-y-2 mb-6">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
                 <span class="text-muted-foreground">Website placement</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
                 <span class="text-muted-foreground">Footer</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
                 <span class="text-muted-foreground">Security / Trust page</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
                 <span class="text-muted-foreground">Pricing or Enterprise page</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #26a69a;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #26a69a;"></span>
                 <span class="text-muted-foreground">Signup pages</span>
               </li>
             </ul>
@@ -673,15 +663,15 @@ const soc2Badges = [
             <p class="text-foreground mb-3">Announce SOC 2 to existing customers:</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #f97316;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
                 <span class="text-muted-foreground">Email</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #f97316;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
                 <span class="text-muted-foreground">Customer newsletter</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full" style="background-color: #f97316;"></span>
+                <span class="w-2 h-2 rounded-full" style="background-color: #f97316;"></span>
                 <span class="text-muted-foreground">In-app notification</span>
               </li>
             </ul>
