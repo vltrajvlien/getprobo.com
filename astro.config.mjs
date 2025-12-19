@@ -199,6 +199,12 @@ export default defineConfig({
         if (page.includes('/404')) {
           return false;
         }
+        if (page.includes('/whats-next')) {
+          return false;
+        }
+        if (page.includes('/feedback')) {
+          return false;
+        }
         return true;
       },
       serialize(item) {
