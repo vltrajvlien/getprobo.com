@@ -1,0 +1,41 @@
+# Probo
+
+> Probo is a compliance automation platform.
+> It helps companies achieve and maintain security and compliance standards (such as SOC 2, ISO 27001, and GDPR) through structured workflows, automated evidence collection, and hands-on guidance.
+> With Probo, companies move through the compliance process faster, with clarity, and without disrupting their core operations.
+
+## Core Documentation
+
+- [Homepage](https://getprobo.com)
+- [Documentation](https://getprobo.com/docs)
+- [Blog](https://getprobo.com/blog)
+- [Customer Stories](https://getprobo.com/stories)
+
+## Blog / Thought Leadership
+
+- [What is SOC 2 and how to be compliant?](https://www.getprobo.com/blog/2025-10-28-what-is-soc2)
+- [What is hands off compliance?](https://www.getprobo.com/blog/2025-10-17-what-is-hands-off-compliance)
+- [What is the cost of SOC 2?](https://www.getprobo.com/blog/2025-03-04-what-is-soc2-cost)
+- [The case for open source compliance](https://www.getprobo.com/blog/2025-02-04-the-case-for-open-source-compliance)
+
+## Supported Frameworks
+
+- SOC 2 Type 1
+- SOC 2 Type 2
+- SOC 3
+- ISO 27001
+- ISO 27701
+- ISO 42001
+- GDPR
+- HIPAA
+- CCPA
+- FERPA
+- CASA
+- NIS2
+- DORA
+
+## Contact
+
+- Website: https://getprobo.com
+- GitHub: https://github.com/getprobo
+
