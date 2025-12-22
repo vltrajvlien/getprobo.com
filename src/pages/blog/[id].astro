@@ -45,10 +45,25 @@ const articleSchema = {
     "@id": Astro.url.toString()
   }
 };
+
+// FAQ Schema (only if post has faqs in frontmatter)
+const faqSchema = post.data.faqs ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": post.data.faqs.map((faq: { question: string; answer: string }) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
 ---
 
 <Layout title={post.data.title} description={post.data.excerpt}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <main class="@container container my-10 max-w-[720px] sm:my-20">
     <a
       href={getLink(Astro, "/blog")}
