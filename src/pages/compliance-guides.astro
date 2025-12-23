@@ -11,11 +11,21 @@ const frameworks = [
     title: "What is SOC 2",
     description:
       "This guide breaks down SOC 2 in simple terms: what it is, why it matters, who needs it, and how to prepare without overcomplicating things.",
-    features: ["Understanding SOC 2", "Why it is needed", "What solutions exists"],
+    features: ["Understanding SOC 2", "Why it is needed", "What solutions exist"],
     href: "/compliance-guides/soc2",
-    colorFrom: "#1a3a2e",
-    colorTo: "#2d5a4a",
+    accentColor: "from-emerald-400 to-teal-500",
     badges: ["SOC2_TYPE1", "SOC2_TYPE2"],
+  },
+  {
+    id: "iso27001",
+    label: "ISO 27001",
+    title: "What is ISO 27001",
+    description:
+      "This guide explains ISO 27001 in simple terms: what it is, how it works, why companies adopt it, and how to approach certification without adding unnecessary complexity.",
+    features: ["Understanding ISO 27001", "Why it is needed", "What solutions exist"],
+    href: "/compliance-guides/iso27001",
+    accentColor: "from-blue-400 to-indigo-500",
+    badges: ["ISO27001"],
   },
 ];
 ---
@@ -73,75 +83,81 @@ const frameworks = [
         {
           frameworks.map((framework) => (
             <article
-              class="group relative overflow-hidden rounded-3xl min-h-[420px] sm:min-h-[480px] transition-transform hover:scale-[1.02]"
-              style={`background: linear-gradient(135deg, ${framework.colorFrom} 0%, ${framework.colorTo} 100%)`}
+              class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-gray-300"
             >
-              <div class="relative h-full flex flex-col justify-between p-6 sm:p-8">
-                <!-- Content -->
-                <div class="flex flex-col gap-6">
-                  <div class="flex flex-col gap-4">
-                    <h3 class="text-[28px] sm:text-[36px] leading-[1.15] sm:leading-[42px] font-medium text-[#fcfdfc] tracking-[-0.8px]">
-                      {framework.title}
-                    </h3>
-                    <p class="text-[#e4f7c7] text-base leading-[26px]">
-                      {framework.description}
-                    </p>
-                  </div>
+              <!-- Gradient Background Accent -->
+              <div class={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${framework.accentColor} opacity-10 blur-3xl transition-opacity group-hover:opacity-20`} />
+              
+              <div class="relative p-6 sm:p-8">
+                <!-- Title -->
+                <h3 class="text-[28px] sm:text-[32px] leading-[1.15] font-bold text-gray-900 mb-4 tracking-[-0.5px]">
+                  {framework.title}
+                </h3>
 
-                  <!-- Features -->
-                  <ul class="flex flex-col gap-3">
-                    {framework.features.map((feature) => (
-                      <li class="flex items-center gap-2.5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#e4f7c7"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="shrink-0"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="m9 12 2 2 4-4" />
-                        </svg>
-                        <span class="text-[#fcfdfc] text-sm leading-[22px]">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                <!-- Description -->
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                  {framework.description}
+                </p>
 
-                  <!-- Button -->
-                  <div class="flex items-center justify-between mt-2">
-                    <a
-                      href={framework.href}
-                      class="relative inline-flex items-center gap-2 h-[44px] px-6 bg-[#ffffff] rounded-full text-[15px] font-medium text-[#141e12] tracking-[-0.1px] transition-shadow hover:shadow-[0px_4px_12px_0px_rgba(11,19,36,0.15)]"
-                    >
-                      {__("Access Complete Guide")}
+                <!-- Topics List -->
+                <ul class="space-y-3 mb-8">
+                  {framework.features.map((feature) => (
+                    <li class="flex items-start gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#10b981"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
+                        class="shrink-0 mt-0.5"
                       >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
                       </svg>
-                    </a>
-                    <!-- Framework Badges -->
-                    <div class="flex items-center gap-1 bg-white rounded-2xl p-3">
-                      {framework.badges.map((badge) => (
-                        <FrameworkBadge name={badge} class="size-20" client:visible />
-                      ))}
-                    </div>
+                      <span class="text-gray-700">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- Bottom Section -->
+                <div class="flex items-center justify-between pt-6 border-t border-gray-200">
+                  <!-- CTA Button -->
+                  <a
+                    href={framework.href}
+                    class="group/btn inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-full font-medium transition-all hover:gap-3 shadow-lg hover:shadow-xl"
+                  >
+                    {__("Access Complete Guide")}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+
+                  <!-- Badges -->
+                  <div class="flex gap-2">
+                    {framework.badges.map((badge) => (
+                      <div
+                        class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center border-2 border-gray-200 group-hover:border-gray-300 transition-colors overflow-hidden"
+                      >
+                        <FrameworkBadge name={badge} class="size-8" client:visible />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
