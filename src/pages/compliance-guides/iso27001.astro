@@ -6,42 +6,35 @@ const __ = await getTranslator(Astro.currentLocale);
 
 const tableOfContents = [
   { id: "what-is-iso27001", label: "What is ISO 27001?" },
-  { id: "what-is-isms", label: "What is an ISMS?" },
-  { id: "is-iso27001-certification", label: "Is ISO 27001 a certification?" },
-  { id: "what-does-iso27001-require", label: "What does ISO 27001 actually require?" },
-  { id: "is-technical-standard", label: "Is ISO 27001 a technical security standard?" },
-  { id: "pentest-required", label: "Do you need a penetration test for ISO 27001?" },
-  { id: "why-pentest", label: "Why do most companies do penetration testing?" },
-  { id: "pentest-frequency", label: "How often should penetration tests be done?" },
-  { id: "pentest-findings", label: "What happens if a penetration test finds vulnerabilities?" },
-  { id: "how-long", label: "How long does it take to get ISO 27001 certified?" },
-  { id: "cost", label: "Is ISO 27001 expensive?" },
-  { id: "when-needed", label: "When does a company need ISO 27001?" },
-  { id: "iso-vs-soc2", label: "What's the difference between ISO 27001 and SOC 2?" },
-  { id: "both", label: "Can a company have both ISO 27001 and SOC 2?" },
-  { id: "approaches", label: "What are the different ways to achieve ISO 27001?" },
-  { id: "worth-it", label: "Is ISO 27001 worth it for startups?" },
-  { id: "probo-help", label: "How does Probo help with ISO 27001?" },
+  { id: "certification-or-report", label: "Is it a Certification or a Report?" },
+  { id: "understanding-isms", label: "Understanding the ISMS" },
+  { id: "requirements", label: "ISO 27001 Requirements" },
+  { id: "technical-vs-governance", label: "Technical Security vs. Governance" },
+  { id: "penetration-testing", label: "The Role of Penetration Testing" },
+  { id: "certification-process", label: "The Certification Process" },
+  { id: "iso-vs-soc2", label: "ISO 27001 vs. SOC 2" },
+  { id: "worth-it", label: "Is it Worth it for Startups?" },
+  { id: "probo-help", label: "How Probo Simplifies ISO 27001" },
 ];
 ---
 
 <Layout
-  title={__("A Practical and Complete Guide to ISO/IEC 27001 Compliance")}
-  description={__("A comprehensive guide to understand ISO 27001 for beginners. Learn what ISO 27001 is, how it works, and how to approach certification.")}
+  title={__("The Complete ISO 27001 FAQ: Everything You Need to Know")}
+  description={__("If you are targeting international markets or enterprise-level clients, you have likely encountered requests for ISO 27001 certification. This guide provides a clear, practical roadmap.")}
 >
   <main class="container my-10 sm:my-20">
     <!-- Header -->
     <header class="mb-12 sm:mb-16">
       <div class="flex items-center gap-4 mb-4">
         <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("A practical and complete guide to ISO/IEC 27001 Compliance")}
+          {__("The Complete ISO 27001 FAQ: Everything You Need to Know")}
         </h1>
         <div class="flex items-center gap-2">
           <FrameworkBadge name="ISO27001" class="size-12" client:visible />
         </div>
       </div>
       <p class="text-muted-foreground text-lg">
-        {__("FAQ to understand ISO 27001 for beginners")}
+        {__("In the modern B2B landscape, security is no longer just a \"nice-to-have\" feature; it is a fundamental requirement for doing business. If you are targeting international markets or enterprise-level clients, you have likely encountered requests for ISO 27001 certification.")}
       </p>
     </header>
 
@@ -73,564 +66,314 @@ const tableOfContents = [
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("ISO/IEC 27001 is an international standard for information security management. It defines how an organization should identify, manage, and reduce information security risks through a formal framework called an Information Security Management System (ISMS).")}
+              {__("ISO/IEC 27001 is the leading international standard for information security management. Developed by the International Organization for Standardization (ISO), it provides a framework for how an organization should manage its data security.")}
             </p>
             <p>
-              {__("Unlike SOC 2, ISO 27001 results in a certification, issued by an accredited certification body, confirming that your organization operates a structured and risk-based security program.")}
-            </p>
-            <p>
-              {__("ISO 27001 is widely recognized across Europe and international markets and is often required by enterprise customers, partners, and regulators.")}
+              {__("At its core, ISO 27001 isn't about buying the right software; it's about building a culture of security. It requires companies to identify, manage, and mitigate security risks through a structured approach known as an Information Security Management System (ISMS).")}
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- What is an ISMS? -->
-        <section id="what-is-isms" class="scroll-mt-24 mb-12">
+        <!-- Is it a Certification or a Report? -->
+        <section id="certification-or-report" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What is an Information Security Management System (ISMS)?")}
+            {__("Is it a Certification or a Report?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("An ISMS is the core of ISO 27001. It is not a tool or a checklist. It is a management system that defines how your company governs information security over time.")}
-            </p>
-            <p>
-              {__("An ISMS includes:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("A formal risk assessment process")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Security policies and procedures")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Defined roles and responsibilities")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Risk treatment and control selection")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Continuous monitoring and improvement")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("The goal is not perfection, but consistent and measurable risk management.")}
+              {__("Unlike SOC 2, which results in a descriptive attestation report, ISO 27001 results in a formal certification. This certificate is issued by an independent, accredited third-party body after a successful audit. It serves as globally recognized proof that your security program meets a rigorous international benchmark.")}
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Is ISO 27001 a certification? -->
-        <section id="is-iso27001-certification" class="scroll-mt-24 mb-12">
+        <!-- Understanding the ISMS -->
+        <section id="understanding-isms" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Is ISO 27001 a certification?")}
+            {__("Understanding the ISMS: The Heart of the Standard")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("Yes. ISO 27001 is a certification, not a report.")}
+              {__("The Information Security Management System (ISMS) is the most critical component of ISO 27001. Think of it as the \"operating system\" for your company's security. It isn't a single tool, but a set of policies, procedures, and controls that work together to protect your information assets.")}
             </p>
             <p>
-              {__("After a successful audit, you receive:")}
+              {__("A robust ISMS includes:")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("An ISO 27001 certificate")}</span>
+                <span><strong class="text-foreground">{__("Risk Assessment")}</strong>{__(": A formal process to identify threats to your data.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Valid for three years")}</span>
+                <span><strong class="text-foreground">{__("Security Policies")}</strong>{__(": Clear guidelines for employees and contractors.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("With annual surveillance audits")}</span>
+                <span><strong class="text-foreground">{__("Asset Management")}</strong>{__(": Knowing exactly what data you have and where it lives.")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-muted-foreground">•</span>
+                <span><strong class="text-foreground">{__("Continuous Improvement")}</strong>{__(": A \"Plan-Do-Check-Act\" cycle to ensure security evolves alongside your business.")}</span>
               </li>
             </ul>
-            <p>
-              {__("This certificate proves that your ISMS meets the ISO 27001 standard.")}
-            </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- What does ISO 27001 actually require? -->
-        <section id="what-does-iso27001-require" class="scroll-mt-24 mb-12">
+        <!-- ISO 27001 Requirements -->
+        <section id="requirements" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What does ISO 27001 actually require?")}
+            {__("ISO 27001 Requirements: Risk-Based, Not Prescriptive")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("ISO 27001 is risk-based, not prescriptive.")}
+              {__("One of the biggest misconceptions about ISO 27001 is that it provides a rigid checklist of technical settings. In reality, the standard is risk-based.")}
             </p>
             <p>
-              {__("It requires you to:")}
+              {__("ISO 27001 requires you to:")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Identify information security risks")}</span>
+                <span><strong class="text-foreground">{__("Define the Scope")}</strong>{__(": What part of your business needs to be protected?")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Evaluate their likelihood and impact")}</span>
+                <span><strong class="text-foreground">{__("Conduct a Risk Assessment")}</strong>{__(": What could go wrong? (e.g., data breaches, server downtime, insider threats).")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Define how you will treat those risks")}</span>
+                <span><strong class="text-foreground">{__("Risk Treatment")}</strong>{__(": How will you handle those risks? You can avoid, transfer, accept, or mitigate them.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Implement appropriate controls")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Continuously review and improve")}</span>
+                <span><strong class="text-foreground">{__("Select Controls")}</strong>{__(": Choose relevant controls from Annex A—a list of 93 security controls (in the 2022 version) covering everything from physical security to cloud service governance.")}</span>
               </li>
             </ul>
-            <p>
-              {__("The standard includes Annex A, a list of suggested security controls (access control, incident management, supplier security, etc.), but you are not required to implement all of them—only those relevant to your risks.")}
-            </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Is ISO 27001 a technical security standard? -->
-        <section id="is-technical-standard" class="scroll-mt-24 mb-12">
+        <!-- Technical Security vs. Governance -->
+        <section id="technical-vs-governance" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Is ISO 27001 a technical security standard?")}
+            {__("Technical Security vs. Governance")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("Not exactly.")}
+              {__("Is ISO 27001 a technical standard? Not exactly. While it leads to technical improvements, it is primarily a management and governance standard.")}
             </p>
             <p>
-              {__("ISO 27001 focuses more on:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Governance")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Risk management")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Policies and processes")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Accountability and documentation")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Technical controls (like encryption, vulnerability management, or penetration testing) are included only if your risk assessment justifies them.")}
-            </p>
-            <p>
-              {__("This makes ISO 27001 flexible, but also easy to misunderstand.")}
+              {__("An ISO 27001 audit focuses heavily on documentation, accountability, and evidence that your processes are being followed. For example, an auditor won't just check if you use encryption; they will check if you have a policy for encryption, if employees are trained on it, and if you have logs proving it was active during the year.")}
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Do you need a penetration test for ISO 27001? -->
-        <section id="pentest-required" class="scroll-mt-24 mb-12">
+        <!-- The Role of Penetration Testing -->
+        <section id="penetration-testing" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Do you need a penetration test for ISO 27001?")}
+            {__("The Role of Penetration Testing")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("No, penetration testing is not explicitly required by ISO 27001.")}
+              {__("A common question is: Do I need a penetration test for ISO 27001?")}
             </p>
             <p>
-              {__("However, for most tech-driven companies, it is strongly expected.")}
+              {__("Technically, the standard does not explicitly name \"penetration testing\" as a requirement. However, it does require you to manage technical vulnerabilities. For most SaaS and tech-driven companies, a penetration test is the most defensible way to prove that your technical controls actually work.")}
             </p>
-            <p>
-              {__("ISO 27001 requires you to address technical vulnerabilities identified during your risk assessment. A penetration test is one of the most effective and widely accepted ways to demonstrate that you are doing so.")}
-            </p>
+            <ul class="list-none space-y-3 ml-0">
+              <li class="flex items-start gap-2">
+                <span class="text-muted-foreground">•</span>
+                <span><strong class="text-foreground">{__("Frequency")}</strong>{__(": Most experts recommend an annual penetration test or one after any major infrastructure change.")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-muted-foreground">•</span>
+                <span><strong class="text-foreground">{__("Findings")}</strong>{__(": Auditors do not expect \"clean\" reports. They want to see that when you find a vulnerability, you have a remediation plan to fix it.")}</span>
+              </li>
+            </ul>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Why do most companies do penetration testing? -->
-        <section id="why-pentest" class="scroll-mt-24 mb-12">
+        <!-- The Certification Process -->
+        <section id="certification-process" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("If penetration testing is not mandatory, why do most companies do it?")}
+            {__("The Certification Process: Timeline and Costs")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              {__("Because it provides:")}
+              {__("Achieving ISO 27001 certification is a marathon, not a sprint.")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Strong evidence of technical security maturity")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Clear validation of controls in real-world conditions")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Credibility with auditors and enterprise customers")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("While alternatives exist (vulnerability scanning, code reviews, architecture reviews), penetration tests often offer the clearest and most defensible proof of risk treatment.")}
-            </p>
+
+            <!-- The Audit Stages -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-3">{__("The Audit Stages")}</h3>
+              <p class="mb-3">{__("The certification audit is divided into two parts:")}</p>
+              <ul class="list-none space-y-3 ml-0">
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Stage 1 (Documentation Review)")}</strong>{__(": The auditor reviews your ISMS design and documentation to ensure you meet the standard's requirements.")}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Stage 2 (Effectiveness Audit)")}</strong>{__(": The auditor looks for evidence that you are actually doing what your documentation says you are doing.")}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Timeline -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Timeline")}</h3>
+              <p>
+                {__("For a small to mid-sized startup, the process typically takes 3 to 6 months. This includes the time needed to build the ISMS, collect evidence of its operation, and undergo the two-stage audit.")}
+              </p>
+            </div>
+
+            <!-- Costs -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Costs")}</h3>
+              <p>
+                {__("The direct cost of the audit itself is often between $10,000 and $20,000, depending on your company size. However, the \"real\" cost is often hidden in internal time. If your CTO or Lead Engineer is spending 20 hours a week on documentation, that is 20 hours they aren't spending on your product.")}
+              </p>
+            </div>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- How often should penetration tests be done? -->
-        <section id="pentest-frequency" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How often should penetration tests be done for ISO 27001?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("If you rely on penetration testing as a risk control, best practice is:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Once per year")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("After major infrastructure or application changes")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Auditors will expect to see consistency and follow-up, not perfection.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- What happens if a penetration test finds vulnerabilities? -->
-        <section id="pentest-findings" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What happens if a penetration test finds vulnerabilities?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("That is normal and expected.")}
-            </p>
-            <p>
-              {__("Auditors will look for:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("The penetration test report")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("A remediation plan")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Evidence that issues were fixed or formally accepted as risks")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("A report with findings is not a problem. A lack of follow-up is.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- How long does it take to get ISO 27001 certified? -->
-        <section id="how-long" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How long does it take to get ISO 27001 certified?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("For most small and mid-sized companies:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("3 to 6 months")}</strong> {__("is typical")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Complex organizations may take longer")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("The timeline depends on:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Existing security maturity")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Documentation quality")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Team availability")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Audit readiness")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Building an ISMS from scratch is a significant effort if done internally.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- Is ISO 27001 expensive? -->
-        <section id="cost" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Is ISO 27001 expensive?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("The direct certification audit cost is usually reasonable.")}
-            </p>
-            <p>
-              {__("The real cost comes from:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Internal time and coordination")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Writing and maintaining documentation")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Running risk assessments")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Preparing for audits")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("For small teams, this often becomes a hidden operational burden.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- When does a company need ISO 27001? -->
-        <section id="when-needed" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("When does a company need ISO 27001?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("ISO 27001 is commonly required when:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Selling to European or international enterprises")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Operating in regulated industries")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Responding to formal vendor security assessments")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Demonstrating long-term security governance")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Unlike SOC 2, ISO 27001 is often less about one deal and more about scaling trust globally.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- What's the difference between ISO 27001 and SOC 2? -->
+        <!-- ISO 27001 vs. SOC 2 -->
         <section id="iso-vs-soc2" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What's the difference between ISO 27001 and SOC 2?")}
+            {__("ISO 27001 vs. SOC 2: Which One Do You Need?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("ISO 27001")}</strong> {__("certifies your security management system")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("SOC 2")}</strong> {__("provides a detailed report on specific security controls")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("They are built on similar principles but are not interchangeable. Customers usually ask for one or the other based on geography and expectations.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- Can a company have both ISO 27001 and SOC 2? -->
-        <section id="both" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Can a company have both ISO 27001 and SOC 2?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("Yes and many growing companies do.")}
-            </p>
-            <p>
-              {__("A common path is:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("SOC 2 first (North America)")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("ISO 27001 later (international expansion)")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Much of the underlying work overlaps, which makes the second framework easier if the first is done properly.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- What are the different ways to achieve ISO 27001? -->
-        <section id="approaches" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What are the different ways to achieve ISO 27001?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("Most companies choose between three approaches:")}
-            </p>
-            <div class="space-y-4">
-              <div>
-                <p class="text-foreground font-medium">{__("Internal implementation")}</p>
-                <p class="text-sm">{__("Full control, but heavy time and expertise requirements.")}</p>
-              </div>
-              <div>
-                <p class="text-foreground font-medium">{__("Automation tools")}</p>
-                <p class="text-sm">{__("Helpful for evidence and monitoring, but still DIY. Your team owns the process.")}</p>
-              </div>
-              <div>
-                <p class="text-foreground font-medium">{__("Done-for-you services")}</p>
-                <p class="text-sm">{__("Experts design, implement, and maintain your ISMS while providing the necessary tooling.")}</p>
-              </div>
+            <!-- Comparison Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm border-collapse">
+                <thead>
+                  <tr class="border-b border-border-low">
+                    <th class="text-left py-3 pr-4 font-semibold text-foreground">{__("Feature")}</th>
+                    <th class="text-left py-3 px-4 font-semibold text-foreground">{__("ISO 27001")}</th>
+                    <th class="text-left py-3 pl-4 font-semibold text-foreground">{__("SOC 2")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-border-low">
+                    <td class="py-3 pr-4 font-medium text-foreground">{__("Primary Market")}</td>
+                    <td class="py-3 px-4">{__("International / Europe / Asia")}</td>
+                    <td class="py-3 pl-4">{__("North America")}</td>
+                  </tr>
+                  <tr class="border-b border-border-low">
+                    <td class="py-3 pr-4 font-medium text-foreground">{__("Outcome")}</td>
+                    <td class="py-3 px-4">{__("Official Certification")}</td>
+                    <td class="py-3 pl-4">{__("Detailed Audit Report")}</td>
+                  </tr>
+                  <tr class="border-b border-border-low">
+                    <td class="py-3 pr-4 font-medium text-foreground">{__("Duration")}</td>
+                    <td class="py-3 px-4">{__("Valid for 3 years (with annual checks)")}</td>
+                    <td class="py-3 pl-4">{__("Usually an annual report")}</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 font-medium text-foreground">{__("Focus")}</td>
+                    <td class="py-3 px-4">{__("Management System & Risk")}</td>
+                    <td class="py-3 pl-4">{__("Specific Control Objectives")}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
             <p>
-              {__("The right choice depends on your team's capacity and priorities.")}
+              {__("Can you have both? Yes. Many growth-stage companies start with SOC 2 to win US deals and then \"map\" those controls to ISO 27001 as they expand into Europe. Since the technical requirements overlap significantly (around 80%), doing the second one is much faster than the first.")}
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Is ISO 27001 worth it for startups? -->
+        <!-- Is it Worth it for Startups? -->
         <section id="worth-it" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Is ISO 27001 worth it for startups?")}
+            {__("Is it Worth it for Startups?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("It can be, at the right time.")}
+              {__("ISO 27001 is a major commitment. It is usually \"worth it\" when:")}
             </p>
-            <p>
-              {__("ISO 27001 is most valuable when:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("Customers explicitly ask for it")}</span>
+                <span><strong class="text-foreground">{__("Enterprise Deals are Stalling")}</strong>{__(": You are losing deals because you can't pass a security review.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("You operate internationally")}</span>
+                <span><strong class="text-foreground">{__("Global Expansion")}</strong>{__(": You are moving into markets where ISO is the \"de facto\" language of trust.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("You want to professionalize security governance early")}</span>
+                <span><strong class="text-foreground">{__("Security Maturity")}</strong>{__(": You want to move away from \"ad-hoc\" security and build a professional, scalable program.")}</span>
               </li>
             </ul>
-            <p>
-              {__("Doing it too early, without stable systems or customer demand, often wastes effort.")}
-            </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- How does Probo help with ISO 27001? -->
+        <!-- How Probo Simplifies ISO 27001 Compliance -->
         <section id="probo-help" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How does Probo help with ISO 27001?")}
+            {__("How Probo Simplifies ISO 27001 Compliance")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a> {__("provides a done-for-you ISO 27001 service, supported by a compliance platform:")}
+              {__("Most companies fail at ISO 27001 because they treat it as a one-time project. At")} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a>{__(", we treat it as a managed service. We act as your extended compliance team to ensure you get certified without the headache.")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We design and implement your ISMS based on your real risks and workflows")}</span>
+                <span><strong class="text-foreground">{__("Done-for-You ISMS")}</strong>{__(": We don't just give you a platform; we design your risk assessment and write your policies based on how you actually work.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We provide the tooling to centralize documentation, risks, and evidence")}</span>
+                <span><strong class="text-foreground">{__("Automated Evidence Collection")}</strong>{__(": Our platform integrates with your tech stack (AWS, GitHub, Google Workspace) to automatically prove you are compliant.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We write and maintain policies, risk assessments, and inventories")}</span>
+                <span><strong class="text-foreground">{__("End-to-End Audit Management")}</strong>{__(": We help you select an auditor and stay with you through Stage 1 and Stage 2 to handle the \"heavy lifting\" of auditor requests.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We manage the certification audit end-to-end")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("We minimize disruption to your engineering and operations teams")}</span>
+                <span><strong class="text-foreground">{__("Continuous Maintenance")}</strong>{__(": We ensure your ISMS stays healthy year-round, so your annual surveillance audits are a non-event.")}</span>
               </li>
             </ul>
-            <p>
-              {__} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a> {__("acts as your compliance team.")}
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-[#f8f9f7] p-8 rounded-xl border border-border-low">
+          <div class="text-center">
+            <p class="text-lg font-semibold text-foreground mb-4">
+              {__("Stop letting security reviews slow down your growth.")}
             </p>
+            <p class="text-muted-foreground mb-6">
+              {__("Take a meeting to understand how close you are to compliance.")}
+            </p>
+            <a
+              href="https://form.getprobo.com/r/nrxk9v"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-3 bg-[#D7EDBA] text-[#141e12] font-medium rounded-lg hover:bg-[#c5dba8] transition-colors"
+            >
+              {__("Get Started with Probo")}
+            </a>
           </div>
         </section>
 
@@ -649,20 +392,13 @@ const tableOfContents = [
 <script>
   const sectionIds = [
     "what-is-iso27001",
-    "what-is-isms",
-    "is-iso27001-certification",
-    "what-does-iso27001-require",
-    "is-technical-standard",
-    "pentest-required",
-    "why-pentest",
-    "pentest-frequency",
-    "pentest-findings",
-    "how-long",
-    "cost",
-    "when-needed",
+    "certification-or-report",
+    "understanding-isms",
+    "requirements",
+    "technical-vs-governance",
+    "penetration-testing",
+    "certification-process",
     "iso-vs-soc2",
-    "both",
-    "approaches",
     "worth-it",
     "probo-help",
   ];
@@ -721,4 +457,3 @@ const tableOfContents = [
   // Initial call to set active section on page load
   handleScroll();
 </script>
-

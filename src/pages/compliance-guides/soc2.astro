@@ -5,35 +5,27 @@ import { getTranslator } from "../../lib/i18n.ts";
 const __ = await getTranslator(Astro.currentLocale);
 
 const tableOfContents = [
-  { id: "what-is-soc2", label: "What is SOC 2?" },
+  { id: "the-basics", label: "The Basics: What is SOC 2?" },
   { id: "is-soc2-certification", label: "Is SOC 2 a certification?" },
-  { id: "what-does-soc2-evaluate", label: "What does SOC 2 evaluate?" },
-  { id: "type1-vs-type2", label: "What is the difference between SOC 2 Type I and Type II?" },
-  { id: "how-long", label: "How long does it take to become SOC 2 compliant?" },
-  { id: "estimate-timeline", label: "How can I estimate the SOC 2 timeline for my company?" },
-  { id: "phases", label: "What are the phases of a SOC 2 project?" },
-  { id: "cost", label: "How much does SOC 2 cost?" },
-  { id: "hidden-costs", label: "What are the hidden costs of SOC 2?" },
-  { id: "pentest", label: "Is penetration testing required for SOC 2?" },
-  { id: "too-early", label: "When is it too early to do SOC 2?" },
-  { id: "faster", label: "How can we get SOC 2 faster?" },
-  { id: "soc2-vs-iso", label: "What is the difference between SOC 2 and ISO 27001?" },
-  { id: "choose", label: "Should we choose SOC 2 or ISO 27001?" },
-  { id: "close-deals", label: "Can SOC 2 help close deals?" },
-  { id: "probo-help", label: "How does Probo help with SOC 2?" },
+  { id: "what-does-audit-evaluate", label: "What does the audit actually evaluate?" },
+  { id: "type1-vs-type2", label: "SOC 2 Type I vs. Type II" },
+  { id: "timeline-phases", label: "Timeline and Project Phases" },
+  { id: "cost", label: "Budgeting for SOC 2" },
+  { id: "faq", label: "Frequently Asked Questions" },
+  { id: "probo-help", label: "How Probo Simplifies Your SOC 2 Journey" },
 ];
 ---
 
 <Layout
-  title={__("A Practical and Complete Guide to SOC 2 Compliance")}
-  description={__("A comprehensive guide to understand SOC 2 for beginners. Learn what SOC 2 is, why it matters, and how to prepare.")}
+  title={__("A Practical Guide to SOC 2 Compliance: Everything You Need to Know")}
+  description={__("If you are selling software to enterprise clients, you've likely been asked: Are you SOC 2 compliant? This guide breaks down SOC 2.")}
 >
   <main class="container my-10 sm:my-20">
     <!-- Header -->
     <header class="mb-12 sm:mb-16">
       <div class="flex items-center gap-4 mb-4">
         <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("A Practical and Complete Guide to SOC 2 Compliance")}
+          {__("A Practical Guide to SOC 2 Compliance: Everything You Need to Know")}
         </h1>
         <div class="flex items-center gap-2">
           <FrameworkBadge name="SOC2_TYPE1" class="size-12" client:visible />
@@ -41,7 +33,7 @@ const tableOfContents = [
         </div>
       </div>
       <p class="text-muted-foreground text-lg">
-        {__("FAQ to understand SOC 2 for beginners")}
+        {__("If you are selling software to enterprise clients, you've likely been asked: \"Are you SOC 2 compliant?\" Navigating the world of security audits can feel overwhelming, especially when you're trying to balance growth with governance. This guide breaks down SOC 2, helping you understand what it is, how much it costs, and how to get through the process without stalling your roadmap.")}
       </p>
     </header>
 
@@ -66,17 +58,14 @@ const tableOfContents = [
 
       <!-- Main Content -->
       <article class="flex-1 max-w-[720px]">
-        <!-- What is SOC 2? -->
-        <section id="what-is-soc2" class="scroll-mt-24 mb-12">
+        <!-- The Basics: What is SOC 2? -->
+        <section id="the-basics" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What is SOC 2?")}
+            {__("The Basics: What is SOC 2?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("SOC 2 is an independent audit report that evaluates how a company protects customer data. It is issued by a licensed third-party auditor under a framework developed by the")} <a href="https://www.aicpa-cima.com/home" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">{__("AICPA (American Institute of Certified Public Accountants)")}</a>.
-            </p>
-            <p>
-                {__("It is delivered as a detailed report that enterprise customers review to assess whether they can trust your company with sensitive data.")}
+              {__("SOC 2 is an independent audit report that evaluates how a company protects customer data. Developed by the")} <a href="https://www.aicpa-cima.com/home" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">{__("AICPA (American Institute of Certified Public Accountants)")}</a>{__(", it has become the gold standard for security in the B2B and SaaS industries.")}
             </p>
           </div>
         </section>
@@ -90,508 +79,250 @@ const tableOfContents = [
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("No. SOC 2 is not a certification. It is an attestation report expressing an auditor's opinion on whether your security controls are properly designed and operating effectively.")}
+              {__("Technically, no. Unlike ISO 27001, SOC 2 is an attestation report. An auditor doesn't just hand you a badge; they provide a detailed document expressing their professional opinion on whether your security controls are designed properly and working effectively.")}
             </p>
-            <p>
-              {__("There is no \"pass\" or \"fail.\" What matters is:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("The scope of systems included")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("The Trust Services Criteria covered")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("The auditor's findings and exceptions")}</span>
-              </li>
-            </ul>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- What does SOC 2 evaluate? -->
-        <section id="what-does-soc2-evaluate" class="scroll-mt-24 mb-12">
+        <!-- What does the audit actually evaluate? -->
+        <section id="what-does-audit-evaluate" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What does SOC 2 evaluate?")}
+            {__("What does the audit actually evaluate?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("SOC 2 evaluates your controls against the Trust Services Criteria (TSC):")}
+              {__("The framework is built around five Trust Services Criteria (TSC):")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Security")}</strong> {__("(mandatory): Protection against unauthorized access")}</span>
+                <span><strong class="text-foreground">{__("Security (The Mandatory Core)")}</strong>{__(": Protection against unauthorized access and breach-points.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Availability")}</strong>{__(": Systems are available and operational as agreed")}</span>
+                <span><strong class="text-foreground">{__("Availability")}</strong>{__(": Ensuring your systems are up and running as promised.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Processing Integrity")}</strong>{__(": Data is processed accurately and completely")}</span>
+                <span><strong class="text-foreground">{__("Processing Integrity")}</strong>{__(": Confirming that data processing is accurate and authorized.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Confidentiality")}</strong>{__(": Confidential information is protected")}</span>
+                <span><strong class="text-foreground">{__("Confidentiality")}</strong>{__(": Protecting data that is restricted to a specific set of people.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Privacy")}</strong>{__(": Personal data is collected, used, and disclosed properly")}</span>
+                <span><strong class="text-foreground">{__("Privacy")}</strong>{__(": How you handle personal information (PII).")}</span>
               </li>
             </ul>
             <p>
-              {__("Every SOC 2 report must include Security. The other criteria are optional and should be chosen based on customer expectations and business needs.")}
+              {__("Most companies start with just the \"Security\" criteria. You can add the others based on your specific business needs or customer demands.")}
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- What is the difference between SOC 2 Type I and Type II? -->
+        <!-- SOC 2 Type I vs. Type II -->
         <section id="type1-vs-type2" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What is the difference between SOC 2 Type I and Type II?")}
+            {__("SOC 2 Type I vs. Type II: Which do you need?")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              {__("SOC 2 Type I is a point-in-time assessment. It confirms that your controls are properly designed at a specific date.")}
+              {__("You will hear these two terms often. The difference comes down to time.")}
             </p>
-            <p>
-              {__("SOC 2 Type II evaluates how those controls operate over time, typically over 3 to 12 months.")}
-            </p>
+            <ul class="list-none space-y-3 ml-0">
+              <li class="flex items-start gap-2">
+                <span class="text-muted-foreground">•</span>
+                <span><strong class="text-foreground">{__("SOC 2 Type I")}</strong>{__(": Evaluates your controls at a specific point in time. It proves you have a solid plan in place today. It's faster to get, but less comprehensive.")}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-muted-foreground">•</span>
+                <span><strong class="text-foreground">{__("SOC 2 Type II")}</strong>{__(": Evaluates how those controls perform over an observation period (usually 3 to 12 months).")}</span>
+              </li>
+            </ul>
             <p class="flex items-start gap-2">
               <span>👉</span>
-              <span>{__("Most enterprise customers expect a SOC 2 Type II, as it demonstrates real operational maturity.")}</span>
+              <span><strong class="text-foreground">{__("The Bottom Line:")}</strong> {__("Most enterprise customers eventually require a SOC 2 Type II because it proves you don't just have policies on paper, you actually follow them.")}</span>
             </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- How long does it take to get SOC 2 compliant? -->
-        <section id="how-long" class="scroll-mt-24 mb-12">
+        <!-- Timeline and Project Phases -->
+        <section id="timeline-phases" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How long does it take to become SOC 2 compliant?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("There is no single answer, but for most small companies:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("SOC 2 Type I")}</strong>{__(": ~1 to 2 months")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("SOC 2 Type II")}</strong>{__(": 3 to 12 months (including the observation period)")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("The timeline depends mainly on:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Company size (process change is harder as teams grow)")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Technical stack complexity")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Existing security maturity")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Internal time availability")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("For companies with a simple stack, the actual technical work can take less than 10 hours. Most of the time is spent on documentation, evidence collection, and audit coordination.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- How can I estimate the SOC 2 timeline for my company? -->
-        <section id="estimate-timeline" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How can I estimate the SOC 2 timeline for my company?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("You can estimate your SOC 2 timeline by answering three questions:")}
-            </p>
-            <ol class="list-none space-y-4 ml-0">
-              <li>
-                <p class="text-foreground font-medium">{__("Have customers or prospects asked for SOC 2?")}</p>
-                <p class="text-sm">{__("If yes, you likely need it now.")}</p>
-              </li>
-              <li>
-                <p class="text-foreground font-medium">{__("Is your infrastructure relatively stable?")}</p>
-                <p class="text-sm">{__("Frequent changes slow audits dramatically.")}</p>
-              </li>
-              <li>
-                <p class="text-foreground font-medium">{__("Who will own compliance internally?")}</p>
-                <p class="text-sm">{__("SOC 2 always requires someone accountable.")}</p>
-              </li>
-            </ol>
-            <p>
-              {__("Traditionally, readiness takes 1 to 4 months, followed by the audit and (for Type II) the observation period. With an expert-led approach like")} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a>{__(", the readiness phase can be drastically shortened.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- What are the phases of a SOC 2 project? -->
-        <section id="phases" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What are the phases of a SOC 2 project?")}
+            {__("Timeline and Project Phases")}
           </h2>
           <div class="space-y-6 text-muted-foreground leading-relaxed">
-            <!-- Phase 1 -->
-            <div>
-              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Phase 1: Readiness and remediation")}</h3>
-              <p class="text-sm mb-2"><strong class="text-foreground">{__("Timeline:")}</strong> {__("~1 to 4 months")}</p>
-              <p class="mb-2">{__("This is the heaviest phase:")}</p>
-              <ul class="list-none space-y-1 ml-0">
-                <li class="flex items-start gap-2">
-                  <span class="text-muted-foreground">•</span>
-                  <span>{__("Scope definition")}</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-muted-foreground">•</span>
-                  <span>{__("Gap analysis")}</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-muted-foreground">•</span>
-                  <span>{__("Control implementation")}</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-muted-foreground">•</span>
-                  <span>{__("Policies and documentation")}</span>
-                </li>
-              </ul>
-              <p class="mt-2">{__("Even with automation tools, this phase requires real decision-making and documentation work.")}</p>
+            <p>
+              {__("How long does it take? For a typical startup or mid-sized company, the journey looks like this:")}
+            </p>
+
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-lg font-semibold text-foreground mb-2">{__("Readiness & Remediation (1–4 months)")}</h3>
+                <p>{__("You identify gaps in your current setup, write policies, and fix technical vulnerabilities.")}</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-foreground mb-2">{__("Observation Period (3–12 months)")}</h3>
+                <p>{__("For a Type II report, the auditor watches your controls in action. Most startups opt for a 3-month window to start.")}</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-foreground mb-2">{__("The Audit (1–6 weeks)")}</h3>
+                <p>{__("The auditor reviews your evidence, interviews your team, and drafts the final report.")}</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-foreground mb-2">{__("Ongoing Maintenance")}</h3>
+                <p>{__("SOC 2 isn't a \"one and done.\" You'll need to renew it annually to maintain trust.")}</p>
+              </div>
             </div>
 
-            <!-- Phase 2 -->
-            <div>
-              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Phase 2: Observation period (Type II only)")}</h3>
-              <p class="text-sm mb-2"><strong class="text-foreground">{__("Timeline:")}</strong> {__("3 to 12 months")}</p>
-              <p>{__("You collect evidence to prove your controls operate consistently over time. Most startups choose 3 months.")}</p>
-            </div>
-
-            <!-- Phase 3 -->
-            <div>
-              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Phase 3: Audit")}</h3>
-              <p class="text-sm mb-2"><strong class="text-foreground">{__("Timeline:")}</strong> {__("1 to 6 weeks")}</p>
-              <p>{__("The auditor reviews evidence, interviews key team members, and writes the report.")}</p>
-            </div>
-
-            <!-- Phase 4 -->
-            <div>
-              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Phase 4: Maintenance")}</h3>
-              <p class="text-sm mb-2"><strong class="text-foreground">{__("Timeline:")}</strong> {__("Ongoing (monthly effort)")}</p>
-              <p>{__("SOC 2 is annual. Controls must be maintained to avoid starting from scratch each year.")}</p>
-            </div>
+            <p class="flex items-start gap-2 bg-[#f8f9f7] p-4 rounded-lg border border-border-low">
+              <span>💡</span>
+              <span><strong class="text-foreground">{__("Pro Tip:")}</strong> {__("To speed things up, ensure your infrastructure is stable. Frequent major changes to your tech stack during an audit can cause delays.")}</span>
+            </p>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- How much does SOC 2 cost? -->
+        <!-- Budgeting for SOC 2 -->
         <section id="cost" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How much does SOC 2 cost?")}
+            {__("Budgeting for SOC 2: What Does It Actually Cost?")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              {__("For a small company, a realistic annual SOC 2 budget is around $10,000 if done efficiently.")}
+              {__("Compliance doesn't need to cost six figures. According to our blog article")} <a href="https://www.getprobo.com/blog/2025-03-04-what-is-soc2-cost" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">{__("\"What is SOC 2 cost?\"")}</a>{__(", small businesses can stay compliant for around $10,000 per year by taking a lean approach.")}
             </p>
-            <p>{__("Typical breakdown:")}</p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Audit")}</strong>{__(": $6,000–$7,000")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Implementation & tooling")}</strong>{__(": varies widely")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Hidden cost")}</strong>{__(": internal time and distraction")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Consultants can cost $50,000+, and automation tools still require a dedicated internal owner.")}
-            </p>
+
+            <!-- The Cost Breakdown -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-4">{__("The Cost Breakdown")}</h3>
+              <ul class="list-none space-y-4 ml-0">
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("The Audit")}</strong>{__(": For a small business, expect to budget $6,000–$7,000 for the official audit. Type II audits are more expensive than Type I because of the extended review period.")}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Implementation")}</strong>{__(": Hiring a consultant can run you $50,000+, while automation platforms often cost around $10,000.")}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Penetration Testing")}</strong>{__(": While not required for SOC 2, a manual test is a great security investment as you scale. Budget at least $5,000 if you choose to do one.")}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Security Training")}</strong>{__(": You don't need expensive suites; $100/month or free resources are usually sufficient for early-stage teams.")}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- The "Hidden" Cost -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-4">{__("The \"Hidden\" Cost: Internal Time")}</h3>
+              <p>
+                {__("The biggest expense isn't the auditor's fee, it's internal distraction. Without a streamlined process, a CTO or Lead Engineer can spend months acting as a part-time compliance manager, chasing down screenshots and logs.")}
+              </p>
+            </div>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- What are the hidden costs of SOC 2? -->
-        <section id="hidden-costs" class="scroll-mt-24 mb-12">
+        <!-- Frequently Asked Questions -->
+        <section id="faq" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What are the hidden costs of SOC 2?")}
+            {__("Frequently Asked Questions")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("The biggest hidden cost is internal time:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Defining scope")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Customizing policies")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Managing evidence")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Coordinating auditors")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("In many startups, this turns a CTO or engineer into a part-time compliance manager for months.")}
-            </p>
+          <div class="space-y-8 text-muted-foreground leading-relaxed">
+            <!-- Is penetration testing required? -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Is penetration testing required?")}</h3>
+              <p>{__("No. While many companies choose to do a pen test as a best practice, it is not a formal requirement for SOC 2 compliance.")}</p>
+            </div>
+
+            <!-- SOC 2 vs. ISO 27001 -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-2">{__("SOC 2 vs. ISO 27001: Which is better?")}</h3>
+              <ul class="list-none space-y-2 ml-0">
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Choose SOC 2")}</strong> {__("if your customers are primarily in North America. It is the standard language of trust for US-based enterprise deals.")}</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-muted-foreground">•</span>
+                  <span><strong class="text-foreground">{__("Choose ISO 27001")}</strong> {__("if you are focusing on international or European markets, as it is a globally recognized certification.")}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Can SOC 2 help us close deals? -->
+            <div>
+              <h3 class="text-lg font-semibold text-foreground mb-2">{__("Can SOC 2 help us close deals?")}</h3>
+              <p>{__("Absolutely. A SOC 2 report is often a prerequisite for passing vendor security reviews. Having it ready can turn a \"maybe\" into a \"yes\" and significantly shorten your sales cycle by removing security hurdles upfront.")}</p>
+            </div>
           </div>
         </section>
 
         <hr class="border-border-low mb-12" />
 
-        <!-- Is penetration testing required for SOC 2? -->
-        <section id="pentest" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Is penetration testing required for SOC 2?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("No. SOC 2 does not require penetration testing.")}
-            </p>
-            <p>
-              {__("It can be useful once your product stabilizes, but it is not mandatory and often overkill for early-stage startups.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- When is it too early to do SOC 2? -->
-        <section id="too-early" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("When is it too early to do SOC 2?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("It's probably too early if:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("You don't handle sensitive customer data")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("No customer, partner, or investor has asked for it")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Your infrastructure changes weekly")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Your product or market is still being validated")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Doing SOC 2 too early often wastes time and money. A better approach is to focus on security fundamentals first.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- How can we get SOC 2 faster? -->
-        <section id="faster" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How can we get SOC 2 faster?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("Speed comes from expertise, not tools alone.")}
-            </p>
-            <p>
-              {__("With a done-for-you service like")} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a>:
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Scoping is done correctly from day one")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Documentation is written for your real workflows")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Engineers only implement what's necessary")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Audit coordination is fully managed")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("This turns months of internal effort into a focused, low-distraction process.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- What is the difference between SOC 2 and ISO 27001? -->
-        <section id="soc2-vs-iso" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("What is the difference between SOC 2 and ISO 27001?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("SOC 2")}</strong> {__("produces a detailed report focused on customer trust (common in North America)")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("ISO 27001")}</strong> {__("produces a certification proving you run a formal Information Security Management System (ISMS)")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("They are not interchangeable. Customers usually ask for one or the other.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- Should we choose SOC 2 or ISO 27001? -->
-        <section id="choose" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Should we choose SOC 2 or ISO 27001?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p class="text-foreground font-medium">{__("Choose SOC 2 if:")}</p>
-            <ul class="list-none space-y-2 ml-0 mb-4">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("Your customers are mainly in North America")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("You sell B2B or enterprise software")}</span>
-              </li>
-            </ul>
-            <p class="text-foreground font-medium">{__("Choose ISO 27001 if:")}</p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("You target international or European markets")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("You need a globally recognized certification")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("Many growing startups eventually need both.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- Can SOC 2 help close deals? -->
-        <section id="close-deals" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("Can SOC 2 help close deals?")}
-          </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              {__("Yes. SOC 2 is often:")}
-            </p>
-            <ul class="list-none space-y-2 ml-0">
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("A requirement to pass vendor security reviews")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("A blocker in enterprise sales cycles")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("A strong trust signal for customers and partners")}</span>
-              </li>
-            </ul>
-            <p>
-              {__("A well-scoped SOC 2 report can significantly shorten sales cycles and unlock larger deals.")}
-            </p>
-          </div>
-        </section>
-
-        <hr class="border-border-low mb-12" />
-
-        <!-- How does Probo help with SOC 2? -->
+        <!-- How Probo Simplifies Your SOC 2 Journey -->
         <section id="probo-help" class="scroll-mt-24 mb-12">
           <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("How does Probo help with SOC 2?")}
+            {__("How Probo Simplifies Your SOC 2 Journey")}
           </h2>
           <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a> {__("provides a done-for-you SOC 2 service, supported by a dedicated compliance platform:")}
+              {__("Compliance shouldn't be a full-time job for your engineering team.")} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a> {__("provides a \"done-for-you\" service that combines expert guidance with a powerful compliance platform.")}
             </p>
-            <ul class="list-none space-y-2 ml-0">
+            <ul class="list-none space-y-3 ml-0">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We design a custom compliance program tailored to your business, customers, and technical stack")}</span>
+                <span><strong class="text-foreground">{__("Custom Programs")}</strong>{__(": We design security controls that fit your actual workflow, not a generic template.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We provide the tool to centralize evidence, policies, and audit workflows in one place")}</span>
+                <span><strong class="text-foreground">{__("Automation")}</strong>{__(": Our platform centralizes evidence and policy management, so you aren't chasing down screenshots.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We write and maintain documentation that reflects how your company actually operates")}</span>
+                <span><strong class="text-foreground">{__("Full Audit Management")}</strong>{__(": We handle the coordination with auditors from start to finish.")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span>{__("We manage the audit end-to-end, including auditor coordination and evidence preparation")}</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-muted-foreground">•</span>
-                <span>{__("We reduce engineering distraction to a minimum by focusing your team only on what's strictly necessary")}</span>
+                <span><strong class="text-foreground">{__("Zero Distraction")}</strong>{__(": We tell your team exactly what is needed and nothing more, keeping your product roadmap on track.")}</span>
               </li>
             </ul>
-            <p>
-              {__("You still meet the auditor (it's your company) but")} <a href="https://www.getprobo.com/" target="_blank" rel="noopener noreferrer" class="text-[#5d770d] hover:underline">Probo</a> {__("handles everything else, combining expert guidance with the right tooling so compliance doesn't slow you down.")}
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-[#f8f9f7] p-8 rounded-xl border border-border-low">
+          <div class="text-center">
+            <p class="text-lg font-semibold text-foreground mb-4">
+              {__("Ready to unlock enterprise deals with SOC 2?")}
             </p>
+            <p class="text-muted-foreground mb-6">
+              {__("Take a meeting to understand how close you are to compliance.")}
+            </p>
+            <a
+              href="https://form.getprobo.com/r/nrxk9v"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-6 py-3 bg-[#D7EDBA] text-[#141e12] font-medium rounded-lg hover:bg-[#c5dba8] transition-colors"
+            >
+              {__("Get Started with Probo")}
+            </a>
           </div>
         </section>
 
@@ -609,21 +340,13 @@ const tableOfContents = [
 
 <script>
   const sectionIds = [
-    "what-is-soc2",
+    "the-basics",
     "is-soc2-certification",
-    "what-does-soc2-evaluate",
+    "what-does-audit-evaluate",
     "type1-vs-type2",
-    "how-long",
-    "estimate-timeline",
-    "phases",
+    "timeline-phases",
     "cost",
-    "hidden-costs",
-    "pentest",
-    "too-early",
-    "faster",
-    "soc2-vs-iso",
-    "choose",
-    "close-deals",
+    "faq",
     "probo-help",
   ];
 
