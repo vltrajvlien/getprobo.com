@@ -225,7 +225,7 @@ export default defineConfig({
             "weekly"
           );
           item.priority = 0.8;
-        } else if (item.url.includes("/compliance-guides")) {
+        } else if (item.url.includes("/hub")) {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "weekly"
           );

@@ -1,3 +1,6 @@
 /sitemap.xml /sitemap-index.xml 301
 /subprocessors https://compliance.getprobo.com/subprocessors 301
-/fr/compliance-guides /compliance-guides 301
+/fr/compliance-guides /hub 301
+/compliance-guides /hub 301
+/compliance-guides/soc2 /hub/soc2 301
+/compliance-guides/iso27001 /hub/iso27001 301

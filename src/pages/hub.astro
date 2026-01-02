@@ -12,7 +12,7 @@ const frameworks = [
     description:
       "This guide breaks down SOC 2 in simple terms: what it is, why it matters, who needs it, and how to prepare without overcomplicating things.",
     features: ["Understanding SOC 2", "Why it is needed", "What solutions exist"],
-    href: "/compliance-guides/soc2",
+    href: "/hub/soc2",
     accentColor: "from-emerald-400 to-teal-500",
     badges: ["SOC2_TYPE1", "SOC2_TYPE2"],
   },
@@ -23,7 +23,7 @@ const frameworks = [
     description:
       "This guide explains ISO 27001 in simple terms: what it is, how it works, why companies adopt it, and how to approach certification without adding unnecessary complexity.",
     features: ["Understanding ISO 27001", "Why it is needed", "What solutions exist"],
-    href: "/compliance-guides/iso27001",
+    href: "/hub/iso27001",
     accentColor: "from-blue-400 to-indigo-500",
     badges: ["ISO27001"],
   },
@@ -31,8 +31,8 @@ const frameworks = [
 ---
 
 <Layout
-  title={__("Compliance Guides")}
-  description={__("Everything you need to understand about compliance frameworks.")}
+  title={__("Hub")}
+  description={__("Your central resource for compliance knowledge, guides, and tools.")}
 >
   <main class="container my-10 sm:my-20">
     <!-- Hero Section -->
@@ -51,28 +51,28 @@ const frameworks = [
           stroke-linecap="round"
           stroke-linejoin="round"
         >
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"
-          ></path>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
-        {__("Compliance Knowledge Center")}
+        {__("Resource Center")}
       </div>
       <h1
         class="text-h2 sm:text-h1 mb-6 font-medium animate-slide-in animation-delay-100"
       >
-        {__("Your Complete Compliance Guides")}
+        {__("Hub")}
       </h1>
       <p
         class="text-muted-foreground text-lg sm:text-xl font-medium max-w-[600px] mx-auto animate-slide-in animation-delay-200"
       >
-        {__("Everything you need to know about compliance frameworks. From basics to certification.")}
+        {__("Your central resource for compliance knowledge, guides, and tools.")}
       </p>
     </div>
 
-    <!-- Frameworks Section -->
+    <!-- Compliance Guides Section -->
     <section class="animate-slide-in animation-delay-300">
       <div class="mb-10">
         <h2 class="text-h3 sm:text-[40px] sm:leading-[54px] font-medium mb-3 tracking-[-0.8px]">
-          {__("Available Frameworks")}
+          {__("Compliance Guides")}
         </h2>
         <p class="text-muted-foreground text-lg">
           {__("Start your compliance journey with our comprehensive guides")}
@@ -211,3 +211,4 @@ const frameworks = [
     </section>
   </main>
 </Layout>
+
