@@ -25,7 +25,7 @@ const logo = images(data.logo);
 const stories = random((await getCollection("stories", filterLang(Astro.currentLocale))).filter(s => s.id !== item.id), 3);
 ---
 
-<Layout title={item.data.title}>
+<Layout title={item.data.title} description={item.data.description}>
   <header class="relative flex h-115 flex-col justify-end sm:h-163">
     <Image
       src={image}

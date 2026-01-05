@@ -14,6 +14,7 @@ const stories = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/stories" }),
   schema: z.object({
     title: z.string(),
+    description: z.string().optional(),
     date: z.date(),
     impacts: z
       .array(

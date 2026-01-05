@@ -28,6 +28,18 @@ const frameworks = [
     badges: ["ISO27001"],
   },
 ];
+
+const articles = [
+  {
+    id: "top-grc-tools-2026",
+    title: "Top 5 GRC Tools in 2026",
+    description:
+      "A practical guide for modern Risk & Compliance teams. We compare Probo, Vanta, Drata, Hyperproof, and OneTrust based on risk management, governance, and compliance capabilities.",
+    href: "/hub/top-grc-tools-2026",
+    accentColor: "from-violet-400 to-purple-500",
+    tag: "Comparison",
+  },
+];
 ---
 
 <Layout
@@ -162,6 +174,70 @@ const frameworks = [
                 </div>
               </div>
             </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="mt-10 sm:mt-16 animate-slide-in animation-delay-350">
+      <div class="mb-10">
+        <h2 class="text-h3 sm:text-[40px] sm:leading-[54px] font-medium mb-3 tracking-[-0.8px]">
+          {__("Articles & Comparisons")}
+        </h2>
+        <p class="text-muted-foreground text-lg">
+          {__("In-depth analysis and comparisons to help you make informed decisions")}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        {
+          articles.map((article) => (
+            <a
+              href={article.href}
+              class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-gray-300 block"
+            >
+              {/* Gradient Background Accent */}
+              <div class={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${article.accentColor} opacity-10 blur-3xl transition-opacity group-hover:opacity-20`} />
+              
+              <div class="relative p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-6">
+                <div class="flex-1">
+                  {/* Tag */}
+                  <span class="inline-block text-xs font-medium text-[#5d770d] bg-[#f0f7e4] px-3 py-1 rounded-full mb-4">
+                    {article.tag}
+                  </span>
+                  
+                  {/* Title */}
+                  <h3 class="text-[24px] sm:text-[28px] leading-[1.15] font-bold text-gray-900 mb-3 tracking-[-0.5px] group-hover:text-[#5d770d] transition-colors">
+                    {article.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p class="text-gray-600 leading-relaxed">
+                    {article.description}
+                  </p>
+                </div>
+
+                {/* Arrow */}
+                <div class="shrink-0 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 group-hover:bg-[#D7EDBA] transition-colors">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-gray-600 group-hover:text-[#141e12] transition-colors"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
           ))
         }
       </div>

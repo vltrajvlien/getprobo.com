@@ -205,6 +205,9 @@ export default defineConfig({
         if (page.includes('/feedback')) {
           return false;
         }
+        if (page.includes('/blog/page/1')) {
+          return false;
+        }
         return true;
       },
       serialize(item) {
