@@ -16,12 +16,68 @@ const tableOfContents = [
   { id: "worth-it", label: "Is it Worth it for Startups?" },
   { id: "probo-help", label: "How Probo Simplifies ISO 27001" },
 ];
+
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Complete ISO 27001 FAQ: Everything You Need to Know",
+  "description": "If you are targeting international markets or enterprise-level clients, you have likely encountered requests for ISO 27001 certification. This guide provides a clear, practical roadmap.",
+  "author": {
+    "@type": "Organization",
+    "name": "Probo",
+    "url": "https://www.getprobo.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probo",
+    "url": "https://www.getprobo.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.getprobo.com/probo-logo.svg"
+    }
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": new Date().toISOString().split('T')[0],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.getprobo.com/hub/iso27001"
+  },
+  "image": "https://www.getprobo.com/og.png"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.getprobo.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Hub",
+      "item": "https://www.getprobo.com/hub"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ISO 27001 Compliance Guide",
+      "item": "https://www.getprobo.com/hub/iso27001"
+    }
+  ]
+};
 ---
 
 <Layout
   title={__("The Complete ISO 27001 FAQ: Everything You Need to Know")}
   description={__("If you are targeting international markets or enterprise-level clients, you have likely encountered requests for ISO 27001 certification. This guide provides a clear, practical roadmap.")}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
     <header class="mb-12 sm:mb-16">
