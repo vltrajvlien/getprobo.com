@@ -5,9 +5,10 @@ import WrittenBy from "../../../components/block/WrittenBy.astro";
 import type { Page } from "astro";
 import Pagination from "../../../components/Pagination.astro";
 import { pageSize } from "../../../content.config.ts";
+import { filterLang, getLink } from "../../../lib/i18n.ts";
 
 export async function getStaticPaths({paginate}: {paginate: any}) {
-  const allPosts = (await getCollection("blog")).sort(
+  const allPosts = (await getCollection("blog", filterLang('en'))).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
   );
   return paginate(allPosts, {pageSize});
@@ -51,7 +52,7 @@ const dateFormatter = Intl.DateTimeFormat("en-US", {
               </div>
               <h2>
                 <a
-                  href={`/blog/${post.id}`}
+                  href={getLink(Astro, `/blog/${post.id.split('/').at(-1)}`)}
                   class="text-h4 mt-4 mb-2 block font-medium hover:underline"
                 >
                   {post.data.title}

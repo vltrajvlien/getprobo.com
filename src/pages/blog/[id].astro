@@ -5,10 +5,10 @@ import Prose from "../../components/Prose.astro";
 import Sharer from "../../components/block/Sharer.svelte";
 import WrittenBy from "../../components/block/WrittenBy.astro";
 import Newsletter from "../../components/block/Newsletter.astro";
-import { getLink } from "../../lib/i18n.ts";
+import { filterLang, getLink } from "../../lib/i18n.ts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog", filterLang('en'));
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
