@@ -26,6 +26,7 @@ const stories = defineCollection({
       .min(1),
     image: z.string(),
     previewImage: z.string().optional(),
+    ogImage: z.string().optional(),
     framework: z.enum(frameworks.map((f) => f.label) as any),
     logo: z.string(),
     company: z.object({
