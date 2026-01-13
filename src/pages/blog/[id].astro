@@ -61,7 +61,7 @@ const faqSchema = post.data.faqs ? {
 } : null;
 ---
 
-<Layout title={post.data.title} description={post.data.excerpt}>
+<Layout title={post.data.title} description={post.data.excerpt} ogImage={post.data.ogImage}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <main class="@container container my-10 max-w-[720px] sm:my-20">
