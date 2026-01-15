@@ -10,7 +10,7 @@ import SaleArg from "../components/ui/SaleArg.astro";
 
 import Stories from "../components/block/Stories.astro";
 import ComplianceTrack from "../components/block/ComplianceTrack.astro";
-import { getTranslator } from "../lib/i18n.ts";
+import { getTranslator, getLink } from "../lib/i18n.ts";
 const __ = await getTranslator(Astro.currentLocale)
 ---
 
@@ -54,7 +54,7 @@ const __ = await getTranslator(Astro.currentLocale)
         class="animate-perspective-in animation-delay-300"
         size="lg"
         rel="nofollow noreferrer"
-        href={__("https://form.getprobo.com/r/nrxk9v")}>{__('Talk to an expert')}</Button
+        href={getLink(Astro, "/contact")}>{__('Talk to an expert')}</Button
       >
     </div>
     <Badges

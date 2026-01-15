@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Logo from "../../assets/probo-logo-only.svg";
 import Badges from "../Badges.svelte";
 import Button from "../../components/ui/Button.svelte";
-import { getTranslator } from "../../lib/i18n.ts";
+import { getTranslator, getLink } from "../../lib/i18n.ts";
 
 const __ = await getTranslator(Astro.currentLocale);
 ---
@@ -34,7 +34,7 @@ const __ = await getTranslator(Astro.currentLocale);
 
     <Button
       rel="nofollow noreferrer"
-      href={__("https://form.getprobo.com/r/nrxk9v")}
+      href={getLink(Astro, "/contact")}
       size="lg"
       class="mx-auto flex w-max"
     >
