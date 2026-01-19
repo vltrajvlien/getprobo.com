@@ -42,7 +42,7 @@ const articleSchema = {
     "@type": "WebPage",
     "@id": "https://www.getprobo.com/hub/soc2"
   },
-  "image": "https://www.getprobo.com/og.png"
+  "image": "https://www.getprobo.com/hub/soc2-og.png"
 };
 
 const breadcrumbSchema = {
@@ -74,6 +74,7 @@ const breadcrumbSchema = {
 <Layout
   title={__("What is SOC 2? The Complete SOC 2 Guide for 2026")}
   description={__("Learn everything about SOC 2 compliance: requirements, costs, timeline, and Type 1 vs Type 2 differences. Your complete guide to achieving SOC 2 certification.")}
+  ogImage="/hub/soc2-og.png"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
