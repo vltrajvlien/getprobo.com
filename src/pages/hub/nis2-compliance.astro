@@ -42,7 +42,7 @@ const articleSchema = {
     "@type": "WebPage",
     "@id": "https://www.getprobo.com/hub/nis2-compliance"
   },
-  "image": "https://www.getprobo.com/hub/nis2-og.png"
+  "image": "https://www.getprobo.com/hub/nis2-compliance-2026.jpg"
 };
 
 const breadcrumbSchema = {
@@ -74,7 +74,7 @@ const breadcrumbSchema = {
 <Layout
   title={__("NIS2 Compliance: The Complete Guide for 2026")}
   description={__("Everything you need to know about NIS2 compliance in 2026: requirements, costs, deadlines, and how to prepare your organization. Expert guide for tech teams.")}
-  ogImage="/hub/nis2-og.png"
+  ogImage="/hub/nis2-compliance-2026.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -96,6 +96,15 @@ const breadcrumbSchema = {
         {__("The European Union just redrew the cybersecurity map, and your organization might be standing on new territory.")}
       </p>
     </header>
+
+    <!-- Featured Image -->
+    <div class="mb-12 sm:mb-16">
+      <img 
+        src="/hub/nis2-compliance-2026.jpg" 
+        alt="NIS2 Compliance Guide 2026" 
+        class="w-full max-w-[900px] mx-auto rounded-2xl shadow-lg"
+      />
+    </div>
 
     <!-- Content with TOC -->
     <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
