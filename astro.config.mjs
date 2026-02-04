@@ -186,6 +186,13 @@ export default defineConfig({
     mdx(),
     svelte(),
     sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          fr: 'fr',
+        },
+      },
       filter(page) {
         if (page.endsWith('/yc') || page.endsWith('/yc/')) {
           return false;
