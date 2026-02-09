@@ -24,6 +24,10 @@ export default defineConfig({
       status: 301,
       destination: "/blog",
     },
+    "/fr/blog/page/1": {
+      status: 301,
+      destination: "/fr/blog",
+    },
   },
   build: {
     format: "file",
