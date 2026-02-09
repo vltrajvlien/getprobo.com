@@ -34,7 +34,7 @@ export const filterLang =
   };
 
 /**
- * Get the canonical URL for a page, always pointing to the English version for blog posts
+ * Get the canonical URL for a page (self-canonical)
  */
 export function getCanonicalUrl(url: URL): string {
   const baseUrl = url.origin;
@@ -42,12 +42,6 @@ export function getCanonicalUrl(url: URL): string {
   
   // Remove trailing .html if present
   pathname = pathname.replace(/\.html$/, '');
-  
-  // For blog pages, always return the English version as canonical
-  if (pathname.includes('/blog')) {
-    // Remove language prefix if present (e.g., /fr/blog -> /blog)
-    pathname = pathname.replace(/^\/[a-z]{2}\//, '/');
-  }
   
   return `${baseUrl}${pathname}`;
 }
