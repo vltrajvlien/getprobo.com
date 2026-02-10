@@ -208,23 +208,6 @@ To rotate a token without service interruption:
 
 ## Testing Authentication
 
-### Using curl
-
-Test your token with curl:
-
-```bash
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-     -H "Content-Type: application/json" \
-     https://your-probo-instance.com/api/mcp/v1/health
-```
-
-Expected response:
-```json
-{
-  "status": "ok"
-}
-```
-
 ### Using MCP Client
 
 Test within your MCP client:

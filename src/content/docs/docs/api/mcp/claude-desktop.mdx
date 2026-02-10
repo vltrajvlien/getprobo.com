@@ -144,18 +144,6 @@ tail -f ~/Library/Logs/Claude/mcp*.log
 type %APPDATA%\Claude\logs\mcp*.log
 ```
 
-### Authentication Errors
-
-If you see authentication errors:
-
-- Verify your API token is correct in the configuration file
-- Check that the token hasn't expired
-- Ensure the token is properly formatted in the `--header` argument
-- Test the API token with curl:
-  ```bash
-  curl -H "Authorization: Bearer YOUR_TOKEN" \
-    https://your-probo-instance.com/api/mcp/health
-  ```
 
 ### Connection Timeouts
 

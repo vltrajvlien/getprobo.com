@@ -114,20 +114,6 @@ Configure different Probo instances for development and production:
 
 ## Troubleshooting
 
-### MCP Server Not Appearing
-
-**Problem:** Probo tools aren't available in the AI assistant
-
-**Solutions:**
-1. Verify the configuration syntax is correct
-2. Restart Zed completely
-3. Check Zed logs for connection errors
-4. Test the URL and token with curl:
-   ```bash
-   curl -H "Authorization: Bearer YOUR_TOKEN" \
-     https://your-probo-instance.com/api/mcp/v1/health
-   ```
-
 ### Authentication Errors
 
 **Problem:** 401 Unauthorized errors
