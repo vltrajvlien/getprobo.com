@@ -74,12 +74,10 @@ const breadcrumbSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
-    <header class="mb-12 sm:mb-16">
-      <div class="flex items-center gap-4 mb-4">
-        <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("What is a Compliance Software?")}
-        </h1>
-      </div>
+    <header class="mb-12 sm:mb-16 text-center max-w-[900px] mx-auto">
+      <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground mb-6">
+        {__("What is a")} <span class="highlight-text">{__("Compliance Software")}</span>{__("?")}
+      </h1>
       <p class="text-muted-foreground text-lg">
         {__("The world of GRC (Governance, Risk, and Compliance) has changed. New regulations like the")} <strong>{__("EU AI Act")}</strong>, <strong>{__("DORA")}</strong> {__("for financial resilience, and updated")} <strong>{__("SEC cybersecurity rules")}</strong> {__("mean companies can't rely on spreadsheets anymore. GRC tools are no longer just places to store policies. Today, they need to actively help teams manage risk, automate work, and support the business as it grows.")}
       </p>
@@ -336,6 +334,10 @@ const breadcrumbSchema = {
   .toc-link.active {
     color: #5d770d;
     font-weight: 500;
+  }
+  .highlight-text {
+    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    display: inline;
   }
 </style>
 

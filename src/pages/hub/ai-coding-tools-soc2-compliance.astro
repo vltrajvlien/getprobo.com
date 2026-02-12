@@ -75,19 +75,17 @@ const breadcrumbSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
-    <header class="mb-12 sm:mb-16">
-      <div class="flex items-center gap-4 mb-4">
-        <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("Using AI Coding Tools While Staying SOC 2 Compliant")}
-        </h1>
-      </div>
+    <header class="mb-12 sm:mb-16 text-center max-w-[900px] mx-auto">
+      <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground mb-6">
+        {__("Using")} <span class="highlight-text">{__("AI Coding Tools")}</span><br />{__("While Staying SOC 2 Compliant")}
+      </h1>
       <p class="text-muted-foreground text-lg mb-8">
         {__("Your engineering team just discovered Claude Code can refactor legacy systems in minutes. Your developers are begging to use GitHub Copilot. And that new hire won't stop talking about how Cursor transformed their productivity at their last job. But you're SOC 2 compliant—or working toward it. Can you actually use these AI coding assistants without blowing up your compliance posture?")}
       </p>
       <img 
         src="/hub/ai-coding-tools-soc2-compliance.jpg" 
         alt="Using AI Coding Tools While Staying SOC 2 Compliant" 
-        class="w-full rounded-2xl shadow-lg"
+        class="w-full max-w-[800px] mx-auto rounded-2xl shadow-lg"
       />
     </header>
 
@@ -766,6 +764,10 @@ const breadcrumbSchema = {
   .toc-link.active {
     color: #5d770d;
     font-weight: 500;
+  }
+  .highlight-text {
+    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    display: inline;
   }
 </style>
 

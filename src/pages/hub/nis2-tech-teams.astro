@@ -77,7 +77,7 @@ const breadcrumbSchema = {
     <header class="mb-12 sm:mb-16 text-center">
       <div class="flex items-center justify-center gap-4 mb-4">
         <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("NIS2 for Tech Teams")}
+          <span class="highlight-text">{__("NIS2")}</span> {__("for Tech Teams")}
         </h1>
         <div class="flex items-center gap-2">
           <img src="/frameworks/NIS2.svg" alt="NIS2" class="size-12" />
@@ -908,6 +908,10 @@ const breadcrumbSchema = {
   .toc-link.active {
     color: #5d770d;
     font-weight: 500;
+  }
+  .highlight-text {
+    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    display: inline;
   }
 </style>
 

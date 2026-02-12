@@ -79,12 +79,10 @@ const breadcrumbSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
-    <header class="mb-12 sm:mb-16">
-      <div class="flex items-center gap-4 mb-4">
-        <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("Cloud security best practices for audit-ready teams")}
-        </h1>
-      </div>
+    <header class="mb-12 sm:mb-16 text-center max-w-[900px] mx-auto">
+      <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground mb-6">
+        <span class="highlight-text">{__("Cloud Security")}</span> {__("Best Practices")}<br />{__("for Audit-Ready Teams")}
+      </h1>
       <p class="text-muted-foreground text-lg">
         {__("A lot of cloud incidents are not caused by elite attackers. They happen because a permission was too broad, a key lived too long, or a temporary exception became permanent. The Verizon 2025 DBIR found compromised credentials were an initial access vector in 22% of reviewed breaches. That single number explains why cloud security best practices are less about enforcing the basics consistently, across every environment.")}
       </p>
@@ -905,6 +903,10 @@ const breadcrumbSchema = {
   .toc-link.active {
     color: #5d770d;
     font-weight: 500;
+  }
+  .highlight-text {
+    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    display: inline;
   }
 </style>
 

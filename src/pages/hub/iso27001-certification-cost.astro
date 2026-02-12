@@ -80,7 +80,7 @@ const breadcrumbSchema = {
     <header class="mb-12 sm:mb-16 text-center">
       <div class="flex items-center justify-center gap-4 mb-4">
         <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          {__("ISO 27001 Compliance Cost")}
+          <span class="highlight-text">{__("ISO 27001")}</span> {__("Compliance Cost")}
         </h1>
         <div class="flex items-center gap-2">
           <FrameworkBadge name="ISO27001" class="size-12" client:visible />
@@ -515,6 +515,10 @@ const breadcrumbSchema = {
   .toc-link.active {
     color: #5d770d;
     font-weight: 500;
+  }
+  .highlight-text {
+    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    display: inline;
   }
 </style>
 
