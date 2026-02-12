@@ -274,10 +274,18 @@ const benefits = [
     }
   }
   
-  document.addEventListener('DOMContentLoaded', function() {
-    const tallyIframe = document.querySelector('iframe[data-tally-src]');
-    if (tallyIframe && window.Tally) {
+  function initTally() {
+    if (window.Tally) {
       window.Tally.loadEmbeds();
+    } else {
+      // Wait for Tally script to load
+      setTimeout(initTally, 100);
     }
-  });
+  }
+
+  // Run on initial load
+  initTally();
+
+  // Run on Astro page transitions
+  document.addEventListener('astro:page-load', initTally);
 </script>
