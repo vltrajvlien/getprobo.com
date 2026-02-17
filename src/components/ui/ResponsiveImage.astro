@@ -7,17 +7,19 @@ type Props = {
   alt: string;
   sm: [number, number];
   src: Promise<{ default: ImageMetadata }> | ImageMetadata;
+  mobileSrc?: Promise<{ default: ImageMetadata }> | ImageMetadata;
   class?: string;
   fetchpriority?: "high" | "low" | "auto";
 };
 
 const props = Astro.props;
+const mobileSourceImage = props.mobileSrc ?? props.src;
 
 const mobileImage = await getImage({
   width: props.mobile[0],
   height: props.mobile[1],
   fit: "cover",
-  src: props.src,
+  src: mobileSourceImage,
   alt: props.alt,
 } as UnresolvedImageTransform);
 
@@ -25,7 +27,7 @@ const mobileImage2x = await getImage({
   width: props.mobile[0] * 2,
   height: props.mobile[1] * 2,
   fit: "cover",
-  src: props.src,
+  src: mobileSourceImage,
   alt: props.alt,
 } as UnresolvedImageTransform);
 
