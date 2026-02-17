@@ -1,4 +1,5 @@
 export const frameworks = [
+  { label: "SOC 2", badge: "SOC2_TYPE2" },
   { label: "SOC 2 Type 1", badge: "SOC2_TYPE1" },
   { label: "SOC 2 Type 2", badge: "SOC2_TYPE2" },
   { label: "SOC 3", badge: "SOC3" },
