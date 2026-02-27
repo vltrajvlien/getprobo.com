@@ -4,6 +4,8 @@ import BryanPortrait from "../../assets/about/bryan-frimin.png";
 import AntoinePortrait from "../../assets/about/antoine-bourchardy.png";
 import YannPortrait from "../../assets/about/yann-fonkou.png";
 import SachaPortrait from "../../assets/about/sacha-al-himdani.png";
+import ArthurPortrait from "../../assets/about/arthur-mayoux.jpeg";
+import EmilePortrait from "../../assets/about/emile-re.jpeg";
 import { getTranslator } from "../../lib/i18n.ts";
 
 const __ = await getTranslator(Astro.currentLocale);
@@ -36,6 +38,18 @@ const employees = [
     img: SachaPortrait,
     alt: "Sacha Al Himdani",
     name: "Sacha Al Himdani",
+    role: __("Founding Engineer"),
+  },
+  {
+    img: ArthurPortrait,
+    alt: "Arthur Mayoux",
+    name: "Arthur Mayoux",
+    role: __("Biz Ops"),
+  },
+  {
+    img: EmilePortrait,
+    alt: "Émile Ré",
+    name: "Émile Ré",
     role: __("Founding Engineer"),
   },
 ];
