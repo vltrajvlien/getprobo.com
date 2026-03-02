@@ -57,11 +57,11 @@ Kubernetes deployment provides the most scalable and production-ready way to run
     --set postgresql.enabled=false \
     --set postgresql.host="your-managed-db.example.com" \
     --set postgresql.password="your-db-password" \
-    --set minio.enabled=false \
-    --set s3.region="us-east-1" \
-    --set s3.bucket="your-bucket-name" \
-    --set s3.accessKeyId="your-access-key" \
-    --set s3.secretAccessKey="your-secret-key"
+   --set seaweedfs.enabled=false \
+   --set s3.region="us-east-1" \
+   --set s3.bucket="your-bucket-name" \
+   --set s3.accessKeyId="your-access-key" \
+   --set s3.secretAccessKey="your-secret-key"
    ```
 
 4. Access the Application
@@ -123,7 +123,7 @@ postgresql:
   host: "your-managed-db.example.com"
   password: "your-secure-db-password"
 
-minio:
+seaweedfs:
   enabled: false
 
 # Production S3 configuration
@@ -132,6 +132,7 @@ s3:
   bucket: "your-production-bucket"
   accessKeyId: "your-access-key"
   secretAccessKey: "your-secret-key"
+  # usePathStyle: true  # Required for SeaweedFS — AWS_USE_PATH_STYLE forces path-style URLs (e.g. host/bucket) instead of virtual-hosted (bucket.host)
 
 # Resource limits
 resources:
@@ -196,7 +197,7 @@ helm install probo ./charts/probo \
   --set postgresql.enabled=false \
   --set postgresql.host="mydb.abc123.us-east-1.rds.amazonaws.com" \
   --set postgresql.password="$RDS_PASSWORD" \
-  --set minio.enabled=false \
+  --set seaweedfs.enabled=false \
   --set s3.region="us-east-1" \
   --set s3.bucket="my-probo-bucket" \
   --set s3.accessKeyId="$AWS_ACCESS_KEY" \
@@ -219,7 +220,7 @@ helm install probo ./charts/probo \
   --set postgresql.enabled=false \
   --set postgresql.host="10.0.0.5" \
   --set postgresql.password="$CLOUDSQL_PASSWORD" \
-  --set minio.enabled=false \
+  --set seaweedfs.enabled=false \
   --set s3.endpoint="https://storage.googleapis.com" \
   --set s3.bucket="my-probo-bucket" \
   --set s3.accessKeyId="$HMAC_ACCESS_KEY" \
@@ -242,7 +243,7 @@ helm install probo ./charts/probo \
   --set postgresql.enabled=false \
   --set postgresql.host="mydb.postgres.database.azure.com" \
   --set postgresql.password="$AZURE_DB_PASSWORD" \
-  --set minio.enabled=false \
+  --set seaweedfs.enabled=false \
   --set s3.endpoint="https://mystorageaccount.blob.core.windows.net" \
   --set s3.bucket="my-probo-container" \
   --set s3.usePathStyle=true \

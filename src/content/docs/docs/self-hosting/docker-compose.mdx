@@ -134,8 +134,8 @@ services:
       # Remove AWS_ENDPOINT for AWS S3
       # AWS_ENDPOINT: ""
 
-# Remove MinIO service
-minio:
+# Remove SeaweedFS service
+seaweedfs:
   deploy:
     replicas: 0
 ```
@@ -148,7 +148,7 @@ The Docker Compose deployment includes:
 
 - **probo** - Main application (ports 8080, 8081, 8443)
 - **postgres** - PostgreSQL database (port 5432)
-- **minio** - S3-compatible storage (ports 9000, 9001)
+- **seaweedfs** - S3-compatible storage (port 8333 for S3 API, 9333 for master)
 - **chrome** - PDF generation service (port 9222)
 
 ### Networking
@@ -159,7 +159,7 @@ Services communicate over a dedicated Docker network with automatic service disc
 
 - **probo-data** - Application data and uploads
 - **postgres-data** - Database files
-- **minio-data** - Object storage files
+- **seaweedfs-data** - Object storage files
 
 ## Load Balancer Setup
 
@@ -231,8 +231,8 @@ curl http://localhost:8081/metrics
 # Database connectivity
 docker compose exec postgres pg_isready -U postgres
 
-# MinIO health
-curl http://localhost:9000/minio/health/live
+# SeaweedFS health
+curl http://localhost:9333/cluster/status
 ```
 
 ### Log Management
@@ -264,13 +264,13 @@ docker compose exec -T postgres psql -U postgres probod < backup.sql
 ### File Storage Backup
 
 ```bash
-# Backup MinIO data
-docker run --rm -v probo_minio-data:/data -v $(pwd):/backup alpine \
-  tar czf /backup/minio-backup.tar.gz -C /data .
+# Backup SeaweedFS data
+docker run --rm -v probo_seaweedfs-data:/data -v $(pwd):/backup alpine \
+  tar czf /backup/seaweedfs-backup.tar.gz -C /data .
 
-# Restore MinIO data
-docker run --rm -v probo_minio-data:/data -v $(pwd):/backup alpine \
-  tar xzf /backup/minio-backup.tar.gz -C /data
+# Restore SeaweedFS data
+docker run --rm -v probo_seaweedfs-data:/data -v $(pwd):/backup alpine \
+  tar xzf /backup/seaweedfs-backup.tar.gz -C /data
 ```
 
 ## Troubleshooting

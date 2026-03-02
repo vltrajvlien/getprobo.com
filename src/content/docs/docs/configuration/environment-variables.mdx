@@ -116,13 +116,14 @@ When running Probo in Docker:
 
 ## AWS / S3 Storage
 
-| Variable                | Description                                              | Default Value | Required |
-| ----------------------- | -------------------------------------------------------- | ------------- | -------- |
-| `AWS_REGION`            | AWS region for S3 storage                                | `us-east-1`   | No       |
-| `AWS_BUCKET`            | S3 bucket name for file storage                          | `probod`      | No       |
-| `AWS_ACCESS_KEY_ID`     | AWS access key ID (leave empty for IAM role)             | -             | No       |
-| `AWS_SECRET_ACCESS_KEY` | AWS secret access key (leave empty for IAM role)         | -             | No       |
-| `AWS_ENDPOINT`          | Custom S3 endpoint (for MinIO or S3-compatible services) | -             | No       |
+| Variable                | Description                                                  | Default Value | Required |
+| ----------------------- | ------------------------------------------------------------ | ------------- | -------- |
+| `AWS_REGION`            | AWS region for S3 storage                                    | `us-east-1`   | No       |
+| `AWS_BUCKET`            | S3 bucket name for file storage                              | `probod`      | No       |
+| `AWS_ACCESS_KEY_ID`     | AWS access key ID (leave empty for IAM role)                 | -             | No       |
+| `AWS_SECRET_ACCESS_KEY` | AWS secret access key (leave empty for IAM role)             | -             | No       |
+| `AWS_ENDPOINT`          | Custom S3 endpoint (for SeaweedFS or S3-compatible services) | -             | No       |
+| `AWS_USE_PATH_STYLE`    | Use path-style URLs (required for SeaweedFS)                 | `false`       | No       |
 
 ## Notifications
 
