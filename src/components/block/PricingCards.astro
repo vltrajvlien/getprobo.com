@@ -1,0 +1,268 @@
+---
+import { getTranslator, getLink } from "../../lib/i18n.ts";
+
+const __ = await getTranslator(Astro.currentLocale);
+
+const clientLogos = [
+  { src: "/clients/trace_for_good.webp", alt: "Trace for Good", width: 107 },
+  { src: "/clients/jimo.svg", alt: "Jimo", width: 32 },
+  { src: "/clients/lucis.svg", alt: "Lucis", width: 53 },
+  { src: "/clients/filz.svg", alt: "Filz", width: 57 },
+  { src: "/clients/ahrefs.svg", alt: "Ahrefs", width: 62 },
+];
+
+const openSourceFeatures = [
+  __("Self-hosted compliance platform"),
+  __("Framework tracking (SOC 2, ISO 27001, GDPR...)"),
+  __("Automated evidence collection"),
+  __("Community support"),
+];
+
+const fullServiceFeatures = [
+  __("Dedicated compliance officer"),
+  __("Gap assessment & custom policies"),
+  __("Vendor reviews & employee training"),
+  __("Audit prep & representation"),
+  __("12 months maintenance included"),
+];
+
+const enterpriseFeatures = [
+  __("Priority onboarding"),
+  __("Custom SLAs"),
+  __("Dedicated account manager"),
+];
+---
+
+<section class="bg-level-0 flex flex-col items-center">
+  <!-- Hero -->
+  <div class="flex gap-10 items-end overflow-clip max-w-[1080px] w-full">
+    <!-- Left decorative vertical line -->
+    <div class="self-stretch flex items-end hidden sm:flex">
+      <div class="w-px h-full max-h-32 bg-linear-to-t from-[#ecefe8] to-transparent"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="flex flex-1 flex-col sm:flex-row gap-6 items-start sm:items-end min-w-0 pb-10 pt-16 px-6 sm:px-0">
+      <div class="flex flex-col gap-6 shrink-0">
+        <h1 class="text-[48px] font-medium leading-none tracking-[-1.44px] text-foreground">
+          {__("Get audit-ready.")}
+        </h1>
+        <div class="text-lg leading-[1.5] text-muted-foreground sm:w-[530px]">
+          <p>{__("We handle everything from gap assessment to audit day.")}</p>
+          <p>{__("Pick the plan that fits, or deploy our open-source platform.")}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-1 flex-col gap-4 items-center min-w-0 hidden sm:flex">
+        <p class="text-xs leading-[1.3] text-muted-foreground whitespace-nowrap">
+          {__("They got certified with us")}
+        </p>
+        <div class="flex gap-6 items-center justify-center w-full relative overflow-clip">
+          {clientLogos.map((logo) => (
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              class="h-4 shrink-0 opacity-60"
+              style={`width: ${logo.width}px`}
+              loading="lazy"
+            />
+          ))}
+          <div class="absolute left-0 top-0 bottom-0 w-12 bg-linear-to-r from-level-0 to-transparent"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-12 bg-linear-to-l from-level-0 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right decorative vertical line -->
+    <div class="self-stretch flex items-end hidden sm:flex">
+      <div class="w-px h-full max-h-32 bg-linear-to-t from-[#ecefe8] to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Cards row with decorative side lines -->
+  <div class="flex items-stretch w-full">
+    <!-- Left decorative horizontal lines -->
+    <div class="flex-1 flex-col justify-between overflow-clip hidden sm:flex">
+      <div class="h-px w-32 bg-linear-to-l from-[#ecefe8] to-transparent self-end"></div>
+      <div class="h-px w-32 bg-linear-to-l from-[#ecefe8] to-transparent self-end"></div>
+    </div>
+
+    <!-- Three pricing cards -->
+    <div class="flex flex-col sm:flex-row items-stretch max-w-[1080px] w-full">
+      <!-- Open Source Card -->
+      <div class="flex-1 border-l border-t border-b border-r sm:border-r-0 border-border-low p-6 sm:p-10 flex flex-col gap-16">
+        <div class="flex flex-col gap-6">
+          <!-- Download icon -->
+          <svg class="size-8 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
+            {__("Open Source")}
+          </p>
+          <p class="text-[40px] font-medium text-muted-foreground tracking-[-1px] leading-none">
+            {__("Free")}
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-6 flex-1">
+          <div class="flex flex-col gap-6">
+            <p class="text-sm text-muted-foreground leading-[1.5]">
+              {__("Run compliance on your own terms.")}
+            </p>
+            <div class="h-px bg-border-low w-full"></div>
+          </div>
+
+          <div class="flex flex-col gap-3 flex-1">
+            {openSourceFeatures.map((feature) => (
+              <div class="flex gap-2 items-start">
+                <svg class="size-4 shrink-0 text-accent/50 mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="text-sm text-muted-foreground leading-normal">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={getLink(Astro, "/docs/self-hosting/docker-compose")}
+          class="flex items-center justify-center h-8 w-full rounded-full border border-border-mid text-base font-medium tracking-[-0.45px] text-foreground hover:bg-highlight transition-colors"
+        >
+          {__("Deploy for free")}
+        </a>
+      </div>
+
+      <!-- Full Service Card -->
+      <div class="flex-1 border border-border-low p-6 sm:p-10 flex flex-col gap-16 relative overflow-clip">
+        <!-- Green glow background -->
+        <div
+          class="absolute size-[518px] rounded-full bg-[#e4f7c7]/40 blur-[100px] pointer-events-none"
+          style="left: calc(50% + 29px); top: calc(50% + 103px); transform: translate(-50%, -50%);"
+        ></div>
+
+        <div class="flex flex-col gap-6 relative">
+          <div class="flex items-start justify-between">
+            <!-- Users icon -->
+            <svg class="size-8 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span class="bg-active text-success text-xs px-2 py-0.5 rounded-full">
+              {__("Recommended")}
+            </span>
+          </div>
+          <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
+            {__("Full Service")}
+          </p>
+          <div class="flex gap-[9px] items-center">
+            <p class="text-[40px] font-medium text-foreground tracking-[-1px] leading-none">
+              $8,000
+            </p>
+            <div class="text-xs leading-[1.3] text-muted-foreground">
+              <p>{__("Starting at")}</p>
+              <p>{__("Billed annually")}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6 relative">
+          <div class="flex flex-col gap-6">
+            <p class="text-sm text-muted-foreground leading-[1.5]">
+              {__("Our experts get you certified.")}
+            </p>
+            <div class="h-px bg-border-low w-full"></div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            {fullServiceFeatures.map((feature) => (
+              <div class="flex gap-2 items-start">
+                <svg class="size-4 shrink-0 text-accent mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="text-sm text-foreground tracking-[-0.14px] leading-normal">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={getLink(Astro, "/contact")}
+          class="relative flex items-center justify-center h-8 w-full rounded-full bg-foreground text-base font-semibold tracking-[-0.45px] text-white hover:bg-foreground/90 transition-colors"
+        >
+          {__("Talk to an advisor")}
+        </a>
+      </div>
+
+      <!-- Enterprise Card -->
+      <div class="flex-1 border-r border-t border-b border-l sm:border-l-0 border-border-low p-6 sm:p-10 flex flex-col gap-16">
+        <div class="flex flex-col gap-6">
+          <!-- Building icon -->
+          <svg class="size-8 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+            <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+            <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+            <path d="M10 6h4"></path>
+            <path d="M10 10h4"></path>
+            <path d="M10 14h4"></path>
+            <path d="M10 18h4"></path>
+          </svg>
+          <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
+            {__("Enterprise")}
+          </p>
+          <p class="text-[40px] font-medium text-foreground tracking-[-1px] leading-none">
+            {__("Custom")}
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-6 flex-1">
+          <div class="flex flex-col gap-6">
+            <p class="text-sm text-muted-foreground leading-[1.5]">
+              {__("Built around your organization.")}
+            </p>
+            <div class="h-px bg-border-low w-full"></div>
+          </div>
+
+          <div class="flex flex-col gap-3 flex-1">
+            {enterpriseFeatures.map((feature) => (
+              <div class="flex gap-2 items-start">
+                <svg class="size-4 shrink-0 text-accent mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="text-sm text-foreground tracking-[-0.14px] leading-normal">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={getLink(Astro, "/contact")}
+          class="flex items-center justify-center h-8 w-full rounded-full border border-border-mid text-base font-medium tracking-[-0.45px] text-foreground hover:bg-highlight transition-colors"
+        >
+          {__("Talk to an advisor")}
+        </a>
+      </div>
+    </div>
+
+    <!-- Right decorative horizontal lines -->
+    <div class="flex-1 flex-col justify-between overflow-clip hidden sm:flex">
+      <div class="h-px w-32 bg-linear-to-r from-[#ecefe8] to-transparent"></div>
+      <div class="h-px w-32 bg-linear-to-r from-[#ecefe8] to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Bottom decorative vertical lines -->
+  <div class="justify-between max-w-[1080px] w-full h-32 overflow-clip hidden sm:flex">
+    <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
+    <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
+  </div>
+</section>
