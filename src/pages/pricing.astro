@@ -114,15 +114,15 @@ const faqItems = [
   <section class="py-16 sm:py-24 px-6 border-t border-border-low">
     <div class="container">
       <div class="text-center">
-        <h2 class="text-h3 sm:text-h2 font-medium">
+        <h2 class="text-h3 sm:text-h2 font-medium animate-slide-in">
           {__("Everything you need to get certified")}
         </h2>
-        <p class="mt-3 text-muted-foreground">
+        <p class="mt-3 text-muted-foreground animate-slide-in animation-delay-100">
           {__("Every policy, every review, every audit call — handled by compliance experts who know your stack.")}
         </p>
       </div>
 
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-slide-in animation-delay-200">
         {whatsIncluded.map((card) => (
           <div class="rounded-2xl border border-border-mid shadow-mid p-6">
             <div class="mb-2">
@@ -184,15 +184,15 @@ const faqItems = [
   <section class="py-16 sm:py-24 px-6 border-t border-border-low">
     <div class="container max-w-3xl">
       <div class="text-center">
-        <h2 class="text-h3 sm:text-h2 font-medium">
+        <h2 class="text-h3 sm:text-h2 font-medium animate-slide-in">
           {__("How we get you audit-ready")}
         </h2>
-        <p class="mt-3 text-muted-foreground">
+        <p class="mt-3 text-muted-foreground animate-slide-in animation-delay-100">
           {__("You focus on your product. We get you audit-ready.")}
         </p>
       </div>
 
-      <div class="mt-14 space-y-10">
+      <div class="mt-14 space-y-10 animate-slide-in animation-delay-200">
         {howItWorks.map((item) => (
           <div class="flex gap-6">
             <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
@@ -216,11 +216,11 @@ const faqItems = [
   <!-- FAQ -->
   <section class="py-16 sm:py-24 px-6">
     <div class="container max-w-3xl">
-      <h2 class="text-center text-h3 sm:text-h2 font-medium">
+      <h2 class="text-center text-h3 sm:text-h2 font-medium animate-slide-in">
         {__("Frequently asked questions")}
       </h2>
 
-      <div class="mt-10 divide-y divide-border-low">
+      <div class="mt-10 divide-y divide-border-low animate-slide-in animation-delay-100">
         {faqItems.map((item) => (
           <details class="group py-4">
             <summary class="flex cursor-pointer items-center justify-between text-left text-sm font-medium list-none [&::-webkit-details-marker]:hidden">
