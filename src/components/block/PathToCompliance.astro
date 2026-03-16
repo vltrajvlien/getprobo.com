@@ -63,14 +63,14 @@ const faqItems = [
         <div id="timeline-bar" class="relative w-5 shrink-0 rounded-full bg-[#f8faf4] overflow-hidden hidden sm:block animate-fade-in animation-delay-400">
           <!-- Animated gradient ellipse -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 size-64 rounded-full animate-progress-slide pointer-events-none"
+            class="absolute left-1/2 -translate-x-1/2 size-128 rounded-full animate-progress-slide pointer-events-none"
             style="background: radial-gradient(circle, rgba(228,247,199,1) 0%, rgba(228,247,199,0) 70%);"
           ></div>
           <!-- Waypoint dots -->
           <div class="absolute inset-0 z-10 pointer-events-none" id="timeline-dots">
             {steps.map((_, i) => (
               <div class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" data-dot={i}>
-                <div class="size-2.5 rounded-full" style="backdrop-filter: brightness(0.9) saturate(2.5)"></div>
+                <div class="size-2.5 rounded-full" style="backdrop-filter: brightness(0.93) saturate(2.5); transition: transform 0.3s ease-out"></div>
               </div>
             ))}
           </div>
@@ -176,7 +176,43 @@ const faqItems = [
     requestAnimationFrame(() => requestAnimationFrame(alignDots));
   }
 
+  // Scale dots when the ellipse passes near them
+  function animateDots() {
+    const timeline = document.getElementById('timeline-bar');
+    const ellipse = timeline?.querySelector('.animate-progress-slide') as HTMLElement;
+    const dots = document.querySelectorAll('[data-dot]');
+    if (!timeline || !ellipse || !dots.length) return;
+
+    function tick() {
+      const ellipseRect = ellipse.getBoundingClientRect();
+      const ellipseCenter = ellipseRect.top + ellipseRect.height / 2;
+
+      dots.forEach((dot) => {
+        const dotRect = dot.getBoundingClientRect();
+        const dotCenter = dotRect.top + dotRect.height / 2;
+        const distance = Math.abs(ellipseCenter - dotCenter);
+        const threshold = 120;
+
+        const inner = (dot as HTMLElement).firstElementChild as HTMLElement;
+        if (distance < threshold) {
+          const scale = 1 + 0.5 * (1 - distance / threshold);
+          inner.style.transform = `scale(${scale})`;
+        } else {
+          inner.style.transform = 'scale(1)';
+        }
+      });
+
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
   scheduleAlign();
+  animateDots();
   window.addEventListener('resize', alignDots);
-  document.addEventListener('astro:page-load', scheduleAlign);
+  document.addEventListener('astro:page-load', () => {
+    scheduleAlign();
+    animateDots();
+  });
 </script>
