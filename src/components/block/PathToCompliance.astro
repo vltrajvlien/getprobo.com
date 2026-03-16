@@ -67,10 +67,10 @@ const faqItems = [
             style="background: radial-gradient(circle, rgba(228,247,199,1) 0%, rgba(228,247,199,0) 70%);"
           ></div>
           <!-- Waypoint dots -->
-          <div class="absolute inset-0 pointer-events-none" id="timeline-dots">
+          <div class="absolute inset-0 z-10 pointer-events-none" id="timeline-dots">
             {steps.map((_, i) => (
               <div class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" data-dot={i}>
-                <div class="size-2.5 rounded-full bg-accent"></div>
+                <div class="size-2.5 rounded-full" style="backdrop-filter: brightness(0.9) saturate(2.5)"></div>
               </div>
             ))}
           </div>
