@@ -171,6 +171,12 @@ const faqItems = [
     });
   }
 
-  alignDots();
+  // Run after layout is ready (handles View Transitions / back-nav)
+  function scheduleAlign() {
+    requestAnimationFrame(() => requestAnimationFrame(alignDots));
+  }
+
+  scheduleAlign();
   window.addEventListener('resize', alignDots);
+  document.addEventListener('astro:page-load', scheduleAlign);
 </script>
