@@ -5,11 +5,15 @@ import LogosScroll from "../LogosScroll.svelte";
 const __ = await getTranslator(Astro.currentLocale);
 
 const clientLogos = [
-  { src: "/clients/trace_for_good.webp", alt: "Trace for Good", width: 107 },
-  { src: "/clients/jimo.svg", alt: "Jimo", width: 32 },
-  { src: "/clients/lucis.svg", alt: "Lucis", width: 53 },
-  { src: "/clients/filz.svg", alt: "Filz", width: 57 },
-  { src: "/clients/ahrefs.svg", alt: "Ahrefs", width: 62 },
+  { src: "/clients/ahrefs.svg", alt: "Ahrefs" },
+  { src: "/clients/lucis.svg", alt: "Lucis" },
+  { src: "/clients/filz.svg", alt: "Filz" },
+  { src: "/clients/wolfia.svg", alt: "Wolfia" },
+  { src: "/clients/trace_for_good.webp", alt: "Trace for Good" },
+  { src: "/clients/tinfoil.svg", alt: "Tinfoil" },
+  { src: "/clients/typebot.svg", alt: "Typebot" },
+  { src: "/clients/jimo.svg", alt: "Jimo" },
+  { src: "/clients/normal.svg", alt: "Normal" },
 ];
 
 const openSourceFeatures = [
@@ -61,14 +65,13 @@ const enterpriseFeatures = [
           {__("They trust us with their compliance")}
         </p>
         <div class="w-full relative overflow-hidden">
-          <LogosScroll class="flex h-4 items-center" client:load>
+          <LogosScroll class="flex h-5 items-center" client:load>
             {clientLogos.map((logo) => (
               <span class="px-2.5 flex items-center">
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  class="h-4 shrink-0 opacity-60"
-                  style={`width: ${logo.width}px`}
+                  class="h-5 w-auto shrink-0 opacity-60"
                   loading="lazy"
                 />
               </span>
