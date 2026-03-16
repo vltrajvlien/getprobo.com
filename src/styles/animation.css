@@ -79,6 +79,33 @@ html {
     }
 }
 
+/** Timeline progress animation for Path to Compliance **/
+@utility animate-progress-slide {
+    animation: progressSlide 4s ease-in-out infinite;
+}
+
+@keyframes progressSlide {
+    0%, 5% {
+        top: -128px;
+        opacity: 1;
+    }
+    65% {
+        top: calc(100% - 128px);
+        opacity: 1;
+    }
+    66% {
+        opacity: 0;
+    }
+    95% {
+        top: -128px;
+        opacity: 0;
+    }
+    100% {
+        top: -128px;
+        opacity: 1;
+    }
+}
+
 /** Rotate animation for the YCombinator button **/
 @property --animate-duration {
     syntax: "<angle>";
