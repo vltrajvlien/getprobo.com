@@ -1,7 +1,27 @@
 ---
 import { getTranslator } from "../../lib/i18n.ts";
+import PlusBoldSvg from "@phosphor-icons/core/assets/bold/plus-bold.svg?raw";
+import MinusBoldSvg from "@phosphor-icons/core/assets/bold/minus-bold.svg?raw";
+import BinocularsSvg from "@phosphor-icons/core/assets/light/binoculars-light.svg?raw";
+import ClipboardTextSvg from "@phosphor-icons/core/assets/light/clipboard-text-light.svg?raw";
+import SealCheckSvg from "@phosphor-icons/core/assets/light/seal-check-light.svg?raw";
 
 const __ = await getTranslator(Astro.currentLocale);
+
+const plusIcon = PlusBoldSvg.replace(
+  "<svg",
+  '<svg class="size-4 shrink-0 text-accent group-open:hidden"',
+);
+const minusIcon = MinusBoldSvg.replace(
+  "<svg",
+  '<svg class="size-4 shrink-0 text-accent hidden group-open:block"',
+);
+
+const stepIcons: Record<string, string> = {
+  binoculars: BinocularsSvg.replace("<svg", '<svg class="size-6 text-muted-foreground"'),
+  "clipboard-text": ClipboardTextSvg.replace("<svg", '<svg class="size-6 text-muted-foreground"'),
+  "seal-check": SealCheckSvg.replace("<svg", '<svg class="size-6 text-muted-foreground"'),
+};
 
 const steps = [
   {
@@ -81,21 +101,7 @@ const faqItems = [
           {steps.map((step) => (
             <div class="flex flex-col gap-2">
               <div class="flex gap-2 items-center">
-                {step.icon === "binoculars" && (
-                  <svg class="size-6 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-                    <path d="M233,147.24,191.43,52.6a6,6,0,0,0-1.25-1.83,30,30,0,0,0-42.42,0A6,6,0,0,0,146,55V82H110V55a6,6,0,0,0-1.76-4.25,30,30,0,0,0-42.42,0,6,6,0,0,0-1.25,1.83L23,147.24A46,46,0,1,0,110,168V94h36v74a46,46,0,1,0,87-20.76ZM64,202a34,34,0,1,1,34-34A34,34,0,0,1,64,202Zm0-80a45.77,45.77,0,0,0-18.55,3.92L75.06,58.54A18,18,0,0,1,98,57.71V137A45.89,45.89,0,0,0,64,122Zm94-64.28a18,18,0,0,1,22.94.83l29.61,67.37A45.9,45.9,0,0,0,158,137ZM192,202a34,34,0,1,1,34-34A34,34,0,0,1,192,202Z"/>
-                  </svg>
-                )}
-                {step.icon === "clipboard-text" && (
-                  <svg class="size-6 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-                    <path d="M166,152a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,152Zm-6-38H96a6,6,0,0,0,0,12h64a6,6,0,0,0,0-12Zm54-66V216a14,14,0,0,1-14,14H56a14,14,0,0,1-14-14V48A14,14,0,0,1,56,34H93.17a45.91,45.91,0,0,1,69.66,0H200A14,14,0,0,1,214,48ZM94,64v2h68V64a34,34,0,0,0-68,0ZM202,48a2,2,0,0,0-2-2H170.33A45.77,45.77,0,0,1,174,64v8a6,6,0,0,1-6,6H88a6,6,0,0,1-6-6V64a45.77,45.77,0,0,1,3.67-18H56a2,2,0,0,0-2,2V216a2,2,0,0,0,2,2H200a2,2,0,0,0,2-2Z"/>
-                  </svg>
-                )}
-                {step.icon === "seal-check" && (
-                  <svg class="size-6 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-                    <path d="M224.42,104.2c-3.9-4.07-7.93-8.27-9.55-12.18-1.5-3.63-1.58-9-1.67-14.68-.14-9.38-.3-20-7.42-27.12S188,42.94,178.66,42.8c-5.68-.09-11-.17-14.68-1.67-3.91-1.62-8.11-5.65-12.18-9.55C145.16,25.22,137.64,18,128,18s-17.16,7.22-23.8,13.58c-4.07,3.9-8.27,7.93-12.18,9.55-3.63,1.5-9,1.58-14.68,1.67-9.38.14-20,.3-27.12,7.42S42.94,68,42.8,77.34c-.09,5.68-.17,11-1.67,14.68-1.62,3.91-5.65,8.11-9.55,12.18C25.22,110.84,18,118.36,18,128s7.22,17.16,13.58,23.8c3.9,4.07,7.93,8.27,9.55,12.18,1.5,3.63,1.58,9,1.67,14.68.14,9.38.3,20,7.42,27.12S68,213.06,77.34,213.2c5.68.09,11,.17,14.68,1.67,3.91,1.62,8.11,5.65,12.18,9.55C110.84,230.78,118.36,238,128,238s17.16-7.22,23.8-13.58c4.07-3.9,8.27-7.93,12.18-9.55,3.63-1.5,9-1.58,14.68-1.67,9.38-.14,20-.3,27.12-7.42s7.28-17.74,7.42-27.12c.09-5.68.17-11,1.67-14.68,1.62-3.91,5.65-8.11,9.55-12.18C230.78,145.16,238,137.64,238,128S230.78,110.84,224.42,104.2Zm-8.66,39.3c-4.67,4.86-9.5,9.9-12,15.9-2.38,5.74-2.48,12.52-2.58,19.08-.11,7.44-.23,15.14-3.9,18.82s-11.38,3.79-18.82,3.9c-6.56.1-13.34.2-19.08,2.58-6,2.48-11,7.31-15.91,12-5.25,5-10.68,10.24-15.49,10.24s-10.24-5.21-15.5-10.24c-4.86-4.67-9.9-9.5-15.9-12-5.74-2.38-12.52-2.48-19.08-2.58-7.44-.11-15.14-.23-18.82-3.9s-3.79-11.38-3.9-18.82c-.1-6.56-.2-13.34-2.58-19.08-2.48-6-7.31-11-12-15.91C35.21,138.24,30,132.81,30,128s5.21-10.24,10.24-15.5c4.67-4.86,9.5-9.9,12-15.9,2.38-5.74,2.48-12.52,2.58-19.08.11-7.44.23-15.14,3.9-18.82s11.38-3.79,18.82-3.9c6.56-.1,13.34-.2,19.08-2.58,6-2.48,11-7.31,15.91-12C117.76,35.21,123.19,30,128,30s10.24,5.21,15.5,10.24c4.86,4.67,9.9,9.5,15.9,12,5.74,2.38,12.52,2.48,19.08,2.58,7.44.11,15.14.23,18.82,3.9s3.79,11.38,3.9,18.82c.1,6.56.2,13.34,2.58,19.08,2.48,6,7.31,11,12,15.91,5,5.25,10.24,10.68,10.24,15.49S220.79,138.24,215.76,143.5ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z"/>
-                  </svg>
-                )}
+                <Fragment set:html={stepIcons[step.icon]} />
                 <span class="text-sm text-muted-foreground tracking-[-0.1px]">
                   {step.label}
                 </span>
@@ -122,13 +128,9 @@ const faqItems = [
             <details class="group border-b border-[#ecefe8] last:border-b-0">
               <summary class="flex gap-6 items-center py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <!-- Plus icon (shown when closed) -->
-                <svg class="size-4 shrink-0 text-accent group-open:hidden" viewBox="0 0 256 256" fill="currentColor">
-                  <path d="M222,128a6,6,0,0,1-6,6H134v82a6,6,0,0,1-12,0V134H40a6,6,0,0,1,0-12h82V40a6,6,0,0,1,12,0v82h82A6,6,0,0,1,222,128Z"/>
-                </svg>
+                <Fragment set:html={plusIcon} />
                 <!-- Minus icon (shown when open) -->
-                <svg class="size-4 shrink-0 text-accent hidden group-open:block" viewBox="0 0 256 256" fill="currentColor">
-                  <path d="M222,128a6,6,0,0,1-6,6H40a6,6,0,0,1,0-12H216A6,6,0,0,1,222,128Z"/>
-                </svg>
+                <Fragment set:html={minusIcon} />
                 <span class="flex-1 text-[19px] text-foreground tracking-[-0.2px] leading-[1.37]">
                   {item.question}
                 </span>
