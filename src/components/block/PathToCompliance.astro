@@ -60,18 +60,17 @@ const faqItems = [
       <!-- Left: Steps with timeline -->
       <div class="flex gap-10 flex-1 min-w-0 animate-slide-in animation-delay-200">
         <!-- Timeline bar -->
-        <div class="relative w-5 shrink-0 rounded-full bg-[#f8faf4] overflow-hidden hidden sm:block animate-fade-in animation-delay-400">
+        <div id="timeline-bar" class="relative w-5 shrink-0 rounded-full bg-[#f8faf4] overflow-hidden hidden sm:block animate-fade-in animation-delay-400">
           <!-- Animated gradient ellipse -->
           <div
             class="absolute left-1/2 -translate-x-1/2 size-64 rounded-full animate-progress-slide pointer-events-none"
             style="background: radial-gradient(circle, rgba(228,247,199,1) 0%, rgba(228,247,199,0) 70%);"
           ></div>
-          <!-- Dots (doubled for visibility via mix-blend-overlay) -->
-          <div class="absolute inset-0 flex flex-col py-6 pointer-events-none" id="timeline-dots">
+          <!-- Waypoint dots -->
+          <div class="absolute inset-0 pointer-events-none" id="timeline-dots">
             {steps.map((_, i) => (
-              <div class="flex justify-center" data-dot={i}>
-                <div class="size-2.5 rounded-lg bg-black mix-blend-overlay"></div>
-                <div class="size-2.5 rounded-lg bg-black mix-blend-overlay absolute"></div>
+              <div class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2" data-dot={i}>
+                <div class="size-2.5 rounded-full bg-accent"></div>
               </div>
             ))}
           </div>
@@ -148,22 +147,26 @@ const faqItems = [
 </section>
 
 <script>
-  // Align timeline dots with step positions
+  // Align timeline dots with the icon row of each step
   function alignDots() {
-    const stepsEl = document.getElementById('steps-content');
+    const timeline = document.getElementById('timeline-bar');
     const dotsContainer = document.getElementById('timeline-dots');
-    if (!stepsEl || !dotsContainer) return;
+    const stepsEl = document.getElementById('steps-content');
+    if (!timeline || !dotsContainer || !stepsEl) return;
 
-    const stepsRect = stepsEl.getBoundingClientRect();
+    const timelineRect = timeline.getBoundingClientRect();
     const dots = dotsContainer.querySelectorAll('[data-dot]');
     const stepEls = stepsEl.children;
 
     dots.forEach((dot, i) => {
       if (stepEls[i]) {
-        const stepRect = (stepEls[i] as HTMLElement).getBoundingClientRect();
-        const offset = stepRect.top - stepsRect.top + stepsEl.offsetTop;
-        (dot as HTMLElement).style.position = 'absolute';
-        (dot as HTMLElement).style.top = `${offset}px`;
+        // Target the first child (icon + label row) of each step
+        const iconRow = (stepEls[i] as HTMLElement).firstElementChild;
+        if (iconRow) {
+          const rowRect = iconRow.getBoundingClientRect();
+          const centerY = rowRect.top + rowRect.height / 2 - timelineRect.top;
+          (dot as HTMLElement).style.top = `${centerY}px`;
+        }
       }
     });
   }
