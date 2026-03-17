@@ -55,12 +55,12 @@ const enterpriseFeatures = [
   <!-- Hero -->
   <div class="flex gap-10 items-end overflow-clip max-w-[1080px] w-full">
     <!-- Left decorative vertical line -->
-    <div class="self-stretch flex items-end hidden sm:flex animate-fade-in animation-delay-800">
+    <div class="self-stretch flex items-end hidden min-[1080px]:flex animate-fade-in animation-delay-800">
       <div class="w-px h-full max-h-32 bg-linear-to-t from-[#ecefe8] to-transparent"></div>
     </div>
 
     <!-- Hero content -->
-    <div class="flex flex-1 flex-col sm:flex-row gap-6 items-stretch sm:items-end min-w-0 pb-10 pt-16 px-6 sm:px-0">
+    <div class="flex flex-1 flex-col sm:flex-row gap-6 items-stretch sm:items-end min-w-0 pb-10 pt-16 px-6 min-[1080px]:px-0">
       <div class="flex flex-col gap-6 flex-1 min-w-0">
         <h1 class="text-[36px] sm:text-[48px] font-medium leading-none tracking-[-1.44px] text-foreground animate-slide-in">
           {__("Get audit-ready.")}
@@ -95,7 +95,7 @@ const enterpriseFeatures = [
     </div>
 
     <!-- Right decorative vertical line -->
-    <div class="self-stretch flex items-end hidden sm:flex animate-fade-in animation-delay-800">
+    <div class="self-stretch flex items-end hidden min-[1080px]:flex animate-fade-in animation-delay-800">
       <div class="w-px h-full max-h-32 bg-linear-to-t from-[#ecefe8] to-transparent"></div>
     </div>
   </div>
@@ -105,12 +105,12 @@ const enterpriseFeatures = [
     <!-- Three pricing cards -->
     <div class="relative flex flex-col min-[860px]:flex-row items-stretch max-w-[1080px] w-full mx-auto">
       <!-- Left decorative horizontal lines -->
-      <div class="absolute right-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[860px]:flex animate-fade-in animation-delay-800">
+      <div class="absolute right-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[1080px]:flex animate-fade-in animation-delay-800">
         <div class="h-px w-full bg-linear-to-l from-[#ecefe8] to-transparent"></div>
         <div class="h-px w-full bg-linear-to-l from-[#ecefe8] to-transparent"></div>
       </div>
       <!-- Open Source Card -->
-      <div class="flex-1 border-l border-t border-b border-r min-[860px]:border-r-0 border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
+      <div class="flex-1 border-l border-t border-b border-r min-[860px]:border-r-0 border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
         <div class="flex flex-col gap-6">
           <Fragment set:html={downloadSimpleIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
@@ -150,7 +150,7 @@ const enterpriseFeatures = [
       </div>
 
       <!-- Full Service Card -->
-      <div class="flex-1 border border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 relative overflow-clip animate-slide-in animation-delay-300">
+      <div class="flex-1 border border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 relative overflow-clip animate-slide-in animation-delay-300">
         <!-- Green glow background -->
         <div
           class="absolute size-[518px] rounded-full bg-[#e4f7c7]/40 blur-[100px] pointer-events-none"
@@ -207,7 +207,7 @@ const enterpriseFeatures = [
       </div>
 
       <!-- Enterprise Card -->
-      <div class="flex-1 border-r border-t border-b border-l min-[860px]:border-l-0 border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
+      <div class="flex-1 border-r border-t border-b border-l min-[860px]:border-l-0 border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
         <div class="flex flex-col gap-6">
           <Fragment set:html={buildingIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
@@ -246,7 +246,7 @@ const enterpriseFeatures = [
         </a>
       </div>
       <!-- Right decorative horizontal lines -->
-      <div class="absolute left-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[860px]:flex animate-fade-in animation-delay-800">
+      <div class="absolute left-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[1080px]:flex animate-fade-in animation-delay-800">
         <div class="h-px w-full bg-linear-to-r from-[#ecefe8] to-transparent"></div>
         <div class="h-px w-full bg-linear-to-r from-[#ecefe8] to-transparent"></div>
       </div>
@@ -254,7 +254,7 @@ const enterpriseFeatures = [
   </div>
 
   <!-- Bottom decorative vertical lines -->
-  <div class="justify-between max-w-[1080px] w-full h-32 overflow-clip hidden min-[860px]:flex animate-fade-in animation-delay-800">
+  <div class="justify-between max-w-[1080px] w-full h-32 overflow-clip hidden min-[1080px]:flex animate-fade-in animation-delay-800">
     <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
     <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
   </div>
