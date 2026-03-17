@@ -68,14 +68,20 @@ html {
 }
 
 @keyframes glowDrift {
-    0%, 100% {
-        translate: 0 0;
+    0% {
+        translate: 150px -120px;
     }
-    33% {
-        translate: 25px -18px;
+    25% {
+        translate: -120px -100px;
     }
-    66% {
-        translate: -18px 14px;
+    50% {
+        translate: -130px 100px;
+    }
+    75% {
+        translate: 140px 90px;
+    }
+    100% {
+        translate: 150px -120px;
     }
 }
 
