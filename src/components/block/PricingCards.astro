@@ -65,7 +65,7 @@ const enterpriseFeatures = [
         <h1 class="text-[48px] font-medium leading-none tracking-[-1.44px] text-foreground animate-slide-in">
           {__("Get audit-ready.")}
         </h1>
-        <div class="text-lg leading-[1.5] text-muted-foreground sm:w-[530px] animate-slide-in animation-delay-100">
+        <div class="text-lg leading-[1.5] text-muted-foreground sm:max-w-[530px] animate-slide-in animation-delay-100">
           <p>{__("We handle everything from gap assessment to audit day.")}</p>
           <p>{__("Pick the plan that fits, or deploy our open-source platform.")}</p>
         </div>
@@ -101,17 +101,16 @@ const enterpriseFeatures = [
   </div>
 
   <!-- Cards row with decorative side lines -->
-  <div class="flex items-stretch w-full">
-    <!-- Left decorative horizontal lines -->
-    <div class="flex-1 flex-col justify-between overflow-clip hidden sm:flex animate-fade-in animation-delay-800">
-      <div class="h-px w-32 bg-linear-to-l from-[#ecefe8] to-transparent self-end"></div>
-      <div class="h-px w-32 bg-linear-to-l from-[#ecefe8] to-transparent self-end"></div>
-    </div>
-
+  <div class="w-full overflow-clip">
     <!-- Three pricing cards -->
-    <div class="flex flex-col sm:flex-row items-stretch max-w-[1080px] w-full">
+    <div class="relative flex flex-col min-[860px]:flex-row items-stretch max-w-[1080px] w-full mx-auto">
+      <!-- Left decorative horizontal lines -->
+      <div class="absolute right-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[860px]:flex animate-fade-in animation-delay-800">
+        <div class="h-px w-full bg-linear-to-l from-[#ecefe8] to-transparent"></div>
+        <div class="h-px w-full bg-linear-to-l from-[#ecefe8] to-transparent"></div>
+      </div>
       <!-- Open Source Card -->
-      <div class="flex-1 border-l border-t border-b border-r sm:border-r-0 border-border-low p-6 sm:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
+      <div class="flex-1 border-l border-t border-b border-r min-[860px]:border-r-0 border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
         <div class="flex flex-col gap-6">
           <Fragment set:html={downloadSimpleIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
@@ -151,7 +150,7 @@ const enterpriseFeatures = [
       </div>
 
       <!-- Full Service Card -->
-      <div class="flex-1 border border-border-low p-6 sm:p-10 flex flex-col gap-16 relative overflow-clip animate-slide-in animation-delay-300">
+      <div class="flex-1 border border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 relative overflow-clip animate-slide-in animation-delay-300">
         <!-- Green glow background -->
         <div
           class="absolute size-[518px] rounded-full bg-[#e4f7c7]/40 blur-[100px] pointer-events-none"
@@ -208,7 +207,7 @@ const enterpriseFeatures = [
       </div>
 
       <!-- Enterprise Card -->
-      <div class="flex-1 border-r border-t border-b border-l sm:border-l-0 border-border-low p-6 sm:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
+      <div class="flex-1 border-r border-t border-b border-l min-[860px]:border-l-0 border-border-low p-6 min-[860px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
         <div class="flex flex-col gap-6">
           <Fragment set:html={buildingIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
@@ -246,17 +245,16 @@ const enterpriseFeatures = [
           {__("Talk to an advisor")}
         </a>
       </div>
-    </div>
-
-    <!-- Right decorative horizontal lines -->
-    <div class="flex-1 flex-col justify-between overflow-clip hidden sm:flex animate-fade-in animation-delay-800">
-      <div class="h-px w-32 bg-linear-to-r from-[#ecefe8] to-transparent"></div>
-      <div class="h-px w-32 bg-linear-to-r from-[#ecefe8] to-transparent"></div>
+      <!-- Right decorative horizontal lines -->
+      <div class="absolute left-full top-0 bottom-0 w-32 flex-col justify-between hidden min-[860px]:flex animate-fade-in animation-delay-800">
+        <div class="h-px w-full bg-linear-to-r from-[#ecefe8] to-transparent"></div>
+        <div class="h-px w-full bg-linear-to-r from-[#ecefe8] to-transparent"></div>
+      </div>
     </div>
   </div>
 
   <!-- Bottom decorative vertical lines -->
-  <div class="justify-between max-w-[1080px] w-full h-32 overflow-clip hidden sm:flex animate-fade-in animation-delay-800">
+  <div class="justify-between max-w-[1080px] w-full h-32 overflow-clip hidden min-[860px]:flex animate-fade-in animation-delay-800">
     <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
     <div class="w-px h-full bg-linear-to-b from-[#ecefe8] to-transparent"></div>
   </div>
