@@ -149,7 +149,8 @@ const faqItems = [
 </section>
 
 <script>
-  // Align timeline dots with the icon row of each step
+  let rafId: number | null = null;
+
   function alignDots() {
     const timeline = document.getElementById('timeline-bar');
     const dotsContainer = document.getElementById('timeline-dots');
@@ -162,7 +163,6 @@ const faqItems = [
 
     dots.forEach((dot, i) => {
       if (stepEls[i]) {
-        // Target the first child (icon + label row) of each step
         const iconRow = (stepEls[i] as HTMLElement).firstElementChild;
         if (iconRow) {
           const rowRect = iconRow.getBoundingClientRect();
@@ -173,17 +173,19 @@ const faqItems = [
     });
   }
 
-  // Run after layout is ready (handles View Transitions / back-nav)
-  function scheduleAlign() {
-    requestAnimationFrame(() => requestAnimationFrame(alignDots));
+  function stopDots() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 
-  // Scale dots when the ellipse passes near them
-  function animateDots() {
+  function startDots() {
+    stopDots();
     const timeline = document.getElementById('timeline-bar');
     const ellipse = timeline?.querySelector('.animate-progress-slide') as HTMLElement;
-    const dots = document.querySelectorAll('[data-dot]');
-    if (!timeline || !ellipse || !dots.length) return;
+    const dots = timeline?.querySelectorAll('[data-dot]');
+    if (!timeline || !ellipse || !dots?.length) return;
 
     function tick() {
       const ellipseRect = ellipse.getBoundingClientRect();
@@ -204,17 +206,29 @@ const faqItems = [
         }
       });
 
-      requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(tick);
     }
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
   }
 
-  scheduleAlign();
-  animateDots();
+  function setup() {
+    requestAnimationFrame(() => requestAnimationFrame(alignDots));
+
+    const timeline = document.getElementById('timeline-bar');
+    if (!timeline) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        startDots();
+      } else {
+        stopDots();
+      }
+    });
+    observer.observe(timeline);
+  }
+
   window.addEventListener('resize', alignDots);
-  document.addEventListener('astro:page-load', () => {
-    scheduleAlign();
-    animateDots();
-  });
+  document.addEventListener('astro:page-load', setup);
+  document.addEventListener('astro:before-swap', stopDots);
 </script>
