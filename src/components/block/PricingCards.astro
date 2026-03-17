@@ -109,7 +109,7 @@ const enterpriseFeatures = [
         <div class="h-px w-full bg-linear-to-l from-[#ecefe8] to-transparent"></div>
       </div>
       <!-- Open Source Card -->
-      <div class="flex-1 border-l border-t border-b border-r min-[860px]:border-r-0 border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
+      <div class="flex-1 border border-border-low min-[860px]:border-r-0 p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
         <div class="flex flex-col gap-6">
           <Fragment set:html={downloadSimpleIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
@@ -152,7 +152,7 @@ const enterpriseFeatures = [
       <div class="flex-1 border border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 relative overflow-clip animate-slide-in animation-delay-300">
         <!-- Green glow background -->
         <div
-          class="absolute size-[518px] rounded-full bg-[#e4f7c7]/40 blur-[100px] pointer-events-none"
+          class="absolute size-[518px] rounded-full bg-active/40 blur-[100px] pointer-events-none"
           style="left: calc(50% + 29px); top: calc(50% + 103px); transform: translate(-50%, -50%); animation: glowEntry 1.5s ease-out forwards, glowDrift 4s ease-in-out infinite;"
         ></div>
 
@@ -206,7 +206,7 @@ const enterpriseFeatures = [
       </div>
 
       <!-- Enterprise Card -->
-      <div class="flex-1 border-r border-t border-b border-l min-[860px]:border-l-0 border-border-low p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
+      <div class="flex-1 border border-border-low min-[860px]:border-l-0 p-6 min-[1080px]:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
         <div class="flex flex-col gap-6">
           <Fragment set:html={buildingIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
