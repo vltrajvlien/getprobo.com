@@ -2,6 +2,18 @@
 import { getTranslator, getLink } from "../../lib/i18n.ts";
 import LogosScroll from "../LogosScroll.svelte";
 
+import DownloadSimpleSvg from "@phosphor-icons/core/assets/light/download-simple-light.svg?raw";
+import UsersThreeSvg from "@phosphor-icons/core/assets/light/users-three-light.svg?raw";
+import BuildingSvg from "@phosphor-icons/core/assets/light/building-light.svg?raw";
+import CheckSvg from "@phosphor-icons/core/assets/light/check-light.svg?raw";
+
+const iconSection = (svg: string, cls: string) => svg.replace("<svg", `<svg class="${cls}"`);
+const downloadSimpleIcon = iconSection(DownloadSimpleSvg, "size-8 text-muted-foreground");
+const usersThreeIcon = iconSection(UsersThreeSvg, "size-8 text-muted-foreground");
+const buildingIcon = iconSection(BuildingSvg, "size-8 text-muted-foreground");
+const checkMuted = iconSection(CheckSvg, "size-5 shrink-0 text-quaternary mt-px");
+const checkAccent = iconSection(CheckSvg, "size-5 shrink-0 text-accent mt-px");
+
 const __ = await getTranslator(Astro.currentLocale);
 
 const clientLogos = [
@@ -25,18 +37,17 @@ const openSourceFeatures = [
 
 const fullServiceFeatures = [
   __("Dedicated compliance officer"),
-  __("Gap assessment & custom policies"),
-  __("Vendor reviews & employee training"),
+  __("Gap assessment & risk analysis"),
+  __("Vendor reviews & custom policies"),
   __("Audit prep & representation"),
-  __("12 months maintenance included"),
+  __("12 months compliance service included"),
 ];
 
 const enterpriseFeatures = [
-  __("Multi-framework programs"),
-  __("Cross-team coordination"),
-  __("Dedicated account manager"),
-  __("Custom SLAs"),
-  __("Fast-track onboarding"),
+  __("Bring your own cloud"),
+  __("Forward deployed compliance engineer"),
+  __("Custom frameworks"),
+  __("Physical presence during audits"),
 ];
 ---
 
@@ -102,10 +113,7 @@ const enterpriseFeatures = [
       <!-- Open Source Card -->
       <div class="flex-1 border-l border-t border-b border-r sm:border-r-0 border-border-low p-6 sm:p-10 flex flex-col gap-16 animate-slide-in animation-delay-200">
         <div class="flex flex-col gap-6">
-          <!-- DownloadSimple Light (Phosphor) -->
-          <svg class="size-8 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-            <path d="M222,144v64a6,6,0,0,1-6,6H40a6,6,0,0,1-6-6V144a6,6,0,0,1,12,0v58H210V144a6,6,0,0,1,12,0Zm-98.24,4.24a6,6,0,0,0,8.48,0l40-40a6,6,0,0,0-8.48-8.48L134,129.51V32a6,6,0,0,0-12,0v97.51L92.24,99.76a6,6,0,0,0-8.48,8.48Z"/>
-          </svg>
+          <Fragment set:html={downloadSimpleIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
             {__("Open Source")}
           </p>
@@ -125,9 +133,7 @@ const enterpriseFeatures = [
           <div class="flex flex-col gap-3 flex-1">
             {openSourceFeatures.map((feature) => (
               <div class="flex gap-2 items-start">
-                <svg class="size-5 shrink-0 text-quaternary mt-px" viewBox="0 0 256 256" fill="currentColor">
-                  <path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/>
-                </svg>
+                <Fragment set:html={checkMuted} />
                 <span class="text-base text-muted-foreground leading-normal">
                   {feature}
                 </span>
@@ -154,10 +160,7 @@ const enterpriseFeatures = [
 
         <div class="flex flex-col gap-6 relative">
           <div class="flex items-start justify-between">
-            <!-- UsersThree Light (Phosphor) -->
-            <svg class="size-8 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-              <path d="M243.6,148.8a6,6,0,0,1-8.4-1.2A53.58,53.58,0,0,0,192,126a6,6,0,0,1,0-12,26,26,0,1,0-25.18-32.5,6,6,0,0,1-11.62-3,38,38,0,1,1,59.91,39.63A65.69,65.69,0,0,1,244.8,140.4,6,6,0,0,1,243.6,148.8ZM189.19,213a6,6,0,0,1-2.19,8.2,5.9,5.9,0,0,1-3,.81,6,6,0,0,1-5.2-3,59,59,0,0,0-101.62,0,6,6,0,1,1-10.38-6A70.1,70.1,0,0,1,103,182.55a46,46,0,1,1,50.1,0A70.1,70.1,0,0,1,189.19,213ZM128,178a34,34,0,1,0-34-34A34,34,0,0,0,128,178ZM70,120a6,6,0,0,0-6-6A26,26,0,1,1,89.18,81.49a6,6,0,1,0,11.62-3,38,38,0,1,0-59.91,39.63A65.69,65.69,0,0,0,11.2,140.4a6,6,0,1,0,9.6,7.2A53.58,53.58,0,0,1,64,126,6,6,0,0,0,70,120Z"/>
-            </svg>
+            <Fragment set:html={usersThreeIcon} />
             <span class="bg-active text-success text-xs px-2 py-0.5 rounded-full">
               {__("Recommended")}
             </span>
@@ -187,9 +190,7 @@ const enterpriseFeatures = [
           <div class="flex flex-col gap-3">
             {fullServiceFeatures.map((feature) => (
               <div class="flex gap-2 items-start">
-                <svg class="size-5 shrink-0 text-accent mt-px" viewBox="0 0 256 256" fill="currentColor">
-                  <path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/>
-                </svg>
+                <Fragment set:html={checkAccent} />
                 <span class="text-base text-foreground tracking-[-0.14px] leading-normal">
                   {feature}
                 </span>
@@ -209,10 +210,7 @@ const enterpriseFeatures = [
       <!-- Enterprise Card -->
       <div class="flex-1 border-r border-t border-b border-l sm:border-l-0 border-border-low p-6 sm:p-10 flex flex-col gap-16 animate-slide-in animation-delay-400">
         <div class="flex flex-col gap-6">
-          <!-- Building Light (Phosphor) -->
-          <svg class="size-8 text-muted-foreground" viewBox="0 0 256 256" fill="currentColor">
-            <path d="M232,226H206V30h10a6,6,0,0,0,0-12H40a6,6,0,0,0,0,12H50V226H24a6,6,0,0,0,0,12H232a6,6,0,0,0,0-12ZM62,30H194V226H158V184a6,6,0,0,0-6-6H104a6,6,0,0,0-6,6v42H62Zm84,196H110V190h36ZM90,64a6,6,0,0,1,6-6h16a6,6,0,0,1,0,12H96A6,6,0,0,1,90,64Zm48,0a6,6,0,0,1,6-6h16a6,6,0,0,1,0,12H144A6,6,0,0,1,138,64ZM90,104a6,6,0,0,1,6-6h16a6,6,0,0,1,0,12H96A6,6,0,0,1,90,104Zm48,0a6,6,0,0,1,6-6h16a6,6,0,0,1,0,12H144A6,6,0,0,1,138,104ZM96,150a6,6,0,0,1,0-12h16a6,6,0,0,1,0,12Zm42-6a6,6,0,0,1,6-6h16a6,6,0,0,1,0,12H144A6,6,0,0,1,138,144Z"/>
-          </svg>
+          <Fragment set:html={buildingIcon} />
           <p class="text-sm font-medium text-muted-foreground tracking-[-0.14px]">
             {__("Enterprise")}
           </p>
@@ -232,9 +230,7 @@ const enterpriseFeatures = [
           <div class="flex flex-col gap-3 flex-1">
             {enterpriseFeatures.map((feature) => (
               <div class="flex gap-2 items-start">
-                <svg class="size-5 shrink-0 text-accent mt-px" viewBox="0 0 256 256" fill="currentColor">
-                  <path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/>
-                </svg>
+                <Fragment set:html={checkAccent} />
                 <span class="text-base text-foreground tracking-[-0.14px] leading-normal">
                   {feature}
                 </span>
