@@ -9,6 +9,7 @@ import sitemap from "@astrojs/sitemap";
 import { removeHtmlExtension } from "./vite-plugin-remove-html";
 import { langs } from "./src/config";
 import { removeTranslatedDoc } from "./tools/removeTranslatedDoc";
+import { generateMarkdown } from "./tools/generateMarkdown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -187,6 +188,7 @@ export default defineConfig({
       ],
     }),
     removeTranslatedDoc(),
+    generateMarkdown(),
     mdx(),
     svelte(),
     sitemap({

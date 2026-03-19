@@ -2,111 +2,20 @@
 
 > Probo is an open-source compliance automation platform that helps companies achieve SOC 2, ISO 27001, GDPR, HIPAA, and other security certifications with expert guidance and done-for-you services. Backed by Y Combinator (W25).
 
-## Why Probo?
+Probo provides dedicated compliance officers who manage your program end-to-end — policies, controls, risk assessments, vendor reviews, and audit coordination. Open source, Slack-native, and backed by Y Combinator (W25).
 
-Unlike traditional compliance platforms that give you software and leave you to figure it out, Probo provides:
+## How to read this site
 
-- **Expert-Led Service**: Dedicated compliance officers manage your program end-to-end
-- **Open Source**: Self-host with no vendor lock-in (https://github.com/getprobo/probo)
-- **Fast Results**: SOC 2 Type 1 in 4-6 week, ISO 27001 in 3 months
-- **Cost-Effective**: 70-80% cost reduction vs traditional Big 4 consultants
-- **Slack-Native**: Access documents, trigger workflows, and talk to your compliance officer without leaving Slack
-- **Trust Page**: Share a branded page that proves your compliance status to prospects
+Every page on this site supports content negotiation. Request any URL with the `Accept: text/markdown` header to get a clean markdown version — no navigation, scripts, or styling. This is the recommended way for LLMs and AI agents to consume this site.
 
-## How Probo Works
+Example: `curl -H "Accept: text/markdown" https://www.getprobo.com/pricing`
 
-1. **Onboarding**: We understand your business, tech stack, and compliance goals
-2. **ISMS Design**: We document how your company already works and build compliant processes around it
-3. **Automation**: Evidence collection, policy updates, and approvals run in the background
-4. **Expert Management**: Your dedicated compliance officer handles auditor coordination, risk assessments, and remediation
-5. **Continuous Compliance**: Stay audit-ready year-round, not just during audit season
+## Pages
 
-## Core Pages
-
-- [Homepage](https://getprobo.com) - Overview of compliance automation services
-- [Documentation](https://getprobo.com/docs) - Self-hosting and API guides
-- [Blog](https://getprobo.com/blog) - Compliance insights and guides and FAQ
-- [Customer Stories](https://getprobo.com/stories) - Case studies from real customers
-- [About](https://getprobo.com/about) - Team and mission
-
-## Supported Compliance Frameworks
-
-| Framework | Type | Use Case |
-|-----------|------|----------|
-| SOC 2 Type 1 | Attestation | Point-in-time security controls assessment, first step for startups |
-| SOC 2 Type 2 | Attestation | Controls effectiveness over 3-12 months, required by enterprise customers |
-| SOC 3 | Attestation | Public-facing version of SOC 2 |
-| ISO 27001 | Certification | Information security management system, common in EU/international deals |
-| ISO 27701 | Certification | Privacy information management, extension of ISO 27001 |
-| ISO 42001 | Certification | AI management system, for companies building AI products |
-| GDPR | Regulation | EU data protection compliance |
-| HIPAA | Regulation | US healthcare data protection |
-| CCPA | Regulation | California consumer privacy |
-| FERPA | Regulation | US education data protection |
-| CASA | Framework | Cloud Application Security Assessment |
-| NIS2 | Regulation | EU network and information security |
-| DORA | Regulation | EU digital operational resilience for financial services |
-
-## Blog & Thought Leadership
-
-### Understanding Compliance Frameworks
-- [What is SOC 2 and how to be compliant?](https://www.getprobo.com/blog/2025-10-28-what-is-soc2) - Comprehensive guide to SOC 2 attestation vs certification
-- [SOC 2 or ISO 27001: Which should you choose?](https://www.getprobo.com/blog/2025-10-08-soc2-or-iso27001) - Framework comparison for different markets
-
-### Timeline & Cost
-- [What is the cost of SOC 2?](https://www.getprobo.com/blog/2025-03-04-what-is-soc2-cost) - Pricing breakdown for SOC 2 compliance
-- [How long does SOC 2 take?](https://www.getprobo.com/blog/2025-10-09-how-long-for-soc2) - Timeline expectations for Type 1 and Type 2
-- [How long does ISO 27001 take?](https://www.getprobo.com/blog/2025-10-12-how-long-for-iso27001) - Certification timeline guide
-
-### Compliance Strategy
-- [What are the steps toward compliance?](https://www.getprobo.com/blog/2025-09-11-what-are-the-steps-toward-compliance) - Step-by-step compliance roadmap
-- [What is hands-off compliance?](https://www.getprobo.com/blog/2025-10-17-what-is-hands-off-compliance) - The done-for-you approach explained
-- [The case for open source compliance](https://www.getprobo.com/blog/2025-02-04-the-case-for-open-source-compliance) - Why open source matters in GRC
-- [Why one-size-fits-all solutions like Vanta aren't ideal](https://www.getprobo.com/blog/2025-02-17-why-a-one-size-fit-all-solution-like-vanta-is-not-ideal) - Limitations of generic compliance platforms
-
-### Technical Requirements
-- [Do you need a penetration test for SOC 2?](https://www.getprobo.com/blog/2025-10-19-do-you-need-pen-test-for-soc2) - Pen testing requirements explained
-- [Do you need a penetration test for ISO 27001?](https://www.getprobo.com/blog/2025-10-23-do-you-need-pen-test-for-iso27001) - ISO 27001 pen test guidance
-- [Do you need code reviews for compliance?](https://www.getprobo.com/blog/2025-11-09-do-you-need-code-reviews) - Code review requirements
-
-## Customer Success Stories
-
-### Ahrefs - ISO 27001 in 3 Months
-Ahrefs, the $100M ARR SEO platform with 3,600+ servers and 500+ PB of data, achieved ISO 27001 certification in 13 weeks (80% faster than traditional approaches) with 70-80% cost savings vs Big 4 consultants.
-[Read the full story](https://www.getprobo.com/stories/ahrefs-iso)
-
-## Frequently Asked Questions
-
-**Q: Is Probo open source?**
-A: Yes, Probo's core platform is fully open source under a permissive license. You can self-host it or use our managed service with expert compliance officers.
-
-**Q: How fast can I get SOC 2?**
-A: With Probo, SOC 2 Type 1 can be achieved in 4-6 weeks. Type 2 adds a 3-12 month observation period on top of that.
-
-**Q: How fast can I get ISO 27001?**
-A: ISO 27001 certification typically takes 3-4 months with Probo, compared to 6-12 months with traditional approaches.
-
-**Q: What makes Probo different from Vanta, Drata, or Secureframe?**
-A: Three key differences: (1) Probo is open source with no vendor lock-in, (2) We provide done-for-you services with dedicated compliance officers rather than just software, (3) We focus on making compliance fit your existing workflows rather than forcing you into templates.
-
-**Q: Do I need technical expertise to use Probo?**
-A: No. Our compliance officers handle the technical implementation. Your team only gets involved when genuine input is needed.
-
-**Q: What if I'm not ready for SOC 2 yet?**
-A: That's fine. We help you assess readiness and can start with security fundamentals before pursuing formal certification.
-
-## Technical Resources
-
-- [Self-hosting with Docker Compose](https://getprobo.com/docs/self-hosting/docker-compose)
-- [Kubernetes deployment](https://getprobo.com/docs/self-hosting/kubernetes)
-- [Configuration guide](https://getprobo.com/docs/configuration/overview)
-- [MCP API integration](https://getprobo.com/docs/api/mcp/overview) - Connect Probo to Claude, Cursor, and other AI tools
-
-## Contact & Social
-
-- Website: https://getprobo.com
-- GitHub: https://github.com/getprobo/probo
-- LinkedIn: https://linkedin.com/company/getprobo
-- Twitter: https://twitter.com/getprobo
-- Discord: https://discord.com/invite/8qfdJYfvpY
-- Y Combinator: https://www.ycombinator.com/companies/probo
+- [Homepage](https://www.getprobo.com/)
+- [Pricing](https://www.getprobo.com/pricing)
+- [Documentation](https://www.getprobo.com/docs)
+- [Blog](https://www.getprobo.com/blog)
+- [Customer Stories](https://www.getprobo.com/stories)
+- [About](https://www.getprobo.com/about)
+- [Contact](https://www.getprobo.com/contact)
