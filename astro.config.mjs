@@ -114,11 +114,17 @@ export default defineConfig({
       sidebar: [
         {
           label: "Getting Started",
-          items: [{ label: "Overview", slug: "docs" }],
+          items: [
+            { label: "Overview", slug: "docs" },
+            { label: "Quickstart", slug: "docs/getting-started/quickstart" },
+            {
+              label: "Core Concepts",
+              slug: "docs/getting-started/core-concepts",
+            },
+          ],
         },
         {
           label: "Self-Hosting",
-          collapsed: true,
           items: [
             {
               label: "Docker Compose",
@@ -155,30 +161,189 @@ export default defineConfig({
           ],
         },
         {
+          label: "CLI",
+          badge: "New",
+          items: [
+            { label: "Overview", slug: "docs/cli/overview" },
+            {
+              label: "Authentication",
+              slug: "docs/cli/authentication",
+            },
+            {
+              label: "Configuration",
+              slug: "docs/cli/configuration",
+            },
+            {
+              label: "Commands",
+              collapsed: true,
+              items: [
+                {
+                  label: "Organizations",
+                  slug: "docs/cli/commands/organizations",
+                },
+                {
+                  label: "Users",
+                  slug: "docs/cli/commands/users",
+                },
+                {
+                  label: "Frameworks",
+                  slug: "docs/cli/commands/frameworks",
+                },
+                {
+                  label: "Controls",
+                  slug: "docs/cli/commands/controls",
+                },
+                {
+                  label: "Risks",
+                  slug: "docs/cli/commands/risks",
+                },
+                {
+                  label: "Findings",
+                  slug: "docs/cli/commands/findings",
+                },
+                {
+                  label: "Statements of Applicability",
+                  slug: "docs/cli/commands/soa",
+                },
+                {
+                  label: "Webhooks",
+                  slug: "docs/cli/commands/webhooks",
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: "API",
           items: [
             {
               label: "MCP",
-              badge: 'New',
+              badge: "New",
               items: [
                 { label: "Overview", slug: "docs/api/mcp/overview" },
-                { label: "Authentication", slug: "docs/api/mcp/authentication" },
+                {
+                  label: "Authentication",
+                  slug: "docs/api/mcp/authentication",
+                },
                 { label: "Pagination", slug: "docs/api/mcp/pagination" },
-                { label: "Available Tools", slug: "docs/api/mcp/tools" },
+                {
+                  label: "Available Tools",
+                  collapsed: true,
+                  items: [
+                    {
+                      label: "Overview",
+                      slug: "docs/api/mcp/tools",
+                    },
+                    {
+                      label: "Organizations",
+                      slug: "docs/api/mcp/tools/organizations",
+                    },
+                    {
+                      label: "Users",
+                      slug: "docs/api/mcp/tools/users",
+                    },
+                    {
+                      label: "Vendors",
+                      slug: "docs/api/mcp/tools/vendors",
+                    },
+                    {
+                      label: "Risks",
+                      slug: "docs/api/mcp/tools/risks",
+                    },
+                    {
+                      label: "Measures",
+                      slug: "docs/api/mcp/tools/measures",
+                    },
+                    {
+                      label: "Frameworks",
+                      slug: "docs/api/mcp/tools/frameworks",
+                    },
+                    {
+                      label: "Controls",
+                      slug: "docs/api/mcp/tools/controls",
+                    },
+                    {
+                      label: "Assets",
+                      slug: "docs/api/mcp/tools/assets",
+                    },
+                    {
+                      label: "Audits",
+                      slug: "docs/api/mcp/tools/audits",
+                    },
+                    {
+                      label: "Tasks",
+                      slug: "docs/api/mcp/tools/tasks",
+                    },
+                    {
+                      label: "Documents",
+                      slug: "docs/api/mcp/tools/documents",
+                    },
+                    {
+                      label: "Meetings",
+                      slug: "docs/api/mcp/tools/meetings",
+                    },
+                    {
+                      label: "Snapshots",
+                      slug: "docs/api/mcp/tools/snapshots",
+                    },
+                    {
+                      label: "States of Applicability",
+                      slug: "docs/api/mcp/tools/states-of-applicability",
+                    },
+                    {
+                      label: "Findings",
+                      slug: "docs/api/mcp/tools/findings",
+                    },
+                    {
+                      label: "Obligations",
+                      slug: "docs/api/mcp/tools/obligations",
+                    },
+                    {
+                      label: "Data Classification",
+                      slug: "docs/api/mcp/tools/data-classification",
+                    },
+                    {
+                      label: "Processing Activities",
+                      slug: "docs/api/mcp/tools/processing-activities",
+                    },
+                    {
+                      label: "DPIAs",
+                      slug: "docs/api/mcp/tools/dpias",
+                    },
+                    {
+                      label: "TIAs",
+                      slug: "docs/api/mcp/tools/tias",
+                    },
+                  ],
+                },
                 {
                   label: "Integrations",
                   items: [
-                    { label: "Overview", slug: "docs/api/mcp/integrations" },
-                    { label: "Claude Desktop", slug: "docs/api/mcp/claude-desktop" },
-                    { label: "Claude Code", slug: "docs/api/mcp/claude-code" },
-                    { label: "Claude.ai", slug: "docs/api/mcp/claude-ai" },
+                    {
+                      label: "Overview",
+                      slug: "docs/api/mcp/integrations",
+                    },
+                    {
+                      label: "Claude Desktop",
+                      slug: "docs/api/mcp/claude-desktop",
+                    },
+                    {
+                      label: "Claude Code",
+                      slug: "docs/api/mcp/claude-code",
+                    },
+                    {
+                      label: "Claude.ai",
+                      slug: "docs/api/mcp/claude-ai",
+                    },
                     { label: "Cursor", slug: "docs/api/mcp/cursor" },
                     { label: "Windsurf", slug: "docs/api/mcp/windsurf" },
                     { label: "Zed", slug: "docs/api/mcp/zed" },
-                    { label: "Opencode AI", slug: "docs/api/mcp/opencode" },
+                    {
+                      label: "Opencode AI",
+                      slug: "docs/api/mcp/opencode",
+                    },
                     { label: "VS Code", slug: "docs/api/mcp/vscode" },
                     { label: "OpenAI", slug: "docs/api/mcp/openai" },
-                    { label: "Claude.ai", slug: "docs/api/mcp/claude-ai" },
                   ],
                 },
               ],

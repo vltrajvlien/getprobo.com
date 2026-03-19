@@ -1,24 +1,37 @@
 ---
 title: Probo Documentation
-description: Deployment and operations guide for the Probo compliance management platform
+description: Documentation for Probo, the open-source compliance management platform. Deployment, configuration, product guides, and API reference.
 ---
 
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-Welcome to the Probo documentation. This guide focuses on deploying and operating Probo in production environments.
+Welcome to the Probo documentation. Whether you're deploying Probo for the first time, configuring it for your team, or integrating AI tools via the MCP API, you'll find everything you need here.
 
 ## What is Probo?
 
-Probo is an open-source compliance management platform that helps organizations achieve SOC 2 compliance quickly and efficiently. Built for startups, Probo provides automated evidence collection, risk assessment, and audit preparation tools.
+Probo is an open-source compliance management platform that helps organizations achieve and maintain compliance across multiple frameworks — including SOC 2, ISO 27001, ISO 27701, ISO 42001, GDPR, HIPAA, CCPA, FERPA, CASA, NIS2, and DORA. Built for startups and growing companies, Probo provides risk management, evidence collection, vendor management, policy management, and audit preparation tools.
 
-## Quick Start
+## New to Probo?
 
-Choose your deployment method:
+<CardGrid>
+  <LinkCard
+    title="Quickstart"
+    description="Deploy Probo and set up your first compliance framework in 15 minutes"
+    href="/docs/getting-started/quickstart"
+  />
+  <LinkCard
+    title="Core Concepts"
+    description="Understand the key concepts and data model in Probo"
+    href="/docs/getting-started/core-concepts"
+  />
+</CardGrid>
+
+## Deploy and Configure
 
 <CardGrid>
   <LinkCard
     title="Docker Compose"
-    description="Single-node deployment with all services"
+    description="Single-node deployment with all services included"
     href="/docs/self-hosting/docker-compose"
   />
   <LinkCard
@@ -26,58 +39,21 @@ Choose your deployment method:
     description="Scalable deployment with managed services"
     href="/docs/self-hosting/kubernetes"
   />
-</CardGrid>
-
-## Documentation Structure
-
-### Self-Hosting
-
-<CardGrid>
   <LinkCard
-    title="Docker Compose Deployment"
-    description="Complete single-node setup"
-    href="/docs/self-hosting/docker-compose"
+    title="Configuration"
+    description="YAML config files and environment variables reference"
+    href="/docs/configuration/overview"
   />
   <LinkCard
-    title="Kubernetes Deployment"
-    description="Production Kubernetes deployment"
-    href="/docs/self-hosting/kubernetes"
+    title="Single Sign-On"
+    description="Set up SSO with Google Workspace, Okta, and other SAML providers"
+    href="/docs/product/sso/overview"
   />
 </CardGrid>
 
-### Configuration
+## Integrate with AI Tools
 
-<CardGrid>
-  <LinkCard
-    title="Configuration File"
-    description="Complete configuration file reference"
-    href="/docs/configuration/config-file"
-  />
-  <LinkCard
-    title="Environment Variables"
-    description="Environment-based configuration"
-    href="/docs/configuration/environment-variables"
-  />
-</CardGrid>
-
-### Single Sign-On
-
-<CardGrid>
-  <LinkCard
-    title="Google Workspace SSO"
-    description="Configure Google Workspace SSO"
-    href="/docs/product/sso/google-workspace"
-  />
-  <LinkCard
-    title="Okta SSO"
-    description="Configure Okta SSO integration"
-    href="/docs/product/sso/okta"
-  />
-</CardGrid>
-
-### MCP API Integration
-
-Connect AI assistants to your compliance data using the Model Context Protocol (MCP). Enable Claude, ChatGPT, and other AI tools to interact with your Probo instance.
+Connect AI assistants to your compliance data using the Model Context Protocol (MCP). Probo's MCP server exposes 131 tools for managing your compliance posture through Claude, ChatGPT, Cursor, and other AI platforms.
 
 <CardGrid>
   <LinkCard
@@ -86,39 +62,19 @@ Connect AI assistants to your compliance data using the Model Context Protocol (
     href="/docs/api/mcp/overview"
   />
   <LinkCard
-    title="Claude Desktop"
-    description="Configure MCP for Claude Desktop app"
-    href="/docs/api/mcp/claude-desktop"
+    title="Integration Guides"
+    description="Step-by-step setup for Claude, ChatGPT, Cursor, VS Code, and more"
+    href="/docs/api/mcp/integrations"
   />
   <LinkCard
-    title="Claude Code"
-    description="Configure MCP for Claude Code CLI"
-    href="/docs/api/mcp/claude-code"
+    title="Available Tools"
+    description="Complete reference of all 131 MCP tools by category"
+    href="/docs/api/mcp/tools"
   />
   <LinkCard
-    title="Claude.ai"
-    description="Use MCP with Claude.ai web interface"
-    href="/docs/api/mcp/claude-ai"
-  />
-  <LinkCard
-    title="OpenAI / ChatGPT"
-    description="Configure MCP for OpenAI clients"
-    href="/docs/api/mcp/openai"
-  />
-  <LinkCard
-    title="Cursor"
-    description="Configure MCP for Cursor IDE"
-    href="/docs/api/mcp/cursor"
-  />
-  <LinkCard
-    title="Windsurf"
-    description="Configure MCP for Windsurf editor"
-    href="/docs/api/mcp/windsurf"
-  />
-  <LinkCard
-    title="VS Code"
-    description="Configure MCP for Visual Studio Code"
-    href="/docs/api/mcp/vscode"
+    title="Authentication"
+    description="API tokens, authentication, and security"
+    href="/docs/api/mcp/authentication"
   />
 </CardGrid>
 

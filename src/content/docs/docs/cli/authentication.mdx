@@ -1,0 +1,65 @@
+---
+title: CLI Authentication
+description: Authenticate the Probo CLI with your Probo instance
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+The `prb auth` commands manage authentication credentials for the Probo CLI. You need to authenticate before using any other commands.
+
+## Login
+
+<Steps>
+
+1. **Run the login command**
+
+   ```bash
+   prb auth login
+   ```
+
+   In interactive mode, you'll be prompted for:
+   - **Hostname** — your Probo instance URL (default: `app.getprobo.com`)
+   - **Authentication token** — your API token
+   - **Organization** — the organization to use by default
+
+2. **Or provide values directly**
+
+   ```bash
+   prb auth login --hostname app.getprobo.com --token YOUR_TOKEN --org YOUR_ORG_ID
+   ```
+
+</Steps>
+
+### Flags
+
+| Flag | Default | Description |
+|---|---|---|
+| `--hostname` | `app.getprobo.com` | Probo instance hostname |
+| `--token` | — | Authentication token |
+| `--org` | — | Default organization ID |
+
+## Check status
+
+View authentication status for all configured hosts:
+
+```bash
+prb auth status
+```
+
+This displays the active host, token validity, and selected organization.
+
+## Logout
+
+Remove stored credentials for a host:
+
+```bash
+prb auth logout
+```
+
+In interactive mode, you can select which host to log out of when multiple hosts are configured.
+
+### Flags
+
+| Flag | Description |
+|---|---|
+| `--hostname` | Specific host to log out of |
