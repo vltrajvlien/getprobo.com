@@ -12,12 +12,26 @@ import Stories from "../components/block/Stories.astro";
 import ComplianceTrack from "../components/block/ComplianceTrack.astro";
 import { getTranslator, getLink } from "../lib/i18n.ts";
 const __ = await getTranslator(Astro.currentLocale)
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Probo",
+  "alternateName": "Probo Compliance",
+  "url": "https://www.getprobo.com",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probo",
+    "url": "https://www.getprobo.com"
+  }
+};
 ---
 
 <Layout
   title={__("Probo - Compliance done for you")}
   description={__("Get SOC 2, GDPR, HIPAA, and ISO certified with expert guidance and the job done for you. Open-source compliance management platform with no vendor lock-in. Backed by Y Combinator.")}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   <animated-hero class="block py-10 pt-26 sm:pt-36 sm:pb-12 relative overflow-hidden px-5 -mt-16">
     <a
       href="https://www.ycombinator.com/companies/probo"

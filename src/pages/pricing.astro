@@ -4,12 +4,42 @@ import Button from "../components/ui/Button.svelte";
 import { getTranslator, getLink } from "../lib/i18n.ts";
 
 const __ = await getTranslator(Astro.currentLocale);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Probo Full-Service Compliance",
+  "description": "End-to-end compliance management service for SOC 2, ISO 27001, GDPR, and HIPAA.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Probo",
+    "url": "https://www.getprobo.com"
+  },
+  "serviceType": "Compliance Management",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "8000",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "8000",
+      "priceCurrency": "USD",
+      "unitText": "year"
+    },
+    "url": "https://www.getprobo.com/pricing"
+  }
+};
 ---
 
 <Layout
   title={__("Pricing")}
   description={__("We Handle Your Compliance. Probo isn't another compliance dashboard. We're your dedicated compliance team. Starting at $8,000 per year.")}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
     <!-- Hero Section -->
     <animated-hero class="block py-16 sm:py-24 relative overflow-hidden">
       <div class="container text-center">

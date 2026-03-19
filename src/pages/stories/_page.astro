@@ -23,9 +23,36 @@ const images = dynamicImages(
 const image = images(data.image);
 const logo = images(data.logo);
 const stories = random((await getCollection("stories", filterLang(Astro.currentLocale))).filter(s => s.id !== item.id), 3);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": data.title,
+  ...(data.description && { "description": data.description }),
+  "datePublished": data.date.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "Probo",
+    "url": "https://www.getprobo.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Probo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.getprobo.com/probo-logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.toString()
+  },
+  "image": data.ogImage ? `https://www.getprobo.com${data.ogImage}` : "https://www.getprobo.com/og.png"
+};
 ---
 
 <Layout title={item.data.title} description={item.data.description} ogImage={item.data.ogImage}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <header class="relative flex h-115 flex-col justify-end sm:h-163">
     <Image
       src={image}
