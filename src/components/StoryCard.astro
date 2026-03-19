@@ -93,13 +93,13 @@ const url = '/' + ( story.id.includes('/') ? story.id.replace('/', '/stories/') 
     class={classNames.image()}
     mobile={imageSizes[0]}
     sm={imageSizes[1]}
-    alt=""
+    alt={story.data.title}
   />
   <div class={classNames.body()}>
     <div class="w-full space-y-2">
       <Image
         src={images(story.data.logo)}
-        alt=""
+        alt={`${story.data.company?.name || story.data.title} logo`}
         class={clsx("block h-4 w-auto", isDark && "invert")}
       />
       <h3 class={classNames.title()}>{story.data.title}</h3>

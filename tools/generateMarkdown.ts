@@ -1,5 +1,5 @@
 import type { AstroIntegration } from "astro";
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync, existsSync } from "node:fs";
 import { join, dirname, relative, basename } from "node:path";
 
 /**
@@ -55,6 +55,105 @@ function mdxToMarkdown(content: string): string {
   md = md.replace(/\n{3,}/g, "\n\n").trim() + "\n";
 
   return md;
+}
+
+/**
+ * Convert a built HTML page to clean markdown by extracting text content
+ * from the <main> element and converting HTML structures to markdown.
+ */
+function htmlToMarkdown(html: string): string {
+  // Extract title from <title> tag
+  const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+  const rawTitle = titleMatch?.[1]?.replace(/\s*\|\s*Probo$/, "").trim() || "";
+
+  // Extract the main content area — try <main>, then <article>, then <body>
+  let content = "";
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/);
+  if (mainMatch) {
+    content = mainMatch[1];
+  } else {
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/);
+    content = bodyMatch?.[1] || html;
+  }
+
+  // Remove <script> and <style> blocks
+  content = content.replace(/<script[\s\S]*?<\/script>/gi, "");
+  content = content.replace(/<style[\s\S]*?<\/style>/gi, "");
+
+  // Remove <nav>, <header>, <footer> blocks (navigation, not content)
+  content = content.replace(/<nav[\s\S]*?<\/nav>/gi, "");
+  content = content.replace(/<footer[\s\S]*?<\/footer>/gi, "");
+
+  // Remove SVG elements
+  content = content.replace(/<svg[\s\S]*?<\/svg>/gi, "");
+
+  // Remove image tags
+  content = content.replace(/<img[^>]*>/gi, "");
+  content = content.replace(/<picture[\s\S]*?<\/picture>/gi, "");
+
+  // Convert headings
+  content = content.replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, "\n# $1\n");
+  content = content.replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, "\n## $1\n");
+  content = content.replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, "\n### $1\n");
+  content = content.replace(/<h4[^>]*>([\s\S]*?)<\/h4>/gi, "\n#### $1\n");
+
+  // Convert links
+  content = content.replace(/<a[^>]+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, "[$2]($1)");
+
+  // Convert strong/bold
+  content = content.replace(/<(strong|b)[^>]*>([\s\S]*?)<\/\1>/gi, "**$2**");
+
+  // Convert em/italic
+  content = content.replace(/<(em|i)[^>]*>([\s\S]*?)<\/\1>/gi, "*$2*");
+
+  // Convert list items
+  content = content.replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, "- $1\n");
+
+  // Remove remaining list wrappers
+  content = content.replace(/<\/?(ul|ol)[^>]*>/gi, "\n");
+
+  // Convert paragraphs
+  content = content.replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, "\n$1\n");
+
+  // Convert <br> to newline
+  content = content.replace(/<br\s*\/?>/gi, "\n");
+
+  // Convert table elements
+  content = content.replace(/<th[^>]*>([\s\S]*?)<\/th>/gi, "| $1 ");
+  content = content.replace(/<td[^>]*>([\s\S]*?)<\/td>/gi, "| $1 ");
+  content = content.replace(/<\/tr>/gi, "|\n");
+  content = content.replace(/<tr[^>]*>/gi, "");
+  content = content.replace(/<\/?(table|thead|tbody)[^>]*>/gi, "\n");
+
+  // Strip all remaining HTML tags
+  content = content.replace(/<[^>]+>/g, "");
+
+  // Remove leftover attribute strings (e.g. class="..." that survived tag stripping)
+  content = content.replace(/\s*class="[^"]*"/g, "");
+
+  // Decode common HTML entities
+  content = content.replace(/&amp;/g, "&");
+  content = content.replace(/&lt;/g, "<");
+  content = content.replace(/&gt;/g, ">");
+  content = content.replace(/&quot;/g, '"');
+  content = content.replace(/&#39;/g, "'");
+  content = content.replace(/&nbsp;/g, " ");
+  content = content.replace(/&mdash;/g, "—");
+  content = content.replace(/&ndash;/g, "–");
+  content = content.replace(/&rarr;/g, "→");
+
+  // Add title as H1 if not already present
+  if (rawTitle && !content.trim().startsWith("# ")) {
+    content = `# ${rawTitle}\n${content}`;
+  }
+
+  // Clean up excessive whitespace
+  content = content.replace(/[ \t]+/g, " ");
+  content = content.replace(/\n /g, "\n");
+  content = content.replace(/\n{3,}/g, "\n\n");
+  content = content.trim() + "\n";
+
+  return content;
 }
 
 /**
@@ -130,6 +229,20 @@ export function generateMarkdown(): AstroIntegration {
           const md = mdxToMarkdown(content);
           mkdirSync(dirname(outPath), { recursive: true });
           writeFileSync(outPath, md);
+        }
+
+        // Process hub pages from built HTML
+        const hubDir = join(distDir, "hub");
+        if (existsSync(hubDir)) {
+          const hubFiles = findFiles(hubDir, ".html");
+          for (const file of hubFiles) {
+            const slug = basename(file, ".html");
+            const outPath = join(mdDir, "hub", `${slug}.md`);
+            const content = readFileSync(file, "utf-8");
+            const md = htmlToMarkdown(content);
+            mkdirSync(dirname(outPath), { recursive: true });
+            writeFileSync(outPath, md);
+          }
         }
 
         // Copy hand-written marketing page markdowns
