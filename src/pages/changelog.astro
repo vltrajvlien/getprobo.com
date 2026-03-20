@@ -31,10 +31,7 @@ const dateFormatter = Intl.DateTimeFormat("en-US", {
             <time class="text-muted-foreground shrink-0 text-sm">
               {dateFormatter.format(new Date(entry.data.date))}
             </time>
-            <a
-              href={`/changelog/${entry.id}`}
-              class="hover:underline"
-            >
+            <a href={`/changelog/${entry.id}`} class="hover:underline">
               {entry.data.title}
             </a>
             {entry.data.tags.length > 0 &&
