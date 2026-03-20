@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("changelog");
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const dateFormatter = Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Layout title={`${entry.data.title} — Changelog`} description={entry.data.description}>
+  <main class="container my-10 max-w-[720px] sm:my-20">
+    <a
+      href="/changelog"
+      class="text-quaternary animate-fade-in animation-delay-200 mb-4 flex items-center gap-2"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+        ><path
+          fill="#C3C8C2"
+          fill-rule="evenodd"
+          d="M18.566 10.234a.8.8 0 0 1 0 1.132L13.93 16l4.635 4.634a.8.8 0 0 1-1.132 1.132l-5.2-5.2a.8.8 0 0 1 0-1.132l5.2-5.2a.8.8 0 0 1 1.132 0Z"
+          clip-rule="evenodd"></path></svg
+      >
+      Back to Changelog
+    </a>
+
+    <div class="text-muted-foreground animate-fade-in animation-delay-100 mb-3">
+      {dateFormatter.format(new Date(entry.data.date))}
+    </div>
+
+    {
+      entry.data.tags.length > 0 && (
+        <div class="animate-fade-in animation-delay-100 mb-5 flex gap-2">
+          {entry.data.tags.map((tag) => (
+            <span class="bg-highlight rounded-full px-2.5 py-0.5 text-xs font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
+
+    <h1 class="text-h3 sm:text-h2 animate-slide-in mb-4 font-medium">
+      {entry.data.title}
+    </h1>
+    <p class="text-muted-foreground animate-slide-in animation-delay-100 mb-10 text-lg">
+      {entry.data.description}
+    </p>
+
+    {
+      entry.data.image && (
+        <img
+          src={entry.data.image}
+          alt={entry.data.title}
+          class="shadow-image animate-slide-in animation-delay-200 mb-10 w-full rounded-lg"
+        />
+      )
+    }
+
+    <Prose class="animate-slide-in animation-delay-200">
+      <Content />
+    </Prose>
+  </main>
+</Layout>
