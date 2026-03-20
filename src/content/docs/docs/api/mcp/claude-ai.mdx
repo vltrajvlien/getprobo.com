@@ -144,21 +144,21 @@ print(response.content)
 ### JavaScript Example
 
 ```javascript
-import Anthropic from '@anthropic-ai/sdk';
-import { MCPClient } from '@modelcontextprotocol/sdk';
+import Anthropic from "@anthropic-ai/sdk";
+import { MCPClient } from "@modelcontextprotocol/sdk";
 
 // Initialize MCP client
 const proboMCP = new MCPClient({
-  url: 'https://your-probo-instance.com/api/mcp',
+  url: "https://your-probo-instance.com/api/mcp",
   auth: {
-    type: 'bearer',
-    token: process.env.PROBO_API_TOKEN
-  }
+    type: "bearer",
+    token: process.env.PROBO_API_TOKEN,
+  },
 });
 
 // Initialize Claude client
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 // Get available tools
@@ -166,15 +166,15 @@ const tools = await proboMCP.getTools();
 
 // Make request with MCP tools
 const response = await anthropic.messages.create({
-  model: 'claude-3-5-sonnet-20241022',
+  model: "claude-3-5-sonnet-20241022",
   max_tokens: 1024,
   tools: tools,
   messages: [
     {
-      role: 'user',
-      content: 'Show me all open nonconformities'
-    }
-  ]
+      role: "user",
+      content: "Show me all open nonconformities",
+    },
+  ],
 });
 
 console.log(response.content);
@@ -217,6 +217,7 @@ Anthropic is working on native MCP support for Claude.ai. When available, config
 4. Save and start using MCP tools
 
 Stay updated on MCP support:
+
 - [Anthropic Changelog](https://anthropic.com/changelog)
 - [MCP Specification Updates](https://github.com/modelcontextprotocol/specification)
 
@@ -236,32 +237,32 @@ Create a userscript (Tampermonkey/Greasemonkey) to inject MCP functionality:
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+  "use strict";
 
-    const PROBO_MCP_URL = 'https://your-probo-instance.com/api/mcp';
-    const PROBO_TOKEN = 'your_api_token_here';
+  const PROBO_MCP_URL = "https://your-probo-instance.com/api/mcp";
+  const PROBO_TOKEN = "your_api_token_here";
 
-    // Inject MCP functionality
-    window.proboMCP = {
-        async callTool(toolName, params) {
-            return new Promise((resolve, reject) => {
-                GM_xmlhttpRequest({
-                    method: 'POST',
-                    url: `${PROBO_MCP_URL}/tools/${toolName}`,
-                    headers: {
-                        'Authorization': `Bearer ${PROBO_TOKEN}`,
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify(params),
-                    onload: (response) => resolve(JSON.parse(response.responseText)),
-                    onerror: (error) => reject(error)
-                });
-            });
-        }
-    };
+  // Inject MCP functionality
+  window.proboMCP = {
+    async callTool(toolName, params) {
+      return new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: "POST",
+          url: `${PROBO_MCP_URL}/tools/${toolName}`,
+          headers: {
+            Authorization: `Bearer ${PROBO_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify(params),
+          onload: (response) => resolve(JSON.parse(response.responseText)),
+          onerror: (error) => reject(error),
+        });
+      });
+    },
+  };
 
-    console.log('Probo MCP integration loaded');
+  console.log("Probo MCP integration loaded");
 })();
 ```
 
@@ -270,18 +271,18 @@ Create a userscript (Tampermonkey/Greasemonkey) to inject MCP functionality:
 Create a bookmarklet for quick MCP actions:
 
 ```javascript
-javascript:(function(){
-  const orgId = prompt('Enter Organization ID:');
-  fetch('https://your-probo-instance.com/api/mcp/tools/listRisks', {
-    method: 'POST',
+javascript: (function () {
+  const orgId = prompt("Enter Organization ID:");
+  fetch("https://your-probo-instance.com/api/mcp/tools/listRisks", {
+    method: "POST",
     headers: {
-      'Authorization': 'Bearer your_token_here',
-      'Content-Type': 'application/json'
+      Authorization: "Bearer your_token_here",
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ organization_id: orgId })
+    body: JSON.stringify({ organization_id: orgId }),
   })
-  .then(r => r.json())
-  .then(data => alert(JSON.stringify(data, null, 2)));
+    .then((r) => r.json())
+    .then((data) => alert(JSON.stringify(data, null, 2)));
 })();
 ```
 

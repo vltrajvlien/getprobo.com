@@ -50,6 +50,7 @@ Add the Probo MCP server to your Claude Code configuration:
 ```
 
 Replace:
+
 - `https://your-probo-instance.com/api/mcp/v1` with your Probo instance URL
 - `your_api_token_here` with the API token you generated
 
@@ -97,6 +98,7 @@ Claude will automatically load the Probo MCP server and you can begin interactin
 Once in a Claude Code session:
 
 #### List Organizations
+
 ```bash
 You: "What organizations do I have access to?"
 
@@ -109,6 +111,7 @@ You have access to 2 organizations:
 ```
 
 #### Managing Risks
+
 ```bash
 You: "Show me all risks with a residual risk score above 15"
 
@@ -122,6 +125,7 @@ Found 3 high-risk items:
 ```
 
 #### Adding Vendors
+
 ```bash
 You: "Add a vendor named 'SecureCloud' that provides backup services"
 
@@ -179,7 +183,11 @@ You can create project-specific MCP configurations by placing a `.claude-code.js
   "mcpServers": {
     "probo": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://project.probo.com/api/mcp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch",
+        "https://project.probo.com/api/mcp"
+      ],
       "env": {
         "PROBO_API_TOKEN": "${PROBO_PROJECT_TOKEN}"
       }
@@ -206,7 +214,11 @@ Then reference it in your config:
   "mcpServers": {
     "probo": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://your-probo-instance.com/api/mcp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch",
+        "https://your-probo-instance.com/api/mcp"
+      ],
       "env": {
         "PROBO_API_TOKEN": "${PROBO_API_TOKEN}"
       }
@@ -259,7 +271,7 @@ name: Compliance Check
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 9 AM
+    - cron: "0 9 * * 1" # Every Monday at 9 AM
 
 jobs:
   check:

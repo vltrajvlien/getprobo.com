@@ -8,448 +8,891 @@ const __ = await getTranslator(Astro.currentLocale);
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Probo Full-Service Compliance",
-  "description": "End-to-end compliance management service for SOC 2, ISO 27001, GDPR, and HIPAA.",
-  "provider": {
+  name: "Probo Full-Service Compliance",
+  description:
+    "End-to-end compliance management service for SOC 2, ISO 27001, GDPR, and HIPAA.",
+  provider: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com"
+    name: "Probo",
+    url: "https://www.getprobo.com",
   },
-  "serviceType": "Compliance Management",
-  "areaServed": {
+  serviceType: "Compliance Management",
+  areaServed: {
     "@type": "Place",
-    "name": "Worldwide"
+    name: "Worldwide",
   },
-  "offers": {
+  offers: {
     "@type": "Offer",
-    "price": "8000",
-    "priceCurrency": "USD",
-    "priceSpecification": {
+    price: "8000",
+    priceCurrency: "USD",
+    priceSpecification: {
       "@type": "UnitPriceSpecification",
-      "price": "8000",
-      "priceCurrency": "USD",
-      "unitText": "year"
+      price: "8000",
+      priceCurrency: "USD",
+      unitText: "year",
     },
-    "url": "https://www.getprobo.com/pricing"
-  }
+    url: "https://www.getprobo.com/pricing",
+  },
 };
 ---
 
 <Layout
   title={__("Pricing")}
-  description={__("We Handle Your Compliance. Probo isn't another compliance dashboard. We're your dedicated compliance team. Starting at $8,000 per year.")}
+  description={__(
+    "We Handle Your Compliance. Probo isn't another compliance dashboard. We're your dedicated compliance team. Starting at $8,000 per year.",
+  )}
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
-    <!-- Hero Section -->
-    <animated-hero class="block py-16 sm:py-24 relative overflow-hidden">
-      <div class="container text-center">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 border border-border-mid rounded-full px-4 py-2 mb-8 animate-slide-in">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-          <span class="text-sm text-muted-foreground">{__("Full-Service Compliance | Not Just Software")}</span>
-        </div>
-
-        <!-- Main Heading -->
-        <h1 class="text-h2 sm:text-h1 mb-6 font-medium animate-slide-in animation-delay-100">
-          {__("We Handle Your")}<br />
-          {__("Compliance.")}
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-muted-foreground max-w-[500px] mx-auto text-lg mb-16 animate-slide-in animation-delay-150">
-          {__("Probo isn't another compliance dashboard.")}<br />
-          {__("We're your dedicated compliance team.")}
-        </p>
-
-        <!-- 3 Step Cards -->
-        <div class="grid sm:grid-cols-3 gap-6 max-w-[900px] mx-auto animate-slide-in animation-delay-200">
-          <!-- Step 1 -->
-          <div class="bg-white rounded-2xl border border-border-mid p-6 text-center shadow-mid">
-            <div class="inline-flex items-center gap-3 border border-border-mid rounded-full px-4 py-2 mb-5">
-              <span class="text-accent font-semibold text-lg">01</span>
-              <span class="font-medium">{__("Talk to Us")}</span>
-            </div>
-            <p class="text-muted-foreground text-sm">{__("Share your tech stack and process in an onboarding call")}</p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="bg-white rounded-2xl border border-border-mid p-6 text-center shadow-mid">
-            <div class="inline-flex items-center gap-3 border border-border-mid rounded-full px-4 py-2 mb-5">
-              <span class="text-accent font-semibold text-lg">02</span>
-              <span class="font-medium">{__("We Do the Work")}</span>
-            </div>
-            <p class="text-muted-foreground text-sm">{__("Our experts handle assessments, docs, and prepare you for audit")}</p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="bg-white rounded-2xl border border-border-mid p-6 text-center shadow-mid">
-            <div class="inline-flex items-center gap-3 border border-border-mid rounded-full px-4 py-2 mb-5">
-              <span class="text-accent font-semibold text-lg">03</span>
-              <span class="font-medium">{__("You Get Certified")}</span>
-            </div>
-            <p class="text-muted-foreground text-sm">{__("Achieve SOC 2, ISO 27001, or other frameworks with serious audit")}</p>
-          </div>
-        </div>
+  <!-- Hero Section -->
+  <animated-hero class="relative block overflow-hidden py-16 sm:py-24">
+    <div class="container text-center">
+      <!-- Badge -->
+      <div
+        class="border-border-mid animate-slide-in mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-muted-foreground"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span class="text-muted-foreground text-sm"
+          >{__("Full-Service Compliance | Not Just Software")}</span
+        >
       </div>
-    </animated-hero>
 
-    <!-- Probo Service Pricing Section -->
-    <section class="bg-[#F8F9F8] py-16 sm:py-24 border-y border-border-mid">
-      <div class="container">
-        <div class="text-center mb-12">
-          <h2 class="text-h3 sm:text-h2 font-medium mb-4">{__("Probo Service Pricing")}</h2>
-          <p class="text-muted-foreground max-w-[600px] mx-auto">
-            {__("Final price depends on your company size, the framework you're pursuing (SOC 2, ISO 27001, etc.), and your current security posture.")}
+      <!-- Main Heading -->
+      <h1
+        class="text-h2 sm:text-h1 animate-slide-in animation-delay-100 mb-6 font-medium"
+      >
+        {__("We Handle Your")}<br />
+        {__("Compliance.")}
+      </h1>
+
+      <!-- Subtitle -->
+      <p
+        class="text-muted-foreground animate-slide-in animation-delay-150 mx-auto mb-16 max-w-[500px] text-lg"
+      >
+        {__("Probo isn't another compliance dashboard.")}<br />
+        {__("We're your dedicated compliance team.")}
+      </p>
+
+      <!-- 3 Step Cards -->
+      <div
+        class="animate-slide-in animation-delay-200 mx-auto grid max-w-[900px] gap-6 sm:grid-cols-3"
+      >
+        <!-- Step 1 -->
+        <div
+          class="border-border-mid shadow-mid rounded-2xl border bg-white p-6 text-center"
+        >
+          <div
+            class="border-border-mid mb-5 inline-flex items-center gap-3 rounded-full border px-4 py-2"
+          >
+            <span class="text-accent text-lg font-semibold">01</span>
+            <span class="font-medium">{__("Talk to Us")}</span>
+          </div>
+          <p class="text-muted-foreground text-sm">
+            {__("Share your tech stack and process in an onboarding call")}
           </p>
         </div>
 
-        <!-- Pricing Card -->
-        <div class="max-w-[420px] mx-auto">
-          <!-- Full-Service Badge -->
-          <div class="flex justify-center mb-[-20px] relative z-10">
-            <span class="bg-[#93C925] text-[#2A2A3D] text-base font-semibold px-6 py-2.5 rounded-full">
-              {__("Full-Service Compliance")}
-            </span>
+        <!-- Step 2 -->
+        <div
+          class="border-border-mid shadow-mid rounded-2xl border bg-white p-6 text-center"
+        >
+          <div
+            class="border-border-mid mb-5 inline-flex items-center gap-3 rounded-full border px-4 py-2"
+          >
+            <span class="text-accent text-lg font-semibold">02</span>
+            <span class="font-medium">{__("We Do the Work")}</span>
           </div>
-
-          <!-- Dark Card -->
-          <div class="bg-[#2A2A3D] rounded-2xl p-6 sm:p-8 pt-10 sm:pt-12 border-4 border-[#E4F7C7] shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-            <!-- Price -->
-            <div class="mb-1">
-              <span class="text-base font-medium text-[#ffffff]">{__("Starting at")}</span>
-            </div>
-            <div class="flex items-baseline gap-2 mb-2">
-              <span class="text-[2.5rem] sm:text-[3rem] font-bold text-[#ffffff]">$8,000</span>
-              <span class="text-sm text-[#ffffffb3]">{__("per year")}</span>
-            </div>
-            <p class="text-[#ffffffb3] text-sm mb-5">{__("End-to-end compliance, fully managed for you")}</p>
-
-            <!-- Price For Box -->
-            <div class="bg-[#3a3a50] rounded-lg px-4 py-3 mb-6">
-              <span class="text-accent text-xs font-medium uppercase tracking-wide">{__("PRICE FOR")}</span>
-              <p class="text-[#ffffff] text-sm mt-0.5">{__("a small team (0-15 employees)")}</p>
-            </div>
-
-            <!-- Features List -->
-            <ul class="space-y-2.5 mb-6">
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm font-medium text-[#ffffff]">{__("One compliance framework (ISO 27001, SOC 2,...)")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Gap assessment & risk analysis")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("All policy & documentation writing")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Full vendor review management")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Audit prep & management")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Security questionnaire")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Contract redlining")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Dedicated Compliance officer on Slack & Meet")}</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-sm text-[#ffffffcc]">{__("Continuous monitoring & updates*")}</span>
-              </li>
-            </ul>
-
-            <!-- CTA Button -->
-            <a 
-              href={getLink(Astro, "/contact")}
-              class="block w-full bg-accent text-foreground font-medium text-center py-4 rounded-lg hover:bg-accent/90 transition-colors"
-            >
-              {__("Get your price")} →
-            </a>
-          </div>
+          <p class="text-muted-foreground text-sm">
+            {
+              __(
+                "Our experts handle assessments, docs, and prepare you for audit",
+              )
+            }
+          </p>
         </div>
 
-        <!-- Continuous Monitoring Note -->
-        <div class="max-w-[900px] mx-auto mt-12">
-          <div class="bg-white rounded-2xl border border-border-mid p-6 sm:p-8 text-center">
-            <h3 class="font-medium text-lg mb-2">{__("*Continuous monitoring over the year")}</h3>
-            <p class="text-muted-foreground max-w-[700px] mx-auto">
-              {__("Once certified, we run your compliance program in the background - monitoring, updating controls, refreshing evidence, and maintaining assessments.")}
-              {" "}<span class="text-accent font-medium">{__("So you remain continuously audit-ready")}</span>{" "}
-              {__("with no extra effort.")}
-            </p>
+        <!-- Step 3 -->
+        <div
+          class="border-border-mid shadow-mid rounded-2xl border bg-white p-6 text-center"
+        >
+          <div
+            class="border-border-mid mb-5 inline-flex items-center gap-3 rounded-full border px-4 py-2"
+          >
+            <span class="text-accent text-lg font-semibold">03</span>
+            <span class="font-medium">{__("You Get Certified")}</span>
           </div>
+          <p class="text-muted-foreground text-sm">
+            {
+              __(
+                "Achieve SOC 2, ISO 27001, or other frameworks with serious audit",
+              )
+            }
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </animated-hero>
 
-    <!-- Service, Not Software Section -->
-    <section class="container py-16 sm:py-24">
-      <div class="text-center mb-12">
-        <h2 class="text-h3 sm:text-h2 font-medium mb-4">{__("Service, Not Software")}</h2>
-        <p class="text-muted-foreground max-w-[550px] mx-auto">
-          {__("Most platforms give you a tool and leave you to figure it out. We do the actual work for you.")}
+  <!-- Probo Service Pricing Section -->
+  <section class="border-border-mid border-y bg-[#F8F9F8] py-16 sm:py-24">
+    <div class="container">
+      <div class="mb-12 text-center">
+        <h2 class="text-h3 sm:text-h2 mb-4 font-medium">
+          {__("Probo Service Pricing")}
+        </h2>
+        <p class="text-muted-foreground mx-auto max-w-[600px]">
+          {
+            __(
+              "Final price depends on your company size, the framework you're pursuing (SOC 2, ISO 27001, etc.), and your current security posture.",
+            )
+          }
         </p>
       </div>
 
-      <!-- Comparison Table -->
-      <div class="max-w-[1000px] mx-auto overflow-hidden rounded-2xl border border-border-mid bg-white shadow-mid">
-        <!-- Table Header -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] bg-[#2A2A3D]">
-          <div class="p-4 sm:p-5 flex items-center">
-            <span class="text-[#ffffff99] text-sm font-medium">{__("Category")}</span>
-          </div>
-          <div class="p-4 sm:p-5 flex items-center justify-center">
-            <span class="inline-block bg-accent text-[#2A2A3D] font-semibold text-sm px-5 py-2 rounded-full">
-              {__("Probo (Full Service)")}
-            </span>
-          </div>
-          <div class="p-4 sm:p-5 flex items-center justify-center">
-            <span class="text-[#ffffff99] text-sm font-medium">{__("Typical Platforms (Tool)")}</span>
-          </div>
+      <!-- Pricing Card -->
+      <div class="mx-auto max-w-[420px]">
+        <!-- Full-Service Badge -->
+        <div class="relative z-10 mb-[-20px] flex justify-center">
+          <span
+            class="rounded-full bg-[#93C925] px-6 py-2.5 text-base font-semibold text-[#2A2A3D]"
+          >
+            {__("Full-Service Compliance")}
+          </span>
         </div>
 
-        <!-- Table Rows -->
-        <!-- Row 1: Time Investment -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] border-b border-border-low hover:bg-[#fafafa] transition-colors">
-          <div class="p-4 sm:p-5 flex items-center gap-3 border-r border-border-low">
-            <div class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <span class="font-medium text-sm">{__("Time Investment")}</span>
+        <!-- Dark Card -->
+        <div
+          class="rounded-2xl border-4 border-[#E4F7C7] bg-[#2A2A3D] p-6 pt-10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] sm:p-8 sm:pt-12"
+        >
+          <!-- Price -->
+          <div class="mb-1">
+            <span class="text-base font-medium text-[#ffffff]"
+              >{__("Starting at")}</span
+            >
           </div>
-          <div class="p-4 sm:p-5 border-r border-border-low">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
+          <div class="mb-2 flex items-baseline gap-2">
+            <span class="text-[2.5rem] font-bold text-[#ffffff] sm:text-[3rem]"
+              >$8,000</span
+            >
+            <span class="text-sm text-[#ffffffb3]">{__("per year")}</span>
+          </div>
+          <p class="mb-5 text-sm text-[#ffffffb3]">
+            {__("End-to-end compliance, fully managed for you")}
+          </p>
+
+          <!-- Price For Box -->
+          <div class="mb-6 rounded-lg bg-[#3a3a50] px-4 py-3">
+            <span
+              class="text-accent text-xs font-medium tracking-wide uppercase"
+              >{__("PRICE FOR")}</span
+            >
+            <p class="mt-0.5 text-sm text-[#ffffff]">
+              {__("a small team (0-15 employees)")}
+            </p>
+          </div>
+
+          <!-- Features List -->
+          <ul class="mb-6 space-y-2.5">
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span class="text-sm text-foreground">{__("~2 hours per month (just implement what we tell you - that part can take you time)")}</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-quaternary flex-shrink-0 mt-0.5">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
+              <span class="text-sm font-medium text-[#ffffff]"
+                >{__("One compliance framework (ISO 27001, SOC 2,...)")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span class="text-sm text-muted-foreground">{__("Many hours managing frameworks yourself (not focusing on your business)")}</span>
-            </div>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Gap assessment & risk analysis")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("All policy & documentation writing")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Full vendor review management")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Audit prep & management")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Security questionnaire")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Contract redlining")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Dedicated Compliance officer on Slack & Meet")}</span
+              >
+            </li>
+            <li class="flex items-start gap-3">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="text-accent mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-sm text-[#ffffffcc]"
+                >{__("Continuous monitoring & updates*")}</span
+              >
+            </li>
+          </ul>
+
+          <!-- CTA Button -->
+          <a
+            href={getLink(Astro, "/contact")}
+            class="bg-accent text-foreground hover:bg-accent/90 block w-full rounded-lg py-4 text-center font-medium transition-colors"
+          >
+            {__("Get your price")} →
+          </a>
+        </div>
+      </div>
+
+      <!-- Continuous Monitoring Note -->
+      <div class="mx-auto mt-12 max-w-[900px]">
+        <div
+          class="border-border-mid rounded-2xl border bg-white p-6 text-center sm:p-8"
+        >
+          <h3 class="mb-2 text-lg font-medium">
+            {__("*Continuous monitoring over the year")}
+          </h3>
+          <p class="text-muted-foreground mx-auto max-w-[700px]">
+            {
+              __(
+                "Once certified, we run your compliance program in the background - monitoring, updating controls, refreshing evidence, and maintaining assessments.",
+              )
+            }
+            {" "}<span class="text-accent font-medium"
+              >{__("So you remain continuously audit-ready")}</span
+            >{" "}
+            {__("with no extra effort.")}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service, Not Software Section -->
+  <section class="container py-16 sm:py-24">
+    <div class="mb-12 text-center">
+      <h2 class="text-h3 sm:text-h2 mb-4 font-medium">
+        {__("Service, Not Software")}
+      </h2>
+      <p class="text-muted-foreground mx-auto max-w-[550px]">
+        {
+          __(
+            "Most platforms give you a tool and leave you to figure it out. We do the actual work for you.",
+          )
+        }
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div
+      class="border-border-mid shadow-mid mx-auto max-w-[1000px] overflow-hidden rounded-2xl border bg-white"
+    >
+      <!-- Table Header -->
+      <div
+        class="grid grid-cols-[1.2fr_1fr_1fr] bg-[#2A2A3D] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div class="flex items-center p-4 sm:p-5">
+          <span class="text-sm font-medium text-[#ffffff99]"
+            >{__("Category")}</span
+          >
+        </div>
+        <div class="flex items-center justify-center p-4 sm:p-5">
+          <span
+            class="bg-accent inline-block rounded-full px-5 py-2 text-sm font-semibold text-[#2A2A3D]"
+          >
+            {__("Probo (Full Service)")}
+          </span>
+        </div>
+        <div class="flex items-center justify-center p-4 sm:p-5">
+          <span class="text-sm font-medium text-[#ffffff99]"
+            >{__("Typical Platforms (Tool)")}</span
+          >
+        </div>
+      </div>
+
+      <!-- Table Rows -->
+      <!-- Row 1: Time Investment -->
+      <div
+        class="border-border-low grid grid-cols-[1.2fr_1fr_1fr] border-b transition-colors hover:bg-[#fafafa] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div
+          class="border-border-low flex items-center gap-3 border-r p-4 sm:p-5"
+        >
+          <div
+            class="bg-accent/10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-accent"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="text-sm font-medium">{__("Time Investment")}</span>
+        </div>
+        <div class="border-border-low border-r p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              class="text-accent mt-0.5 flex-shrink-0"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="text-foreground text-sm"
+              >{
+                __(
+                  "~2 hours per month (just implement what we tell you - that part can take you time)",
+                )
+              }</span
+            >
           </div>
         </div>
-
-        <!-- Row 2: Risk and Vendors Assessments -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] border-b border-border-low hover:bg-[#fafafa] transition-colors">
-          <div class="p-4 sm:p-5 flex items-center gap-3 border-r border-border-low">
-            <div class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </div>
-            <span class="font-medium text-sm">{__("Risk and Vendors Assessments")}</span>
-          </div>
-          <div class="p-4 sm:p-5 border-r border-border-low">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-sm text-foreground">{__("We perform a proper risk analysis for your company and each of your vendors")}</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-quaternary flex-shrink-0 mt-0.5">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span class="text-sm text-muted-foreground">{__("You follow tutorials and hope it's correct (often reduced to box-ticking)")}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 3: Documentation -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] border-b border-border-low hover:bg-[#fafafa] transition-colors">
-          <div class="p-4 sm:p-5 flex items-center gap-3 border-r border-border-low">
-            <div class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-              </svg>
-            </div>
-            <span class="font-medium text-sm">{__("Documentation")}</span>
-          </div>
-          <div class="p-4 sm:p-5 border-r border-border-low">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-sm text-foreground">{__("We write all policies, procedures, and manage evidence")}</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-quaternary flex-shrink-0 mt-0.5">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span class="text-sm text-muted-foreground">{__("You fill out templates (if you find the right ones)")}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 4: Audit Management -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] border-b border-border-low hover:bg-[#fafafa] transition-colors">
-          <div class="p-4 sm:p-5 flex items-center gap-3 border-r border-border-low">
-            <div class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-              </svg>
-            </div>
-            <span class="font-medium text-sm">{__("Audit Management")}</span>
-          </div>
-          <div class="p-4 sm:p-5 border-r border-border-low">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-sm text-foreground">{__("We prepare everything and guide you through the audit")}</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-quaternary flex-shrink-0 mt-0.5">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span class="text-sm text-muted-foreground">{__("You manage the back-and-forth and try to organize evidence last-minute")}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 5: Support Type -->
-        <div class="grid grid-cols-[1.2fr_1fr_1fr] sm:grid-cols-[1.5fr_1fr_1fr] hover:bg-[#fafafa] transition-colors">
-          <div class="p-4 sm:p-5 flex items-center gap-3 border-r border-border-low">
-            <div class="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <span class="font-medium text-sm">{__("Support Type")}</span>
-          </div>
-          <div class="p-4 sm:p-5 border-r border-border-low">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-accent flex-shrink-0 mt-0.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-sm text-foreground">{__("Dedicated compliance officer via Slack and call")}</span>
-            </div>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="flex items-start gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-quaternary flex-shrink-0 mt-0.5">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span class="text-sm text-muted-foreground">{__("Email support, chatbots, or knowledge base articles")}</span>
-            </div>
+        <div class="p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="text-quaternary mt-0.5 flex-shrink-0"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-muted-foreground text-sm"
+              >{
+                __(
+                  "Many hours managing frameworks yourself (not focusing on your business)",
+                )
+              }</span
+            >
           </div>
         </div>
       </div>
 
-      <!-- Your Only Job Section -->
-      <div class="mt-16 sm:mt-20 max-w-[900px] mx-auto">
-        <div class="bg-[#2A2A3D] rounded-2xl p-6 sm:p-10">
-          <!-- Title -->
-          <h3 class="text-[24px] font-bold text-[#ffffff] mb-8">{__("Your Only Job")}</h3>
-
-          <!-- Content Grid -->
-          <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 items-center">
-            <!-- Green Card with border -->
-            <div class="bg-[#6DD4B1] rounded-2xl p-6 sm:p-8 sm:flex-shrink-0 sm:w-[380px] border-4 border-[#2A2A3D] shadow-[0_0_0_2px_#6DD4B1]">
-              <div class="flex items-center justify-center gap-2 mb-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#2A2A3D]">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <h4 class="text-[18px] font-bold text-[#2A2A3D]">{__("Implement Security Measures")}</h4>
-              </div>
-              <p class="text-[#2A2A3D]/70 text-center">
-                {__("We identify what needs to be fixed. You implement the changes we recommend.")}
-              </p>
-            </div>
-
-            <!-- Checklist -->
-            <ul class="space-y-5 flex-1">
-              <li class="flex items-center gap-4">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#6DD4B1] flex-shrink-0">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-[#ffffff] text-[14px]">{__("We tell you exactly what to do")}</span>
-              </li>
-              <li class="flex items-center gap-4">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#6DD4B1] flex-shrink-0">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-[#ffffff] text-[14px]">{__("Clear priorities and deadlines")}</span>
-              </li>
-              <li class="flex items-center gap-4">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#6DD4B1] flex-shrink-0">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-[#ffffff] text-[14px]">{__("No compliance jargon—just actionable tasks")}</span>
-              </li>
-              <li class="flex items-center gap-4">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#6DD4B1] flex-shrink-0">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span class="text-[#ffffff] text-[14px]">{__("Support available when you need help")}</span>
-              </li>
-            </ul>
+      <!-- Row 2: Risk and Vendors Assessments -->
+      <div
+        class="border-border-low grid grid-cols-[1.2fr_1fr_1fr] border-b transition-colors hover:bg-[#fafafa] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div
+          class="border-border-low flex items-center gap-3 border-r p-4 sm:p-5"
+        >
+          <div
+            class="bg-accent/10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-accent"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <span class="text-sm font-medium"
+            >{__("Risk and Vendors Assessments")}</span
+          >
+        </div>
+        <div class="border-border-low border-r p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              class="text-accent mt-0.5 flex-shrink-0"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="text-foreground text-sm"
+              >{
+                __(
+                  "We perform a proper risk analysis for your company and each of your vendors",
+                )
+              }</span
+            >
+          </div>
+        </div>
+        <div class="p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="text-quaternary mt-0.5 flex-shrink-0"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-muted-foreground text-sm"
+              >{
+                __(
+                  "You follow tutorials and hope it's correct (often reduced to box-ticking)",
+                )
+              }</span
+            >
           </div>
         </div>
       </div>
-    </section>
 
+      <!-- Row 3: Documentation -->
+      <div
+        class="border-border-low grid grid-cols-[1.2fr_1fr_1fr] border-b transition-colors hover:bg-[#fafafa] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div
+          class="border-border-low flex items-center gap-3 border-r p-4 sm:p-5"
+        >
+          <div
+            class="bg-accent/10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-accent"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              ></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <span class="text-sm font-medium">{__("Documentation")}</span>
+        </div>
+        <div class="border-border-low border-r p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              class="text-accent mt-0.5 flex-shrink-0"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="text-foreground text-sm"
+              >{
+                __("We write all policies, procedures, and manage evidence")
+              }</span
+            >
+          </div>
+        </div>
+        <div class="p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="text-quaternary mt-0.5 flex-shrink-0"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-muted-foreground text-sm"
+              >{__("You fill out templates (if you find the right ones)")}</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: Audit Management -->
+      <div
+        class="border-border-low grid grid-cols-[1.2fr_1fr_1fr] border-b transition-colors hover:bg-[#fafafa] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div
+          class="border-border-low flex items-center gap-3 border-r p-4 sm:p-5"
+        >
+          <div
+            class="bg-accent/10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-accent"
+            >
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span class="text-sm font-medium">{__("Audit Management")}</span>
+        </div>
+        <div class="border-border-low border-r p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              class="text-accent mt-0.5 flex-shrink-0"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="text-foreground text-sm"
+              >{
+                __("We prepare everything and guide you through the audit")
+              }</span
+            >
+          </div>
+        </div>
+        <div class="p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="text-quaternary mt-0.5 flex-shrink-0"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-muted-foreground text-sm"
+              >{
+                __(
+                  "You manage the back-and-forth and try to organize evidence last-minute",
+                )
+              }</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 5: Support Type -->
+      <div
+        class="grid grid-cols-[1.2fr_1fr_1fr] transition-colors hover:bg-[#fafafa] sm:grid-cols-[1.5fr_1fr_1fr]"
+      >
+        <div
+          class="border-border-low flex items-center gap-3 border-r p-4 sm:p-5"
+        >
+          <div
+            class="bg-accent/10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="text-accent"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+          </div>
+          <span class="text-sm font-medium">{__("Support Type")}</span>
+        </div>
+        <div class="border-border-low border-r p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              class="text-accent mt-0.5 flex-shrink-0"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="text-foreground text-sm"
+              >{__("Dedicated compliance officer via Slack and call")}</span
+            >
+          </div>
+        </div>
+        <div class="p-4 sm:p-5">
+          <div class="flex items-start gap-2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="text-quaternary mt-0.5 flex-shrink-0"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="text-muted-foreground text-sm"
+              >{__("Email support, chatbots, or knowledge base articles")}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your Only Job Section -->
+    <div class="mx-auto mt-16 max-w-[900px] sm:mt-20">
+      <div class="rounded-2xl bg-[#2A2A3D] p-6 sm:p-10">
+        <!-- Title -->
+        <h3 class="mb-8 text-[24px] font-bold text-[#ffffff]">
+          {__("Your Only Job")}
+        </h3>
+
+        <!-- Content Grid -->
+        <div class="flex flex-col items-center gap-8 sm:flex-row sm:gap-12">
+          <!-- Green Card with border -->
+          <div
+            class="rounded-2xl border-4 border-[#2A2A3D] bg-[#6DD4B1] p-6 shadow-[0_0_0_2px_#6DD4B1] sm:w-[380px] sm:flex-shrink-0 sm:p-8"
+          >
+            <div class="mb-3 flex items-center justify-center gap-2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="text-[#2A2A3D]"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <h4 class="text-[18px] font-bold text-[#2A2A3D]">
+                {__("Implement Security Measures")}
+              </h4>
+            </div>
+            <p class="text-center text-[#2A2A3D]/70">
+              {
+                __(
+                  "We identify what needs to be fixed. You implement the changes we recommend.",
+                )
+              }
+            </p>
+          </div>
+
+          <!-- Checklist -->
+          <ul class="flex-1 space-y-5">
+            <li class="flex items-center gap-4">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="flex-shrink-0 text-[#6DD4B1]"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[14px] text-[#ffffff]"
+                >{__("We tell you exactly what to do")}</span
+              >
+            </li>
+            <li class="flex items-center gap-4">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="flex-shrink-0 text-[#6DD4B1]"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[14px] text-[#ffffff]"
+                >{__("Clear priorities and deadlines")}</span
+              >
+            </li>
+            <li class="flex items-center gap-4">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="flex-shrink-0 text-[#6DD4B1]"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[14px] text-[#ffffff]"
+                >{__("No compliance jargon—just actionable tasks")}</span
+              >
+            </li>
+            <li class="flex items-center gap-4">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="flex-shrink-0 text-[#6DD4B1]"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[14px] text-[#ffffff]"
+                >{__("Support available when you need help")}</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <script>
-  import {AnimatedHero} from '../lib/elements/hero'
-  import {customElementDefine} from '../lib/dom'
+  import { AnimatedHero } from "../lib/elements/hero";
+  import { customElementDefine } from "../lib/dom";
 
-  customElementDefine('animated-hero', () => AnimatedHero)
+  customElementDefine("animated-hero", () => AnimatedHero);
 </script>

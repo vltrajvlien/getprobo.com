@@ -1,6 +1,6 @@
 export function trim(str: string, char: string): string {
   if (char.length !== 1) {
-    throw new Error('')
+    throw new Error("");
   }
   // Fast pointer-based trim of a single character from both ends.
   // Avoids regex and allocations; uses code-point comparison for speed.

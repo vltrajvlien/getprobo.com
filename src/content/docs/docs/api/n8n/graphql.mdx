@@ -7,17 +7,18 @@ The Probo n8n node includes a **GraphQL** resource that lets you run arbitrary G
 
 ## Configuration
 
-| Field | Description |
-|---|---|
-| **API** | Which Probo API to call: **Console API** (`/api/console/v1/graphql`) or **Connect API** (`/api/connect/v1/graphql`) |
-| **Query** | The full GraphQL operation, including operation type, name, and variable declarations |
-| **Variables** | A JSON object containing the variables referenced in your query |
+| Field         | Description                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **API**       | Which Probo API to call: **Console API** (`/api/console/v1/graphql`) or **Connect API** (`/api/connect/v1/graphql`) |
+| **Query**     | The full GraphQL operation, including operation type, name, and variable declarations                               |
+| **Variables** | A JSON object containing the variables referenced in your query                                                     |
 
 ## Example: Query
 
 Fetch a specific user by ID:
 
 **Query:**
+
 ```graphql
 query GetUser($userId: ID!) {
   node(id: $userId) {
@@ -31,6 +32,7 @@ query GetUser($userId: ID!) {
 ```
 
 **Variables:**
+
 ```json
 {
   "userId": "usr_abc123"
@@ -42,6 +44,7 @@ query GetUser($userId: ID!) {
 Update an organization name:
 
 **Query:**
+
 ```graphql
 mutation UpdateOrganization($input: UpdateOrganizationInput!) {
   updateOrganization(input: $input) {
@@ -54,6 +57,7 @@ mutation UpdateOrganization($input: UpdateOrganizationInput!) {
 ```
 
 **Variables:**
+
 ```json
 {
   "input": {

@@ -8,28 +8,30 @@ interface Props {
 const { title, video, ...props } = Astro.props;
 ---
 
-<section
-  class={clsx("flex flex-col gap-8 sm:gap-10", props.class)}
->
+<section class={clsx("flex flex-col gap-8 sm:gap-10", props.class)}>
   <div class="space-y-2">
     {
       video && (
-        <div class="relative aspect-560/360 w-full -order-1 sm:order-3 mb-6 sm:mb-10">
-          <video autoplay muted playsinline loop src={video}
-                 class="aspect-560/360 w-full rounded-2xl block object-cover relative" width={500} height={360}>
-          </video>
-          <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-level-0 to-level-0/0 z-10" />
-        </div>    )
+        <div class="relative -order-1 mb-6 aspect-560/360 w-full sm:order-3 sm:mb-10">
+          <video
+            autoplay
+            muted
+            playsinline
+            loop
+            src={video}
+            class="relative block aspect-560/360 w-full rounded-2xl object-cover"
+            width={500}
+            height={360}
+          ></video>
+          <div class="from-level-0 to-level-0/0 absolute right-0 bottom-0 left-0 z-10 h-20 bg-gradient-to-t" />
+        </div>
+      )
     }
     <h3 class="text-h4 font-medium">
       {title}
     </h3>
-    <div
-      class="text-muted-foreground space-y-2 text-lg"
-    >
+    <div class="text-muted-foreground space-y-2 text-lg">
       <slot />
     </div>
   </div>
-
-
 </section>

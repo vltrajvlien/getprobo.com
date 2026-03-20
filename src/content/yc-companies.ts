@@ -103,5 +103,5 @@ export const YCombinatorCompanies: YCombinatorCompany[] = [
     name: "Vybe",
     href: "https://www.vybe.build",
     height: 24,
-  }
+  },
 ];

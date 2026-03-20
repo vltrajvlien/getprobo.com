@@ -28,13 +28,13 @@ Final price depends on your company size, the framework you're pursuing (SOC 2, 
 
 ## Service vs Software
 
-| | Probo | Typical Platforms |
-|---|---|---|
-| Time Investment | ~2 hours/month | Many hours managing frameworks yourself |
-| Risk & Vendor Assessments | Proper risk analysis for your company and each vendor | Follow tutorials and hope it's correct |
-| Documentation | We write all policies, procedures, and manage evidence | You fill out templates |
-| Audit Management | We prepare everything and guide you through the audit | You manage the back-and-forth |
-| Support | Dedicated compliance officer via Slack and call | Email support, chatbots, or knowledge base |
+|                           | Probo                                                  | Typical Platforms                          |
+| ------------------------- | ------------------------------------------------------ | ------------------------------------------ |
+| Time Investment           | ~2 hours/month                                         | Many hours managing frameworks yourself    |
+| Risk & Vendor Assessments | Proper risk analysis for your company and each vendor  | Follow tutorials and hope it's correct     |
+| Documentation             | We write all policies, procedures, and manage evidence | You fill out templates                     |
+| Audit Management          | We prepare everything and guide you through the audit  | You manage the back-and-forth              |
+| Support                   | Dedicated compliance officer via Slack and call        | Email support, chatbots, or knowledge base |
 
 ## Your only job: implement security measures
 

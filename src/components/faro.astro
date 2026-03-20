@@ -1,10 +1,10 @@
 <script>
   import {
-  initializeFaro,
-  getWebInstrumentations,
-  NavigationInstrumentation,
-  ViewInstrumentation
-} from "@grafana/faro-web-sdk";
+    initializeFaro,
+    getWebInstrumentations,
+    NavigationInstrumentation,
+    ViewInstrumentation,
+  } from "@grafana/faro-web-sdk";
 
   if (import.meta.env.PROD && !window.__FARO_INITIALIZED__) {
     window.__FARO_INITIALIZED__ = true;

@@ -14,124 +14,155 @@ const tableOfContents = [
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "NIS2 for Tech Teams: What Actually Changes in 2026",
-  "description": "A practical NIS2 guide for CTOs and developers. Learn the 10 security measures you must implement, incident response requirements, and automation strategies.",
-  "author": {
+  headline: "NIS2 for Tech Teams: What Actually Changes in 2026",
+  description:
+    "A practical NIS2 guide for CTOs and developers. Learn the 10 security measures you must implement, incident response requirements, and automation strategies.",
+  author: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com"
+    name: "Probo",
+    url: "https://www.getprobo.com",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com",
-    "logo": {
+    name: "Probo",
+    url: "https://www.getprobo.com",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://www.getprobo.com/probo-logo.svg"
-    }
+      url: "https://www.getprobo.com/probo-logo.svg",
+    },
   },
-  "datePublished": "2026-01-29",
-  "dateModified": new Date().toISOString().split('T')[0],
-  "mainEntityOfPage": {
+  datePublished: "2026-01-29",
+  dateModified: new Date().toISOString().split("T")[0],
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://www.getprobo.com/hub/nis2-tech-teams"
+    "@id": "https://www.getprobo.com/hub/nis2-tech-teams",
   },
-  "image": "https://www.getprobo.com/hub/nis2-tech-team-changes.jpg"
+  image: "https://www.getprobo.com/hub/nis2-tech-team-changes.jpg",
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.getprobo.com"
+      position: 1,
+      name: "Home",
+      item: "https://www.getprobo.com",
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": "Hub",
-      "item": "https://www.getprobo.com/hub"
+      position: 2,
+      name: "Hub",
+      item: "https://www.getprobo.com/hub",
     },
     {
       "@type": "ListItem",
-      "position": 3,
-      "name": "NIS2 for Tech Teams",
-      "item": "https://www.getprobo.com/hub/nis2-tech-teams"
-    }
-  ]
+      position: 3,
+      name: "NIS2 for Tech Teams",
+      item: "https://www.getprobo.com/hub/nis2-tech-teams",
+    },
+  ],
 };
 ---
 
 <Layout
   title={__("NIS2 for Tech Teams: What Actually Changes in 2026")}
-  description={__("A practical NIS2 guide for CTOs and developers. Learn the 10 security measures you must implement, incident response requirements, and automation strategies.")}
+  description={__(
+    "A practical NIS2 guide for CTOs and developers. Learn the 10 security measures you must implement, incident response requirements, and automation strategies.",
+  )}
   ogImage="/hub/nis2-tech-team-changes.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
-    <header class="mb-12 sm:mb-16 text-center">
-      <div class="flex items-center justify-center gap-4 mb-4">
-        <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground">
-          <span class="highlight-text">{__("NIS2")}</span> {__("for Tech Teams")}
+    <header class="mb-12 text-center sm:mb-16">
+      <div class="mb-4 flex items-center justify-center gap-4">
+        <h1
+          class="text-foreground text-[2.5rem] leading-[1.1] font-semibold tracking-[-0.02em] sm:text-[3.5rem]"
+        >
+          <span class="highlight-text">{__("NIS2")}</span>
+          {__("for Tech Teams")}
         </h1>
         <div class="flex items-center gap-2">
           <img src="/frameworks/NIS2.svg" alt="NIS2" class="size-12" />
         </div>
       </div>
-      <div class="inline-flex items-center px-5 py-2.5 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm text-base text-gray-500 mb-6 shadow-sm">
+      <div
+        class="mb-6 inline-flex items-center rounded-full border border-gray-200 bg-white/80 px-5 py-2.5 text-base text-gray-500 shadow-sm backdrop-blur-sm"
+      >
         {__("What Actually Changes in 2026")}
       </div>
-      <p class="text-muted-foreground text-lg leading-relaxed max-w-[800px] mx-auto">
-        {__("A practical implementation guide for CTOs, DevOps engineers, and technical founders building compliant systems.")}
+      <p
+        class="text-muted-foreground mx-auto max-w-[800px] text-lg leading-relaxed"
+      >
+        {
+          __(
+            "A practical implementation guide for CTOs, DevOps engineers, and technical founders building compliant systems.",
+          )
+        }
       </p>
     </header>
 
     <!-- Featured Image -->
     <div class="mb-12 sm:mb-16">
-      <img 
-        src="/hub/nis2-tech-team-changes.jpg" 
-        alt="NIS2 for Tech Teams 2026" 
-        class="w-full max-w-[900px] mx-auto rounded-2xl shadow-lg"
+      <img
+        src="/hub/nis2-tech-team-changes.jpg"
+        alt="NIS2 for Tech Teams 2026"
+        class="mx-auto w-full max-w-[900px] rounded-2xl shadow-lg"
       />
     </div>
 
     <!-- Content with TOC -->
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+    <div class="flex flex-col gap-10 lg:flex-row lg:gap-16">
       <!-- Table of Contents - Sidebar -->
-      <aside class="lg:w-56 shrink-0">
+      <aside class="shrink-0 lg:w-56">
         <nav class="lg:sticky lg:top-24">
           <div class="flex flex-col gap-2">
-            {tableOfContents.map((item) => (
-              <button
-                type="button"
-                data-section={item.id}
-                class="toc-link text-sm text-[#6b716a] hover:text-[#141e12] transition-colors text-left bg-transparent border-none p-0 cursor-pointer leading-5"
-              >
-                {item.label}
-              </button>
-            ))}
+            {
+              tableOfContents.map((item) => (
+                <button
+                  type="button"
+                  data-section={item.id}
+                  class="toc-link cursor-pointer border-none bg-transparent p-0 text-left text-sm leading-5 text-[#6b716a] transition-colors hover:text-[#141e12]"
+                >
+                  {item.label}
+                </button>
+              ))
+            }
           </div>
         </nav>
       </aside>
 
       <!-- Main Content -->
-      <article class="flex-1 max-w-[720px]">
+      <article class="max-w-[720px] flex-1">
         <!-- Introduction -->
         <section class="mb-12">
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("The NIS2 Directive isn't another compliance checkbox you can delegate to legal and forget about. If you're a CTO, DevOps engineer, or technical founder at a European startup or scale-up, this regulation will fundamentally reshape how you architect systems, handle incidents, and manage your entire supply chain.")}
+              {
+                __(
+                  "The NIS2 Directive isn't another compliance checkbox you can delegate to legal and forget about. If you're a CTO, DevOps engineer, or technical founder at a European startup or scale-up, this regulation will fundamentally reshape how you architect systems, handle incidents, and manage your entire supply chain.",
+                )
+              }
             </p>
             <p>
-              {__("Here's the uncomfortable truth: according to recent industry analysis, many firms are struggling to comply with NIS2 requirements, not because the rules are unreasonable, but because the technical implications weren't clear until implementation began. The directive entered into force on January 16, 2023, with EU Member States required to transpose it into national law by October 17, 2024. Now, enforcement is ramping up—and technical teams are scrambling.")}
+              {
+                __(
+                  "Here's the uncomfortable truth: according to recent industry analysis, many firms are struggling to comply with NIS2 requirements, not because the rules are unreasonable, but because the technical implications weren't clear until implementation began. The directive entered into force on January 16, 2023, with EU Member States required to transpose it into national law by October 17, 2024. Now, enforcement is ramping up—and technical teams are scrambling.",
+                )
+              }
             </p>
             <p>
-              {__("This guide cuts through the regulatory jargon and translates NIS2 into what you actually need to build, configure, and document. Whether you're running infrastructure on AWS, managing a Kubernetes cluster, or shipping SaaS products to European customers, here's your technical implementation roadmap.")}
+              {
+                __(
+                  "This guide cuts through the regulatory jargon and translates NIS2 into what you actually need to build, configure, and document. Whether you're running infrastructure on AWS, managing a Kubernetes cluster, or shipping SaaS products to European customers, here's your technical implementation roadmap.",
+                )
+              }
             </p>
           </div>
         </section>
@@ -139,35 +170,69 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Not Just a Checkbox -->
-        <section id="not-a-checkbox" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
-            {__("NIS2 Isn't Just a Compliance Checkbox (It's a Technical Overhaul)")}
+        <section id="not-a-checkbox" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
+            {
+              __(
+                "NIS2 Isn't Just a Compliance Checkbox (It's a Technical Overhaul)",
+              )
+            }
           </h2>
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("The original NIS Directive from 2016 was a starting point. NIS2 is a complete rewrite designed for modern threat landscapes. According to the European Commission's digital strategy documentation, the directive responds to \"the increased digitisation of the internal market\" and \"an evolving cybersecurity threat landscape\"—diplomatic language for \"ransomware attacks are crippling critical infrastructure and we need to do something about it.\"")}
+              {
+                __(
+                  'The original NIS Directive from 2016 was a starting point. NIS2 is a complete rewrite designed for modern threat landscapes. According to the European Commission\'s digital strategy documentation, the directive responds to "the increased digitisation of the internal market" and "an evolving cybersecurity threat landscape"—diplomatic language for "ransomware attacks are crippling critical infrastructure and we need to do something about it."',
+                )
+              }
             </p>
-            
-            <p>{__("What makes NIS2 different for technical teams? Three things:")}</p>
+
+            <p>
+              {
+                __(
+                  "What makes NIS2 different for technical teams? Three things:",
+                )
+              }
+            </p>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Expanded scope")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Expanded scope")}
+              </h3>
               <p>
-                {__("NIS2 covers significantly more sectors and entities. If you're building software for healthcare, energy, transport, banking, digital infrastructure, or even food production supply chains, you're likely in scope. The directive distinguishes between \"essential\" and \"important\" entities, but both categories face substantial technical requirements.")}
+                {
+                  __(
+                    'NIS2 covers significantly more sectors and entities. If you\'re building software for healthcare, energy, transport, banking, digital infrastructure, or even food production supply chains, you\'re likely in scope. The directive distinguishes between "essential" and "important" entities, but both categories face substantial technical requirements.',
+                  )
+                }
               </p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Personal accountability")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Personal accountability")}
+              </h3>
               <p>
-                {__("Management bodies can now be held personally liable for compliance failures. This means your CTO or CISO isn't just responsible for implementation—they're on the hook if things go wrong. This represents a significant shift toward executive accountability in cybersecurity governance.")}
+                {
+                  __(
+                    "Management bodies can now be held personally liable for compliance failures. This means your CTO or CISO isn't just responsible for implementation—they're on the hook if things go wrong. This represents a significant shift toward executive accountability in cybersecurity governance.",
+                  )
+                }
               </p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Harmonized enforcement")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Harmonized enforcement")}
+              </h3>
               <p>
-                {__("Unlike the patchwork of NIS1 implementations across Member States, NIS2 aims for consistency. The European Union Agency for Cybersecurity (ENISA) plays a central coordination role, and penalties can reach €10 million or 2% of global annual turnover—whichever is higher.")}
+                {
+                  __(
+                    "Unlike the patchwork of NIS1 implementations across Member States, NIS2 aims for consistency. The European Union Agency for Cybersecurity (ENISA) plays a central coordination role, and penalties can reach €10 million or 2% of global annual turnover—whichever is higher.",
+                  )
+                }
               </p>
             </div>
           </div>
@@ -176,199 +241,427 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- 10 Security Measures -->
-        <section id="article-21-measures" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="article-21-measures" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("The 10 Minimum Security Measures Under Article 21")}
           </h2>
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("Article 21 of NIS2 specifies ten minimum security measures that in-scope entities must implement. Let's break down each one from a technical implementation perspective.")}
+              {
+                __(
+                  "Article 21 of NIS2 specifies ten minimum security measures that in-scope entities must implement. Let's break down each one from a technical implementation perspective.",
+                )
+              }
             </p>
 
             <!-- Measure 1 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("1. Risk Analysis and Information System Security Policies")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {
+                  __(
+                    "1. Risk Analysis and Information System Security Policies",
+                  )
+                }
+              </h3>
               <p class="mb-4">
-                {__("You need documented, regularly updated risk assessments covering your entire information system architecture. This isn't a one-time exercise—it's a continuous process.")}
+                {
+                  __(
+                    "You need documented, regularly updated risk assessments covering your entire information system architecture. This isn't a one-time exercise—it's a continuous process.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy automated asset discovery tools to maintain an accurate inventory")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy automated asset discovery tools to maintain an accurate inventory",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement risk scoring methodologies (FAIR, NIST RMF, or similar)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement risk scoring methodologies (FAIR, NIST RMF, or similar)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Create machine-readable security policies that can be version-controlled")}</span>
+                  <span
+                    >{
+                      __(
+                        "Create machine-readable security policies that can be version-controlled",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Establish quarterly review cycles with documented change logs")}</span>
+                  <span
+                    >{
+                      __(
+                        "Establish quarterly review cycles with documented change logs",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 2 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("2. Incident Handling Procedures")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("2. Incident Handling Procedures")}
+              </h3>
               <p class="mb-4">
-                {__("NIS2 requires formalized incident handling that goes beyond \"we'll figure it out when it happens.\" You need detection, analysis, containment, and recovery procedures documented and tested.")}
+                {
+                  __(
+                    'NIS2 requires formalized incident handling that goes beyond "we\'ll figure it out when it happens." You need detection, analysis, containment, and recovery procedures documented and tested.',
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy SIEM or equivalent log aggregation with defined detection rules")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy SIEM or equivalent log aggregation with defined detection rules",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Create runbooks for common incident types (ransomware, data breach, DDoS)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Create runbooks for common incident types (ransomware, data breach, DDoS)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement automated alerting with clear escalation paths")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement automated alerting with clear escalation paths",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Maintain incident response tooling (forensic images, network isolation capabilities)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Maintain incident response tooling (forensic images, network isolation capabilities)",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 3 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("3. Business Continuity and Crisis Management")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("3. Business Continuity and Crisis Management")}
+              </h3>
               <p class="mb-4">
-                {__("This measure requires backup management, disaster recovery, and crisis management capabilities. For technical teams, this means your infrastructure must be resilient by design.")}
+                {
+                  __(
+                    "This measure requires backup management, disaster recovery, and crisis management capabilities. For technical teams, this means your infrastructure must be resilient by design.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement automated backups with tested restoration procedures")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement automated backups with tested restoration procedures",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy infrastructure-as-code for rapid environment recreation")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy infrastructure-as-code for rapid environment recreation",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Establish RPO (Recovery Point Objective) and RTO (Recovery Time Objective) targets")}</span>
+                  <span
+                    >{
+                      __(
+                        "Establish RPO (Recovery Point Objective) and RTO (Recovery Time Objective) targets",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Conduct regular disaster recovery drills with documented results")}</span>
+                  <span
+                    >{
+                      __(
+                        "Conduct regular disaster recovery drills with documented results",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 4 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("4. Supply Chain Security")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("4. Supply Chain Security")}
+              </h3>
               <p class="mb-4">
-                {__("This is where NIS2 gets uncomfortable for startups. You're responsible for the security of your entire supply chain, including vendors, contractors, and third-party services.")}
+                {
+                  __(
+                    "This is where NIS2 gets uncomfortable for startups. You're responsible for the security of your entire supply chain, including vendors, contractors, and third-party services.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Maintain a comprehensive vendor inventory with security assessments")}</span>
+                  <span
+                    >{
+                      __(
+                        "Maintain a comprehensive vendor inventory with security assessments",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement vendor access controls with least-privilege principles")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement vendor access controls with least-privilege principles",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Require security questionnaires and evidence from critical suppliers")}</span>
+                  <span
+                    >{
+                      __(
+                        "Require security questionnaires and evidence from critical suppliers",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Monitor third-party integrations for anomalous behavior")}</span>
+                  <span
+                    >{
+                      __(
+                        "Monitor third-party integrations for anomalous behavior",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-4 text-sm italic">
-                {__("Every npm package, every Docker base image, every API integration represents potential supply chain risk.")}
+                {
+                  __(
+                    "Every npm package, every Docker base image, every API integration represents potential supply chain risk.",
+                  )
+                }
               </p>
             </div>
 
             <!-- Measure 5 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("5. Network and Systems Acquisition Security")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("5. Network and Systems Acquisition Security")}
+              </h3>
               <p class="mb-4">
-                {__("Security must be considered throughout the system development lifecycle—from procurement through deployment and maintenance.")}
+                {
+                  __(
+                    "Security must be considered throughout the system development lifecycle—from procurement through deployment and maintenance.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement security requirements in procurement specifications")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement security requirements in procurement specifications",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy secure CI/CD pipelines with automated security scanning")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy secure CI/CD pipelines with automated security scanning",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Require security testing before production deployment")}</span>
+                  <span
+                    >{
+                      __(
+                        "Require security testing before production deployment",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Maintain secure configuration baselines for all systems")}</span>
+                  <span
+                    >{
+                      __(
+                        "Maintain secure configuration baselines for all systems",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 6 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("6. Vulnerability Handling and Disclosure")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("6. Vulnerability Handling and Disclosure")}
+              </h3>
               <p class="mb-4">
-                {__("NIS2 requires systematic vulnerability management, including coordinated disclosure processes. This isn't just about patching—it's about having a mature vulnerability lifecycle.")}
+                {
+                  __(
+                    "NIS2 requires systematic vulnerability management, including coordinated disclosure processes. This isn't just about patching—it's about having a mature vulnerability lifecycle.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy vulnerability scanning across all assets (infrastructure, applications, containers)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy vulnerability scanning across all assets (infrastructure, applications, containers)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement SLA-based patching timelines based on severity")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement SLA-based patching timelines based on severity",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Establish a vulnerability disclosure policy and process")}</span>
+                  <span
+                    >{
+                      __(
+                        "Establish a vulnerability disclosure policy and process",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Track vulnerability metrics (mean time to remediation, patch coverage)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Track vulnerability metrics (mean time to remediation, patch coverage)",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 7 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("7. Cybersecurity Effectiveness Assessment")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("7. Cybersecurity Effectiveness Assessment")}
+              </h3>
               <p class="mb-4">
-                {__("You must regularly assess whether your security measures actually work. This means testing, auditing, and measuring outcomes.")}
+                {
+                  __(
+                    "You must regularly assess whether your security measures actually work. This means testing, auditing, and measuring outcomes.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Conduct regular penetration testing (at least annually, quarterly for critical systems)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Conduct regular penetration testing (at least annually, quarterly for critical systems)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement security metrics and KPIs with dashboards")}</span>
+                  <span
+                    >{
+                      __("Implement security metrics and KPIs with dashboards")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Perform tabletop exercises and red team assessments")}</span>
+                  <span
+                    >{
+                      __("Perform tabletop exercises and red team assessments")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -376,94 +669,202 @@ const breadcrumbSchema = {
                 </li>
               </ul>
               <p class="mt-4 text-sm italic">
-                {__("The key word here is \"effectiveness.\" Having controls isn't enough—you need evidence they're working.")}
+                {
+                  __(
+                    "The key word here is \"effectiveness.\" Having controls isn't enough—you need evidence they're working.",
+                  )
+                }
               </p>
             </div>
 
             <!-- Measure 8 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("8. Cryptography and Encryption Requirements")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("8. Cryptography and Encryption Requirements")}
+              </h3>
               <p class="mb-4">
-                {__("NIS2 requires appropriate use of cryptography to protect data confidentiality and integrity. \"Appropriate\" means current standards, not legacy algorithms.")}
+                {
+                  __(
+                    'NIS2 requires appropriate use of cryptography to protect data confidentiality and integrity. "Appropriate" means current standards, not legacy algorithms.',
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Enforce TLS 1.3 for all external communications")}</span>
+                  <span
+                    >{
+                      __("Enforce TLS 1.3 for all external communications")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement encryption at rest for sensitive data stores")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement encryption at rest for sensitive data stores",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy certificate management with automated rotation")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy certificate management with automated rotation",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Document cryptographic standards and key management procedures")}</span>
+                  <span
+                    >{
+                      __(
+                        "Document cryptographic standards and key management procedures",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-4 text-sm italic">
-                {__("If you're still supporting TLS 1.1 or using SHA-1 anywhere in your infrastructure, NIS2 compliance requires immediate remediation.")}
+                {
+                  __(
+                    "If you're still supporting TLS 1.1 or using SHA-1 anywhere in your infrastructure, NIS2 compliance requires immediate remediation.",
+                  )
+                }
               </p>
             </div>
 
             <!-- Measure 9 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("9. Human Resources Security and Access Control")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("9. Human Resources Security and Access Control")}
+              </h3>
               <p class="mb-4">
-                {__("Security awareness and access control are intertwined. You need both trained people and technical controls limiting what they can access.")}
+                {
+                  __(
+                    "Security awareness and access control are intertwined. You need both trained people and technical controls limiting what they can access.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement role-based access control (RBAC) across all systems")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement role-based access control (RBAC) across all systems",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy identity management with regular access reviews")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy identity management with regular access reviews",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Automate onboarding/offboarding access provisioning")}</span>
+                  <span
+                    >{
+                      __("Automate onboarding/offboarding access provisioning")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Maintain training completion records with assessment scores")}</span>
+                  <span
+                    >{
+                      __(
+                        "Maintain training completion records with assessment scores",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Measure 10 -->
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("10. Multi-Factor Authentication and Secure Communications")}</h3>
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {
+                  __(
+                    "10. Multi-Factor Authentication and Secure Communications",
+                  )
+                }
+              </h3>
               <p class="mb-4">
-                {__("MFA is explicitly required under NIS2, along with secured voice, video, and text communications where appropriate.")}
+                {
+                  __(
+                    "MFA is explicitly required under NIS2, along with secured voice, video, and text communications where appropriate.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical implementation:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical implementation:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Enforce MFA for all user accounts (hardware keys preferred, TOTP minimum)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Enforce MFA for all user accounts (hardware keys preferred, TOTP minimum)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement MFA for all administrative and privileged access")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement MFA for all administrative and privileged access",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy encrypted communication channels for sensitive discussions")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy encrypted communication channels for sensitive discussions",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Disable legacy authentication protocols that bypass MFA")}</span>
+                  <span
+                    >{
+                      __(
+                        "Disable legacy authentication protocols that bypass MFA",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-4 text-sm italic">
-                {__("The \"where appropriate\" language in the directive shouldn't be interpreted loosely. If an account can access sensitive data or systems, MFA is appropriate.")}
+                {
+                  __(
+                    'The "where appropriate" language in the directive shouldn\'t be interpreted loosely. If an account can access sensitive data or systems, MFA is appropriate.',
+                  )
+                }
               </p>
             </div>
           </div>
@@ -472,63 +873,121 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Incident Reporting -->
-        <section id="incident-reporting" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="incident-reporting" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("NIS2 Incident Reporting: The Technical Requirements")}
           </h2>
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("NIS2's incident reporting requirements are among the most technically demanding aspects of the directive. You have strict timelines and specific information requirements.")}
+              {
+                __(
+                  "NIS2's incident reporting requirements are among the most technically demanding aspects of the directive. You have strict timelines and specific information requirements.",
+                )
+              }
             </p>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("24-Hour Early Warning Protocol")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("24-Hour Early Warning Protocol")}
+              </h3>
               <p class="mb-4">
-                {__("When you detect a significant incident, you have 24 hours to submit an early warning to your national competent authority. This isn't a full report—it's a heads-up that something serious is happening.")}
+                {
+                  __(
+                    "When you detect a significant incident, you have 24 hours to submit an early warning to your national competent authority. This isn't a full report—it's a heads-up that something serious is happening.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("What you need to report:")}</h4>
-              <ul class="list-none space-y-2 ml-0 mb-4">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("What you need to report:")}
+              </h4>
+              <ul class="mb-4 ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Whether the incident is suspected to be caused by unlawful or malicious acts")}</span>
+                  <span
+                    >{
+                      __(
+                        "Whether the incident is suspected to be caused by unlawful or malicious acts",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Whether the incident could have cross-border impact")}</span>
+                  <span
+                    >{
+                      __("Whether the incident could have cross-border impact")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
                   <span>{__("Initial assessment of incident severity")}</span>
                 </li>
               </ul>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical requirements:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical requirements:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Automated incident detection capable of identifying \"significant\" incidents")}</span>
+                  <span
+                    >{
+                      __(
+                        'Automated incident detection capable of identifying "significant" incidents',
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Alerting systems that notify appropriate personnel immediately")}</span>
+                  <span
+                    >{
+                      __(
+                        "Alerting systems that notify appropriate personnel immediately",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Pre-drafted early warning templates ready for rapid submission")}</span>
+                  <span
+                    >{
+                      __(
+                        "Pre-drafted early warning templates ready for rapid submission",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Clear criteria for what constitutes \"significant\" in your context")}</span>
+                  <span
+                    >{
+                      __(
+                        'Clear criteria for what constitutes "significant" in your context',
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("72-Hour Incident Notification Details")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("72-Hour Incident Notification Details")}
+              </h3>
               <p class="mb-4">
-                {__("Within 72 hours, you must provide a more detailed notification including initial assessment, severity, impact, and indicators of compromise where available.")}
+                {
+                  __(
+                    "Within 72 hours, you must provide a more detailed notification including initial assessment, severity, impact, and indicators of compromise where available.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("What you need to report:")}</h4>
-              <ul class="list-none space-y-2 ml-0 mb-4">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("What you need to report:")}
+              </h4>
+              <ul class="mb-4 ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
                   <span>{__("Updated severity and impact assessment")}</span>
@@ -543,52 +1002,106 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Estimated scope of affected systems and data")}</span>
+                  <span
+                    >{__("Estimated scope of affected systems and data")}</span
+                  >
                 </li>
               </ul>
-              <h4 class="font-semibold text-foreground mb-2">{__("Technical requirements:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Technical requirements:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Forensic capabilities to gather IOCs quickly")}</span>
+                  <span
+                    >{__("Forensic capabilities to gather IOCs quickly")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Asset inventory accurate enough to assess impact scope")}</span>
+                  <span
+                    >{
+                      __(
+                        "Asset inventory accurate enough to assess impact scope",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Logging sufficient to reconstruct incident timeline")}</span>
+                  <span
+                    >{
+                      __("Logging sufficient to reconstruct incident timeline")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Documentation systems for tracking remediation actions")}</span>
+                  <span
+                    >{
+                      __(
+                        "Documentation systems for tracking remediation actions",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Building Automated Incident Detection")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Building Automated Incident Detection")}
+              </h3>
               <p class="mb-4">
-                {__("Meeting these timelines manually is nearly impossible for most organizations. Automation isn't optional—it's essential.")}
+                {
+                  __(
+                    "Meeting these timelines manually is nearly impossible for most organizations. Automation isn't optional—it's essential.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Implementation approach:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Implementation approach:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Deploy SIEM with correlation rules tuned to your threat model")}</span>
+                  <span
+                    >{
+                      __(
+                        "Deploy SIEM with correlation rules tuned to your threat model",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement automated severity classification based on affected assets")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement automated severity classification based on affected assets",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Create automated notification workflows triggered by incident declaration")}</span>
+                  <span
+                    >{
+                      __(
+                        "Create automated notification workflows triggered by incident declaration",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Build dashboards showing incident status against reporting deadlines")}</span>
+                  <span
+                    >{
+                      __(
+                        "Build dashboards showing incident status against reporting deadlines",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
@@ -598,25 +1111,45 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- AI Tools -->
-        <section id="ai-tools" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="ai-tools" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("Using AI Tools While Staying NIS2 Compliant")}
           </h2>
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("The intersection of AI tools and compliance is generating significant discussion. Technical teams are asking: Can we use AI coding assistants while maintaining compliance?")}
+              {
+                __(
+                  "The intersection of AI tools and compliance is generating significant discussion. Technical teams are asking: Can we use AI coding assistants while maintaining compliance?",
+                )
+              }
             </p>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("AI Coding Assistants and Data Residency Concerns")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("AI Coding Assistants and Data Residency Concerns")}
+              </h3>
               <p class="mb-4">
-                {__("AI coding assistants process your code—and potentially your data—through external systems. Under NIS2, this creates supply chain and data protection considerations.")}
+                {
+                  __(
+                    "AI coding assistants process your code—and potentially your data—through external systems. Under NIS2, this creates supply chain and data protection considerations.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Key questions to address:")}</h4>
-              <ul class="list-none space-y-2 ml-0 mb-4">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Key questions to address:")}
+              </h4>
+              <ul class="mb-4 ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Where does the AI provider process and store your code?")}</span>
+                  <span
+                    >{
+                      __(
+                        "Where does the AI provider process and store your code?",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -624,44 +1157,92 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Is the AI provider itself compliant with relevant security standards?")}</span>
+                  <span
+                    >{
+                      __(
+                        "Is the AI provider itself compliant with relevant security standards?",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("How do you prevent sensitive data from being included in AI prompts?")}</span>
+                  <span
+                    >{
+                      __(
+                        "How do you prevent sensitive data from being included in AI prompts?",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
-              <h4 class="font-semibold text-foreground mb-2">{__("Practical mitigations:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Practical mitigations:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Implement code scanning to detect secrets before AI submission")}</span>
+                  <span
+                    >{
+                      __(
+                        "Implement code scanning to detect secrets before AI submission",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Use AI tools with EU data residency options where available")}</span>
+                  <span
+                    >{
+                      __(
+                        "Use AI tools with EU data residency options where available",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Document AI tool usage in your supply chain risk assessment")}</span>
+                  <span
+                    >{
+                      __(
+                        "Document AI tool usage in your supply chain risk assessment",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Train developers on appropriate AI tool usage")}</span>
+                  <span
+                    >{__("Train developers on appropriate AI tool usage")}</span
+                  >
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Automated Security Monitoring Within NIS2 Bounds")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Automated Security Monitoring Within NIS2 Bounds")}
+              </h3>
               <p class="mb-4">
-                {__("AI-powered security monitoring can strengthen your NIS2 compliance posture—when implemented correctly.")}
+                {
+                  __(
+                    "AI-powered security monitoring can strengthen your NIS2 compliance posture—when implemented correctly.",
+                  )
+                }
               </p>
-              <h4 class="font-semibold text-foreground mb-2">{__("Compliant AI security use cases:")}</h4>
-              <ul class="list-none space-y-2 ml-0 mb-4">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Compliant AI security use cases:")}
+              </h4>
+              <ul class="mb-4 ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Anomaly detection in network traffic and user behavior")}</span>
+                  <span
+                    >{
+                      __(
+                        "Anomaly detection in network traffic and user behavior",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -669,30 +1250,64 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Threat intelligence enrichment and prioritization")}</span>
+                  <span
+                    >{
+                      __("Threat intelligence enrichment and prioritization")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Vulnerability prioritization based on exploitability")}</span>
+                  <span
+                    >{
+                      __("Vulnerability prioritization based on exploitability")
+                    }</span
+                  >
                 </li>
               </ul>
-              <h4 class="font-semibold text-foreground mb-2">{__("Implementation considerations:")}</h4>
-              <ul class="list-none space-y-2 ml-0">
+              <h4 class="text-foreground mb-2 font-semibold">
+                {__("Implementation considerations:")}
+              </h4>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Ensure AI security tools don't create new data residency issues")}</span>
+                  <span
+                    >{
+                      __(
+                        "Ensure AI security tools don't create new data residency issues",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Validate AI-generated alerts to avoid automation bias")}</span>
+                  <span
+                    >{
+                      __(
+                        "Validate AI-generated alerts to avoid automation bias",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Maintain human oversight of AI-driven security decisions")}</span>
+                  <span
+                    >{
+                      __(
+                        "Maintain human oversight of AI-driven security decisions",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Document AI tool capabilities and limitations in your security policies")}</span>
+                  <span
+                    >{
+                      __(
+                        "Document AI tool capabilities and limitations in your security policies",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
@@ -702,45 +1317,85 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Checklist -->
-        <section id="checklist" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="checklist" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("NIS2 Compliance Checklist for Technical Teams")}
           </h2>
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-6 leading-relaxed">
             <p>
-              {__("Let's consolidate everything into actionable checklists your team can execute.")}
+              {
+                __(
+                  "Let's consolidate everything into actionable checklists your team can execute.",
+                )
+              }
             </p>
 
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-4">{__("Infrastructure Requirements")}</h3>
-              <ul class="list-none space-y-3 ml-0">
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-4 text-lg font-semibold">
+                {__("Infrastructure Requirements")}
+              </h3>
+              <ul class="ml-0 list-none space-y-3">
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Asset inventory covering all systems, applications, and data stores")}</span>
+                  <span
+                    >{
+                      __(
+                        "Asset inventory covering all systems, applications, and data stores",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Network segmentation with documented architecture")}</span>
+                  <span
+                    >{
+                      __("Network segmentation with documented architecture")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Encryption at rest and in transit (TLS 1.3, AES-256 minimum)")}</span>
+                  <span
+                    >{
+                      __(
+                        "Encryption at rest and in transit (TLS 1.3, AES-256 minimum)",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("MFA enforced for all accounts with system access")}</span>
+                  <span
+                    >{
+                      __("MFA enforced for all accounts with system access")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Automated backup with tested restoration procedures")}</span>
+                  <span
+                    >{
+                      __("Automated backup with tested restoration procedures")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("SIEM or equivalent log aggregation with retention meeting legal requirements")}</span>
+                  <span
+                    >{
+                      __(
+                        "SIEM or equivalent log aggregation with retention meeting legal requirements",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Vulnerability scanning across all asset types")}</span>
+                  <span
+                    >{__("Vulnerability scanning across all asset types")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
@@ -749,36 +1404,70 @@ const breadcrumbSchema = {
               </ul>
             </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-4">{__("Documentation Requirements")}</h3>
-              <ul class="list-none space-y-3 ml-0">
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-4 text-lg font-semibold">
+                {__("Documentation Requirements")}
+              </h3>
+              <ul class="ml-0 list-none space-y-3">
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Information security policy approved by management")}</span>
+                  <span
+                    >{
+                      __("Information security policy approved by management")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Risk assessment methodology and current assessment")}</span>
+                  <span
+                    >{
+                      __("Risk assessment methodology and current assessment")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Incident response plan with defined roles and procedures")}</span>
+                  <span
+                    >{
+                      __(
+                        "Incident response plan with defined roles and procedures",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Business continuity and disaster recovery plans")}</span>
+                  <span
+                    >{
+                      __("Business continuity and disaster recovery plans")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Supply chain security policy with vendor assessment criteria")}</span>
+                  <span
+                    >{
+                      __(
+                        "Supply chain security policy with vendor assessment criteria",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Access control policy with RBAC documentation")}</span>
+                  <span
+                    >{__("Access control policy with RBAC documentation")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Cryptographic standards and key management procedures")}</span>
+                  <span
+                    >{
+                      __(
+                        "Cryptographic standards and key management procedures",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
@@ -787,20 +1476,34 @@ const breadcrumbSchema = {
               </ul>
             </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl">
-              <h3 class="text-lg font-semibold text-foreground mb-4">{__("Testing and Audit Preparation")}</h3>
-              <ul class="list-none space-y-3 ml-0">
+            <div class="rounded-xl bg-gray-50 p-6">
+              <h3 class="text-foreground mb-4 text-lg font-semibold">
+                {__("Testing and Audit Preparation")}
+              </h3>
+              <ul class="ml-0 list-none space-y-3">
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Penetration testing completed within past 12 months")}</span>
+                  <span
+                    >{
+                      __("Penetration testing completed within past 12 months")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Disaster recovery drill completed with documented results")}</span>
+                  <span
+                    >{
+                      __(
+                        "Disaster recovery drill completed with documented results",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Incident response tabletop exercise completed")}</span>
+                  <span
+                    >{__("Incident response tabletop exercise completed")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
@@ -808,11 +1511,17 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Vulnerability remediation metrics documented")}</span>
+                  <span
+                    >{__("Vulnerability remediation metrics documented")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Security awareness training completion verified")}</span>
+                  <span
+                    >{
+                      __("Security awareness training completion verified")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
@@ -820,7 +1529,9 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-gray-400">☐</span>
-                  <span>{__("Evidence collection automated where possible")}</span>
+                  <span
+                    >{__("Evidence collection automated where possible")}</span
+                  >
                 </li>
               </ul>
             </div>
@@ -829,29 +1540,59 @@ const breadcrumbSchema = {
 
         <!-- Conclusion -->
         <section class="mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("Start Your NIS2 Implementation Today")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("NIS2 represents a fundamental shift in how European regulators approach cybersecurity. For technical teams, it's not about adding compliance overhead to your existing processes—it's about building security into your architecture, operations, and culture.")}
+              {
+                __(
+                  "NIS2 represents a fundamental shift in how European regulators approach cybersecurity. For technical teams, it's not about adding compliance overhead to your existing processes—it's about building security into your architecture, operations, and culture.",
+                )
+              }
             </p>
             <p>
-              {__("The ten minimum security measures under Article 21 aren't arbitrary bureaucratic requirements. They represent hard-won lessons from real incidents: the ransomware attacks that crippled hospitals, the supply chain compromises that affected thousands of organizations, the data breaches that exposed millions of records.")}
+              {
+                __(
+                  "The ten minimum security measures under Article 21 aren't arbitrary bureaucratic requirements. They represent hard-won lessons from real incidents: the ransomware attacks that crippled hospitals, the supply chain compromises that affected thousands of organizations, the data breaches that exposed millions of records.",
+                )
+              }
             </p>
-            <p class="font-medium text-foreground">{__("Key takeaways for technical teams:")}</p>
-            <ul class="list-none space-y-2 ml-0">
+            <p class="text-foreground font-medium">
+              {__("Key takeaways for technical teams:")}
+            </p>
+            <ul class="ml-0 list-none space-y-2">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">1.</span>
-                <span>{__("Start with a gap assessment against the ten minimum measures")}</span>
+                <span
+                  >{
+                    __(
+                      "Start with a gap assessment against the ten minimum measures",
+                    )
+                  }</span
+                >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">2.</span>
-                <span>{__("Prioritize incident detection and reporting capabilities—the timelines are unforgiving")}</span>
+                <span
+                  >{
+                    __(
+                      "Prioritize incident detection and reporting capabilities—the timelines are unforgiving",
+                    )
+                  }</span
+                >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">3.</span>
-                <span>{__("Address supply chain security, including your software dependencies")}</span>
+                <span
+                  >{
+                    __(
+                      "Address supply chain security, including your software dependencies",
+                    )
+                  }</span
+                >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">4.</span>
@@ -859,24 +1600,38 @@ const breadcrumbSchema = {
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">5.</span>
-                <span>{__("Document everything in auditable, version-controlled formats")}</span>
+                <span
+                  >{
+                    __(
+                      "Document everything in auditable, version-controlled formats",
+                    )
+                  }</span
+                >
               </li>
             </ul>
             <p>
-              {__("The enforcement deadline has passed, and regulators are actively pursuing non-compliant organizations. The question isn't whether to implement NIS2 controls—it's how quickly you can close your compliance gaps.")}
+              {
+                __(
+                  "The enforcement deadline has passed, and regulators are actively pursuing non-compliant organizations. The question isn't whether to implement NIS2 controls—it's how quickly you can close your compliance gaps.",
+                )
+              }
             </p>
           </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="bg-gradient-to-br from-[#e4f7c7] to-[#d0e8b3] p-10 sm:p-12 rounded-2xl">
+        <section
+          class="rounded-2xl bg-gradient-to-br from-[#e4f7c7] to-[#d0e8b3] p-10 sm:p-12"
+        >
           <div class="text-center">
-            <h3 class="text-2xl sm:text-[1.75rem] font-semibold text-[#141e12] mb-8">
+            <h3
+              class="mb-8 text-2xl font-semibold text-[#141e12] sm:text-[1.75rem]"
+            >
               {__("Probo can achieve NIS2 compliance for you")}
             </h3>
             <a
               href="/contact"
-              class="group inline-flex items-center gap-2 bg-[#141e12] hover:bg-[#1f2e1a] px-6 py-3.5 rounded-full font-medium transition-all hover:gap-3 shadow-lg hover:shadow-xl"
+              class="group inline-flex items-center gap-2 rounded-full bg-[#141e12] px-6 py-3.5 font-medium shadow-lg transition-all hover:gap-3 hover:bg-[#1f2e1a] hover:shadow-xl"
               style="color: white;"
             >
               {__("Book a meeting")}
@@ -892,13 +1647,12 @@ const breadcrumbSchema = {
                 stroke-linejoin="round"
                 class="transition-transform group-hover:translate-x-0.5"
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
               </svg>
             </a>
           </div>
         </section>
-
       </article>
     </div>
   </main>
@@ -910,7 +1664,13 @@ const breadcrumbSchema = {
     font-weight: 500;
   }
   .highlight-text {
-    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    background: linear-gradient(
+      180deg,
+      transparent 65%,
+      #f0ff3c 65%,
+      #f0ff3c 85%,
+      transparent 85%
+    );
     display: inline;
   }
 </style>
@@ -924,7 +1684,7 @@ const breadcrumbSchema = {
     "checklist",
   ];
 
-  const tocLinks = document.querySelectorAll('.toc-link');
+  const tocLinks = document.querySelectorAll(".toc-link");
 
   // Function to scroll to a specific section
   function scrollToSection(id: string) {
@@ -938,7 +1698,7 @@ const breadcrumbSchema = {
 
   // Handle scroll to update active section
   function handleScroll() {
-    const sections = sectionIds.map(id => document.getElementById(id));
+    const sections = sectionIds.map((id) => document.getElementById(id));
     const scrollPosition = window.scrollY + 200;
 
     let activeId = sectionIds[0];
@@ -952,20 +1712,20 @@ const breadcrumbSchema = {
     }
 
     // Update active class on TOC links
-    tocLinks.forEach(link => {
-      const linkSection = link.getAttribute('data-section');
+    tocLinks.forEach((link) => {
+      const linkSection = link.getAttribute("data-section");
       if (linkSection === activeId) {
-        link.classList.add('active');
+        link.classList.add("active");
       } else {
-        link.classList.remove('active');
+        link.classList.remove("active");
       }
     });
   }
 
   // Add click handlers to TOC buttons
-  tocLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const sectionId = link.getAttribute('data-section');
+  tocLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const sectionId = link.getAttribute("data-section");
       if (sectionId) {
         scrollToSection(sectionId);
       }
@@ -973,8 +1733,8 @@ const breadcrumbSchema = {
   });
 
   // Listen to scroll events
-  window.addEventListener('scroll', handleScroll);
-  
+  window.addEventListener("scroll", handleScroll);
+
   // Initial call to set active section on page load
   handleScroll();
 </script>

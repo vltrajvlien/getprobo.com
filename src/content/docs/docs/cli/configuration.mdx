@@ -7,13 +7,13 @@ The `prb config` commands manage CLI configuration settings. These control how `
 
 ## Configuration keys
 
-| Key | Description |
-|---|---|
-| `editor` | Text editor for editing operations |
-| `browser` | Web browser for `prb browse` and other URL-opening commands |
-| `pager` | Pager for long output (e.g., `less`) |
-| `prompt` | Prompt style |
-| `http_timeout` | HTTP request timeout |
+| Key            | Description                                                 |
+| -------------- | ----------------------------------------------------------- |
+| `editor`       | Text editor for editing operations                          |
+| `browser`      | Web browser for `prb browse` and other URL-opening commands |
+| `pager`        | Pager for long output (e.g., `less`)                        |
+| `prompt`       | Prompt style                                                |
+| `http_timeout` | HTTP request timeout                                        |
 
 ## Set a value
 
@@ -41,10 +41,10 @@ prb config list
 prb browse
 ```
 
-| Flag | Description |
-|---|---|
+| Flag                 | Description                                  |
+| -------------------- | -------------------------------------------- |
 | `--no-browser`, `-n` | Print the URL instead of opening the browser |
-| `--org` | Organization ID to open |
+| `--org`              | Organization ID to open                      |
 
 ### Shell completion
 
@@ -77,10 +77,10 @@ With variables:
 prb api 'query($id: ID!) { organization(id: $id) { name } }' -f id=org_xxx
 ```
 
-| Flag | Default | Description |
-|---|---|---|
-| `-f` | — | GraphQL variables as `key=value` pairs (values parsed as JSON, fallback to string) |
-| `--schema` | `console` | Schema endpoint: `console` or `connect` |
+| Flag       | Default   | Description                                                                        |
+| ---------- | --------- | ---------------------------------------------------------------------------------- |
+| `-f`       | —         | GraphQL variables as `key=value` pairs (values parsed as JSON, fallback to string) |
+| `--schema` | `console` | Schema endpoint: `console` or `connect`                                            |
 
 Queries can also be piped from stdin:
 

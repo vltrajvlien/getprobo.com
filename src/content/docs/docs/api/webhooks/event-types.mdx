@@ -7,17 +7,17 @@ Probo sends webhook events for four resource categories. Each resource supports 
 
 ## Available events
 
-| Event | Description |
-|-------|-------------|
-| `meeting:created` | A meeting was created |
-| `meeting:updated` | A meeting was updated |
-| `meeting:deleted` | A meeting was deleted |
-| `vendor:created` | A vendor was created |
-| `vendor:updated` | A vendor was updated |
-| `vendor:deleted` | A vendor was deleted |
-| `user:created` | A user was created |
-| `user:updated` | A user was updated |
-| `user:deleted` | A user was deleted |
+| Event                | Description               |
+| -------------------- | ------------------------- |
+| `meeting:created`    | A meeting was created     |
+| `meeting:updated`    | A meeting was updated     |
+| `meeting:deleted`    | A meeting was deleted     |
+| `vendor:created`     | A vendor was created      |
+| `vendor:updated`     | A vendor was updated      |
+| `vendor:deleted`     | A vendor was deleted      |
+| `user:created`       | A user was created        |
+| `user:updated`       | A user was updated        |
+| `user:deleted`       | A user was deleted        |
 | `obligation:created` | An obligation was created |
 | `obligation:updated` | An obligation was updated |
 | `obligation:deleted` | An obligation was deleted |
@@ -41,14 +41,14 @@ Sent for `meeting:created`, `meeting:updated`, and `meeting:deleted` events.
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Meeting identifier |
-| `name` | string | Meeting name |
-| `date` | string | Meeting date (RFC 3339) |
-| `minutes` | string \| null | Meeting minutes |
-| `createdAt` | string | Creation timestamp (RFC 3339) |
-| `updatedAt` | string | Last update timestamp (RFC 3339) |
+| Field       | Type           | Description                      |
+| ----------- | -------------- | -------------------------------- |
+| `id`        | string         | Meeting identifier               |
+| `name`      | string         | Meeting name                     |
+| `date`      | string         | Meeting date (RFC 3339)          |
+| `minutes`   | string \| null | Meeting minutes                  |
+| `createdAt` | string         | Creation timestamp (RFC 3339)    |
+| `updatedAt` | string         | Last update timestamp (RFC 3339) |
 
 ### Vendor
 
@@ -81,30 +81,30 @@ Sent for `vendor:created`, `vendor:updated`, and `vendor:deleted` events.
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Vendor identifier |
-| `name` | string | Vendor name |
-| `category` | string | Vendor category |
-| `description` | string \| null | Description |
-| `statusPageUrl` | string \| null | Status page URL |
-| `termsOfServiceUrl` | string \| null | Terms of service URL |
-| `privacyPolicyUrl` | string \| null | Privacy policy URL |
-| `serviceLevelAgreementUrl` | string \| null | SLA URL |
-| `dataProcessingAgreementUrl` | string \| null | DPA URL |
-| `businessAssociateAgreementUrl` | string \| null | BAA URL |
-| `subprocessorsListUrl` | string \| null | Subprocessors list URL |
-| `certifications` | string[] | List of certifications |
-| `countries` | string[] | Country codes where vendor operates |
-| `securityPageUrl` | string \| null | Security page URL |
-| `trustPageUrl` | string \| null | Trust page URL |
-| `headquarterAddress` | string \| null | Headquarters address |
-| `legalName` | string \| null | Legal entity name |
-| `websiteUrl` | string \| null | Website URL |
-| `businessOwnerId` | string \| null | Business owner user ID |
-| `securityOwnerId` | string \| null | Security owner user ID |
-| `createdAt` | string | Creation timestamp (RFC 3339) |
-| `updatedAt` | string | Last update timestamp (RFC 3339) |
+| Field                           | Type           | Description                         |
+| ------------------------------- | -------------- | ----------------------------------- |
+| `id`                            | string         | Vendor identifier                   |
+| `name`                          | string         | Vendor name                         |
+| `category`                      | string         | Vendor category                     |
+| `description`                   | string \| null | Description                         |
+| `statusPageUrl`                 | string \| null | Status page URL                     |
+| `termsOfServiceUrl`             | string \| null | Terms of service URL                |
+| `privacyPolicyUrl`              | string \| null | Privacy policy URL                  |
+| `serviceLevelAgreementUrl`      | string \| null | SLA URL                             |
+| `dataProcessingAgreementUrl`    | string \| null | DPA URL                             |
+| `businessAssociateAgreementUrl` | string \| null | BAA URL                             |
+| `subprocessorsListUrl`          | string \| null | Subprocessors list URL              |
+| `certifications`                | string[]       | List of certifications              |
+| `countries`                     | string[]       | Country codes where vendor operates |
+| `securityPageUrl`               | string \| null | Security page URL                   |
+| `trustPageUrl`                  | string \| null | Trust page URL                      |
+| `headquarterAddress`            | string \| null | Headquarters address                |
+| `legalName`                     | string \| null | Legal entity name                   |
+| `websiteUrl`                    | string \| null | Website URL                         |
+| `businessOwnerId`               | string \| null | Business owner user ID              |
+| `securityOwnerId`               | string \| null | Security owner user ID              |
+| `createdAt`                     | string         | Creation timestamp (RFC 3339)       |
+| `updatedAt`                     | string         | Last update timestamp (RFC 3339)    |
 
 ### User
 
@@ -128,21 +128,21 @@ Sent for `user:created`, `user:updated`, and `user:deleted` events.
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | User identifier |
-| `organizationId` | string | Organization identifier |
-| `emailAddress` | string | Primary email address |
-| `fullName` | string | Full name |
-| `kind` | string \| null | User kind (e.g. `EMPLOYEE`) |
-| `source` | string | Profile source (e.g. `MANUAL`) |
-| `state` | string | Profile state (e.g. `ACTIVE`) |
-| `additionalEmailAddresses` | string[] | Additional email addresses |
-| `position` | string \| null | Job position |
-| `contractStartDate` | string \| null | Contract start date (RFC 3339) |
-| `contractEndDate` | string \| null | Contract end date (RFC 3339) |
-| `createdAt` | string | Creation timestamp (RFC 3339) |
-| `updatedAt` | string | Last update timestamp (RFC 3339) |
+| Field                      | Type           | Description                      |
+| -------------------------- | -------------- | -------------------------------- |
+| `id`                       | string         | User identifier                  |
+| `organizationId`           | string         | Organization identifier          |
+| `emailAddress`             | string         | Primary email address            |
+| `fullName`                 | string         | Full name                        |
+| `kind`                     | string \| null | User kind (e.g. `EMPLOYEE`)      |
+| `source`                   | string         | Profile source (e.g. `MANUAL`)   |
+| `state`                    | string         | Profile state (e.g. `ACTIVE`)    |
+| `additionalEmailAddresses` | string[]       | Additional email addresses       |
+| `position`                 | string \| null | Job position                     |
+| `contractStartDate`        | string \| null | Contract start date (RFC 3339)   |
+| `contractEndDate`          | string \| null | Contract end date (RFC 3339)     |
+| `createdAt`                | string         | Creation timestamp (RFC 3339)    |
+| `updatedAt`                | string         | Last update timestamp (RFC 3339) |
 
 ### Obligation
 
@@ -167,19 +167,19 @@ Sent for `obligation:created`, `obligation:updated`, and `obligation:deleted` ev
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Obligation identifier |
-| `organizationId` | string | Organization identifier |
-| `area` | string \| null | Compliance area |
-| `source` | string \| null | Regulatory source |
-| `requirement` | string \| null | Requirement description |
-| `actionsToBeImplemented` | string \| null | Required actions |
-| `regulator` | string \| null | Regulatory body |
-| `ownerId` | string | Owner user ID |
-| `lastReviewDate` | string \| null | Last review date (RFC 3339) |
-| `dueDate` | string \| null | Due date (RFC 3339) |
-| `status` | string | Obligation status |
-| `type` | string | Obligation type |
-| `createdAt` | string | Creation timestamp (RFC 3339) |
-| `updatedAt` | string | Last update timestamp (RFC 3339) |
+| Field                    | Type           | Description                      |
+| ------------------------ | -------------- | -------------------------------- |
+| `id`                     | string         | Obligation identifier            |
+| `organizationId`         | string         | Organization identifier          |
+| `area`                   | string \| null | Compliance area                  |
+| `source`                 | string \| null | Regulatory source                |
+| `requirement`            | string \| null | Requirement description          |
+| `actionsToBeImplemented` | string \| null | Required actions                 |
+| `regulator`              | string \| null | Regulatory body                  |
+| `ownerId`                | string         | Owner user ID                    |
+| `lastReviewDate`         | string \| null | Last review date (RFC 3339)      |
+| `dueDate`                | string \| null | Due date (RFC 3339)              |
+| `status`                 | string         | Obligation status                |
+| `type`                   | string         | Obligation type                  |
+| `createdAt`              | string         | Creation timestamp (RFC 3339)    |
+| `updatedAt`              | string         | Last update timestamp (RFC 3339) |

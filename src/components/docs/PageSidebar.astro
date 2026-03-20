@@ -1,20 +1,20 @@
 ---
-import MobileTableOfContents from 'virtual:starlight/components/MobileTableOfContents';
-import TableOfContents from 'virtual:starlight/components/TableOfContents';
+import MobileTableOfContents from "virtual:starlight/components/MobileTableOfContents";
+import TableOfContents from "virtual:starlight/components/TableOfContents";
 ---
 
 {
   Astro.locals.starlightRoute.toc && (
-  <aside class="right-sidebar lg:sticky-top text-sm justify-self-end">
-    <div class="lg:sl-hidden">
-      <MobileTableOfContents />
-    </div>
-    <div class="sl-hidden lg:sl-block">
+    <aside class="right-sidebar lg:sticky-top justify-self-end text-sm">
+      <div class="lg:sl-hidden">
+        <MobileTableOfContents />
+      </div>
+      <div class="sl-hidden lg:sl-block">
         <TableOfContents />
-    </div>
+      </div>
     </aside>
-    )
-  }
+  )
+}
 
 <style>
   @layer starlight.core {

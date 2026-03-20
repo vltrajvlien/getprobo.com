@@ -15,12 +15,19 @@
     class: className,
     countMobile,
     border,
-  }: { count: number; countMobile?: number; class: string, border?: boolean } = $props();
+  }: {
+    count: number;
+    countMobile?: number;
+    class: string;
+    border?: boolean;
+  } = $props();
   let timer: ReturnType<typeof setTimeout> | null = null;
   let innerWidth = $state(windowWidth());
   let isMobile = $derived(innerWidth < 640);
   let intersection = useIntersectionObserver({ threshold: 0 });
-  let visibleFrameworks = $state(frameworks.sort(() => Math.random() - 0.5).slice(0, count));
+  let visibleFrameworks = $state(
+    frameworks.sort(() => Math.random() - 0.5).slice(0, count),
+  );
 
   // Reset the visibleFrameworks list when count changes, otherwise the list will be updated by the tick
   $effect(() => {
@@ -55,9 +62,9 @@
     }
     return () => {
       if (timer) {
-        clearTimeout(timer)
+        clearTimeout(timer);
       }
-    }
+    };
   });
 
   onDestroy(() => {
@@ -66,13 +73,17 @@
     }
   });
 
-  const columns = $derived(isMobile ? 3 : 5)
+  const columns = $derived(isMobile ? 3 : 5);
 </script>
 
-<div class={clsx(className, 'relative')} bind:this={intersection.ref}>
+<div class={clsx(className, "relative")} bind:this={intersection.ref}>
   {#each visibleFrameworks as framework, index (index)}
     <div
-      class={clsx("text-center grid place-items-center overflow-hidden", border && 'aspect-square md:aspect-192/180 hover:bg-[#F4FCE6] transition-all')}
+      class={clsx(
+        "text-center grid place-items-center overflow-hidden",
+        border &&
+          "aspect-square md:aspect-192/180 hover:bg-[#F4FCE6] transition-all",
+      )}
     >
       {#key framework.badge}
         <div
@@ -89,11 +100,17 @@
     </div>
   {/each}
   {#if border}
-    {#each {length: columns + 1}, x}
-      <div class="vertical-rule" style={`left: ${Math.round(x * 100 / columns)}%`}></div>
-      {/each}
-    {#each {length: 3}, y}
-      <div class="horizontal-rule" style={`top: ${Math.round(y * 100 / 2)}%`}></div>
+    {#each { length: columns + 1 }, x}
+      <div
+        class="vertical-rule"
+        style={`left: ${Math.round((x * 100) / columns)}%`}
+      ></div>
+    {/each}
+    {#each { length: 3 }, y}
+      <div
+        class="horizontal-rule"
+        style={`top: ${Math.round((y * 100) / 2)}%`}
+      ></div>
     {/each}
   {/if}
 </div>
@@ -101,17 +118,29 @@
 
 <style>
   .vertical-rule {
-      top: -20px;
-      bottom: -20px;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--color-border-low) 20px, var(--color-border-low) calc(100% - 20px), transparent);
-      position: absolute;
+    top: -20px;
+    bottom: -20px;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-border-low) 20px,
+      var(--color-border-low) calc(100% - 20px),
+      transparent
+    );
+    position: absolute;
   }
   .horizontal-rule {
-      left: -20px;
-      right: -20px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--color-border-low) 40px, var(--color-border-low) calc(100% - 40px), transparent);
-      position: absolute;
+    left: -20px;
+    right: -20px;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border-low) 40px,
+      var(--color-border-low) calc(100% - 40px),
+      transparent
+    );
+    position: absolute;
   }
 </style>

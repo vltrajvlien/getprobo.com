@@ -15,6 +15,11 @@ export const menuItems = [
     href: "/stories",
   },
   {
+    label: "Changelog",
+    description: "Latest product updates",
+    href: "/changelog",
+  },
+  {
     label: "Docs",
     description: "Documentation for Probo",
     href: "/docs",

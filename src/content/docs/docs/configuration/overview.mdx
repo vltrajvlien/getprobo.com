@@ -3,7 +3,7 @@ title: Configuration Overview
 description: How to configure Probo using YAML config files or Docker environment variables
 ---
 
-import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 The `probod` daemon natively supports YAML configuration files for comprehensive control over all settings. To make deployment easier in cloud-native environments, Docker containers include an entrypoint script that can automatically generate YAML configuration from environment variables.
 
@@ -17,6 +17,7 @@ Probo supports two configuration methods depending on your deployment scenario:
 ## How Configuration is Loaded
 
 1. **Direct `probod` usage**: Pass a YAML file with the `-cfg-file` flag. No config is loaded by default — you must always specify the file explicitly.
+
    ```bash
    probod -cfg-file /path/to/config.yaml
    ```
@@ -27,12 +28,12 @@ Probo supports two configuration methods depending on your deployment scenario:
 
 ## Which Method Should I Use?
 
-| Scenario | Recommended Method |
-|---|---|
-| Docker Compose (development) | Environment variables |
-| Docker Compose (production) | Config file (mounted as volume) |
-| Kubernetes | Environment variables or config file via ConfigMap/Secret |
-| Direct host deployment | Config file |
+| Scenario                     | Recommended Method                                        |
+| ---------------------------- | --------------------------------------------------------- |
+| Docker Compose (development) | Environment variables                                     |
+| Docker Compose (production)  | Config file (mounted as volume)                           |
+| Kubernetes                   | Environment variables or config file via ConfigMap/Secret |
+| Direct host deployment       | Config file                                               |
 
 ## Configuration Reference
 

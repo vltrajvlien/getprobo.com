@@ -142,8 +142,8 @@ if response.choices[0].message.tool_calls:
 ### Node.js Implementation
 
 ```javascript
-import OpenAI from 'openai';
-import fetch from 'node-fetch';
+import OpenAI from "openai";
+import fetch from "node-fetch";
 
 class ProboMCPClient {
   constructor(baseUrl, apiToken) {
@@ -153,12 +153,12 @@ class ProboMCPClient {
 
   async callTool(toolName, args) {
     const response = await fetch(`${this.baseUrl}/tools/${toolName}`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${this.apiToken}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.apiToken}`,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(args)
+      body: JSON.stringify(args),
     });
     return await response.json();
   }
@@ -166,56 +166,56 @@ class ProboMCPClient {
 
 // Initialize clients
 const probo = new ProboMCPClient(
-  'https://your-probo-instance.com/api/mcp',
-  process.env.PROBO_API_TOKEN
+  "https://your-probo-instance.com/api/mcp",
+  process.env.PROBO_API_TOKEN,
 );
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Define Probo tools
 const tools = [
   {
-    type: 'function',
+    type: "function",
     function: {
-      name: 'listOrganizations',
-      description: 'List all organizations the user has access to',
+      name: "listOrganizations",
+      description: "List all organizations the user has access to",
       parameters: {
-        type: 'object',
+        type: "object",
         properties: {},
-        required: []
-      }
-    }
+        required: [],
+      },
+    },
   },
   {
-    type: 'function',
+    type: "function",
     function: {
-      name: 'listVendors',
-      description: 'List all vendors for the organization',
+      name: "listVendors",
+      description: "List all vendors for the organization",
       parameters: {
-        type: 'object',
+        type: "object",
         properties: {
           organization_id: {
-            type: 'string',
-            description: 'Organization ID'
-          }
+            type: "string",
+            description: "Organization ID",
+          },
         },
-        required: ['organization_id']
-      }
-    }
-  }
+        required: ["organization_id"],
+      },
+    },
+  },
 ];
 
 // Make request with function calling
 async function chat(userMessage) {
-  const messages = [{ role: 'user', content: userMessage }];
+  const messages = [{ role: "user", content: userMessage }];
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-4-turbo-preview',
+    model: "gpt-4-turbo-preview",
     messages: messages,
     tools: tools,
-    tool_choice: 'auto'
+    tool_choice: "auto",
   });
 
   // Handle tool calls
@@ -228,16 +228,16 @@ async function chat(userMessage) {
       const result = await probo.callTool(functionName, functionArgs);
 
       messages.push({
-        role: 'function',
+        role: "function",
         name: functionName,
-        content: JSON.stringify(result)
+        content: JSON.stringify(result),
       });
     }
 
     // Get final response
     const finalResponse = await openai.chat.completions.create({
-      model: 'gpt-4-turbo-preview',
-      messages: messages
+      model: "gpt-4-turbo-preview",
+      messages: messages,
     });
 
     return finalResponse.choices[0].message.content;
@@ -247,7 +247,7 @@ async function chat(userMessage) {
 }
 
 // Usage
-const answer = await chat('Show me all vendors in my organization');
+const answer = await chat("Show me all vendors in my organization");
 console.log(answer);
 ```
 
@@ -278,7 +278,7 @@ paths:
       summary: List organizations
       operationId: listOrganizations
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -306,7 +306,7 @@ paths:
               required:
                 - organization_id
       responses:
-        '200':
+        "200":
           description: Successful response
 
   /tools/addVendor:
@@ -330,7 +330,7 @@ paths:
                 - organization_id
                 - name
       responses:
-        '200':
+        "200":
           description: Vendor created successfully
 
 components:
@@ -352,6 +352,7 @@ components:
 **Description**: Manage your compliance data, risks, vendors, and audits through natural conversation.
 
 **Instructions**:
+
 ```
 You are a compliance management assistant with access to Probo compliance data.
 You can help users:

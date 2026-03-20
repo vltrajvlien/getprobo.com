@@ -1,5 +1,13 @@
 import type { AstroIntegration } from "astro";
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync, existsSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  readdirSync,
+  statSync,
+  copyFileSync,
+  existsSync,
+} from "node:fs";
 import { join, dirname, relative, basename } from "node:path";
 
 /**
@@ -31,13 +39,13 @@ function mdxToMarkdown(content: string): string {
   // Replace <LinkCard title="X" description="Y" href="Z" /> with markdown link
   md = md.replace(
     /<LinkCard\s+title="([^"]+)"\s+description="([^"]+)"\s+href="([^"]+)"\s*\/>/g,
-    "- [$1]($3) — $2"
+    "- [$1]($3) — $2",
   );
 
   // Also handle different attribute order
   md = md.replace(
     /<LinkCard\s+title="([^"]+)"\s+href="([^"]+)"\s+description="([^"]+)"\s*\/>/g,
-    "- [$1]($2) — $3"
+    "- [$1]($2) — $3",
   );
 
   // Remove <CardGrid> / </CardGrid> wrappers
@@ -98,7 +106,10 @@ function htmlToMarkdown(html: string): string {
   content = content.replace(/<h4[^>]*>([\s\S]*?)<\/h4>/gi, "\n#### $1\n");
 
   // Convert links
-  content = content.replace(/<a[^>]+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, "[$2]($1)");
+  content = content.replace(
+    /<a[^>]+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi,
+    "[$2]($1)",
+  );
 
   // Convert strong/bold
   content = content.replace(/<(strong|b)[^>]*>([\s\S]*?)<\/\1>/gi, "**$2**");
@@ -206,7 +217,7 @@ export function generateMarkdown(): AstroIntegration {
         // Process blog MDX files (skip French translations)
         const blogDir = join(rootDir, "src/content/blog");
         const blogFiles = findFiles(blogDir, ".mdx").filter(
-          (f) => !f.includes("/fr/")
+          (f) => !f.includes("/fr/"),
         );
         for (const file of blogFiles) {
           const slug = basename(file, ".mdx");
@@ -220,7 +231,7 @@ export function generateMarkdown(): AstroIntegration {
         // Process customer stories MDX files (skip French)
         const storiesDir = join(rootDir, "src/content/stories");
         const storyFiles = findFiles(storiesDir, ".mdx").filter(
-          (f) => !f.includes("/fr/")
+          (f) => !f.includes("/fr/"),
         );
         for (const file of storyFiles) {
           const slug = basename(file, ".mdx");
@@ -259,9 +270,7 @@ export function generateMarkdown(): AstroIntegration {
           // No marketing markdown directory yet
         }
 
-        console.log(
-          `[generate-markdown] Generated markdown files in ${mdDir}`
-        );
+        console.log(`[generate-markdown] Generated markdown files in ${mdDir}`);
       },
     },
   };

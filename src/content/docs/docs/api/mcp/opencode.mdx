@@ -37,6 +37,7 @@ Add the Probo MCP Server configuration:
 ### 3. Replace Placeholders
 
 Update these values:
+
 - `your-probo-instance.com` → Your Probo instance URL
 - `your_api_token_here` → Your API token from Probo
 
@@ -49,6 +50,7 @@ Restart Opencode to apply the configuration.
 Once configured, you can use Probo tools through Opencode's AI assistant:
 
 **Example queries:**
+
 ```
 "List all pending obligations in my organization"
 "Add a new risk for data breach with high impact"
@@ -77,11 +79,13 @@ For security, use environment variables for your API token:
 Set the environment variable:
 
 **macOS/Linux:**
+
 ```bash
 export PROBO_API_TOKEN="your_api_token_here"
 ```
 
 **Windows:**
+
 ```powershell
 $env:PROBO_API_TOKEN = "your_api_token_here"
 ```
@@ -116,6 +120,7 @@ Configure different Probo instances:
 **Problem:** Probo tools aren't showing up in Opencode
 
 **Solutions:**
+
 1. Verify the MCP configuration is correct
 2. Restart Opencode completely
 3. Check Opencode logs for connection errors
@@ -130,6 +135,7 @@ Configure different Probo instances:
 **Problem:** 401 Unauthorized errors
 
 **Solutions:**
+
 1. Regenerate your API token in Probo
 2. Verify the token format: `Bearer your_token`
 3. Check for extra spaces or newlines
@@ -140,6 +146,7 @@ Configure different Probo instances:
 **Problem:** Cannot connect to Probo instance
 
 **Solutions:**
+
 1. Verify the Probo URL is correct
 2. Check network connectivity
 3. Use HTTPS for production instances
@@ -157,6 +164,7 @@ Configure different Probo instances:
 ## Features
 
 Opencode AI with Probo MCP provides:
+
 - AI-powered coding with compliance context
 - Real-time access to compliance data
 - Automated compliance checks

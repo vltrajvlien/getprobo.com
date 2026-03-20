@@ -6,124 +6,161 @@ const __ = await getTranslator(Astro.currentLocale);
 const tableOfContents = [
   { id: "intro", label: "Introduction" },
   { id: "soc2-third-party", label: "What SOC 2 Says About Third-Party Tools" },
-  { id: "compliance-checklist", label: "AI Coding Assistant Compliance Checklist" },
+  {
+    id: "compliance-checklist",
+    label: "AI Coding Assistant Compliance Checklist",
+  },
   { id: "tool-breakdown", label: "Tool-by-Tool Breakdown" },
   { id: "open-source-security", label: "The Open-Source Security Question" },
-  { id: "acceptable-use-policy", label: "Building an AI Acceptable Use Policy" },
+  {
+    id: "acceptable-use-policy",
+    label: "Building an AI Acceptable Use Policy",
+  },
   { id: "conclusion", label: "Conclusion" },
 ];
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Using AI Coding Tools While Staying SOC 2 Compliant",
-  "description": "Can you use Claude, Copilot, or Cursor and stay SOC 2 compliant? Here's the practical checklist for startups using AI coding assistants in 2026.",
-  "author": {
+  headline: "Using AI Coding Tools While Staying SOC 2 Compliant",
+  description:
+    "Can you use Claude, Copilot, or Cursor and stay SOC 2 compliant? Here's the practical checklist for startups using AI coding assistants in 2026.",
+  author: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com"
+    name: "Probo",
+    url: "https://www.getprobo.com",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com",
-    "logo": {
+    name: "Probo",
+    url: "https://www.getprobo.com",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://www.getprobo.com/probo-logo.svg"
-    }
+      url: "https://www.getprobo.com/probo-logo.svg",
+    },
   },
-  "datePublished": "2026-01-28",
-  "dateModified": new Date().toISOString().split('T')[0],
-  "mainEntityOfPage": {
+  datePublished: "2026-01-28",
+  dateModified: new Date().toISOString().split("T")[0],
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance"
+    "@id": "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance",
   },
-  "image": "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance.jpg"
+  image: "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance.jpg",
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.getprobo.com"
+      position: 1,
+      name: "Home",
+      item: "https://www.getprobo.com",
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": "Hub",
-      "item": "https://www.getprobo.com/hub"
+      position: 2,
+      name: "Hub",
+      item: "https://www.getprobo.com/hub",
     },
     {
       "@type": "ListItem",
-      "position": 3,
-      "name": "Using AI Coding Tools While Staying SOC 2 Compliant",
-      "item": "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance"
-    }
-  ]
+      position: 3,
+      name: "Using AI Coding Tools While Staying SOC 2 Compliant",
+      item: "https://www.getprobo.com/hub/ai-coding-tools-soc2-compliance",
+    },
+  ],
 };
 ---
 
 <Layout
   title={__("Using AI Coding Tools While Staying SOC 2 Compliant")}
-  description={__("Can you use Claude, Copilot, or Cursor and stay SOC 2 compliant? Here's the practical checklist for startups using AI coding assistants in 2026.")}
+  description={__(
+    "Can you use Claude, Copilot, or Cursor and stay SOC 2 compliant? Here's the practical checklist for startups using AI coding assistants in 2026.",
+  )}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
   <main class="container my-10 sm:my-20">
     <!-- Header -->
-    <header class="mb-12 sm:mb-16 text-center max-w-[900px] mx-auto">
-      <h1 class="text-[2.5rem] sm:text-[3.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-foreground mb-6">
-        {__("Using")} <span class="highlight-text">{__("AI Coding Tools")}</span><br />{__("While Staying SOC 2 Compliant")}
+    <header class="mx-auto mb-12 max-w-[900px] text-center sm:mb-16">
+      <h1
+        class="text-foreground mb-6 text-[2.5rem] leading-[1.1] font-semibold tracking-[-0.02em] sm:text-[3.5rem]"
+      >
+        {__("Using")}
+        <span class="highlight-text">{__("AI Coding Tools")}</span><br />{
+          __("While Staying SOC 2 Compliant")
+        }
       </h1>
-      <p class="text-muted-foreground text-lg mb-8">
-        {__("Your engineering team just discovered Claude Code can refactor legacy systems in minutes. Your developers are begging to use GitHub Copilot. And that new hire won't stop talking about how Cursor transformed their productivity at their last job. But you're SOC 2 compliant—or working toward it. Can you actually use these AI coding assistants without blowing up your compliance posture?")}
+      <p class="text-muted-foreground mb-8 text-lg">
+        {
+          __(
+            "Your engineering team just discovered Claude Code can refactor legacy systems in minutes. Your developers are begging to use GitHub Copilot. And that new hire won't stop talking about how Cursor transformed their productivity at their last job. But you're SOC 2 compliant—or working toward it. Can you actually use these AI coding assistants without blowing up your compliance posture?",
+          )
+        }
       </p>
-      <img 
-        src="/hub/ai-coding-tools-soc2-compliance.jpg" 
-        alt="Using AI Coding Tools While Staying SOC 2 Compliant" 
-        class="w-full max-w-[800px] mx-auto rounded-2xl shadow-lg"
+      <img
+        src="/hub/ai-coding-tools-soc2-compliance.jpg"
+        alt="Using AI Coding Tools While Staying SOC 2 Compliant"
+        class="mx-auto w-full max-w-[800px] rounded-2xl shadow-lg"
       />
     </header>
 
     <!-- Content with TOC -->
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+    <div class="flex flex-col gap-10 lg:flex-row lg:gap-16">
       <!-- Table of Contents - Sidebar -->
-      <aside class="lg:w-56 shrink-0">
+      <aside class="shrink-0 lg:w-56">
         <nav class="lg:sticky lg:top-24">
           <div class="flex flex-col gap-2">
-            {tableOfContents.map((item) => (
-              <button
-                type="button"
-                data-section={item.id}
-                class="toc-link text-sm text-[#6b716a] hover:text-[#141e12] transition-colors text-left bg-transparent border-none p-0 cursor-pointer leading-5"
-              >
-                {item.label}
-              </button>
-            ))}
+            {
+              tableOfContents.map((item) => (
+                <button
+                  type="button"
+                  data-section={item.id}
+                  class="toc-link cursor-pointer border-none bg-transparent p-0 text-left text-sm leading-5 text-[#6b716a] transition-colors hover:text-[#141e12]"
+                >
+                  {item.label}
+                </button>
+              ))
+            }
           </div>
         </nav>
       </aside>
 
       <!-- Main Content -->
-      <article class="flex-1 max-w-[720px]">
+      <article class="max-w-[720px] flex-1">
         <!-- Introduction -->
-        <section id="intro" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="intro" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("The AI Tool Dilemma Every Compliant Startup Faces")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("That compliance badge represents months of work, thousands of dollars, and the trust of every enterprise customer in your pipeline. So here's the question keeping CTOs up at night: Can you actually use these AI coding assistants without blowing up your compliance posture?")}
+              {
+                __(
+                  "That compliance badge represents months of work, thousands of dollars, and the trust of every enterprise customer in your pipeline. So here's the question keeping CTOs up at night: Can you actually use these AI coding assistants without blowing up your compliance posture?",
+                )
+              }
             </p>
             <p>
-              {__("The short answer is yes. But the practical answer requires understanding exactly what SOC 2 compliance requirements demand, how different AI tools handle your code, and what controls you need to implement.")}
+              {
+                __(
+                  "The short answer is yes. But the practical answer requires understanding exactly what SOC 2 compliance requirements demand, how different AI tools handle your code, and what controls you need to implement.",
+                )
+              }
             </p>
             <p>
-              {__("This isn't theoretical hand-wringing. With the compliance automation industry exploding in 2026, the intersection of AI tools and compliance frameworks is where the real work happens. Let's break down exactly what you need to do.")}
+              {
+                __(
+                  "This isn't theoretical hand-wringing. With the compliance automation industry exploding in 2026, the intersection of AI tools and compliance frameworks is where the real work happens. Let's break down exactly what you need to do.",
+                )
+              }
             </p>
           </div>
         </section>
@@ -131,63 +168,172 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- What SOC 2 Actually Says About Third-Party Tools -->
-        <section id="soc2-third-party" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="soc2-third-party" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("What SOC 2 Actually Says About Third-Party Tools")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("Before diving into specific AI tools, let's clarify what SOC 2 requirements actually demand when it comes to third-party software. Spoiler: SOC 2 doesn't ban AI coding assistants. It requires you to manage them properly.")}
+              {
+                __(
+                  "Before diving into specific AI tools, let's clarify what SOC 2 requirements actually demand when it comes to third-party software. Spoiler: SOC 2 doesn't ban AI coding assistants. It requires you to manage them properly.",
+                )
+              }
             </p>
 
             <!-- Vendor Management Requirement -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("The Vendor Management Requirement")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("The Vendor Management Requirement")}
+              </h3>
               <p class="mb-4">
-                {__("SOC 2's Trust Services Criteria include specific requirements around vendor and third-party risk management. Under the Common Criteria (CC9.2), organizations must assess and manage risks associated with vendors and business partners.")}
+                {
+                  __(
+                    "SOC 2's Trust Services Criteria include specific requirements around vendor and third-party risk management. Under the Common Criteria (CC9.2), organizations must assess and manage risks associated with vendors and business partners.",
+                  )
+                }
               </p>
-              <p class="mb-3">{__("Here's what that means in practice for your SOC 2 checklist:")}</p>
-              <ul class="list-none space-y-3 ml-0">
+              <p class="mb-3">
+                {
+                  __(
+                    "Here's what that means in practice for your SOC 2 checklist:",
+                  )
+                }
+              </p>
+              <ul class="ml-0 list-none space-y-3">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Due diligence documentation:")}</strong> {__("You need evidence that you evaluated the AI tool's security posture before adoption")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Due diligence documentation:")}</strong
+                    >
+                    {
+                      __(
+                        "You need evidence that you evaluated the AI tool's security posture before adoption",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Contractual protections:")}</strong> {__("Your agreements should address data handling, security commitments, and breach notification")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Contractual protections:")}</strong
+                    >
+                    {
+                      __(
+                        "Your agreements should address data handling, security commitments, and breach notification",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Ongoing monitoring:")}</strong> {__("Annual (at minimum) reviews of vendor compliance status")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Ongoing monitoring:")}</strong
+                    >
+                    {
+                      __(
+                        "Annual (at minimum) reviews of vendor compliance status",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Risk assessment:")}</strong> {__("Documented analysis of what data the tool accesses and the associated risks")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Risk assessment:")}</strong
+                    >
+                    {
+                      __(
+                        "Documented analysis of what data the tool accesses and the associated risks",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-4">
-                {__("The good news? Major AI coding assistants like Claude, Copilot, and Cursor are built by companies that understand enterprise requirements. They've invested heavily in security certifications and enterprise-grade controls. Your job is documenting that you verified this—not proving they're secure from scratch.")}
+                {
+                  __(
+                    "The good news? Major AI coding assistants like Claude, Copilot, and Cursor are built by companies that understand enterprise requirements. They've invested heavily in security certifications and enterprise-grade controls. Your job is documenting that you verified this—not proving they're secure from scratch.",
+                  )
+                }
               </p>
               <p class="mt-4">
-                {__("For a deeper dive into managing vendor relationships during your compliance journey, check out our")} <a href="/hub/third-party-risk-management" class="text-[#5d770d] hover:underline">{__("vendor management resources")}</a>{__(".")}
+                {
+                  __(
+                    "For a deeper dive into managing vendor relationships during your compliance journey, check out our",
+                  )
+                }
+                <a
+                  href="/hub/third-party-risk-management"
+                  class="text-[#5d770d] hover:underline"
+                  >{__("vendor management resources")}</a
+                >{__(".")}
               </p>
             </div>
 
             <!-- Data Processing and Confidentiality Controls -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Data Processing and Confidentiality Controls")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Data Processing and Confidentiality Controls")}
+              </h3>
               <p class="mb-4">
-                {__("The confidentiality principle in SOC 2 requirements gets specific about protecting sensitive information. When your developers use AI coding assistants, code snippets—potentially containing proprietary logic, API keys, or customer data patterns—flow to external systems.")}
+                {
+                  __(
+                    "The confidentiality principle in SOC 2 requirements gets specific about protecting sensitive information. When your developers use AI coding assistants, code snippets—potentially containing proprietary logic, API keys, or customer data patterns—flow to external systems.",
+                  )
+                }
               </p>
               <p class="mb-3">{__("Your controls must address:")}</p>
-              <ol class="list-decimal list-inside space-y-2">
-                <li><strong class="text-foreground">{__("What data leaves your environment:")}</strong> {__("Which repositories, files, or code sections can developers use with AI tools?")}</li>
-                <li><strong class="text-foreground">{__("How that data is processed:")}</strong> {__("Does the AI provider retain your code? For how long? For what purposes?")}</li>
-                <li><strong class="text-foreground">{__("Who can access that data:")}</strong> {__("What are the provider's internal access controls?")}</li>
-                <li><strong class="text-foreground">{__("Where that data resides:")}</strong> {__("Does the provider's data residency align with your commitments to customers?")}</li>
+              <ol class="list-inside list-decimal space-y-2">
+                <li>
+                  <strong class="text-foreground"
+                    >{__("What data leaves your environment:")}</strong
+                  >
+                  {
+                    __(
+                      "Which repositories, files, or code sections can developers use with AI tools?",
+                    )
+                  }
+                </li>
+                <li>
+                  <strong class="text-foreground"
+                    >{__("How that data is processed:")}</strong
+                  >
+                  {
+                    __(
+                      "Does the AI provider retain your code? For how long? For what purposes?",
+                    )
+                  }
+                </li>
+                <li>
+                  <strong class="text-foreground"
+                    >{__("Who can access that data:")}</strong
+                  >
+                  {__("What are the provider's internal access controls?")}
+                </li>
+                <li>
+                  <strong class="text-foreground"
+                    >{__("Where that data resides:")}</strong
+                  >
+                  {
+                    __(
+                      "Does the provider's data residency align with your commitments to customers?",
+                    )
+                  }
+                </li>
               </ol>
               <p class="mt-4">
-                {__("This is where the enterprise vs. consumer tier distinction becomes critical—and where many startups make compliance-threatening mistakes.")}
+                {
+                  __(
+                    "This is where the enterprise vs. consumer tier distinction becomes critical—and where many startups make compliance-threatening mistakes.",
+                  )
+                }
               </p>
             </div>
           </div>
@@ -196,115 +342,235 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- AI Coding Assistant Compliance Checklist -->
-        <section id="compliance-checklist" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="compliance-checklist" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("AI Coding Assistant Compliance Checklist")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("Let's get practical. Here's your SOC 2 checklist specifically for AI coding tool adoption. Document each item, and you'll have audit-ready evidence of proper vendor management.")}
+              {
+                __(
+                  "Let's get practical. Here's your SOC 2 checklist specifically for AI coding tool adoption. Document each item, and you'll have audit-ready evidence of proper vendor management.",
+                )
+              }
             </p>
 
             <!-- 1. Data Residency and Storage Policies -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("1. Data Residency and Storage Policies")}</h3>
-              <p class="mb-4">{__("Before approving any AI coding assistant, answer these questions in writing:")}</p>
-              
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("1. Data Residency and Storage Policies")}
+              </h3>
+              <p class="mb-4">
+                {
+                  __(
+                    "Before approving any AI coding assistant, answer these questions in writing:",
+                  )
+                }
+              </p>
+
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("Where does your code go?")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("Where does your code go?")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Identify the provider's data center locations")}</span>
+                    <span
+                      >{
+                        __("Identify the provider's data center locations")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Confirm alignment with any customer contractual requirements (especially for EU customers under GDPR)")}</span>
+                    <span
+                      >{
+                        __(
+                          "Confirm alignment with any customer contractual requirements (especially for EU customers under GDPR)",
+                        )
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Document whether you can select specific regions for data processing")}</span>
+                    <span
+                      >{
+                        __(
+                          "Document whether you can select specific regions for data processing",
+                        )
+                      }</span
+                    >
                   </li>
                 </ul>
               </div>
 
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("How long is it stored?")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("How long is it stored?")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Distinguish between transient processing (code analyzed then discarded) and persistent storage")}</span>
+                    <span
+                      >{
+                        __(
+                          "Distinguish between transient processing (code analyzed then discarded) and persistent storage",
+                        )
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Identify any caching mechanisms and their duration")}</span>
+                    <span
+                      >{
+                        __("Identify any caching mechanisms and their duration")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Understand backup and disaster recovery implications")}</span>
+                    <span
+                      >{
+                        __(
+                          "Understand backup and disaster recovery implications",
+                        )
+                      }</span
+                    >
                   </li>
                 </ul>
               </div>
 
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("What's the legal jurisdiction?")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("What's the legal jurisdiction?")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Confirm which country's laws govern data handling")}</span>
+                    <span
+                      >{
+                        __("Confirm which country's laws govern data handling")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Assess implications for government access requests")}</span>
+                    <span
+                      >{
+                        __("Assess implications for government access requests")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Document any relevant data protection certifications (SOC 2, ISO 27001, etc.)")}</span>
+                    <span
+                      >{
+                        __(
+                          "Document any relevant data protection certifications (SOC 2, ISO 27001, etc.)",
+                        )
+                      }</span
+                    >
                   </li>
                 </ul>
               </div>
 
               <p class="mt-4">
-                {__("For most enterprise-tier AI tools, you'll find this information in their Trust Centers or security documentation. If you can't find clear answers, that's a red flag.")}
+                {
+                  __(
+                    "For most enterprise-tier AI tools, you'll find this information in their Trust Centers or security documentation. If you can't find clear answers, that's a red flag.",
+                  )
+                }
               </p>
             </div>
 
             <!-- 2. Code Snippet Retention Settings -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("2. Code Snippet Retention Settings")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("2. Code Snippet Retention Settings")}
+              </h3>
               <p class="mb-4">
-                {__("This is where SOC 2 compliance requirements get granular. Different AI tools have dramatically different approaches to code retention:")}
+                {
+                  __(
+                    "This is where SOC 2 compliance requirements get granular. Different AI tools have dramatically different approaches to code retention:",
+                  )
+                }
               </p>
-              <ul class="list-none space-y-3 ml-0">
+              <ul class="ml-0 list-none space-y-3">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Zero-retention options:")}</strong> {__("Some enterprise plans offer settings where your code is processed but never stored for model training or improvement. This is the gold standard for compliance-conscious organizations.")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Zero-retention options:")}</strong
+                    >
+                    {
+                      __(
+                        "Some enterprise plans offer settings where your code is processed but never stored for model training or improvement. This is the gold standard for compliance-conscious organizations.",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Training data policies:")}</strong> {__("Understand whether your code could be used to improve the AI model. Most enterprise tiers explicitly exclude customer code from training data—but you need to verify this in writing.")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Training data policies:")}</strong
+                    >
+                    {
+                      __(
+                        "Understand whether your code could be used to improve the AI model. Most enterprise tiers explicitly exclude customer code from training data—but you need to verify this in writing.",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Conversation history:")}</strong> {__("Even if code isn't retained for training, chat histories or session logs might persist. Know where these live and how to purge them if needed.")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Conversation history:")}</strong
+                    >
+                    {
+                      __(
+                        "Even if code isn't retained for training, chat histories or session logs might persist. Know where these live and how to purge them if needed.",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
-              <p class="mt-4 flex items-start gap-2 bg-[#f8f9f7] p-4 rounded-lg border border-border-low">
+              <p
+                class="border-border-low mt-4 flex items-start gap-2 rounded-lg border bg-[#f8f9f7] p-4"
+              >
                 <span>💡</span>
-                <span><strong class="text-foreground">{__("Action item:")}</strong> {__("Create a configuration checklist for each approved AI tool. When developers onboard, they should configure retention settings before writing their first prompt.")}</span>
+                <span
+                  ><strong class="text-foreground">{__("Action item:")}</strong>
+                  {
+                    __(
+                      "Create a configuration checklist for each approved AI tool. When developers onboard, they should configure retention settings before writing their first prompt.",
+                    )
+                  }</span
+                >
               </p>
             </div>
 
             <!-- 3. Enterprise vs. Consumer Tier Differences -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("3. Enterprise vs. Consumer Tier Differences")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("3. Enterprise vs. Consumer Tier Differences")}
+              </h3>
               <p class="mb-4">
-                {__("Here's where startups often stumble: the free or consumer tier of an AI coding assistant typically has very different data handling practices than the enterprise version.")}
+                {
+                  __(
+                    "Here's where startups often stumble: the free or consumer tier of an AI coding assistant typically has very different data handling practices than the enterprise version.",
+                  )
+                }
               </p>
-              
+
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("Consumer/Free tiers commonly:")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("Consumer/Free tiers commonly:")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
                     <span>{__("Retain code snippets for model training")}</span>
@@ -319,7 +585,11 @@ const breadcrumbSchema = {
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span>{__("Provide no data processing agreements (DPAs)")}</span>
+                    <span
+                      >{
+                        __("Provide no data processing agreements (DPAs)")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
@@ -329,8 +599,10 @@ const breadcrumbSchema = {
               </div>
 
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("Enterprise tiers typically include:")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("Enterprise tiers typically include:")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
                     <span>{__("Explicit data retention controls")}</span>
@@ -359,67 +631,152 @@ const breadcrumbSchema = {
               </div>
 
               <p class="mt-4">
-                {__("The cost difference between tiers often seems steep—until you compare it to the cost of failing an audit or losing an enterprise deal. Understanding the")} <a href="/hub/soc2" class="text-[#5d770d] hover:underline">{__("true cost of SOC 2 compliance")}</a> {__("helps put these tool investments in perspective.")}
+                {
+                  __(
+                    "The cost difference between tiers often seems steep—until you compare it to the cost of failing an audit or losing an enterprise deal. Understanding the",
+                  )
+                }
+                <a href="/hub/soc2" class="text-[#5d770d] hover:underline"
+                  >{__("true cost of SOC 2 compliance")}</a
+                >
+                {__("helps put these tool investments in perspective.")}
               </p>
-              <p class="mt-4 flex items-start gap-2 bg-[#f8f9f7] p-4 rounded-lg border border-border-low">
+              <p
+                class="border-border-low mt-4 flex items-start gap-2 rounded-lg border bg-[#f8f9f7] p-4"
+              >
                 <span>💡</span>
-                <span><strong class="text-foreground">{__("Pro tip:")}</strong> {__("If budget constraints force you toward consumer tiers, implement compensating controls. Restrict which repositories can be used with AI tools, require code review before any AI-assisted commits, and document these limitations in your policies.")}</span>
+                <span
+                  ><strong class="text-foreground">{__("Pro tip:")}</strong>
+                  {
+                    __(
+                      "If budget constraints force you toward consumer tiers, implement compensating controls. Restrict which repositories can be used with AI tools, require code review before any AI-assisted commits, and document these limitations in your policies.",
+                    )
+                  }</span
+                >
               </p>
             </div>
 
             <!-- 4. Audit Log and Access Control Requirements -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("4. Audit Log and Access Control Requirements")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("4. Audit Log and Access Control Requirements")}
+              </h3>
               <p class="mb-4">
-                {__("Your auditor will ask: \"How do you know who used AI tools, when, and with what code?\"")}
+                {
+                  __(
+                    'Your auditor will ask: "How do you know who used AI tools, when, and with what code?"',
+                  )
+                }
               </p>
-              
+
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("Strong audit log capabilities should include:")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("Strong audit log capabilities should include:")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("User identification:")}</strong> {__("Which team member initiated each session")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("User identification:")}</strong
+                      >
+                      {__("Which team member initiated each session")}</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Timestamp records:")}</strong> {__("When AI tools were accessed")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Timestamp records:")}</strong
+                      >
+                      {__("When AI tools were accessed")}</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Query logging:")}</strong> {__("What prompts or code snippets were submitted (or at minimum, that queries occurred)")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Query logging:")}</strong
+                      >
+                      {
+                        __(
+                          "What prompts or code snippets were submitted (or at minimum, that queries occurred)",
+                        )
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Response tracking:")}</strong> {__("What the AI returned (for sensitive use cases)")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Response tracking:")}</strong
+                      >
+                      {
+                        __("What the AI returned (for sensitive use cases)")
+                      }</span
+                    >
                   </li>
                 </ul>
               </div>
 
               <div class="mb-4">
-                <p class="font-semibold text-foreground mb-2">{__("For access controls, document:")}</p>
-                <ul class="list-none space-y-2 ml-0">
+                <p class="text-foreground mb-2 font-semibold">
+                  {__("For access controls, document:")}
+                </p>
+                <ul class="ml-0 list-none space-y-2">
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Approval workflows:")}</strong> {__("Who authorizes AI tool access for new team members")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Approval workflows:")}</strong
+                      >
+                      {
+                        __("Who authorizes AI tool access for new team members")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Role-based permissions:")}</strong> {__("Which teams or individuals can use which tools")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Role-based permissions:")}</strong
+                      >
+                      {
+                        __("Which teams or individuals can use which tools")
+                      }</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Offboarding procedures:")}</strong> {__("How access is revoked when employees leave")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Offboarding procedures:")}</strong
+                      >
+                      {__("How access is revoked when employees leave")}</span
+                    >
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-muted-foreground">•</span>
-                    <span><strong class="text-foreground">{__("Regular access reviews:")}</strong> {__("Quarterly verification that only appropriate personnel have access")}</span>
+                    <span
+                      ><strong class="text-foreground"
+                        >{__("Regular access reviews:")}</strong
+                      >
+                      {
+                        __(
+                          "Quarterly verification that only appropriate personnel have access",
+                        )
+                      }</span
+                    >
                   </li>
                 </ul>
               </div>
 
               <p class="mt-4">
-                {__("If your chosen AI tool lacks native audit logging, implement wrapper solutions or require developers to log usage manually. It's not elegant, but it's compliant.")}
+                {
+                  __(
+                    "If your chosen AI tool lacks native audit logging, implement wrapper solutions or require developers to log usage manually. It's not elegant, but it's compliant.",
+                  )
+                }
               </p>
             </div>
           </div>
@@ -428,80 +785,167 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Tool-by-Tool Breakdown -->
-        <section id="tool-breakdown" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="tool-breakdown" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("Tool-by-Tool Breakdown: Claude, Copilot, Cursor, and More")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("Let's examine the major AI coding assistants through a SOC 2 compliance lens. Note that capabilities evolve rapidly—verify current offerings before making decisions.")}
+              {
+                __(
+                  "Let's examine the major AI coding assistants through a SOC 2 compliance lens. Note that capabilities evolve rapidly—verify current offerings before making decisions.",
+                )
+              }
             </p>
 
             <!-- Claude -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Claude (Anthropic)")}</h3>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Claude (Anthropic)")}
+              </h3>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Anthropic has achieved SOC 2 Type II certification for their enterprise offerings")}</span>
+                  <span
+                    >{
+                      __(
+                        "Anthropic has achieved SOC 2 Type II certification for their enterprise offerings",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Claude for Enterprise includes zero-retention options for prompts and outputs")}</span>
+                  <span
+                    >{
+                      __(
+                        "Claude for Enterprise includes zero-retention options for prompts and outputs",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("API usage can be configured with specific data handling requirements")}</span>
+                  <span
+                    >{
+                      __(
+                        "API usage can be configured with specific data handling requirements",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Enterprise plans include SSO, audit logs, and dedicated security reviews")}</span>
+                  <span
+                    >{
+                      __(
+                        "Enterprise plans include SSO, audit logs, and dedicated security reviews",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-3">
-                {__("For SOC 2 compliance, the key is ensuring you're on an appropriate tier with the right configurations enabled. Consumer Claude usage should be explicitly prohibited in your acceptable use policy unless compensating controls exist.")}
+                {
+                  __(
+                    "For SOC 2 compliance, the key is ensuring you're on an appropriate tier with the right configurations enabled. Consumer Claude usage should be explicitly prohibited in your acceptable use policy unless compensating controls exist.",
+                  )
+                }
               </p>
             </div>
 
             <!-- GitHub Copilot -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("GitHub Copilot")}</h3>
-              <p class="mb-3">{__("As the most widely adopted AI coding assistant, Copilot has mature enterprise features:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("GitHub Copilot")}
+              </h3>
+              <p class="mb-3">
+                {
+                  __(
+                    "As the most widely adopted AI coding assistant, Copilot has mature enterprise features:",
+                  )
+                }
+              </p>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Copilot Enterprise and Copilot Business offer code retention controls")}</span>
+                  <span
+                    >{
+                      __(
+                        "Copilot Enterprise and Copilot Business offer code retention controls",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Organizations can disable code snippet collection for model training")}</span>
+                  <span
+                    >{
+                      __(
+                        "Organizations can disable code snippet collection for model training",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Integration with GitHub's existing audit log infrastructure")}</span>
+                  <span
+                    >{
+                      __(
+                        "Integration with GitHub's existing audit log infrastructure",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("SOC 2 Type II certified as part of GitHub's broader compliance program")}</span>
+                  <span
+                    >{
+                      __(
+                        "SOC 2 Type II certified as part of GitHub's broader compliance program",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-3">
-                {__("The critical setting: ensure \"Suggestions matching public code\" blocking is enabled if you're concerned about license compliance alongside security.")}
+                {
+                  __(
+                    'The critical setting: ensure "Suggestions matching public code" blocking is enabled if you\'re concerned about license compliance alongside security.',
+                  )
+                }
               </p>
             </div>
 
             <!-- Cursor -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Cursor")}</h3>
-              <p class="mb-3">{__("The newer entrant has rapidly added enterprise capabilities:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Cursor")}
+              </h3>
+              <p class="mb-3">
+                {
+                  __(
+                    "The newer entrant has rapidly added enterprise capabilities:",
+                  )
+                }
+              </p>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Privacy mode options that prevent code from being stored")}</span>
+                  <span
+                    >{
+                      __(
+                        "Privacy mode options that prevent code from being stored",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Team plans with centralized administration")}</span>
+                  <span>{__("Team plans with centralized administration")}</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -509,30 +953,63 @@ const breadcrumbSchema = {
                 </li>
               </ul>
               <p class="mt-3">
-                {__("Verify current certifications directly with Cursor, as their compliance documentation is evolving with their rapid growth.")}
+                {
+                  __(
+                    "Verify current certifications directly with Cursor, as their compliance documentation is evolving with their rapid growth.",
+                  )
+                }
               </p>
             </div>
 
             <!-- Other Tools -->
             <div class="mt-8">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Other Tools (Codeium, Amazon CodeWhisperer, Tabnine)")}</h3>
-              <p class="mb-3">{__("Each has different compliance postures:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Other Tools (Codeium, Amazon CodeWhisperer, Tabnine)")}
+              </h3>
+              <p class="mb-3">
+                {__("Each has different compliance postures:")}
+              </p>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Amazon CodeWhisperer:")}</strong> {__("Benefits from AWS's extensive compliance certifications; Professional tier includes security scanning")}</span>
+                  <span
+                    ><strong class="text-foreground"
+                      >{__("Amazon CodeWhisperer:")}</strong
+                    >
+                    {
+                      __(
+                        "Benefits from AWS's extensive compliance certifications; Professional tier includes security scanning",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Tabnine:")}</strong> {__("Offers on-premises deployment options for maximum control")}</span>
+                  <span
+                    ><strong class="text-foreground">{__("Tabnine:")}</strong>
+                    {
+                      __(
+                        "Offers on-premises deployment options for maximum control",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span><strong class="text-foreground">{__("Codeium:")}</strong> {__("Enterprise tier includes SOC 2 compliance features")}</span>
+                  <span
+                    ><strong class="text-foreground">{__("Codeium:")}</strong>
+                    {
+                      __("Enterprise tier includes SOC 2 compliance features")
+                    }</span
+                  >
                 </li>
               </ul>
               <p class="mt-3">
-                {__("The common thread: enterprise tiers exist specifically because compliance-conscious organizations demanded them. Budget for these tiers from the start.")}
+                {
+                  __(
+                    "The common thread: enterprise tiers exist specifically because compliance-conscious organizations demanded them. Budget for these tiers from the start.",
+                  )
+                }
               </p>
             </div>
           </div>
@@ -541,40 +1018,89 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- The Open-Source Security Question -->
-        <section id="open-source-security" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="open-source-security" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("The Open-Source Security Question")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("This matters for AI coding tools because many developers use AI assistants to work with open-source dependencies—and because some compliance tools themselves are open-source.")}
+              {
+                __(
+                  "This matters for AI coding tools because many developers use AI assistants to work with open-source dependencies—and because some compliance tools themselves are open-source.",
+                )
+              }
             </p>
             <p>
               {__("Here's the nuanced reality:")}
             </p>
             <p>
-              <strong class="text-foreground">{__("Open-source isn't inherently less secure.")}</strong> {__("In fact, the transparency of open-source code often enables faster vulnerability discovery and patching. The Log4j incident, frequently cited as an open-source failure, was actually an open-source success story—the vulnerability was identified, disclosed, and patched faster than most proprietary software incidents.")}
+              <strong class="text-foreground"
+                >{__("Open-source isn't inherently less secure.")}</strong
+              >
+              {
+                __(
+                  "In fact, the transparency of open-source code often enables faster vulnerability discovery and patching. The Log4j incident, frequently cited as an open-source failure, was actually an open-source success story—the vulnerability was identified, disclosed, and patched faster than most proprietary software incidents.",
+                )
+              }
             </p>
             <p>
-              <strong class="text-foreground">{__("The real risk is unmanaged dependencies.")}</strong> {__("Whether you're using AI to generate code or writing it manually, the security question is: do you know what's in your software supply chain?")}
+              <strong class="text-foreground"
+                >{__("The real risk is unmanaged dependencies.")}</strong
+              >
+              {
+                __(
+                  "Whether you're using AI to generate code or writing it manually, the security question is: do you know what's in your software supply chain?",
+                )
+              }
             </p>
             <p class="mb-3">{__("For SOC 2 compliance, this means:")}</p>
-            <ul class="list-none space-y-3 ml-0">
+            <ul class="ml-0 list-none space-y-3">
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Software composition analysis:")}</strong> {__("Implement tools that inventory open-source dependencies")}</span>
+                <span
+                  ><strong class="text-foreground"
+                    >{__("Software composition analysis:")}</strong
+                  >
+                  {
+                    __(
+                      "Implement tools that inventory open-source dependencies",
+                    )
+                  }</span
+                >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("Vulnerability monitoring:")}</strong> {__("Subscribe to security advisories for your dependencies")}</span>
+                <span
+                  ><strong class="text-foreground"
+                    >{__("Vulnerability monitoring:")}</strong
+                  >
+                  {
+                    __("Subscribe to security advisories for your dependencies")
+                  }</span
+                >
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-muted-foreground">•</span>
-                <span><strong class="text-foreground">{__("AI-generated code review:")}</strong> {__("Treat AI suggestions like any other code—review before committing")}</span>
+                <span
+                  ><strong class="text-foreground"
+                    >{__("AI-generated code review:")}</strong
+                  >
+                  {
+                    __(
+                      "Treat AI suggestions like any other code—review before committing",
+                    )
+                  }</span
+                >
               </li>
             </ul>
             <p class="mt-4">
-              {__("This transparency principle applies to AI tools too. Providers that publish detailed security documentation, undergo regular third-party audits, and engage openly with security researchers deserve more trust than those operating as black boxes.")}
+              {
+                __(
+                  "This transparency principle applies to AI tools too. Providers that publish detailed security documentation, undergo regular third-party audits, and engage openly with security researchers deserve more trust than those operating as black boxes.",
+                )
+              }
             </p>
           </div>
         </section>
@@ -582,23 +1108,43 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Building an AI Acceptable Use Policy -->
-        <section id="acceptable-use-policy" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="acceptable-use-policy" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("Building an AI Acceptable Use Policy for Your Team")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("Documentation is the backbone of SOC 2 compliance. You need a formal AI Acceptable Use Policy that developers acknowledge and follow. Here's a framework:")}
+              {
+                __(
+                  "Documentation is the backbone of SOC 2 compliance. You need a formal AI Acceptable Use Policy that developers acknowledge and follow. Here's a framework:",
+                )
+              }
             </p>
 
             <!-- Section 1 -->
             <div class="mt-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Section 1: Approved Tools")}</h3>
-              <p class="mb-2">{__("List specifically which AI coding assistants are permitted:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Section 1: Approved Tools")}
+              </h3>
+              <p class="mb-2">
+                {
+                  __(
+                    "List specifically which AI coding assistants are permitted:",
+                  )
+                }
+              </p>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Tool name and approved tier (e.g., \"GitHub Copilot Business only\")")}</span>
+                  <span
+                    >{
+                      __(
+                        'Tool name and approved tier (e.g., "GitHub Copilot Business only")',
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -613,9 +1159,11 @@ const breadcrumbSchema = {
 
             <!-- Section 2 -->
             <div class="mt-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Section 2: Prohibited Uses")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Section 2: Prohibited Uses")}
+              </h3>
               <p class="mb-2">{__("Be explicit about what's not allowed:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
                   <span>{__("Consumer/free tiers of approved tools")}</span>
@@ -626,31 +1174,59 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Submitting code containing customer data, credentials, or secrets")}</span>
+                  <span
+                    >{
+                      __(
+                        "Submitting code containing customer data, credentials, or secrets",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Using AI tools with repositories containing sensitive categories")}</span>
+                  <span
+                    >{
+                      __(
+                        "Using AI tools with repositories containing sensitive categories",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <!-- Section 3 -->
             <div class="mt-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Section 3: Required Practices")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Section 3: Required Practices")}
+              </h3>
               <p class="mb-2">{__("Mandate specific behaviors:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Code review requirements for AI-assisted commits")}</span>
+                  <span
+                    >{
+                      __("Code review requirements for AI-assisted commits")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Secret scanning before any AI tool interaction")}</span>
+                  <span
+                    >{
+                      __("Secret scanning before any AI tool interaction")
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Reporting procedures for accidental sensitive data exposure")}</span>
+                  <span
+                    >{
+                      __(
+                        "Reporting procedures for accidental sensitive data exposure",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -661,9 +1237,11 @@ const breadcrumbSchema = {
 
             <!-- Section 4 -->
             <div class="mt-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Section 4: Monitoring and Enforcement")}</h3>
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Section 4: Monitoring and Enforcement")}
+              </h3>
               <p class="mb-2">{__("Explain how compliance is verified:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
                   <span>{__("Audit log review frequency")}</span>
@@ -681,12 +1259,22 @@ const breadcrumbSchema = {
 
             <!-- Section 5 -->
             <div class="mt-6">
-              <h3 class="text-lg font-semibold text-foreground mb-3">{__("Section 5: Incident Response")}</h3>
-              <p class="mb-2">{__("Define what happens when things go wrong:")}</p>
-              <ul class="list-none space-y-2 ml-0">
+              <h3 class="text-foreground mb-3 text-lg font-semibold">
+                {__("Section 5: Incident Response")}
+              </h3>
+              <p class="mb-2">
+                {__("Define what happens when things go wrong:")}
+              </p>
+              <ul class="ml-0 list-none space-y-2">
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Who to contact if sensitive data is accidentally submitted")}</span>
+                  <span
+                    >{
+                      __(
+                        "Who to contact if sensitive data is accidentally submitted",
+                      )
+                    }</span
+                  >
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
@@ -694,16 +1282,34 @@ const breadcrumbSchema = {
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-muted-foreground">•</span>
-                  <span>{__("Integration with broader incident response procedures")}</span>
+                  <span
+                    >{
+                      __(
+                        "Integration with broader incident response procedures",
+                      )
+                    }</span
+                  >
                 </li>
               </ul>
             </div>
 
             <p class="mt-6">
-              {__("Make this policy part of your employee onboarding and require annual re-acknowledgment. Your auditor will want to see both the policy and evidence that employees have agreed to it.")}
+              {
+                __(
+                  "Make this policy part of your employee onboarding and require annual re-acknowledgment. Your auditor will want to see both the policy and evidence that employees have agreed to it.",
+                )
+              }
             </p>
             <p class="mt-4">
-              {__("For guidance on building comprehensive compliance documentation, our")} <a href="/hub/soc2" class="text-[#5d770d] hover:underline">{__("SOC 2 guide")}</a> {__("explains what auditors expect at each stage.")}
+              {
+                __(
+                  "For guidance on building comprehensive compliance documentation, our",
+                )
+              }
+              <a href="/hub/soc2" class="text-[#5d770d] hover:underline"
+                >{__("SOC 2 guide")}</a
+              >
+              {__("explains what auditors expect at each stage.")}
             </p>
           </div>
         </section>
@@ -711,50 +1317,110 @@ const breadcrumbSchema = {
         <hr class="border-border-low mb-12" />
 
         <!-- Conclusion -->
-        <section id="conclusion" class="scroll-mt-24 mb-12">
-          <h2 class="text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.01em] text-foreground mb-6">
+        <section id="conclusion" class="mb-12 scroll-mt-24">
+          <h2
+            class="text-foreground mb-6 text-2xl font-semibold tracking-[-0.01em] sm:text-[1.75rem]"
+          >
             {__("Conclusion: Embrace AI Without Compliance Anxiety")}
           </h2>
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
+          <div class="text-muted-foreground space-y-4 leading-relaxed">
             <p>
-              {__("The question isn't whether your team should use AI coding assistants—that ship has sailed. The question is whether you'll manage that usage proactively or discover compliance gaps during your next audit.")}
+              {
+                __(
+                  "The question isn't whether your team should use AI coding assistants—that ship has sailed. The question is whether you'll manage that usage proactively or discover compliance gaps during your next audit.",
+                )
+              }
             </p>
-            <p class="font-semibold text-foreground">{__("Here's your action summary:")}</p>
-            <ol class="list-decimal list-inside space-y-2">
-              <li><strong class="text-foreground">{__("Audit current usage:")}</strong> {__("Find out which AI tools your team is already using (they probably are, even if unofficially)")}</li>
-              <li><strong class="text-foreground">{__("Standardize on enterprise tiers:")}</strong> {__("Budget for compliant versions of approved tools")}</li>
-              <li><strong class="text-foreground">{__("Configure retention settings:")}</strong> {__("Enable zero-retention or minimal-retention options")}</li>
-              <li><strong class="text-foreground">{__("Document everything:")}</strong> {__("Create your AI Acceptable Use Policy and vendor risk assessments")}</li>
-              <li><strong class="text-foreground">{__("Train your team:")}</strong> {__("Ensure developers understand both the capabilities and the boundaries")}</li>
-              <li><strong class="text-foreground">{__("Monitor and review:")}</strong> {__("Implement regular access reviews and audit log analysis")}</li>
+            <p class="text-foreground font-semibold">
+              {__("Here's your action summary:")}
+            </p>
+            <ol class="list-inside list-decimal space-y-2">
+              <li>
+                <strong class="text-foreground"
+                  >{__("Audit current usage:")}</strong
+                >
+                {
+                  __(
+                    "Find out which AI tools your team is already using (they probably are, even if unofficially)",
+                  )
+                }
+              </li>
+              <li>
+                <strong class="text-foreground"
+                  >{__("Standardize on enterprise tiers:")}</strong
+                >
+                {__("Budget for compliant versions of approved tools")}
+              </li>
+              <li>
+                <strong class="text-foreground"
+                  >{__("Configure retention settings:")}</strong
+                >
+                {__("Enable zero-retention or minimal-retention options")}
+              </li>
+              <li>
+                <strong class="text-foreground"
+                  >{__("Document everything:")}</strong
+                >
+                {
+                  __(
+                    "Create your AI Acceptable Use Policy and vendor risk assessments",
+                  )
+                }
+              </li>
+              <li>
+                <strong class="text-foreground">{__("Train your team:")}</strong
+                >
+                {
+                  __(
+                    "Ensure developers understand both the capabilities and the boundaries",
+                  )
+                }
+              </li>
+              <li>
+                <strong class="text-foreground"
+                  >{__("Monitor and review:")}</strong
+                >
+                {__("Implement regular access reviews and audit log analysis")}
+              </li>
             </ol>
             <p class="mt-4">
-              {__("The compliance automation industry exists because this work is genuinely complex—but it's not impossible. Organizations that figure this out gain both productivity benefits and competitive differentiation.")}
+              {
+                __(
+                  "The compliance automation industry exists because this work is genuinely complex—but it's not impossible. Organizations that figure this out gain both productivity benefits and competitive differentiation.",
+                )
+              }
             </p>
             <p>
-              {__("Your enterprise customers are asking about AI tool usage in security questionnaires. Your auditors are adding AI-specific questions to their procedures. Getting ahead of this curve isn't just about avoiding problems—it's about confidently saying \"yes, we use AI tools, and here's exactly how we manage them.\"")}
+              {
+                __(
+                  "Your enterprise customers are asking about AI tool usage in security questionnaires. Your auditors are adding AI-specific questions to their procedures. Getting ahead of this curve isn't just about avoiding problems—it's about confidently saying \"yes, we use AI tools, and here's exactly how we manage them.\"",
+                )
+              }
             </p>
           </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="bg-[#f8f9f7] p-8 rounded-xl border border-border-low">
+        <section class="border-border-low rounded-xl border bg-[#f8f9f7] p-8">
           <div class="text-center">
-            <p class="text-lg font-semibold text-foreground mb-4">
+            <p class="text-foreground mb-4 text-lg font-semibold">
               {__("Probo does compliance for you")}
             </p>
             <p class="text-muted-foreground mb-6">
-              {__("With Probo's compliance service, we manage every step toward certification, and keep you continuously compliant afterward. Our automated platform tracks changes across your tools and stack, while your dedicated compliance officer meets with you at least once per quarter to review what's new and ensure everything stays up to date.")}
+              {
+                __(
+                  "With Probo's compliance service, we manage every step toward certification, and keep you continuously compliant afterward. Our automated platform tracks changes across your tools and stack, while your dedicated compliance officer meets with you at least once per quarter to review what's new and ensure everything stays up to date.",
+                )
+              }
             </p>
             <a
               href="/contact"
-              class="inline-flex items-center justify-center px-6 py-3 bg-[#D7EDBA] text-[#141e12] font-medium rounded-lg hover:bg-[#c5dba8] transition-colors"
+              class="inline-flex items-center justify-center rounded-lg bg-[#D7EDBA] px-6 py-3 font-medium text-[#141e12] transition-colors hover:bg-[#c5dba8]"
             >
               {__("Get Started with Probo")}
             </a>
           </div>
         </section>
-
       </article>
     </div>
   </main>
@@ -766,7 +1432,13 @@ const breadcrumbSchema = {
     font-weight: 500;
   }
   .highlight-text {
-    background: linear-gradient(180deg, transparent 65%, #f0ff3c 65%, #f0ff3c 85%, transparent 85%);
+    background: linear-gradient(
+      180deg,
+      transparent 65%,
+      #f0ff3c 65%,
+      #f0ff3c 85%,
+      transparent 85%
+    );
     display: inline;
   }
 </style>
@@ -782,7 +1454,7 @@ const breadcrumbSchema = {
     "conclusion",
   ];
 
-  const tocLinks = document.querySelectorAll('.toc-link');
+  const tocLinks = document.querySelectorAll(".toc-link");
 
   // Function to scroll to a specific section
   function scrollToSection(id) {
@@ -796,7 +1468,7 @@ const breadcrumbSchema = {
 
   // Handle scroll to update active section
   function handleScroll() {
-    const sections = sectionIds.map(id => document.getElementById(id));
+    const sections = sectionIds.map((id) => document.getElementById(id));
     const scrollPosition = window.scrollY + 200;
 
     let activeId = sectionIds[0];
@@ -810,20 +1482,20 @@ const breadcrumbSchema = {
     }
 
     // Update active class on TOC links
-    tocLinks.forEach(link => {
-      const linkSection = link.getAttribute('data-section');
+    tocLinks.forEach((link) => {
+      const linkSection = link.getAttribute("data-section");
       if (linkSection === activeId) {
-        link.classList.add('active');
+        link.classList.add("active");
       } else {
-        link.classList.remove('active');
+        link.classList.remove("active");
       }
     });
   }
 
   // Add click handlers to TOC buttons
-  tocLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const sectionId = link.getAttribute('data-section');
+  tocLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const sectionId = link.getAttribute("data-section");
       if (sectionId) {
         scrollToSection(sectionId);
       }
@@ -831,8 +1503,8 @@ const breadcrumbSchema = {
   });
 
   // Listen to scroll events
-  window.addEventListener('scroll', handleScroll);
-  
+  window.addEventListener("scroll", handleScroll);
+
   // Initial call to set active section on page load
   handleScroll();
 </script>

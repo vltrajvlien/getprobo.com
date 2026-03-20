@@ -1,14 +1,15 @@
 ---
-import Page from '../../blog/[id].astro';
+import Page from "../../blog/[id].astro";
 import { getCollection } from "astro:content";
 import { filterLang } from "../../../lib/i18n.ts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", filterLang('fr'));
+  const posts = await getCollection("blog", filterLang("fr"));
   return posts.map((post) => ({
-    params: { id: post.id.split('/').at(-1) },
+    params: { id: post.id.split("/").at(-1) },
     props: { post },
   }));
 }
 ---
+
 <Page {...Astro.props} />

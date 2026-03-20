@@ -14,10 +14,7 @@ interface Props {
 const { items, class: className } = Astro.props;
 
 // Build the full breadcrumb list with Home at the start
-const breadcrumbs: BreadcrumbItem[] = [
-  { label: "Home", href: "/" },
-  ...items,
-];
+const breadcrumbs: BreadcrumbItem[] = [{ label: "Home", href: "/" }, ...items];
 
 // Generate structured data for SEO
 const structuredData = {
@@ -27,13 +24,18 @@ const structuredData = {
     "@type": "ListItem",
     position: index + 1,
     name: item.label,
-    ...(item.href && { item: new URL(getLink(Astro, item.href), Astro.site).toString() }),
+    ...(item.href && {
+      item: new URL(getLink(Astro, item.href), Astro.site).toString(),
+    }),
   })),
 };
 ---
 
 <nav aria-label="Breadcrumb" class:list={["text-sm", className]}>
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <ol class="flex flex-wrap items-center gap-1.5">
     {
       breadcrumbs.map((crumb, index) => {
@@ -62,7 +64,7 @@ const structuredData = {
             ) : (
               <a
                 href={getLink(Astro, crumb.href)}
-                class="text-quaternary transition-colors hover:text-primary"
+                class="text-quaternary hover:text-primary transition-colors"
               >
                 {crumb.label}
               </a>
@@ -73,4 +75,3 @@ const structuredData = {
     }
   </ol>
 </nav>
-

@@ -61,5 +61,10 @@ const smImage2x = await getImage({
     height={props.sm[1]}
     srcset={`${smImage.src} 1x, ${smImage2x.src} 2x`}
   />
-  <img src={mobileImage.src} alt={props.alt} class={props.class} fetchpriority={props.fetchpriority} />
+  <img
+    src={mobileImage.src}
+    alt={props.alt}
+    class={props.class}
+    fetchpriority={props.fetchpriority}
+  />
 </picture>

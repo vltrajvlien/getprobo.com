@@ -16,7 +16,11 @@ This guide shows you how to configure the Probo MCP Server with Cursor, the AI-p
 Click the button below to automatically install the Probo MCP server in Cursor. You'll need to replace `YOUR_PROBO_INSTANCE` with your actual instance URL and `YOUR_API_TOKEN` with your token.
 
 <a href="cursor://anysphere.cursor-deeplink/mcp/install?name=probo&config=eyJ1cmwiOiJodHRwczovL1lPVVJfUFJPQk9fSU5TVEFOQ0UvYXBpL21jcC92MSIsImhlYWRlcnMiOnsiQXV0aG9yaXphdGlvbiI6IkJlYXJlciBZT1VSX0FQSV9UT0tFTiJ9fQo=">
-  <img src="https://cursor.com/deeplink/mcp-install-dark.png" alt="Add to Cursor" style="max-height: 32px" />
+  <img
+    src="https://cursor.com/deeplink/mcp-install-dark.png"
+    alt="Add to Cursor"
+    style="max-height: 32px"
+  />
 </a>
 
 ## Manual Configuration Steps
@@ -35,11 +39,13 @@ First, generate an API token from your Probo instance:
 Cursor stores MCP server configurations in the Cursor settings directory.
 
 **macOS/Linux:**
+
 ```bash
 ~/.cursor/mcp_config.json
 ```
 
 **Windows:**
+
 ```bash
 %USERPROFILE%\.cursor\mcp_config.json
 ```
@@ -64,6 +70,7 @@ Add the Probo MCP server to your Cursor configuration:
 ```
 
 Replace:
+
 - `https://your-probo-instance.com/api/mcp/v1` with your Probo instance URL
 - `your_api_token_here` with the API token you generated
 
@@ -125,7 +132,11 @@ Create a `.cursor/mcp_config.json` file in your project root for project-specifi
   "mcpServers": {
     "probo": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "${PROBO_PROJECT_URL}/api/mcp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch",
+        "${PROBO_PROJECT_URL}/api/mcp"
+      ],
       "env": {
         "PROBO_API_TOKEN": "${PROBO_PROJECT_TOKEN}"
       }
@@ -207,7 +218,11 @@ Configure multiple environments:
   "mcpServers": {
     "probo-dev": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "http://localhost:8080/api/mcp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch",
+        "http://localhost:8080/api/mcp"
+      ],
       "env": {
         "PROBO_API_TOKEN": "${PROBO_DEV_TOKEN}"
       },
@@ -215,7 +230,11 @@ Configure multiple environments:
     },
     "probo-prod": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://probo.company.com/api/mcp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch",
+        "https://probo.company.com/api/mcp"
+      ],
       "env": {
         "PROBO_API_TOKEN": "${PROBO_PROD_TOKEN}"
       },
@@ -263,7 +282,7 @@ Create `.vscode/settings.json` (Cursor uses VS Code format):
 // Cmd+L: "Create a React component that displays Probo risks"
 
 // Cursor generates:
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function RiskDashboard() {
   const [risks, setRisks] = useState([]);
@@ -367,6 +386,7 @@ Then restart Cursor.
 ## Security Best Practices
 
 1. **Use environment variables** for tokens:
+
    ```json
    {
      "env": {
@@ -376,6 +396,7 @@ Then restart Cursor.
    ```
 
 2. **Don't commit tokens** to version control:
+
    ```gitignore
    # .gitignore
    .cursor/mcp_config.json
@@ -387,6 +408,7 @@ Then restart Cursor.
 4. **Rotate tokens** regularly
 
 5. **Set appropriate file permissions**:
+
    ```bash
    chmod 600 ~/.cursor/mcp_config.json
    ```

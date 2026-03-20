@@ -24,7 +24,18 @@ if (project.trailingSlash === "never")
     aria-label={Astro.locals.t("search.label")}
     aria-keyshortcuts="Control+K"
   >
-    <svg aria-hidden="true" class="astro-v37mnknz astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"></path></svg>
+    <svg
+      aria-hidden="true"
+      class="astro-v37mnknz astro-c6vsoqas"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      style="--sl-icon-size: 1em;"
+      ><path
+        d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"
+      ></path></svg
+    >
     <span class="sl-hidden md:sl-block" aria-hidden="true"
       >{Astro.locals.t("search.label")}</span
     >
@@ -89,7 +100,7 @@ if (project.trailingSlash === "never")
     closeBtn: HTMLButtonElement | null = null;
     dialog: HTMLDialogElement | null = null;
     dialogFrame: HTMLDivElement | null = null;
-    finder: null | {destroy: () => void} = null;
+    finder: null | { destroy: () => void } = null;
 
     /** Close the modal if a user clicks on a link or outside of the modal. */
     onClick = (event: MouseEvent) => {
@@ -130,7 +141,7 @@ if (project.trailingSlash === "never")
     disconnectedCallback() {
       window.removeEventListener("click", this.onClick);
       window.removeEventListener("keydown", this.onKeyDown);
-      this.finder?.destroy()
+      this.finder?.destroy();
     }
 
     connectedCallback() {

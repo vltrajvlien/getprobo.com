@@ -9,9 +9,9 @@ export function removeTranslatedDoc(): AstroIntegration {
     name: "remove-translated-doc",
     hooks: {
       "astro:build:done": async ({ pages, assets }) => {
-        for (const page of assets.get('/[...slug]') ?? []) {
-          if (page.pathname.includes('/fr/docs')) {
-            rmSync(page.pathname)
+        for (const page of assets.get("/[...slug]") ?? []) {
+          if (page.pathname.includes("/fr/docs")) {
+            rmSync(page.pathname);
           }
         }
       },

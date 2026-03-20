@@ -3,21 +3,23 @@ interface CookieOptions {
   path?: string;
   domain?: string;
   secure?: boolean;
-  sameSite?: 'Strict' | 'Lax' | 'None';
+  sameSite?: "Strict" | "Lax" | "None";
 }
 
 const defaultCookieOptions: CookieOptions = {
-  path: '/'
+  path: "/",
 };
 
 /**
  * Read a cookie value by name
  */
 function getCookie(name: string): string | null {
-  if (typeof document === 'undefined') return null;
+  if (typeof document === "undefined") return null;
 
   const matches = document.cookie.match(
-    new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+    new RegExp(
+      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)",
+    ),
   );
   return matches ? decodeURIComponent(matches[1]) : null;
 }
@@ -25,21 +27,26 @@ function getCookie(name: string): string | null {
 /**
  * Write a cookie with options
  */
-function setCookie(name: string, value: string, options: CookieOptions = {}): void {
-  if (typeof document === 'undefined') return;
+function setCookie(
+  name: string,
+  value: string,
+  options: CookieOptions = {},
+): void {
+  if (typeof document === "undefined") return;
 
   const config: CookieOptions = {
     ...defaultCookieOptions,
-    ...options
+    ...options,
   };
 
-  let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+  let updatedCookie =
+    encodeURIComponent(name) + "=" + encodeURIComponent(value);
 
   for (const [key, val] of Object.entries(config)) {
     if (val === undefined) continue;
-    updatedCookie += '; ' + key;
+    updatedCookie += "; " + key;
     if (val !== true) {
-      updatedCookie += '=' + val;
+      updatedCookie += "=" + val;
     }
   }
 
@@ -49,8 +56,11 @@ function setCookie(name: string, value: string, options: CookieOptions = {}): vo
 /**
  * Delete a cookie by name
  */
-function deleteCookie(name: string, options: Pick<CookieOptions, 'path' | 'domain'> = {}): void {
-  setCookie(name, '', { ...options, maxAge: -1 });
+function deleteCookie(
+  name: string,
+  options: Pick<CookieOptions, "path" | "domain"> = {},
+): void {
+  setCookie(name, "", { ...options, maxAge: -1 });
 }
 
 /**
@@ -58,8 +68,8 @@ function deleteCookie(name: string, options: Pick<CookieOptions, 'path' | 'domai
  */
 export function useCookie(
   key: string,
-  defaultValue: string = '',
-  options: CookieOptions = {}
+  defaultValue: string = "",
+  options: CookieOptions = {},
 ) {
   // Initialize state with cookie value or default
   const initialValue = getCookie(key) ?? defaultValue;

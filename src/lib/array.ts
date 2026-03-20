@@ -23,6 +23,5 @@ export function random<T>(array: T[], size: number): T[] {
     const index = Math.floor(Math.random() * copy.length);
     output.push(copy.splice(index, 1)[0]);
   }
-  return output
-
+  return output;
 }

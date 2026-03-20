@@ -21,63 +21,66 @@ const canonical = getCanonicalUrl(Astro.url);
 
 // Pages that have French translations
 const frenchTranslatedPages = [
-  '/',
-  '/about',
-  '/blog',
-  '/brand',
-  '/contact',
-  '/cookie-policy',
-  '/privacy',
-  '/stories',
-  '/terms',
-  '/yc',
+  "/",
+  "/about",
+  "/blog",
+  "/brand",
+  "/contact",
+  "/cookie-policy",
+  "/privacy",
+  "/stories",
+  "/terms",
+  "/yc",
 ];
 
 // Check if current page has a French translation
 function hasTranslation(pathname: string): boolean {
-  const currentLocale = Astro.currentLocale || 'en';
-  
+  const currentLocale = Astro.currentLocale || "en";
+
   // Normalize pathname (remove /fr prefix if present)
   let normalizedPath = pathname;
-  if (normalizedPath.startsWith('/fr')) {
-    normalizedPath = normalizedPath.slice(3) || '/';
+  if (normalizedPath.startsWith("/fr")) {
+    normalizedPath = normalizedPath.slice(3) || "/";
   }
-  
+
   // Check static pages
   if (frenchTranslatedPages.includes(normalizedPath)) {
     return true;
   }
-  
+
   // Check dynamic pages (blog posts, stories)
-  if (normalizedPath.startsWith('/blog/') || normalizedPath.startsWith('/stories/')) {
+  if (
+    normalizedPath.startsWith("/blog/") ||
+    normalizedPath.startsWith("/stories/")
+  ) {
     return true;
   }
-  
+
   return false;
 }
 
 // Generate hreflang URLs
 function getHreflangUrls(url: URL): { en: string; fr: string } | null {
   const pathname = url.pathname;
-  
+
   if (!hasTranslation(pathname)) {
     return null;
   }
-  
-  const baseUrl = 'https://www.getprobo.com';
+
+  const baseUrl = "https://www.getprobo.com";
   let enPath = pathname;
   let frPath = pathname;
-  
+
   // If we're on a French page, extract the English path
-  if (pathname.startsWith('/fr')) {
-    enPath = pathname.slice(3) || '/';
+  if (pathname.startsWith("/fr")) {
+    enPath = pathname.slice(3) || "/";
     frPath = pathname;
   } else {
     // We're on an English page
     enPath = pathname;
-    frPath = pathname === '/' ? '/fr' : `/fr${pathname}`;
+    frPath = pathname === "/" ? "/fr" : `/fr${pathname}`;
   }
-  
+
   return {
     en: `${baseUrl}${enPath}`,
     fr: `${baseUrl}${frPath}`,
@@ -115,84 +118,123 @@ const hreflangUrls = getHreflangUrls(Astro.url);
       content="SOC 2 compliance,GDPR compliance,HIPAA compliance,ISO 27001 certification,ISO 42001 certification,ISO 27701 certification,compliance automation,security compliance,compliance management software,startup compliance,open source compliance,compliance audit,Y Combinator startup,security certification,data privacy compliance"
     />
     <meta name="creator" content="Probo" />
-    <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+    <meta
+      name="robots"
+      content={noIndex ? "noindex, nofollow" : "index, follow"}
+    />
     <meta
       name="googlebot"
-      content={noIndex ? "noindex, nofollow" : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}
+      content={noIndex
+        ? "noindex, nofollow"
+        : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}
     />
     <link rel="canonical" href={canonical} />
-    {hreflangUrls && (
-      <>
-        <link rel="alternate" hreflang="en" href={hreflangUrls.en} />
-        <link rel="alternate" hreflang="fr" href={hreflangUrls.fr} />
-        <link rel="alternate" hreflang="x-default" href={hreflangUrls.en} />
-      </>
-    )}
+    {
+      hreflangUrls && (
+        <>
+          <link rel="alternate" hreflang="en" href={hreflangUrls.en} />
+          <link rel="alternate" hreflang="fr" href={hreflangUrls.fr} />
+          <link rel="alternate" hreflang="x-default" href={hreflangUrls.en} />
+        </>
+      )
+    }
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Probo" />
-    <meta property="og:locale" content={(Astro.currentLocale || "en") === "fr" ? "fr_FR" : "en_US"} />
+    <meta
+      property="og:locale"
+      content={(Astro.currentLocale || "en") === "fr" ? "fr_FR" : "en_US"}
+    />
     <meta property="og:title" content={seoTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage ? `https://www.getprobo.com${ogImage}` : "https://www.getprobo.com/og.png"} />
+    <meta
+      property="og:image"
+      content={ogImage
+        ? `https://www.getprobo.com${ogImage}`
+        : "https://www.getprobo.com/og.png"}
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title || "Probo - Open-Source Compliance Platform"} />
+    <meta
+      property="og:image:alt"
+      content={title || "Probo - Open-Source Compliance Platform"}
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@getprobo" />
     <meta name="twitter:creator" content="@getprobo" />
     <meta name="twitter:title" content={seoTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage ? `https://www.getprobo.com${ogImage}` : "https://www.getprobo.com/og.png"} />
+    <meta
+      name="twitter:image"
+      content={ogImage
+        ? `https://www.getprobo.com${ogImage}`
+        : "https://www.getprobo.com/og.png"}
+    />
 
     <!-- JSON-LD Organization Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Probo",
-      "url": "https://www.getprobo.com",
-      "logo": "https://www.getprobo.com/probo-logo.svg",
-      "description": "Open-source compliance automation platform for SOC 2, ISO 27001, GDPR, and HIPAA certifications. Expert-led, done-for-you compliance services backed by Y Combinator.",
-      "foundingDate": "2024",
-      "founders": [
-        { "@type": "Person", "name": "Antoine Bouchardy", "url": "https://linkedin.com/in/antoinebouchardy" },
-        { "@type": "Person", "name": "Bryan Frimin", "url": "https://linkedin.com/in/gearnode" }
-      ],
-      "sameAs": [
-        "https://github.com/getprobo/probo",
-        "https://www.linkedin.com/company/getprobo",
-        "https://twitter.com/getprobo",
-        "https://discord.com/invite/8qfdJYfvpY",
-        "https://www.ycombinator.com/companies/probo"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "url": "https://www.getprobo.com/contact",
-        "availableLanguage": ["English", "French"]
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Probo",
+        url: "https://www.getprobo.com",
+        logo: "https://www.getprobo.com/probo-logo.svg",
+        description:
+          "Open-source compliance automation platform for SOC 2, ISO 27001, GDPR, and HIPAA certifications. Expert-led, done-for-you compliance services backed by Y Combinator.",
+        foundingDate: "2024",
+        founders: [
+          {
+            "@type": "Person",
+            name: "Antoine Bouchardy",
+            url: "https://linkedin.com/in/antoinebouchardy",
+          },
+          {
+            "@type": "Person",
+            name: "Bryan Frimin",
+            url: "https://linkedin.com/in/gearnode",
+          },
+        ],
+        sameAs: [
+          "https://github.com/getprobo/probo",
+          "https://www.linkedin.com/company/getprobo",
+          "https://twitter.com/getprobo",
+          "https://discord.com/invite/8qfdJYfvpY",
+          "https://www.ycombinator.com/companies/probo",
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          url: "https://www.getprobo.com/contact",
+          availableLanguage: ["English", "French"],
+        },
+      })}
+    />
 
     <!-- JSON-LD SoftwareApplication Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Probo",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Any",
-      "description": "Open-source compliance automation platform for SOC 2, ISO 27001, GDPR, and HIPAA.",
-      "url": "https://github.com/getprobo/probo",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Probo",
-        "url": "https://www.getprobo.com"
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Probo",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Any",
+        description:
+          "Open-source compliance automation platform for SOC 2, ISO 27001, GDPR, and HIPAA.",
+        url: "https://github.com/getprobo/probo",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        author: {
+          "@type": "Organization",
+          name: "Probo",
+          url: "https://www.getprobo.com",
+        },
+      })}
+    />
 
     <PostHog />
 

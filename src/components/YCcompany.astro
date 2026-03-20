@@ -1,13 +1,13 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 type Props = {
   logo: ImageMetadata;
   badge: string;
   name: string;
   href: string;
-  height?: number
-}
+  height?: number;
+};
 ---
 
 <a
@@ -24,7 +24,9 @@ type Props = {
       height={Astro.props.height ?? 28}
     />
   </div>
-  <div class="text-xxs bg-highlight text-muted-foreground w-max rounded-full px-2">
+  <div
+    class="text-xxs bg-highlight text-muted-foreground w-max rounded-full px-2"
+  >
     {Astro.props.badge}
   </div>
 </a>

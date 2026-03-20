@@ -8,15 +8,15 @@ This is the marketing website and documentation portal for [Probo](https://www.g
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Astro 5 | Meta-framework for static/dynamic site generation |
-| Svelte 5 | Interactive components with runes syntax |
-| TypeScript | Type safety throughout |
-| Tailwind CSS 4 | Utility-first styling |
-| Starlight | Documentation theme |
-| MDX | Content authoring |
-| Cloudflare Pages | Hosting and edge functions |
+| Technology       | Purpose                                           |
+| ---------------- | ------------------------------------------------- |
+| Astro 5          | Meta-framework for static/dynamic site generation |
+| Svelte 5         | Interactive components with runes syntax          |
+| TypeScript       | Type safety throughout                            |
+| Tailwind CSS 4   | Utility-first styling                             |
+| Starlight        | Documentation theme                               |
+| MDX              | Content authoring                                 |
+| Cloudflare Pages | Hosting and edge functions                        |
 
 ## Commands
 
@@ -105,6 +105,7 @@ const __ = await getTranslator(Astro.currentLocale);
 ### Content Collections
 
 Blog and stories use MDX with Zod schemas for validation. Stories require:
+
 - `title`, `date`, `impacts[]`, `image`, `framework`, `logo`, `company{}`
 
 ### Styling
@@ -127,13 +128,13 @@ const button = tv({
 
 ## Content Locations
 
-| Content Type | Location | Format |
-|--------------|----------|--------|
-| Blog posts | `src/content/blog/` | MDX |
+| Content Type     | Location               | Format          |
+| ---------------- | ---------------------- | --------------- |
+| Blog posts       | `src/content/blog/`    | MDX             |
 | Customer stories | `src/content/stories/` | MDX with schema |
-| Documentation | `src/content/docs/` | MDX (Starlight) |
-| Translations | `src/locales/` | TypeScript |
-| Framework data | `public/frameworks/` | JSON |
+| Documentation    | `src/content/docs/`    | MDX (Starlight) |
+| Translations     | `src/locales/`         | TypeScript      |
+| Framework data   | `public/frameworks/`   | JSON            |
 
 ## Important Notes
 

@@ -6,13 +6,13 @@ export class AnimatedHero extends HTMLElement {
   private canvas: HTMLCanvasElement;
   // @ts-expect-error It is initialized
   private shapes: Shape[];
-  private isVisible: boolean = false
-  private observer: IntersectionObserver | null = null
+  private isVisible: boolean = false;
+  private observer: IntersectionObserver | null = null;
 
   connectedCallback() {
     this.canvas = document.createElement("canvas");
     this.canvas.setAttribute("class", "absolute inset-0 -z-1 blur-[100px]");
-    this.canvas.style.setProperty('background', "#F8FAF4")
+    this.canvas.style.setProperty("background", "#F8FAF4");
     this.append(this.canvas);
 
     const rect = this.getBoundingClientRect();
@@ -22,27 +22,29 @@ export class AnimatedHero extends HTMLElement {
     for (let i = 0; i < 2; i++) {
       this.shapes.push(new Shape(this.canvas));
     }
-    this.canvas.animate([
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      }],
-      { duration: 1000},
+    this.canvas.animate(
+      [
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        },
+      ],
+      { duration: 1000 },
     );
     window.addEventListener("resize", this.resize);
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        this.isVisible = entry.isIntersecting
-        this.draw()
-      })
-    })
-    this.observer.observe(this)
+        this.isVisible = entry.isIntersecting;
+        this.draw();
+      });
+    });
+    this.observer.observe(this);
   }
 
   draw() {
-    const ctx = this.canvas.getContext('2d')
+    const ctx = this.canvas.getContext("2d");
     if (!ctx) {
       return;
     }
@@ -58,7 +60,7 @@ export class AnimatedHero extends HTMLElement {
 
   disconnectedCallback() {
     window.removeEventListener("resize", this.resize);
-    this.observer?.unobserve(this)
+    this.observer?.unobserve(this);
     this.observer = null;
   }
 

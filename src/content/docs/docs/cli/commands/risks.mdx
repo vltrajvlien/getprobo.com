@@ -16,19 +16,19 @@ prb risk create \
   --inherent-impact 5
 ```
 
-| Flag | Required | Description |
-|---|---|---|
-| `--name` | Yes* | Risk name |
-| `--category` | Yes* | Risk category |
-| `--treatment` | Yes* | Treatment strategy: `MITIGATED`, `ACCEPTED`, `AVOIDED`, `TRANSFERRED` |
-| `--inherent-likelihood` | No | Inherent likelihood score (1–5) |
-| `--inherent-impact` | No | Inherent impact score (1–5) |
-| `--residual-likelihood` | No | Residual likelihood score (1–5) |
-| `--residual-impact` | No | Residual impact score (1–5) |
-| `--org` | No | Organization ID |
-| `--description` | No | Risk description |
-| `--note` | No | Additional notes |
-| `--owner` | No | Risk owner (user ID) |
+| Flag                    | Required | Description                                                           |
+| ----------------------- | -------- | --------------------------------------------------------------------- |
+| `--name`                | Yes\*    | Risk name                                                             |
+| `--category`            | Yes\*    | Risk category                                                         |
+| `--treatment`           | Yes\*    | Treatment strategy: `MITIGATED`, `ACCEPTED`, `AVOIDED`, `TRANSFERRED` |
+| `--inherent-likelihood` | No       | Inherent likelihood score (1–5)                                       |
+| `--inherent-impact`     | No       | Inherent impact score (1–5)                                           |
+| `--residual-likelihood` | No       | Residual likelihood score (1–5)                                       |
+| `--residual-impact`     | No       | Residual impact score (1–5)                                           |
+| `--org`                 | No       | Organization ID                                                       |
+| `--description`         | No       | Risk description                                                      |
+| `--note`                | No       | Additional notes                                                      |
+| `--owner`               | No       | Risk owner (user ID)                                                  |
 
 \* Prompted interactively if not provided.
 
@@ -38,14 +38,14 @@ prb risk create \
 prb risk list
 ```
 
-| Flag | Default | Description |
-|---|---|---|
-| `--org` | — | Organization ID |
-| `--limit`, `-L` | 30 | Maximum number of results |
-| `--order-by` | `CREATED_AT` | Sort field: `CREATED_AT`, `NAME`, `CATEGORY`, `TREATMENT`, `INHERENT_RISK_SCORE`, `RESIDUAL_RISK_SCORE` |
-| `--order-direction` | `DESC` | Sort direction: `ASC` or `DESC` |
-| `--filter`, `-q` | — | Filter risks by text |
-| `--output` | — | Output format |
+| Flag                | Default      | Description                                                                                             |
+| ------------------- | ------------ | ------------------------------------------------------------------------------------------------------- |
+| `--org`             | —            | Organization ID                                                                                         |
+| `--limit`, `-L`     | 30           | Maximum number of results                                                                               |
+| `--order-by`        | `CREATED_AT` | Sort field: `CREATED_AT`, `NAME`, `CATEGORY`, `TREATMENT`, `INHERENT_RISK_SCORE`, `RESIDUAL_RISK_SCORE` |
+| `--order-direction` | `DESC`       | Sort direction: `ASC` or `DESC`                                                                         |
+| `--filter`, `-q`    | —            | Filter risks by text                                                                                    |
+| `--output`          | —            | Output format                                                                                           |
 
 ## View a risk
 
@@ -55,8 +55,8 @@ prb risk view RISK_ID
 
 Displays the risk details including inherent and residual scores, likelihood, and impact.
 
-| Flag | Description |
-|---|---|
+| Flag             | Description   |
+| ---------------- | ------------- |
 | `--output`, `-o` | Output format |
 
 ## Update a risk
@@ -65,18 +65,18 @@ Displays the risk details including inherent and residual scores, likelihood, an
 prb risk update RISK_ID --treatment ACCEPTED --residual-likelihood 2 --residual-impact 3
 ```
 
-| Flag | Description |
-|---|---|
-| `--name` | Updated risk name |
-| `--category` | Updated category |
-| `--treatment` | Updated treatment strategy |
+| Flag                    | Description                       |
+| ----------------------- | --------------------------------- |
+| `--name`                | Updated risk name                 |
+| `--category`            | Updated category                  |
+| `--treatment`           | Updated treatment strategy        |
 | `--inherent-likelihood` | Updated inherent likelihood (1–5) |
-| `--inherent-impact` | Updated inherent impact (1–5) |
+| `--inherent-impact`     | Updated inherent impact (1–5)     |
 | `--residual-likelihood` | Updated residual likelihood (1–5) |
-| `--residual-impact` | Updated residual impact (1–5) |
-| `--description` | Updated description |
-| `--note` | Updated notes |
-| `--owner` | Updated owner |
+| `--residual-impact`     | Updated residual impact (1–5)     |
+| `--description`         | Updated description               |
+| `--note`                | Updated notes                     |
+| `--owner`               | Updated owner                     |
 
 ## Delete a risk
 

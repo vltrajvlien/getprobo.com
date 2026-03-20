@@ -1,13 +1,13 @@
 ---
 import { filterLang } from "../../lib/i18n.ts";
-export async function getStaticPaths(param: {routePattern: string}) {
-  const stories = await getCollection("stories", filterLang('en'));
+export async function getStaticPaths(param: { routePattern: string }) {
+  const stories = await getCollection("stories", filterLang("en"));
   return stories.map((item) => ({
-    params: { id: item.id},
+    params: { id: item.id },
     props: { item },
   }));
 }
-import Page from './_page.astro'
+import Page from "./_page.astro";
 import { getCollection } from "astro:content";
 ---
 

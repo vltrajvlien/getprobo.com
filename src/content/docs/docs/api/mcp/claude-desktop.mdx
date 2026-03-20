@@ -27,11 +27,13 @@ First, generate an API token from your Probo instance:
 The Claude Desktop configuration file location depends on your operating system:
 
 **macOS:**
+
 ```bash
 ~/Library/Application Support/Claude/claude_desktop_config.json
 ```
 
 **Windows:**
+
 ```bash
 %APPDATA%\Claude\claude_desktop_config.json
 ```
@@ -59,6 +61,7 @@ Edit the `claude_desktop_config.json` file and add the Probo MCP server configur
 ```
 
 Replace:
+
 - `https://your-probo-instance.com/api/mcp/v1` with your Probo instance URL (note the `/v1` suffix)
 - `your_api_token_here` with the API token you generated
 
@@ -86,6 +89,7 @@ You can also check the MCP server status by looking for the Probo server in Clau
 Once configured, you can interact with your Probo data naturally:
 
 ### List Risks
+
 ```
 You: "Show me all high-priority risks in my organization"
 
@@ -99,6 +103,7 @@ Here are the high-priority risks:
 ```
 
 ### Add a Vendor
+
 ```
 You: "Add a new vendor called 'CloudStore Inc' that provides storage services"
 
@@ -109,6 +114,7 @@ Successfully added CloudStore Inc as a vendor.
 ```
 
 ### Track Compliance Measures
+
 ```
 You: "What compliance measures are currently in progress?"
 
@@ -135,15 +141,16 @@ If the Probo MCP server doesn't appear:
 **View Claude Desktop Logs:**
 
 **macOS:**
+
 ```bash
 tail -f ~/Library/Logs/Claude/mcp*.log
 ```
 
 **Windows:**
+
 ```bash
 type %APPDATA%\Claude\logs\mcp*.log
 ```
-
 
 ### Connection Timeouts
 

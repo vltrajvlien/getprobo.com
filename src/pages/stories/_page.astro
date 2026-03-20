@@ -10,9 +10,9 @@ import { random } from "../../lib/array";
 import StoryCard from "../../components/StoryCard.astro";
 import { filterLang } from "../../lib/i18n.ts";
 type Props = {
-  item: CollectionEntry<'stories'>
-}
-const { item } = Astro.props
+  item: CollectionEntry<"stories">;
+};
+const { item } = Astro.props;
 const { Content } = await render(item);
 const data = item.data;
 const images = dynamicImages(
@@ -22,36 +22,47 @@ const images = dynamicImages(
 );
 const image = images(data.image);
 const logo = images(data.logo);
-const stories = random((await getCollection("stories", filterLang(Astro.currentLocale))).filter(s => s.id !== item.id), 3);
+const stories = random(
+  (await getCollection("stories", filterLang(Astro.currentLocale))).filter(
+    (s) => s.id !== item.id,
+  ),
+  3,
+);
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": data.title,
-  ...(data.description && { "description": data.description }),
-  "datePublished": data.date.toISOString(),
-  "author": {
+  headline: data.title,
+  ...(data.description && { description: data.description }),
+  datePublished: data.date.toISOString(),
+  author: {
     "@type": "Organization",
-    "name": "Probo",
-    "url": "https://www.getprobo.com"
+    name: "Probo",
+    url: "https://www.getprobo.com",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Probo",
-    "logo": {
+    name: "Probo",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://www.getprobo.com/probo-logo.svg"
-    }
+      url: "https://www.getprobo.com/probo-logo.svg",
+    },
   },
-  "mainEntityOfPage": {
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": Astro.url.toString()
+    "@id": Astro.url.toString(),
   },
-  "image": data.ogImage ? `https://www.getprobo.com${data.ogImage}` : "https://www.getprobo.com/og.png"
+  image: data.ogImage
+    ? `https://www.getprobo.com${data.ogImage}`
+    : "https://www.getprobo.com/og.png",
 };
 ---
 
-<Layout title={item.data.title} description={item.data.description} ogImage={item.data.ogImage}>
+<Layout
+  title={item.data.title}
+  description={item.data.description}
+  ogImage={item.data.ogImage}
+>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <header class="relative flex h-115 flex-col justify-end sm:h-163">
     <Image
@@ -68,11 +79,11 @@ const articleSchema = {
       <Image
         src={logo}
         height={23}
-        class="invert animate-perspective-in"
+        class="animate-perspective-in invert"
         alt={`Logo ${data.company.name}`}
       />
       <h1
-        class="text-h3 text-invert sm:text-h2 font-medium animate-perspective-in animation-delay-100"
+        class="text-h3 text-invert sm:text-h2 animate-perspective-in animation-delay-100 font-medium"
       >
         {data.title}
       </h1>
@@ -85,8 +96,16 @@ const articleSchema = {
     {
       data.impacts.map((impact, k) => (
         <div>
-          <div class="text-h4 sm:text-invert font-medium animate-perspective-in" style={`animation-delay: ${k * 100 + 200}ms`}>{impact.title}</div>
-          <div class="text-muted-foreground sm:text-tertiary-foreground text-lg animate-perspective-in" style={`animation-delay: ${k * 100 + 200}ms`}>
+          <div
+            class="text-h4 sm:text-invert animate-perspective-in font-medium"
+            style={`animation-delay: ${k * 100 + 200}ms`}
+          >
+            {impact.title}
+          </div>
+          <div
+            class="text-muted-foreground sm:text-tertiary-foreground animate-perspective-in text-lg"
+            style={`animation-delay: ${k * 100 + 200}ms`}
+          >
             {impact.label}
           </div>
         </div>
@@ -95,7 +114,7 @@ const articleSchema = {
   </div>
 
   <main
-    class="container flex grid-cols-[1fr_320px] flex-col gap-10 sm:my-20 sm:grid sm:gap-20 animate-slide-in animation-delay-400"
+    class="animate-slide-in animation-delay-400 container flex grid-cols-[1fr_320px] flex-col gap-10 sm:my-20 sm:grid sm:gap-20"
   >
     <Prose>
       <Content />
@@ -103,7 +122,12 @@ const articleSchema = {
     <hr class="-mr-5 sm:hidden" />
     <aside class="@container space-y-6 text-xs">
       <div class="space-y-2">
-        <Sharer client:only url={Astro.url.toString()} title={data.title} class="items-start text-start" />
+        <Sharer
+          client:only
+          url={Astro.url.toString()}
+          title={data.title}
+          class="items-start text-start"
+        />
       </div>
       <div class="space-y-2">
         <div class="font-medium">Company name</div>
@@ -117,7 +141,7 @@ const articleSchema = {
         <div class="font-medium">Company type</div>
         <div class="text-muted-foreground">{data.company.type}</div>
       </div>
-      <div class="space-y-2 mb-10">
+      <div class="mb-10 space-y-2">
         <div class="font-medium">About the company</div>
         <div class="text-muted-foreground">{data.company.about}</div>
       </div>
@@ -126,17 +150,16 @@ const articleSchema = {
   </main>
 
   <div class="container mb-10 sm:mb-20">
-    <hr  class="my-10 sm:my-20"/>
+    <hr class="my-10 sm:my-20" />
     <aside>
-      <h2 class="text-h3 text-center sm:text-start font-medium mb-6 sm:mb-10">Explore more stories</h2>
+      <h2 class="text-h3 mb-6 text-center font-medium sm:mb-10 sm:text-start">
+        Explore more stories
+      </h2>
       <div class="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6">
-        {stories.map(story => (
-          <StoryCard story={story} size="relative"/>
-        ))}
+        {stories.map((story) => <StoryCard story={story} size="relative" />)}
       </div>
     </aside>
   </div>
-
 </Layout>
 
 <style>

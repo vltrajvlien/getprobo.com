@@ -3,7 +3,7 @@ title: Integrations
 description: Connect the Probo MCP Server to your preferred AI assistant or code editor
 ---
 
-import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 The Probo MCP Server can be integrated with various AI assistants and code editors. Choose your platform below to get started.
 
@@ -34,6 +34,7 @@ Connect Probo to your favorite AI assistant to manage compliance data through na
 **Best for:** Natural language compliance queries, report generation, risk assessments
 
 **Features:**
+
 - Direct access to all 32 Probo tools
 - Native understanding of compliance terminology
 - Long context windows for detailed analysis
@@ -51,6 +52,7 @@ Connect Probo to your favorite AI assistant to manage compliance data through na
 **Best for:** Custom applications, automation scripts, GPT actions
 
 **Features:**
+
 - Function calling integration
 - Custom GPT creation
 - API-based workflows
@@ -87,6 +89,7 @@ Integrate Probo directly into your development environment for compliance-aware 
 **Best for:** Compliance-aware code generation, inline documentation
 
 **Features:**
+
 - Code generation with compliance context
 - Inline risk annotations
 - Automated compliance checks
@@ -104,6 +107,7 @@ Integrate Probo directly into your development environment for compliance-aware 
 **Best for:** Custom workflows, enterprise environments
 
 **Features:**
+
 - Continue.dev AI assistant integration
 - Custom extension development
 - Full VS Code ecosystem access
@@ -112,17 +116,17 @@ Integrate Probo directly into your development environment for compliance-aware 
 
 Choose the right integration for your needs:
 
-| Platform | Setup Difficulty | Native MCP |
-|----------|-----------------|------------|
-| **Claude Desktop** | Easy | ✅ Yes |
-| **Claude Code** | Easy | ✅ Yes |
-| **Cursor** | Easy | ✅ Yes |
-| **Windsurf** | Easy | ✅ Yes |
-| **Zed** | Easy | ✅ Yes |
-| **Opencode AI** | Easy | ✅ Yes |
-| **VS Code** | Medium | ⚠️ Via extension |
-| **OpenAI** | Medium | ⚠️ Via API |
-| **Claude.ai** | Hard | ❌ No |
+| Platform           | Setup Difficulty | Native MCP       |
+| ------------------ | ---------------- | ---------------- |
+| **Claude Desktop** | Easy             | ✅ Yes           |
+| **Claude Code**    | Easy             | ✅ Yes           |
+| **Cursor**         | Easy             | ✅ Yes           |
+| **Windsurf**       | Easy             | ✅ Yes           |
+| **Zed**            | Easy             | ✅ Yes           |
+| **Opencode AI**    | Easy             | ✅ Yes           |
+| **VS Code**        | Medium           | ⚠️ Via extension |
+| **OpenAI**         | Medium           | ⚠️ Via API       |
+| **Claude.ai**      | Hard             | ❌ No            |
 
 ## Quick Start Guide
 
@@ -152,6 +156,7 @@ Select an integration based on your workflow:
 Each platform has specific configuration requirements. Follow the guide for your chosen platform:
 
 **HTTP Configuration (most platforms):**
+
 ```json
 {
   "mcpServers": {
@@ -170,6 +175,7 @@ Each platform has specific configuration requirements. Follow the guide for your
 Test your integration:
 
 **Example query:**
+
 ```
 "List all organizations I have access to"
 ```
@@ -268,6 +274,7 @@ Configure different Probo instances for various environments:
 **Problem:** Cannot connect to Probo MCP Server
 
 **Solutions:**
+
 1. Verify Probo instance URL is correct
 2. Check API token is valid and not expired
 3. Ensure HTTPS is used for production
@@ -282,6 +289,7 @@ Configure different Probo instances for various environments:
 **Problem:** 401 Unauthorized errors
 
 **Solutions:**
+
 1. Regenerate API token
 2. Verify token is in Bearer format: `Bearer your_token`
 3. Check token hasn't been revoked
@@ -294,6 +302,7 @@ See [Authentication Troubleshooting](/docs/api/mcp/authentication#troubleshootin
 **Problem:** AI says tools aren't available
 
 **Solutions:**
+
 1. Restart your client application
 2. Verify MCP server configuration is correct
 3. Check client logs for errors

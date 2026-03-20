@@ -3,7 +3,7 @@ title: Config File
 description: Comprehensive configuration reference for configuring the Probo compliance management platform daemon
 ---
 
-import { LinkCard } from '@astrojs/starlight/components';
+import { LinkCard } from "@astrojs/starlight/components";
 
 This document provides a comprehensive reference for configuring the Probo compliance management platform daemon (`probod`).
 
@@ -17,7 +17,7 @@ This document provides a comprehensive reference for configuring the Probo compl
 
 Probod uses YAML format for configuration files. The configuration is structured hierarchically with two main root keys:
 
-- `unit`: Contains telemetry configuration (metrics, logging, tracing)  
+- `unit`: Contains telemetry configuration (metrics, logging, tracing)
 - `probod`: Contains all service-specific settings
 
 **Note**: No default configuration is loaded automatically. You must explicitly pass the configuration file using the `-cfg-file` flag when starting probod.

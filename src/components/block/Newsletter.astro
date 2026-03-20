@@ -27,16 +27,20 @@ const props = Astro.props;
     <div
       class={clsx(
         "mb-6 @sm:max-w-65 @sm:mb-0",
-        props.variant === "footer" ? "text-sm" : "text-lg font-medium"
+        props.variant === "footer" ? "text-sm" : "text-lg font-medium",
       )}
     >
-      {__("Sign up for our newsletter to get actionable insights about compliance, right to your inbox.")}
+      {
+        __(
+          "Sign up for our newsletter to get actionable insights about compliance, right to your inbox.",
+        )
+      }
     </div>
     <div class="space-y-3">
       <input
         class={clsx(
           "border-border-mid placeholder:text-quaternary w-full rounded-lg border px-3 bg-secondary ",
-          props.variant === "footer" ? "h-8" : "h-11 sm:h-8"
+          props.variant === "footer" ? "h-8" : "h-11 sm:h-8",
         )}
         name="email"
         type="email"
@@ -48,7 +52,7 @@ const props = Astro.props;
         type="submit"
         class={clsx(
           "w-full text-base sm:w-max",
-          props.variant === "footer" ? "h-9 w-max" : "h-11 sm:h-8"
+          props.variant === "footer" ? "h-9 w-max" : "h-11 sm:h-8",
         )}>{__("Subscribe")}</Button
       >
     </div>

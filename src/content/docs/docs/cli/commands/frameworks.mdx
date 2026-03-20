@@ -11,11 +11,11 @@ The `prb framework` commands let you create, list, view, update, and delete comp
 prb framework create --name "SOC 2" --description "SOC 2 Type II compliance framework"
 ```
 
-| Flag | Required | Description |
-|---|---|---|
-| `--name` | Yes | Framework name |
-| `--org` | No | Organization ID (uses default if omitted) |
-| `--description` | No | Framework description |
+| Flag            | Required | Description                               |
+| --------------- | -------- | ----------------------------------------- |
+| `--name`        | Yes      | Framework name                            |
+| `--org`         | No       | Organization ID (uses default if omitted) |
+| `--description` | No       | Framework description                     |
 
 ## List frameworks
 
@@ -23,13 +23,13 @@ prb framework create --name "SOC 2" --description "SOC 2 Type II compliance fram
 prb framework list
 ```
 
-| Flag | Default | Description |
-|---|---|---|
-| `--org` | — | Organization ID |
-| `--limit`, `-L` | 30 | Maximum number of results |
-| `--order-by` | `CREATED_AT` | Sort field |
-| `--order-direction` | `DESC` | Sort direction: `ASC` or `DESC` |
-| `--output`, `-o` | — | Output format (e.g., `json`) |
+| Flag                | Default      | Description                     |
+| ------------------- | ------------ | ------------------------------- |
+| `--org`             | —            | Organization ID                 |
+| `--limit`, `-L`     | 30           | Maximum number of results       |
+| `--order-by`        | `CREATED_AT` | Sort field                      |
+| `--order-direction` | `DESC`       | Sort direction: `ASC` or `DESC` |
+| `--output`, `-o`    | —            | Output format (e.g., `json`)    |
 
 ## View a framework
 
@@ -37,8 +37,8 @@ prb framework list
 prb framework view FRAMEWORK_ID
 ```
 
-| Flag | Description |
-|---|---|
+| Flag             | Description   |
+| ---------------- | ------------- |
 | `--output`, `-o` | Output format |
 
 ## Update a framework

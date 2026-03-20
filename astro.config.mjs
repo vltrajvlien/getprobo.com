@@ -384,25 +384,25 @@ export default defineConfig({
     svelte(),
     sitemap({
       filter(page) {
-        if (page.endsWith('/yc') || page.endsWith('/yc/')) {
+        if (page.endsWith("/yc") || page.endsWith("/yc/")) {
           return false;
         }
-        if (page.includes('/fr/docs')) {
+        if (page.includes("/fr/docs")) {
           return false;
         }
-        if (page.includes('/fr/blog')) {
+        if (page.includes("/fr/blog")) {
           return false;
         }
-        if (page.includes('/404')) {
+        if (page.includes("/404")) {
           return false;
         }
-        if (page.includes('/whats-next')) {
+        if (page.includes("/whats-next")) {
           return false;
         }
-        if (page.includes('/feedback')) {
+        if (page.includes("/feedback")) {
           return false;
         }
-        if (page.includes('/blog/page/1')) {
+        if (page.includes("/blog/page/1")) {
           return false;
         }
         return true;
@@ -441,6 +441,11 @@ export default defineConfig({
         } else if (item.url.includes("/docs")) {
           item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
             "monthly"
+          );
+          item.priority = 0.7;
+        } else if (item.url.includes("/changelog")) {
+          item.changefreq = /** @type {import('sitemap').EnumChangefreq} */ (
+            "weekly"
           );
           item.priority = 0.7;
         } else if (item.url.includes("/stories")) {

@@ -16,9 +16,7 @@
     window?.posthog?.set_config({ cookieless_mode: false });
   };
 
-  const onEssentials = () => {
-    
-  };
+  const onEssentials = () => {};
 
   $effect(() => {
     switch (consentState.value) {
@@ -46,8 +44,8 @@
       Manage your consent preferences
     </h6>
     <p class="text-sm text-muted-foreground mb-6 sm:mb-4">
-      We use cookies to enhance your user experience, provide
-      personalised content and analyse traffic.
+      We use cookies to enhance your user experience, provide personalised
+      content and analyse traffic.
       <a class="text-foreground underline" href="/privacy">Privacy Policy</a>
     </p>
     <div class="flex flex-col gap-3 sm:flex-row">

@@ -33,25 +33,25 @@ const card = tv({
   variants: {
     size: {
       default: {
-        base: 'sm:bg-highlight sm:border sm:border-[0.5px]',
+        base: "sm:bg-highlight sm:border sm:border-[0.5px]",
         image: "aspect-320/180 sm:aspect-512/450",
         badge: "hidden sm:block mix-blend-multiply",
         title: "text-h5",
-        body: "px-2 py-6  sm:p-8"
+        body: "px-2 py-6  sm:p-8",
       },
       relative: {
-        base: 'p-0 rounded-xl ',
+        base: "p-0 rounded-xl ",
         image: "aspect-320/180 sm:aspect-344/200 rounded-xl",
         badge: "hidden",
         title: "text-h5",
-        body: "px-2 pt-6"
+        body: "px-2 pt-6",
       },
       home: {
         base: "bg-highlight border border-[0.5px]",
         image: "aspect-square sm:aspect-704/450 ",
         title: "text-base sm:text-h5",
         body: "p-3 sm:p-8",
-        badge: "border-l-[#EFFEE214]"
+        badge: "border-l-[#EFFEE214]",
       },
     },
   },
@@ -62,7 +62,7 @@ const card = tv({
 const isDark = size === "home";
 const framework = frameworks.find((f) => f.label === story.data.framework);
 const classNames = card(Astro.props);
-const imageSizes = (function (): [[number, number],[number, number]] {
+const imageSizes = (function (): [[number, number], [number, number]] {
   switch (Astro.props.size) {
     case "home":
       return [
@@ -73,17 +73,23 @@ const imageSizes = (function (): [[number, number],[number, number]] {
       return [
         [670, 400],
         [344, 200],
-      ]
+      ];
     default:
       return [
         [600, 600],
         [704, 450],
-      ]
+      ];
   }
-})()
-const badge = isDark ? (framework?.badgeDark ?? framework?.badge) : framework?.badge;
-const shouldInvert = isDark && !framework?.badgeDark
-const url = '/' + ( story.id.includes('/') ? story.id.replace('/', '/stories/') : `stories/${story.id}`)
+})();
+const badge = isDark
+  ? (framework?.badgeDark ?? framework?.badge)
+  : framework?.badge;
+const shouldInvert = isDark && !framework?.badgeDark;
+const url =
+  "/" +
+  (story.id.includes("/")
+    ? story.id.replace("/", "/stories/")
+    : `stories/${story.id}`);
 ---
 
 <a href={url} class={classNames.base()}>
@@ -111,7 +117,7 @@ const url = '/' + ( story.id.includes('/') ? story.id.replace('/', '/stories/') 
             <FrameworkBadge
               client:only
               name={badge}
-              class={ clsx("mx-auto block size-15", shouldInvert && "invert")}
+              class={clsx("mx-auto block size-15", shouldInvert && "invert")}
             />
             <div class="text-xxs">{story.data.framework}</div>
           </div>

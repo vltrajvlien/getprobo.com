@@ -1,4 +1,4 @@
-import { onMount } from 'svelte';
+import { onMount } from "svelte";
 
 export const useLocalStorage = (key: string, initialValue: any) => {
   let value = $state<any>(initialValue);

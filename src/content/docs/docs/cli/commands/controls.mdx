@@ -14,15 +14,15 @@ prb control create \
   --name "AC-1: Access Control Policy"
 ```
 
-| Flag | Required | Description |
-|---|---|---|
-| `--framework` | Yes | Framework ID the control belongs to |
-| `--section-title` | Yes | Section title for grouping controls |
-| `--name` | Yes | Control name |
-| `--description` | No | Control description |
-| `--best-practice` | No | Best practice guidance |
-| `--not-implemented` | No | Mark as not implemented |
-| `--not-implemented-justification` | No | Justification for not implementing |
+| Flag                              | Required | Description                         |
+| --------------------------------- | -------- | ----------------------------------- |
+| `--framework`                     | Yes      | Framework ID the control belongs to |
+| `--section-title`                 | Yes      | Section title for grouping controls |
+| `--name`                          | Yes      | Control name                        |
+| `--description`                   | No       | Control description                 |
+| `--best-practice`                 | No       | Best practice guidance              |
+| `--not-implemented`               | No       | Mark as not implemented             |
+| `--not-implemented-justification` | No       | Justification for not implementing  |
 
 ## List controls
 
@@ -30,14 +30,14 @@ prb control create \
 prb control list --framework FRAMEWORK_ID
 ```
 
-| Flag | Default | Description |
-|---|---|---|
-| `--framework` | — | **Required.** Framework ID |
-| `--limit`, `-L` | 30 | Maximum number of results |
-| `--order-by` | `CREATED_AT` | Sort field: `CREATED_AT`, `SECTION_TITLE` |
-| `--order-direction` | `DESC` | Sort direction: `ASC` or `DESC` |
-| `--filter`, `-q` | — | Filter controls by text |
-| `--json` | — | Output as JSON |
+| Flag                | Default      | Description                               |
+| ------------------- | ------------ | ----------------------------------------- |
+| `--framework`       | —            | **Required.** Framework ID                |
+| `--limit`, `-L`     | 30           | Maximum number of results                 |
+| `--order-by`        | `CREATED_AT` | Sort field: `CREATED_AT`, `SECTION_TITLE` |
+| `--order-direction` | `DESC`       | Sort direction: `ASC` or `DESC`           |
+| `--filter`, `-q`    | —            | Filter controls by text                   |
+| `--json`            | —            | Output as JSON                            |
 
 ## View a control
 
@@ -45,8 +45,8 @@ prb control list --framework FRAMEWORK_ID
 prb control view CONTROL_ID
 ```
 
-| Flag | Description |
-|---|---|
+| Flag             | Description   |
+| ---------------- | ------------- |
 | `--output`, `-o` | Output format |
 
 ## Update a control
@@ -55,13 +55,13 @@ prb control view CONTROL_ID
 prb control update CONTROL_ID --name "AC-1: Updated Policy"
 ```
 
-| Flag | Description |
-|---|---|
-| `--section-title` | Updated section title |
-| `--name` | Updated control name |
-| `--description` | Updated description |
-| `--best-practice` | Updated best practice guidance |
-| `--not-implemented` | Mark as not implemented |
+| Flag                              | Description                        |
+| --------------------------------- | ---------------------------------- |
+| `--section-title`                 | Updated section title              |
+| `--name`                          | Updated control name               |
+| `--description`                   | Updated description                |
+| `--best-practice`                 | Updated best practice guidance     |
+| `--not-implemented`               | Mark as not implemented            |
 | `--not-implemented-justification` | Justification for not implementing |
 
 ## Delete a control
@@ -70,6 +70,6 @@ prb control update CONTROL_ID --name "AC-1: Updated Policy"
 prb control delete CONTROL_ID
 ```
 
-| Flag | Description |
-|---|---|
+| Flag    | Description              |
+| ------- | ------------------------ |
 | `--yes` | Skip confirmation prompt |

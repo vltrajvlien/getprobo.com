@@ -16,21 +16,21 @@ prb finding create \
   --description "Missing access review process"
 ```
 
-| Flag | Required | Description |
-|---|---|---|
-| `--organization` | Yes | Organization ID |
-| `--kind` | No | Finding kind: `MINOR_NONCONFORMITY`, `MAJOR_NONCONFORMITY`, `OBSERVATION`, `EXCEPTION` |
-| `--status` | No | Status: `OPEN`, `IN_PROGRESS`, `CLOSED`, `RISK_ACCEPTED`, `MITIGATED`, `FALSE_POSITIVE` |
-| `--priority` | No | Priority: `LOW`, `MEDIUM`, `HIGH` |
-| `--description` | No | Finding description |
-| `--source` | No | Source of the finding |
-| `--identified-on` | No | Date the finding was identified |
-| `--root-cause` | No | Root cause analysis |
-| `--corrective-action` | No | Corrective action plan |
-| `--owner-id` | No | Owner (user ID) |
-| `--due-date` | No | Due date for resolution |
-| `--risk-id` | No | Linked risk ID |
-| `--effectiveness-check` | No | Effectiveness check details |
+| Flag                    | Required | Description                                                                             |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `--organization`        | Yes      | Organization ID                                                                         |
+| `--kind`                | No       | Finding kind: `MINOR_NONCONFORMITY`, `MAJOR_NONCONFORMITY`, `OBSERVATION`, `EXCEPTION`  |
+| `--status`              | No       | Status: `OPEN`, `IN_PROGRESS`, `CLOSED`, `RISK_ACCEPTED`, `MITIGATED`, `FALSE_POSITIVE` |
+| `--priority`            | No       | Priority: `LOW`, `MEDIUM`, `HIGH`                                                       |
+| `--description`         | No       | Finding description                                                                     |
+| `--source`              | No       | Source of the finding                                                                   |
+| `--identified-on`       | No       | Date the finding was identified                                                         |
+| `--root-cause`          | No       | Root cause analysis                                                                     |
+| `--corrective-action`   | No       | Corrective action plan                                                                  |
+| `--owner-id`            | No       | Owner (user ID)                                                                         |
+| `--due-date`            | No       | Due date for resolution                                                                 |
+| `--risk-id`             | No       | Linked risk ID                                                                          |
+| `--effectiveness-check` | No       | Effectiveness check details                                                             |
 
 ## List findings
 
@@ -38,14 +38,14 @@ prb finding create \
 prb finding list --organization ORG_ID
 ```
 
-| Flag | Default | Description |
-|---|---|---|
-| `--organization` | — | **Required.** Organization ID |
-| `--limit`, `-L` | 30 | Maximum number of results |
-| `--order-by` | `CREATED_AT` | Sort field: `CREATED_AT`, `REFERENCE_ID`, `IDENTIFIED_ON`, `DUE_DATE`, `STATUS`, `PRIORITY`, `KIND` |
-| `--order-direction` | `DESC` | Sort direction: `ASC` or `DESC` |
-| `--kind` | — | Filter by kind |
-| `--json` | — | Output as JSON |
+| Flag                | Default      | Description                                                                                         |
+| ------------------- | ------------ | --------------------------------------------------------------------------------------------------- |
+| `--organization`    | —            | **Required.** Organization ID                                                                       |
+| `--limit`, `-L`     | 30           | Maximum number of results                                                                           |
+| `--order-by`        | `CREATED_AT` | Sort field: `CREATED_AT`, `REFERENCE_ID`, `IDENTIFIED_ON`, `DUE_DATE`, `STATUS`, `PRIORITY`, `KIND` |
+| `--order-direction` | `DESC`       | Sort direction: `ASC` or `DESC`                                                                     |
+| `--kind`            | —            | Filter by kind                                                                                      |
+| `--json`            | —            | Output as JSON                                                                                      |
 
 ## View a finding
 
@@ -53,8 +53,8 @@ prb finding list --organization ORG_ID
 prb finding view FINDING_ID
 ```
 
-| Flag | Description |
-|---|---|
+| Flag             | Description   |
+| ---------------- | ------------- |
 | `--output`, `-o` | Output format |
 
 ## Update a finding
@@ -63,18 +63,18 @@ prb finding view FINDING_ID
 prb finding update FINDING_ID --status IN_PROGRESS --corrective-action "Implementing quarterly access reviews"
 ```
 
-| Flag | Description |
-|---|---|
-| `--description` | Updated description |
-| `--source` | Updated source |
-| `--identified-on` | Updated identification date |
-| `--root-cause` | Updated root cause |
-| `--corrective-action` | Updated corrective action |
-| `--owner-id` | Updated owner |
-| `--due-date` | Updated due date |
-| `--status` | Updated status |
-| `--priority` | Updated priority |
-| `--risk-id` | Updated linked risk |
+| Flag                    | Description                 |
+| ----------------------- | --------------------------- |
+| `--description`         | Updated description         |
+| `--source`              | Updated source              |
+| `--identified-on`       | Updated identification date |
+| `--root-cause`          | Updated root cause          |
+| `--corrective-action`   | Updated corrective action   |
+| `--owner-id`            | Updated owner               |
+| `--due-date`            | Updated due date            |
+| `--status`              | Updated status              |
+| `--priority`            | Updated priority            |
+| `--risk-id`             | Updated linked risk         |
 | `--effectiveness-check` | Updated effectiveness check |
 
 ## Delete a finding

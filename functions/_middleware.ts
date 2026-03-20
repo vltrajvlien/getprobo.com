@@ -1,7 +1,9 @@
 export async function onRequest(context: {
   request: Request;
   next: () => Promise<Response>;
-  env: { ASSETS: { fetch: (req: Request | URL | string) => Promise<Response> } };
+  env: {
+    ASSETS: { fetch: (req: Request | URL | string) => Promise<Response> };
+  };
 }): Promise<Response> {
   const accept = context.request.headers.get("Accept") || "";
   if (!accept.includes("text/markdown")) {
