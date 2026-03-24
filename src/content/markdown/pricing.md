@@ -10,7 +10,7 @@ Probo isn't another compliance dashboard. We're your dedicated compliance team.
 
 ## Service Pricing
 
-Starting at **$8,000 per year** for a small team (0–15 employees).
+Starting at **$10,000 per year** for a small team (0–15 employees).
 
 Final price depends on your company size, the framework you're pursuing (SOC 2, ISO 27001, etc.), and your current security posture.
 

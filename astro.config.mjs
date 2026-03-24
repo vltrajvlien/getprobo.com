@@ -405,6 +405,9 @@ export default defineConfig({
         if (page.includes("/blog/page/1")) {
           return false;
         }
+        if (page.endsWith("/pricing") || page.endsWith("/pricing/")) {
+          return false;
+        }
         return true;
       },
       serialize(item) {
